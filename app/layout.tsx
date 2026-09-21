@@ -1,3 +1,4 @@
+import HreflangTags from "@/app/components/HreflangTags";
 import type { Metadata } from "next";
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
@@ -61,6 +62,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
       <body className="home page-template-default page page-id-915 wp-custom-logo wp-embed-responsive ehf-header ehf-footer ehf-template-hello-elementor ehf-stylesheet-hello-elementor elementor-default elementor-kit-6 elementor-page elementor-page-915">
+        <HreflangTags slug="" />
         {children}
       </body>
     </html>

@@ -1,3 +1,4 @@
+import HreflangTags from "@/app/components/HreflangTags";
 import type { Metadata } from "next";
 import { SITE_URL, getAlternates } from "@/lib/seo";
 
@@ -34,5 +35,10 @@ export default function EnServicesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <HreflangTags slug="services" />
+      {children}
+    </>
+  );
 }

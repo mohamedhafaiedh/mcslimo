@@ -1,3 +1,4 @@
+import HreflangTags from "@/app/components/HreflangTags";
 import type { Metadata } from "next";
 import { SITE_URL, getAlternates } from "@/lib/seo";
 
@@ -34,5 +35,12 @@ export default function ServicesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <link rel="alternate" {...{ hreflang: "fr-FR" }} href={`${SITE_URL}/services/`} />
+      <link rel="alternate" {...{ hreflang: "en-US" }} href={`${SITE_URL}/en/services/`} />
+      <link rel="alternate" {...{ hreflang: "x-default" }} href={`${SITE_URL}/services/`} />
+      {children}
+    </>
+  );
 }

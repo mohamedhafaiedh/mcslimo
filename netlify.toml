@@ -21,7 +21,13 @@
   status = 301
   force = true
 
-# 2. Redirection 301 des anciens uploads WordPress vers les assets locaux /images/
+# 2. Redirection 301 des anciens uploads WordPress vers les assets locaux aplatis /images/
+[[redirects]]
+  from = "/wp-content/uploads/:year/:month/:file"
+  to = "/images/:file"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/wp-content/uploads/*"
   to = "/images/:splat"
