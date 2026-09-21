@@ -86,6 +86,48 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-V5RTREXCBK');`}
         </Script>
+
+        {/* WhatsApp Chat Widget (Wati) */}
+        <Script id="wati-widget" strategy="lazyOnload">
+          {`(function() {
+  var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?65773';
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = url;
+  var options = {
+    "enabled": true,
+    "chatButtonSetting": {
+      "backgroundColor": "#4dc247",
+      "ctaText": "",
+      "borderRadius": "25",
+      "marginLeft": "0",
+      "marginBottom": "50",
+      "marginRight": "50",
+      "position": "right"
+    },
+    "brandSetting": {
+      "brandName": "MCS Limo",
+      "brandSubTitle": "Nous répondons en quelques minutes",
+      "brandImg": "/images/cropped-MCS-Limo-fav.png",
+      "welcomeText": "Bonjour,\\nComment pouvons-nous vous aider ?",
+      "messageText": "Bonjour, \\nJ'ai une question à vous poser",
+      "backgroundColor": "#0a5f54",
+      "ctaText": "Lancer la discussion",
+      "borderRadius": "25",
+      "autoShow": false,
+      "phoneNumber": "33673399525"
+    }
+  };
+  s.onload = function() {
+    if (typeof CreateWhatsappChatWidget === 'function') {
+      CreateWhatsappChatWidget(options);
+    }
+  };
+  var x = document.getElementsByTagName('script')[0];
+  x.parentNode.insertBefore(s, x);
+})();`}
+        </Script>
       </head>
       <body className="home page-template-default page page-id-915 wp-custom-logo wp-embed-responsive ehf-header ehf-footer ehf-template-hello-elementor ehf-stylesheet-hello-elementor elementor-default elementor-kit-6 elementor-page elementor-page-915">
         {/* Google Tag Manager (noscript fallback) */}
