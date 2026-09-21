@@ -66,13 +66,13 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        {/* Google Tag Manager (GTM-PXGBR8D5) */}
+        {/* Google Tag Manager (GTM-NZGFNG4) */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PXGBR8D5');`}
+})(window,document,'script','dataLayer','GTM-NZGFNG4');`}
         </Script>
 
         {/* Google Analytics 4 (GA4 G-V5RTREXCBK) */}
@@ -133,7 +133,7 @@ gtag('config', 'G-V5RTREXCBK');`}
         {/* Google Tag Manager (noscript fallback) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PXGBR8D5"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NZGFNG4"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
