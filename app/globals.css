@@ -3235,7 +3235,6 @@ button[type="submit"]:disabled,
 button[type="submit"]:disabled *,
 .btn-disabled * {
   color: #ffffff !important;
-  fill: #ffffff !important;
 }
 
 .btn-spinner {
@@ -3246,6 +3245,11 @@ button[type="submit"]:disabled *,
   display: inline-block;
   vertical-align: middle;
   animation: netlify-btn-spin 0.8s linear infinite;
+}
+
+.btn-spinner,
+.btn-spinner * {
+  fill: none !important;
 }
 
 @keyframes netlify-btn-spin {
