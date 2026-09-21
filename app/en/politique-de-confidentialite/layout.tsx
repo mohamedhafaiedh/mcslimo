@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité - MCS Limo",
-  description: "Le « cookie » est un fichier installé sur votre terminal, permettant de stocker des informations relatives à votre navigation sur notre site internet et nos",
+  title: "Privacy Policy - MCS Limo",
+  description: "Privacy policy, personal data protection, and cookie usage guidelines for MCS Limo website.",
   alternates: getAlternates('politique-de-confidentialite', true),
   openGraph: {
-    title: "Politique de confidentialité - MCS Limo",
-    description: "Le « cookie » est un fichier installé sur votre terminal, permettant de stocker des informations relatives à votre navigation sur notre site internet et nos",
+    title: "Privacy Policy - MCS Limo",
+    description: "Privacy policy, personal data protection, and cookie usage guidelines for MCS Limo website.",
     url: `${SITE_URL}/en/politique-de-confidentialite/`,
     siteName: "MCS Limo",
     locale: "en_US",
@@ -18,19 +18,19 @@ export const metadata: Metadata = {
         url: "/images/MCS-Limo-logo-1000x450-1.png",
         width: 1000,
         height: 450,
-        alt: "Politique de confidentialité - MCS Limo",
+        alt: "MCS Limo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Politique de confidentialité - MCS Limo",
-    description: "Le « cookie » est un fichier installé sur votre terminal, permettant de stocker des informations relatives à votre navigation sur notre site internet et nos",
+    title: "Privacy Policy - MCS Limo",
+    description: "Privacy policy, personal data protection, and cookie usage guidelines for MCS Limo website.",
     images: ["/images/MCS-Limo-logo-1000x450-1.png"],
   },
 };
 
-export default function EnPolitiqueDeConfidentialiteLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;

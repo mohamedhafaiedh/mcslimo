@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Qui sommes-nous - MCS Limo",
-  description: "Pour vous faire découvrir qui est MCS Limo",
+  title: "About Us - MCS Limo",
+  description: "Discover MCS Limo, your premium private chauffeur company in Paris, offering tailor-made luxury transport with discretion and punctuality.",
   alternates: getAlternates('qui-sommes-nous', true),
   openGraph: {
-    title: "Qui sommes-nous - MCS Limo",
-    description: "Pour vous faire découvrir qui est MCS Limo",
+    title: "About Us - MCS Limo",
+    description: "Discover MCS Limo, your premium private chauffeur company in Paris, offering tailor-made luxury transport with discretion and punctuality.",
     url: `${SITE_URL}/en/qui-sommes-nous/`,
     siteName: "MCS Limo",
     locale: "en_US",
@@ -18,19 +18,19 @@ export const metadata: Metadata = {
         url: "/images/MCS-Limo-logo-1000x450-1.png",
         width: 1000,
         height: 450,
-        alt: "Qui sommes-nous - MCS Limo",
+        alt: "MCS Limo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Qui sommes-nous - MCS Limo",
-    description: "Pour vous faire découvrir qui est MCS Limo",
+    title: "About Us - MCS Limo",
+    description: "Discover MCS Limo, your premium private chauffeur company in Paris, offering tailor-made luxury transport with discretion and punctuality.",
     images: ["/images/MCS-Limo-logo-1000x450-1.png"],
   },
 };
 
-export default function EnQuiSommesNousLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;

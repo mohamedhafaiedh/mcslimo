@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Conditions générales de vente - MCS Limo",
-  description: "Les présentes conditions générales de vente sont conclues entre la société Mcars Services, immatriculée au RCS de Paris sous le numéro 852 506 948,",
+  title: "Terms and Conditions of Sale - MCS Limo",
+  description: "General terms and conditions of sale and private chauffeur transportation services of MCars Services / MCS Limo.",
   alternates: getAlternates('cgv', true),
   openGraph: {
-    title: "Conditions générales de vente - MCS Limo",
-    description: "Les présentes conditions générales de vente sont conclues entre la société Mcars Services, immatriculée au RCS de Paris sous le numéro 852 506 948,",
+    title: "Terms and Conditions of Sale - MCS Limo",
+    description: "General terms and conditions of sale and private chauffeur transportation services of MCars Services / MCS Limo.",
     url: `${SITE_URL}/en/cgv/`,
     siteName: "MCS Limo",
     locale: "en_US",
@@ -18,19 +18,19 @@ export const metadata: Metadata = {
         url: "/images/MCS-Limo-logo-1000x450-1.png",
         width: 1000,
         height: 450,
-        alt: "Conditions générales de vente - MCS Limo",
+        alt: "MCS Limo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conditions générales de vente - MCS Limo",
-    description: "Les présentes conditions générales de vente sont conclues entre la société Mcars Services, immatriculée au RCS de Paris sous le numéro 852 506 948,",
+    title: "Terms and Conditions of Sale - MCS Limo",
+    description: "General terms and conditions of sale and private chauffeur transportation services of MCars Services / MCS Limo.",
     images: ["/images/MCS-Limo-logo-1000x450-1.png"],
   },
 };
 
-export default function EnCgvLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;
