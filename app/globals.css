@@ -3210,3 +3210,49 @@ nav.elementor-nav-menu--dropdown .menu-item-has-children .sub-menu .elementor-su
   background-color: rgba(192, 158, 91, 0.22) !important;
   color: #C09E5B !important;
 }
+
+/* ==========================================================================
+   Form Submit Button & Spinner States (Universal)
+   ========================================================================== */
+.elementor-button-content-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button[type="submit"]:disabled,
+.btn-disabled {
+  background-color: #9ca3af !important;
+  border-color: #9ca3af !important;
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 0.85;
+}
+
+button[type="submit"]:disabled *,
+.btn-disabled * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.btn-spinner {
+  width: 1.25em;
+  height: 1.25em;
+  margin-right: 0.875rem;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  animation: netlify-btn-spin 0.8s linear infinite;
+}
+
+@keyframes netlify-btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
