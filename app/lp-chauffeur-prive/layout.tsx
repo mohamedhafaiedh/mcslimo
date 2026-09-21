@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
   description: "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins",
-  alternates: {
-    canonical: "/lp-chauffeur-prive",
-  },
+  alternates: getAlternates('lp-chauffeur-prive'),
   openGraph: {
     title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
     description: "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins",
-    url: "https://mcslimo.fr/lp-chauffeur-prive",
+    url: `${SITE_URL}/lp-chauffeur-prive/`,
     siteName: "MCS Limo",
     locale: "fr_FR",
     type: "website",

@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité - MCS Limo",
   description: "Le « cookie » est un fichier installé sur votre terminal, permettant de stocker des informations relatives à votre navigation sur notre site internet et nos",
-  alternates: {
-    canonical: "/politique-de-confidentialite",
-  },
+  alternates: getAlternates('politique-de-confidentialite'),
   openGraph: {
     title: "Politique de confidentialité - MCS Limo",
     description: "Le « cookie » est un fichier installé sur votre terminal, permettant de stocker des informations relatives à votre navigation sur notre site internet et nos",
-    url: "https://mcslimo.fr/politique-de-confidentialite",
+    url: `${SITE_URL}/politique-de-confidentialite/`,
     siteName: "MCS Limo",
     locale: "fr_FR",
     type: "website",

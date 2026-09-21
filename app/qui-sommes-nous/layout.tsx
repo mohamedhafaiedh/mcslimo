@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous - MCS Limo",
   description: "Pour vous faire découvrir qui est MCS Limo",
-  alternates: {
-    canonical: "/qui-sommes-nous",
-  },
+  alternates: getAlternates('qui-sommes-nous'),
   openGraph: {
     title: "Qui sommes-nous - MCS Limo",
     description: "Pour vous faire découvrir qui est MCS Limo",
-    url: "https://mcslimo.fr/qui-sommes-nous",
+    url: `${SITE_URL}/qui-sommes-nous/`,
     siteName: "MCS Limo",
     locale: "fr_FR",
     type: "website",

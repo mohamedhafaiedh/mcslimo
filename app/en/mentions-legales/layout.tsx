@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Mentions légales - MCS Limo",
   description: "Dénomination : MCars ServicesForme juridique : SARLCapital social : 1.000 €Numéro de SIRET : 85250694800011Numéro de TVA : FR38852506948Siège social : 10",
-  alternates: {
-    canonical: "/en/mentions-legales",
-  },
+  alternates: getAlternates('mentions-legales', true),
   openGraph: {
     title: "Mentions légales - MCS Limo",
     description: "Dénomination : MCars ServicesForme juridique : SARLCapital social : 1.000 €Numéro de SIRET : 85250694800011Numéro de TVA : FR38852506948Siège social : 10",
-    url: "https://mcslimo.fr/en/mentions-legales",
+    url: `${SITE_URL}/en/mentions-legales/`,
     siteName: "MCS Limo",
     locale: "en_US",
     type: "website",

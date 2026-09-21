@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Flotte - MCS Limo",
   description: "Découvrez notre flotte de véhicules pour mieux choisir la voiture qui répond à vos besoins",
-  alternates: {
-    canonical: "/en/flotte",
-  },
+  alternates: getAlternates('flotte', true),
   openGraph: {
     title: "Flotte - MCS Limo",
     description: "Découvrez notre flotte de véhicules pour mieux choisir la voiture qui répond à vos besoins",
-    url: "https://mcslimo.fr/en/flotte",
+    url: `${SITE_URL}/en/flotte/`,
     siteName: "MCS Limo",
     locale: "en_US",
     type: "website",

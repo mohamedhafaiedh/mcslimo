@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Chauffeur à l'année - MCS Limo",
   description: "Votre chauffeur au quotidien pour un maximum de flexibilité",
-  alternates: {
-    canonical: "/en/chauffeur-a-lannee",
-  },
+  alternates: getAlternates('chauffeur-a-lannee', true),
   openGraph: {
     title: "Chauffeur à l'année - MCS Limo",
     description: "Votre chauffeur au quotidien pour un maximum de flexibilité",
-    url: "https://mcslimo.fr/en/chauffeur-a-lannee",
+    url: `${SITE_URL}/en/chauffeur-a-lannee/`,
     siteName: "MCS Limo",
     locale: "en_US",
     type: "website",

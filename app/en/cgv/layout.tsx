@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Conditions générales de vente - MCS Limo",
   description: "Les présentes conditions générales de vente sont conclues entre la société Mcars Services, immatriculée au RCS de Paris sous le numéro 852 506 948,",
-  alternates: {
-    canonical: "/en/cgv",
-  },
+  alternates: getAlternates('cgv', true),
   openGraph: {
     title: "Conditions générales de vente - MCS Limo",
     description: "Les présentes conditions générales de vente sont conclues entre la société Mcars Services, immatriculée au RCS de Paris sous le numéro 852 506 948,",
-    url: "https://mcslimo.fr/en/cgv",
+    url: `${SITE_URL}/en/cgv/`,
     siteName: "MCS Limo",
     locale: "en_US",
     type: "website",

@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
-  description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-  alternates: {
-    canonical: "/en",
-  },
+  title: "High-end Private Chauffeur in Paris - MCS Limo",
+  description: "For all your journeys in Paris from or to Parisian train stations or airports, or long distance trips from/to Paris",
+  alternates: getAlternates("", true),
   openGraph: {
-    title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
-    description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-    url: "https://mcslimo.fr/en",
+    title: "High-end Private Chauffeur in Paris - MCS Limo",
+    description: "For all your journeys in Paris from or to Parisian train stations or airports, or long distance trips from/to Paris",
+    url: `${SITE_URL}/en/`,
     siteName: "MCS Limo",
     locale: "en_US",
     type: "website",
@@ -18,14 +17,14 @@ export const metadata: Metadata = {
         url: "/images/MCS-Limo-logo-1000x450-1.png",
         width: 1000,
         height: 450,
-        alt: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
+        alt: "MCS Limo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
-    description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
+    title: "High-end Private Chauffeur in Paris - MCS Limo",
+    description: "For all your journeys in Paris from or to Parisian train stations or airports, or long distance trips from/to Paris",
     images: ["/images/MCS-Limo-logo-1000x450-1.png"],
   },
 };

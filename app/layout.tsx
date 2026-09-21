@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import JsonLd from "./components/JsonLd";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mcslimo.fr"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
     template: "%s",
   },
   description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: getAlternates(""),
   openGraph: {
     title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
     description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-    url: "https://mcslimo.fr/",
+    url: `${SITE_URL}/`,
     siteName: "MCS Limo",
     locale: "fr_FR",
     type: "website",
@@ -54,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="fr-FR">
       <head>
+        <JsonLd />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />

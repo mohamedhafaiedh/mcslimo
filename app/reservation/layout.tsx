@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Devis et réservation en ligne - MCS Limo",
   description: "Renseignez vos informations pour obtenir le prix de votre prestation avant de procéder à la confirmation",
-  alternates: {
-    canonical: "/reservation",
-  },
+  alternates: getAlternates('reservation'),
   openGraph: {
     title: "Devis et réservation en ligne - MCS Limo",
     description: "Renseignez vos informations pour obtenir le prix de votre prestation avant de procéder à la confirmation",
-    url: "https://mcslimo.fr/reservation",
+    url: `${SITE_URL}/reservation/`,
     siteName: "MCS Limo",
     locale: "fr_FR",
     type: "website",

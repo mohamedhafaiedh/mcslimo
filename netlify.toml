@@ -1,0 +1,29 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# 1. Redirection de domaine : HTTP vers HTTPS & WWW vers Apex (https://mcslimo.fr)
+[[redirects]]
+  from = "https://www.mcslimo.fr/*"
+  to = "https://mcslimo.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.mcslimo.fr/*"
+  to = "https://mcslimo.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://mcslimo.fr/*"
+  to = "https://mcslimo.fr/:splat"
+  status = 301
+  force = true
+
+# 2. Redirection 301 des anciens uploads WordPress vers les assets locaux /images/
+[[redirects]]
+  from = "/wp-content/uploads/*"
+  to = "/images/:splat"
+  status = 301
+  force = true
