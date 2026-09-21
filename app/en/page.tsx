@@ -1,22 +1,40 @@
-"use client";
+import type { Metadata } from "next";
+import { SITE_URL, getAlternates } from "@/lib/seo";
 
-import React, { useEffect } from "react";
+export const metadata: Metadata = {
+  title: "High-end Private Chauffeur in Paris - MCS Limo",
+  description: "For all your journeys in Paris from or to Parisian train stations or airports, or long distance trips from/to Paris",
+  alternates: getAlternates("", true),
+  openGraph: {
+    title: "High-end Private Chauffeur in Paris - MCS Limo",
+    description: "For all your journeys in Paris from or to Parisian train stations or airports, or long distance trips from/to Paris",
+    url: `${SITE_URL}/en/`,
+    siteName: "MCS Limo",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/MCS-Limo-logo-1000x450-1.png",
+        width: 1000,
+        height: 450,
+        alt: "MCS Limo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "High-end Private Chauffeur in Paris - MCS Limo",
+    description: "For all your journeys in Paris from or to Parisian train stations or airports, or long distance trips from/to Paris",
+    images: ["/images/MCS-Limo-logo-1000x450-1.png"],
+  },
+};
+
+
+import React from "react";
 import Link from "next/link";
 
 export default function EnHomePage() {
-  useEffect(() => {
-    const toggleBtn = document.querySelector(".elementor-menu-toggle");
-    const dropdown = document.querySelector(".elementor-nav-menu--dropdown");
-    
-    if (toggleBtn && dropdown) {
-      const handleClick = () => {
-        dropdown.classList.toggle("is-open");
-        toggleBtn.classList.toggle("elementor-active");
-      };
-      toggleBtn.addEventListener("click", handleClick);
-      return () => toggleBtn.removeEventListener("click", handleClick);
-    }
-  }, []);
+  
 
   return (
     <div id="page" className="site">

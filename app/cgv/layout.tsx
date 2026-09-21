@@ -1,4 +1,3 @@
-import HreflangTags from "@/app/components/HreflangTags";
 import type { Metadata } from "next";
 import { SITE_URL, getAlternates } from "@/lib/seo";
 
@@ -35,10 +34,5 @@ export default function CgvLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <HreflangTags slug="cgv" />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SITE_URL, getAlternates } from "@/lib/seo";
-import HreflangTags from "@/app/components/HreflangTags";
 
 export const metadata: Metadata = {
   title: "Thank you for your request - MCS Limo",
@@ -29,10 +28,5 @@ export default function EnMerciLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <HreflangTags slug="merci" />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

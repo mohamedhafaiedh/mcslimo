@@ -1,9 +1,9 @@
-import HreflangTags from "@/app/components/HreflangTags";
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
-import { SITE_URL, getAlternates } from "@/lib/seo";
+import MobileMenuScript from "./components/MobileMenuScript";
+import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-  alternates: getAlternates(""),
   openGraph: {
     title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
     description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
@@ -98,7 +97,7 @@ gtag('config', 'G-V5RTREXCBK');`}
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <HreflangTags slug="" />
+        <MobileMenuScript />
         {children}
       </body>
     </html>
