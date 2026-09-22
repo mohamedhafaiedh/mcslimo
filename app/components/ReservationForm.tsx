@@ -146,19 +146,22 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
   const [errorMessage, setErrorMessage] = useState("");
   const [todayString, setTodayString] = useState("");
 
-  // Values state to manage floating labels properly
-  const [values, setValues] = useState({
-    pickup: "",
-    dropoff: "",
-    date: "",
-    time: "",
-    vehicle: "Mercedes classe E (3pax)",
-    email: "",
-    phone: "",
-    message: ""
+  const config = CONFIG[lang];
+  const targetRedirectUrl = redirectUrl || config.redirectUrl;
+
+  // Track values keyed by the actual field name sent in the form
+  const [fieldValues, setFieldValues] = useState<{ [key: string]: string }>({
+    [config.fields.pickup]: "",
+    [config.fields.dropoff]: "",
+    [config.fields.date]: "",
+    [config.fields.time]: "",
+    [config.fields.vehicle]: "Mercedes classe E (3pax)",
+    [config.fields.email]: "",
+    [config.fields.phone]: "",
+    [config.fields.message]: ""
   });
 
-  // Focused state for active field highlight
+  // Focused field key
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   useEffect(() => {
@@ -173,14 +176,11 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
     }
   }, []);
 
-  const config = CONFIG[lang];
-  const targetRedirectUrl = redirectUrl || config.redirectUrl;
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
+    setFieldValues((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -195,8 +195,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
       const formData = new FormData(e.currentTarget);
       formData.set("form-name", config.formName);
 
-      const dateVal = formData.get(config.fields.date) || "";
-      const timeVal = formData.get(config.fields.time) || "";
+      const dateVal = (formData.get(config.fields.date) as string) || "";
+      const timeVal = (formData.get(config.fields.time) as string) || "";
       const emailSubject =
         lang === "fr"
           ? `Nouvelle demande de réservation (${dateVal} - ${timeVal})`
@@ -231,6 +231,15 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
     }
   };
 
+  const pickupVal = fieldValues[config.fields.pickup] || "";
+  const dropoffVal = fieldValues[config.fields.dropoff] || "";
+  const dateVal = fieldValues[config.fields.date] || "";
+  const timeVal = fieldValues[config.fields.time] || "";
+  const vehicleVal = fieldValues[config.fields.vehicle] || "Mercedes classe E (3pax)";
+  const emailVal = fieldValues[config.fields.email] || "";
+  const phoneVal = fieldValues[config.fields.phone] || "";
+  const messageVal = fieldValues[config.fields.message] || "";
+
   return (
     <form
       className="elementor-form"
@@ -246,8 +255,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_efe4dce elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === "pickup" ? "is-focused" : ""
-            } ${values.pickup ? "has-value" : ""}`}
+              focusedField === config.fields.pickup ? "is-focused" : ""
+            } ${pickupVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <MapPin size={18} strokeWidth={2} />
@@ -261,9 +270,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               id="form-field-field_efe4dce"
               className="floating-input-control"
               placeholder={config.placeholders.pickup}
-              value={values.pickup}
+              value={pickupVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField("pickup")}
+              onFocus={() => setFocusedField(config.fields.pickup)}
               onBlur={() => setFocusedField(null)}
               required={true}
               aria-label={config.floatingLabels.pickup}
@@ -275,8 +284,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_2342981 elementor-col-50">
           <div
             className={`floating-input-wrapper ${
-              focusedField === "dropoff" ? "is-focused" : ""
-            } ${values.dropoff ? "has-value" : ""}`}
+              focusedField === config.fields.dropoff ? "is-focused" : ""
+            } ${dropoffVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Navigation size={18} strokeWidth={2} />
@@ -290,9 +299,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               id="form-field-field_2342981"
               className="floating-input-control"
               placeholder={config.placeholders.dropoff}
-              value={values.dropoff}
+              value={dropoffVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField("dropoff")}
+              onFocus={() => setFocusedField(config.fields.dropoff)}
               onBlur={() => setFocusedField(null)}
               aria-label={config.floatingLabels.dropoff}
             />
@@ -303,8 +312,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-date elementor-field-group elementor-column elementor-field-group-field_491d849 elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === "date" ? "is-focused" : ""
-            } ${values.date ? "has-value" : ""}`}
+              focusedField === config.fields.date ? "is-focused" : ""
+            } ${dateVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Calendar size={18} strokeWidth={2} />
@@ -317,10 +326,10 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               name={config.fields.date}
               id="form-field-field_491d849"
               className="floating-input-control"
-              value={values.date}
+              value={dateVal}
               min={todayString || undefined}
               onChange={handleChange}
-              onFocus={() => setFocusedField("date")}
+              onFocus={() => setFocusedField(config.fields.date)}
               onBlur={() => setFocusedField(null)}
               onClick={(e) => {
                 try {
@@ -341,8 +350,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-time elementor-field-group elementor-column elementor-field-group-field_9961b70 elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === "time" ? "is-focused" : ""
-            } ${values.time ? "has-value" : ""}`}
+              focusedField === config.fields.time ? "is-focused" : ""
+            } ${timeVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Clock size={18} strokeWidth={2} />
@@ -355,9 +364,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               name={config.fields.time}
               id="form-field-field_9961b70"
               className="floating-input-control"
-              value={values.time}
+              value={timeVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField("time")}
+              onFocus={() => setFocusedField(config.fields.time)}
               onBlur={() => setFocusedField(null)}
               onClick={(e) => {
                 try {
@@ -378,7 +387,7 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_fbb2aa6 elementor-col-100 elementor-field-required">
           <div
             className={`floating-input-wrapper has-value ${
-              focusedField === "vehicle" ? "is-focused" : ""
+              focusedField === config.fields.vehicle ? "is-focused" : ""
             }`}
           >
             <div className="floating-field-icon" aria-hidden="true">
@@ -391,9 +400,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               name={config.fields.vehicle}
               id="form-field-field_fbb2aa6"
               className="floating-input-control floating-select-control"
-              value={values.vehicle}
+              value={vehicleVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField("vehicle")}
+              onFocus={() => setFocusedField(config.fields.vehicle)}
               onBlur={() => setFocusedField(null)}
               required={true}
               aria-label={config.floatingLabels.vehicle}
@@ -414,8 +423,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === "email" ? "is-focused" : ""
-            } ${values.email ? "has-value" : ""}`}
+              focusedField === config.fields.email ? "is-focused" : ""
+            } ${emailVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Mail size={18} strokeWidth={2} />
@@ -429,9 +438,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               id="form-field-email"
               className="floating-input-control"
               placeholder={config.placeholders.email}
-              value={values.email}
+              value={emailVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField("email")}
+              onFocus={() => setFocusedField(config.fields.email)}
               onBlur={() => setFocusedField(null)}
               required={true}
               aria-label={config.floatingLabels.email}
@@ -443,8 +452,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_b3cb97b elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === "phone" ? "is-focused" : ""
-            } ${values.phone ? "has-value" : ""}`}
+              focusedField === config.fields.phone ? "is-focused" : ""
+            } ${phoneVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Phone size={18} strokeWidth={2} />
@@ -458,9 +467,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               id="form-field-field_b3cb97b"
               className="floating-input-control"
               placeholder={config.placeholders.phone}
-              value={values.phone}
+              value={phoneVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField("phone")}
+              onFocus={() => setFocusedField(config.fields.phone)}
               onBlur={() => setFocusedField(null)}
               required={true}
               pattern="[0-9()#&+*-=.\s]+"
@@ -474,8 +483,8 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
           <div
             className={`floating-input-wrapper textarea-wrapper ${
-              focusedField === "message" ? "is-focused" : ""
-            } ${values.message ? "has-value" : ""}`}
+              focusedField === config.fields.message ? "is-focused" : ""
+            } ${messageVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <MessageSquare size={18} strokeWidth={2} />
@@ -489,9 +498,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
               className="floating-input-control floating-textarea"
               rows={3}
               placeholder={config.placeholders.message}
-              value={values.message}
+              value={messageVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField("message")}
+              onFocus={() => setFocusedField(config.fields.message)}
               onBlur={() => setFocusedField(null)}
               aria-label={config.floatingLabels.message}
             ></textarea>
