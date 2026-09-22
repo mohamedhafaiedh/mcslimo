@@ -35,7 +35,7 @@ function getFormattedTimestamp(lang: "fr" | "en") {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
-      hour12: true
+      hour12: false
     });
     return `${dateStr}, ${timeStr} (Paris time)`;
   }
@@ -44,6 +44,7 @@ function getFormattedTimestamp(lang: "fr" | "en") {
 const CONFIG = {
   fr: {
     formName: "contact",
+    emailSubject: "Nouvelle demande de contact",
     fields: {
       name: "nom",
       phone: "telephone",
@@ -77,11 +78,12 @@ const CONFIG = {
   },
   en: {
     formName: "contact-en",
+    emailSubject: "New Contact Request",
     fields: {
       name: "name",
       phone: "phone",
       email: "email",
-      subject: "subject",
+      subject: "topic",
       message: "message"
     },
     labels: {
@@ -128,6 +130,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
     try {
       const formData = new FormData(e.currentTarget);
       formData.set("form-name", config.formName);
+      formData.set("subject", config.emailSubject);
       if (typeof window !== "undefined") {
         formData.set("pageUrl", window.location.href);
         formData.set("timestamp", getFormattedTimestamp(lang));
@@ -159,6 +162,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
   return (
     <form className="elementor-form" method="post" name={config.formName} aria-label="Nouveau formulaire" onSubmit={handleSubmit}>
       <input type="hidden" name="form-name" value={config.formName} />
+      <input type="hidden" name="subject" value={config.emailSubject} />
       <div className="elementor-form-fields-wrapper elementor-labels-">
         <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50">
           <label htmlFor="form-field-name" className="elementor-field-label elementor-screen-only">

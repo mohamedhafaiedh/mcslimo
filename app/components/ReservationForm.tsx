@@ -35,7 +35,7 @@ function getFormattedTimestamp(lang: "fr" | "en") {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
-      hour12: true
+      hour12: false
     });
     return `${dateStr}, ${timeStr} (Paris time)`;
   }
@@ -146,6 +146,14 @@ export default function ReservationForm({ lang }: ReservationFormProps) {
     try {
       const formData = new FormData(e.currentTarget);
       formData.set("form-name", config.formName);
+
+      const dateVal = formData.get(config.fields.date) || "";
+      const timeVal = formData.get(config.fields.time) || "";
+      const emailSubject = lang === "fr"
+        ? `Nouvelle demande de réservation (${dateVal} - ${timeVal})`
+        : `New Booking Request (${dateVal} - ${timeVal})`;
+      formData.set("subject", emailSubject);
+
       if (typeof window !== "undefined") {
         formData.set("pageUrl", window.location.href);
         formData.set("timestamp", getFormattedTimestamp(lang));
@@ -177,6 +185,7 @@ export default function ReservationForm({ lang }: ReservationFormProps) {
   return (
     <form className="elementor-form" method="post" name={config.formName} aria-label="Devis site" onSubmit={handleSubmit}>
       <input type="hidden" name="form-name" value={config.formName} />
+      <input type="hidden" name="subject" value="" />
       <div className="elementor-form-fields-wrapper elementor-labels-">
         <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_efe4dce elementor-col-50 elementor-field-required">
           <label htmlFor="form-field-field_efe4dce" className="elementor-field-label elementor-screen-only">

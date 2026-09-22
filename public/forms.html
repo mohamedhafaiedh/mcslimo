@@ -8,6 +8,7 @@
   <!-- Formulaire de contact (FR) -->
   <form name="contact" method="POST" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="subject" value="" />
     <input type="text" name="nom" value="" />
     <input type="tel" name="telephone" value="" />
     <input type="email" name="email" value="" />
@@ -24,10 +25,11 @@
   <!-- Formulaire de contact (EN) -->
   <form name="contact-en" method="POST" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="contact-en" />
+    <input type="hidden" name="subject" value="" />
     <input type="text" name="name" value="" />
     <input type="tel" name="phone" value="" />
     <input type="email" name="email" value="" />
-    <select name="subject">
+    <select name="topic">
       <option value="Request Information">Request Information</option>
       <option value="Request Quote">Request Quote</option>
       <option value="Booking">Booking</option>
@@ -40,6 +42,7 @@
   <!-- Formulaire de réservation / devis (FR) -->
   <form name="reservation" method="POST" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="reservation" />
+    <input type="hidden" name="subject" value="" />
     <input type="text" name="adresse_depart" value="" />
     <input type="text" name="adresse_arrivee" value="" />
     <input type="text" name="date" value="" />
@@ -59,6 +62,7 @@
   <!-- Formulaire de réservation / devis (EN) -->
   <form name="reservation-en" method="POST" data-netlify="true" hidden>
     <input type="hidden" name="form-name" value="reservation-en" />
+    <input type="hidden" name="subject" value="" />
     <input type="text" name="pickup_address" value="" />
     <input type="text" name="dropoff_address" value="" />
     <input type="text" name="date" value="" />
