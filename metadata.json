@@ -1,0 +1,6 @@
+{
+  "name": "MCS Limo",
+  "description": "Service de chauffeur privé haut de gamme et transport de prestige à Paris et à l'international.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -214,7 +214,7 @@ export default function ReservationForm({ lang }: ReservationFormProps) {
             placeholder={config.placeholders.dropoff}
           />
         </div>
-        <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_491d849 elementor-col-50 elementor-field-required">
+        <div className="elementor-field-type-date elementor-field-group elementor-column elementor-field-group-field_491d849 elementor-col-50 elementor-field-required">
           <label htmlFor="form-field-field_491d849" className="elementor-field-label elementor-screen-only">
             {config.labels.date}
           </label>
@@ -225,10 +225,26 @@ export default function ReservationForm({ lang }: ReservationFormProps) {
             id="form-field-field_491d849"
             className="elementor-field elementor-size-md elementor-field-textual"
             placeholder={config.placeholders.date}
+            aria-label={config.labels.date}
+            onFocus={(e) => {
+              e.currentTarget.type = "date";
+              if ("showPicker" in e.currentTarget && typeof e.currentTarget.showPicker === "function") {
+                try {
+                  e.currentTarget.showPicker();
+                } catch {
+                  // Ignore if showPicker is not supported or rejected
+                }
+              }
+            }}
+            onBlur={(e) => {
+              if (!e.currentTarget.value) {
+                e.currentTarget.type = "text";
+              }
+            }}
             required={true}
           />
         </div>
-        <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_9961b70 elementor-col-50 elementor-field-required">
+        <div className="elementor-field-type-time elementor-field-group elementor-column elementor-field-group-field_9961b70 elementor-col-50 elementor-field-required">
           <label htmlFor="form-field-field_9961b70" className="elementor-field-label elementor-screen-only">
             {config.labels.time}
           </label>
@@ -239,6 +255,22 @@ export default function ReservationForm({ lang }: ReservationFormProps) {
             id="form-field-field_9961b70"
             className="elementor-field elementor-size-md elementor-field-textual"
             placeholder={config.placeholders.time}
+            aria-label={config.labels.time}
+            onFocus={(e) => {
+              e.currentTarget.type = "time";
+              if ("showPicker" in e.currentTarget && typeof e.currentTarget.showPicker === "function") {
+                try {
+                  e.currentTarget.showPicker();
+                } catch {
+                  // Ignore if showPicker is not supported or rejected
+                }
+              }
+            }}
+            onBlur={(e) => {
+              if (!e.currentTarget.value) {
+                e.currentTarget.type = "text";
+              }
+            }}
             required={true}
           />
         </div>
