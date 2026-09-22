@@ -74,7 +74,7 @@ const CONFIG = {
     submitButtonText: "J'envoie ma demande",
     submittingText: "Envoi en cours...",
     errorMessage: "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.",
-    redirectUrl: "/merci"
+    redirectUrl: "/merci-contact"
   },
   en: {
     formName: "contact-en",
@@ -108,7 +108,7 @@ const CONFIG = {
     submitButtonText: "Send my request",
     submittingText: "Sending...",
     errorMessage: "An error occurred while sending your message. Please try again.",
-    redirectUrl: "/en/merci"
+    redirectUrl: "/en/merci-contact"
   }
 };
 

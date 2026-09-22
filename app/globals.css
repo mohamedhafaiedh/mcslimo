@@ -3051,25 +3051,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #C09E5B !important;
 }
 
-/* Mobile Dropdown Sub-menu */
-nav.elementor-nav-menu--dropdown .menu-item-has-children .sub-menu {
-  display: block !important;
-  padding-left: 18px;
-  background: rgba(0, 0, 0, 0.25);
-  border-left: 2px solid #C09E5B;
-  margin: 6px 0 10px 10px;
-  list-style: none;
+/* Mobile Dropdown Sub-menu - "Nos services" sub-menu is hidden on mobile per user instruction */
+nav.elementor-nav-menu--dropdown .menu-item-has-children .sub-menu,
+.elementor-25 .elementor-nav-menu--dropdown .sub-menu {
+  display: none !important;
 }
 
-nav.elementor-nav-menu--dropdown .menu-item-has-children .sub-menu .elementor-sub-item {
-  display: block;
-  padding: 8px 12px !important;
-  color: #d1d5db !important;
-  font-size: 14px !important;
+nav.elementor-nav-menu--dropdown .menu-item-has-children .sub-arrow,
+.elementor-25 .elementor-nav-menu--dropdown .menu-item-has-children .sub-arrow {
+  display: none !important;
 }
 
-nav.elementor-nav-menu--dropdown .menu-item-has-children .sub-menu .elementor-sub-item:hover {
-  color: #C09E5B !important;
+/* Footer: "Nos services" is not a dropdown, remove the caret icon */
+.ftrmn .sub-arrow,
+.elementor-location-footer .sub-arrow,
+footer .sub-arrow {
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -3177,7 +3174,9 @@ nav.elementor-nav-menu--dropdown .menu-item-has-children .sub-menu .elementor-su
 }
 
 .trp-language-switcher-container:hover > .sub-menu.trp-dropdown-menu,
-.trp-language-switcher-container:focus-within > .sub-menu.trp-dropdown-menu {
+.trp-language-switcher-container:focus-within > .sub-menu.trp-dropdown-menu,
+.trp-language-switcher-container.trp-ls-open > .sub-menu.trp-dropdown-menu,
+.trp-dropdown-menu.trp-dropdown-visible {
   display: flex !important;
   flex-direction: column !important;
   animation: navDropdownFadeIn 0.15s ease-out !important;
@@ -3271,3 +3270,264 @@ button[type="submit"]:disabled *,
     transform: rotate(360deg);
   }
 }
+
+/* ==========================================================================
+   MOBILE HEADER: Logo, Language Switcher, and Menu Icon on a single line
+   ========================================================================== */
+@media (max-width: 767px) {
+  .elementor-25 .elementor-element.elementor-element-1e8d965 {
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  .elementor-25 .elementor-element.elementor-element-1e8d965 > .e-con-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 6px 12px !important;
+    gap: 6px !important;
+  }
+
+  /* 1. Logo */
+  .elementor-25 .elementor-element.elementor-element-14377af {
+    order: 1 !important;
+    flex: 0 1 auto !important;
+    width: auto !important;
+    max-width: 55% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .elementor-25 .elementor-element.elementor-element-9ee1763 {
+    width: auto !important;
+  }
+
+  .elementor-25 .elementor-element.elementor-element-9ee1763 img {
+    max-width: 120px !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* 2. Language Switcher */
+  .elementor-25 .elementor-element.elementor-element-f12c8e6 {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    margin-left: auto !important;
+    margin-right: 4px !important;
+    padding: 0 !important;
+  }
+
+  .elementor-25 .elementor-element.elementor-element-6acbd4f {
+    width: auto !important;
+  }
+
+  .elementor-25 .elementor-element-f12c8e6 .trp-ls-current-link {
+    padding: 6px 8px !important;
+    font-size: 14px !important;
+  }
+
+  /* 3. Menu Icon (Burger) */
+  .elementor-25 .elementor-element.elementor-element-05ed421 {
+    order: 3 !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    position: static !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .elementor-25 .elementor-element.elementor-element-8d9ea35 {
+    width: auto !important;
+  }
+
+  .elementor-25 .elementor-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 8px !important;
+    margin: 0 !important;
+  }
+
+  /* Dropdown opens below the header across full width */
+  .elementor-25 .elementor-element.elementor-element-8d9ea35 .elementor-nav-menu--dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 999999 !important;
+  }
+
+  /* Landing page header mobile row */
+  .elementor-1222 .elementor-element.elementor-element-6ae0ca6 > .e-con-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 6px 15px !important;
+  }
+
+  .elementor-1222 .elementor-element.elementor-element-53ef584 {
+    width: auto !important;
+    max-width: 60% !important;
+  }
+
+  .elementor-1222 .elementor-element.elementor-element-2b3b4e7 {
+    width: auto !important;
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+  }
+}
+
+/* ==========================================================================
+   Floating Label Form Inputs with Icons (Approche B - MCS Limo)
+   ========================================================================== */
+.floating-field-group {
+  position: relative;
+  width: 100%;
+}
+
+.floating-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.floating-field-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c5a880;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 3;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.floating-input-wrapper.textarea-wrapper .floating-field-icon {
+  top: 22px;
+  transform: translateY(0);
+}
+
+.floating-input-control {
+  width: 100% !important;
+  min-height: 56px !important;
+  padding-left: 44px !important;
+  padding-right: 14px !important;
+  padding-top: 18px !important;
+  padding-bottom: 6px !important;
+  font-size: 15px !important;
+  color: #111 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #dcdcdc !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.floating-input-control:focus {
+  border-color: #c5a880 !important;
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.18) !important;
+}
+
+/* Floating label */
+.floating-label {
+  position: absolute;
+  left: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #777777;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.18s cubic-bezier(0.4, 0, 0.2, 1), color 0.18s cubic-bezier(0.4, 0, 0.2, 1), top 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left top;
+}
+
+.floating-input-wrapper.textarea-wrapper .floating-label {
+  top: 18px;
+  transform: translateY(0);
+}
+
+/* When focused or has value: float label to the top */
+.floating-input-wrapper.is-focused .floating-label,
+.floating-input-wrapper.has-value .floating-label {
+  top: 8px;
+  transform: translateY(0);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #9b7e56;
+}
+
+.floating-input-wrapper.is-focused .floating-field-icon {
+  color: #b38d58;
+}
+
+/* Placeholder styling - only show placeholder when input is focused and empty */
+.floating-input-control::placeholder {
+  color: transparent !important;
+  transition: color 0.15s ease;
+}
+
+.floating-input-control:focus::placeholder {
+  color: #a0a0a0 !important;
+  font-size: 13.5px;
+}
+
+/* Date and Time native input adjustments */
+.floating-input-control[type="date"],
+.floating-input-control[type="time"] {
+  cursor: pointer;
+}
+
+.floating-input-control[type="date"]::-webkit-date-and-time-value,
+.floating-input-control[type="time"]::-webkit-date-and-time-value {
+  text-align: left;
+  min-height: 1.4em;
+}
+
+/* Textarea specifics */
+.floating-input-control.floating-textarea {
+  min-height: 95px !important;
+  padding-top: 24px !important;
+  resize: vertical;
+}
+
+/* Select wrapper */
+.floating-select-control {
+  appearance: none;
+  cursor: pointer;
+}
+
+.floating-select-caret {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #888;
+  display: flex;
+  align-items: center;
+}
+
+
+
