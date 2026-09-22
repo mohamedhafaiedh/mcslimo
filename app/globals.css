@@ -3505,6 +3505,34 @@ button[type="submit"]:disabled *,
   min-height: 1.4em;
 }
 
+/* Hide native "jj/mm/aaaa" or "--:--" when empty so it doesn't collide with the floating label */
+.floating-input-wrapper:not(.has-value):not(.is-focused) .floating-input-control[type="date"]::-webkit-datetime-edit,
+.floating-input-wrapper:not(.has-value):not(.is-focused) .floating-input-control[type="time"]::-webkit-datetime-edit {
+  color: transparent !important;
+}
+
+/* When focused or when a value is selected, display the date/time value clearly */
+.floating-input-wrapper.is-focused .floating-input-control[type="date"]::-webkit-datetime-edit,
+.floating-input-wrapper.is-focused .floating-input-control[type="time"]::-webkit-datetime-edit,
+.floating-input-wrapper.has-value .floating-input-control[type="date"]::-webkit-datetime-edit,
+.floating-input-wrapper.has-value .floating-input-control[type="time"]::-webkit-datetime-edit {
+  color: #111111 !important;
+}
+
+/* For Firefox & browsers without webkit-datetime-edit, ensure clean padding and color */
+.floating-input-wrapper:not(.has-value):not(.is-focused) .floating-input-control[type="date"],
+.floating-input-wrapper:not(.has-value):not(.is-focused) .floating-input-control[type="time"] {
+  color: transparent !important;
+}
+
+.floating-input-wrapper.is-focused .floating-input-control[type="date"],
+.floating-input-wrapper.is-focused .floating-input-control[type="time"],
+.floating-input-wrapper.has-value .floating-input-control[type="date"],
+.floating-input-wrapper.has-value .floating-input-control[type="time"] {
+  color: #111111 !important;
+}
+
+
 /* Textarea specifics */
 .floating-input-control.floating-textarea {
   min-height: 95px !important;
