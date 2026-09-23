@@ -27,33 +27,12 @@ export function middleware(request: NextRequest) {
   requestHeaders.set('x-locale', locale);
   requestHeaders.set('x-pathname', pathname);
 
-  if (isEnglish || isArabic || isSpanish || isItalian) {
-    const prefixRegex = /^\/(ar|en|es|it)(\/|$)/;
-
-    // Strip prefix for internal routing
-    let targetPath = pathname.replace(prefixRegex, '/');
-    if (!targetPath.startsWith('/')) {
-      targetPath = '/' + targetPath;
-    }
-
-    const rewriteUrl = request.nextUrl.clone();
-    rewriteUrl.pathname = targetPath;
-
-    const response = NextResponse.rewrite(rewriteUrl, {
-      request: {
-        headers: requestHeaders,
-      },
-    });
-    response.headers.set('x-locale', locale);
-    return response;
-  }
-
   const response = NextResponse.next({
     request: {
       headers: requestHeaders,
     },
   });
-  response.headers.set('x-locale', 'fr');
+  response.headers.set('x-locale', locale);
   return response;
 }
 
@@ -69,4 +48,3 @@ export const config = {
     '/((?!api|_next/static|_next/image|images|favicon.ico|sitemap.xml|robots.txt).*)',
   ],
 };
-

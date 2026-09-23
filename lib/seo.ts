@@ -1,4 +1,15 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://mcslimo.fr';
+export const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://mcslimo.fr';
+export const SITE_URL = BASE;
+
+export const LOCALES = {
+  fr: { code: 'fr-FR', prefix: '',     dir: 'ltr' },
+  en: { code: 'en-US', prefix: '/en',  dir: 'ltr' },
+  es: { code: 'es-ES', prefix: '/es',  dir: 'ltr' },
+  it: { code: 'it-IT', prefix: '/it',  dir: 'ltr' },
+  ar: { code: 'ar-SA', prefix: '/ar',  dir: 'rtl' },
+} as const;
+
+export type Lang = keyof typeof LOCALES;
 
 export const SITE_ROUTES = [
   '',
@@ -14,41 +25,28 @@ export const SITE_ROUTES = [
   'cgv',
 ] as const;
 
-export function getAlternates(slug: string = '', langOrIsEn: string | boolean = 'fr') {
+/** slug: '' pour l'accueil, 'services' pour /services/, etc. */
+export function buildAlternates(slug: string, lang: Lang) {
   const cleanSlug = slug.replace(/^\/|\/$/g, '');
-  const frPath = cleanSlug ? `/${cleanSlug}/` : '/';
-  const enPath = cleanSlug ? `/en/${cleanSlug}/` : '/en/';
-  const arPath = cleanSlug ? `/ar/${cleanSlug}/` : '/ar/';
-  const esPath = cleanSlug ? `/es/${cleanSlug}/` : '/es/';
-  const itPath = cleanSlug ? `/it/${cleanSlug}/` : '/it/';
+  const path = cleanSlug ? `${cleanSlug}/` : '';
+  const url = (l: Lang) => `${BASE}${LOCALES[l].prefix}/${path}`;
 
-  let activeLocale = 'fr';
-  if (typeof langOrIsEn === 'boolean') {
-    activeLocale = langOrIsEn ? 'en' : 'fr';
-  } else if (['ar', 'en', 'es', 'it'].includes(langOrIsEn)) {
-    activeLocale = langOrIsEn;
+  const languages: Record<string, string> = {};
+  for (const l of Object.keys(LOCALES) as Lang[]) {
+    languages[LOCALES[l].code] = url(l);
   }
+  languages['x-default'] = url('fr');
 
-  const canonicalPath =
-    activeLocale === 'ar'
-      ? arPath
-      : activeLocale === 'en'
-      ? enPath
-      : activeLocale === 'es'
-      ? esPath
-      : activeLocale === 'it'
-      ? itPath
-      : frPath;
+  return { canonical: url(lang), languages };
+}
 
-  return {
-    canonical: `${SITE_URL}${canonicalPath}`,
-    languages: {
-      'fr-FR': `${SITE_URL}${frPath}`,
-      'en-US': `${SITE_URL}${enPath}`,
-      'ar-SA': `${SITE_URL}${arPath}`,
-      'es-ES': `${SITE_URL}${esPath}`,
-      'it-IT': `${SITE_URL}${itPath}`,
-      'x-default': `${SITE_URL}${frPath}`,
-    },
-  };
+/** Fallback helper for legacy compatibility */
+export function getAlternates(slug: string = '', langOrIsEn: string | boolean = 'fr') {
+  let lang: Lang = 'fr';
+  if (typeof langOrIsEn === 'boolean') {
+    lang = langOrIsEn ? 'en' : 'fr';
+  } else if (langOrIsEn in LOCALES) {
+    lang = langOrIsEn as Lang;
+  }
+  return buildAlternates(slug, lang);
 }
