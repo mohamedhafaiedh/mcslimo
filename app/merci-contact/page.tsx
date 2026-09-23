@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
 
@@ -13,14 +14,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MerciContactPage() {
+export default async function MerciContactPage() {
+  const headersList = await headers();
+  const rawLocale = headersList.get("x-locale");
+  const locale: "fr" | "en" | "ar" = rawLocale === "ar" ? "ar" : rawLocale === "en" ? "en" : "fr";
+  const isAr = locale === "ar";
+  const isEn = locale === "en";
+
   return (
-    <div id="page" className="site">
+    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
       <a className="skip-link screen-reader-text" href="#content">
-        Aller au contenu
+        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
       </a>
 
-      <MainHeader lang="fr" currentPath="/merci-contact" />
+      <MainHeader lang={locale} currentPath={isAr ? "/ar/merci-contact" : isEn ? "/en/merci-contact" : "/merci-contact"} />
 
       <main
         id="content"
@@ -82,7 +89,7 @@ export default function MerciContactPage() {
               lineHeight: 1.3,
             }}
           >
-            Merci pour votre message !
+            {isAr ? "شكراً لتواصلك معنا!" : isEn ? "Thank you for reaching out!" : "Merci pour votre message !"}
           </h1>
 
           <p
@@ -95,8 +102,11 @@ export default function MerciContactPage() {
               margin: "0 auto 32px",
             }}
           >
-            Votre message a bien été transmis à notre équipe. Nous allons revenir
-            vers vous très rapidement.
+            {isAr
+              ? "تم إرسال رسالتك بنجاح إلى فريقنا. سنتواصل معك في أقرب وقت ممكن."
+              : isEn
+              ? "Your message has been successfully sent. Our team will get back to you shortly."
+              : "Votre message a bien été transmis à notre équipe. Nous allons revenir vers vous très rapidement."}
           </p>
 
           <div
@@ -106,7 +116,7 @@ export default function MerciContactPage() {
             }}
           >
             <Link
-              href="/"
+              href={isAr ? "/ar" : isEn ? "/en" : "/"}
               className="elementor-button elementor-size-md"
               style={{
                 display: "inline-block",
@@ -114,13 +124,16 @@ export default function MerciContactPage() {
                 textDecoration: "none",
               }}
             >
-              <span className="elementor-button-text">Retour à l&apos;accueil</span>
+              <span className="elementor-button-text">
+                {isAr ? "العودة إلى الصفحة الرئيسية" : isEn ? "Back to Homepage" : "Retour à l'accueil"}
+              </span>
             </Link>
           </div>
         </div>
       </main>
 
-      <MainFooter lang="fr" />
+      <MainFooter lang={locale} />
     </div>
   );
 }
+

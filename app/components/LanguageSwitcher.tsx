@@ -4,10 +4,62 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+export type SupportedLang = "fr" | "en" | "ar";
+
 interface LanguageSwitcherProps {
-  lang: "fr" | "en";
+  lang: SupportedLang;
   currentPath?: string;
   className?: string;
+}
+
+const LANGUAGES: { code: SupportedLang; label: string; name: string }[] = [
+  { code: "fr", label: "FR", name: "Français" },
+  { code: "en", label: "EN", name: "English" },
+  { code: "ar", label: "AR", name: "العربية" },
+];
+
+function FlagIcon({ code }: { code: SupportedLang }) {
+  if (code === "fr") {
+    return (
+      <img
+        className="trp-flag-image"
+        src="/images/fr_FR.png"
+        width="18"
+        height="12"
+        alt="FR"
+        title="Français"
+      />
+    );
+  }
+  if (code === "en") {
+    return (
+      <img
+        className="trp-flag-image"
+        src="/images/en_US.png"
+        width="18"
+        height="12"
+        alt="EN"
+        title="English"
+      />
+    );
+  }
+  return (
+    <svg
+      className="trp-flag-image"
+      width="18"
+      height="12"
+      viewBox="0 0 18 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "inline-block", verticalAlign: "middle", borderRadius: "1px" }}
+      aria-label="العربية"
+    >
+      <rect width="18" height="12" fill="#007A3D" />
+      <rect y="4" width="18" height="4" fill="#FFFFFF" />
+      <rect y="8" width="18" height="4" fill="#000000" />
+      <polygon points="0,0 6,6 0,12" fill="#CE1126" />
+    </svg>
+  );
 }
 
 export default function LanguageSwitcher({
@@ -19,19 +71,33 @@ export default function LanguageSwitcher({
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLLIElement>(null);
 
-  const effectivePath = currentPath || pathname || (lang === "fr" ? "/" : "/en");
+  const rawPath = currentPath || pathname || (lang === "fr" ? "/" : lang === "en" ? "/en" : "/ar");
 
-  // Compute the target route when switching language
-  const switchTarget =
-    lang === "fr"
-      ? effectivePath.startsWith("/en")
-        ? effectivePath
-        : `/en${effectivePath === "/" ? "" : effectivePath}`
-      : effectivePath.startsWith("/en")
-      ? effectivePath.replace(/^\/en/, "") || "/"
-      : effectivePath;
+  // Extract clean base path without locale prefix
+  let basePath = rawPath;
+  if (basePath.startsWith("/en")) {
+    basePath = basePath.replace(/^\/en/, "") || "/";
+  } else if (basePath.startsWith("/ar")) {
+    basePath = basePath.replace(/^\/ar/, "") || "/";
+  }
+  if (!basePath.startsWith("/")) {
+    basePath = "/" + basePath;
+  }
 
-  // Handle outside click to close dropdown on touch / mobile devices
+  const getTargetForLang = (targetLang: SupportedLang) => {
+    if (targetLang === "fr") {
+      return basePath === "" ? "/" : basePath;
+    }
+    if (targetLang === "en") {
+      return basePath === "/" ? "/en" : `/en${basePath}`;
+    }
+    return basePath === "/" ? "/ar" : `/ar${basePath}`;
+  };
+
+  // Other languages to show in dropdown
+  const otherLanguages = LANGUAGES.filter((l) => l.code !== lang);
+
+  // Handle outside click to close dropdown
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
       if (
@@ -64,6 +130,8 @@ export default function LanguageSwitcher({
     }
   };
 
+  const currentLangObj = LANGUAGES.find((l) => l.code === lang) || LANGUAGES[0];
+
   return (
     <div
       className={`elementor-element elementor-element-6acbd4f elementor-widget elementor-widget-nav-menu ${className}`}
@@ -74,7 +142,13 @@ export default function LanguageSwitcher({
     >
       <div className="elementor-widget-container">
         <nav
-          aria-label={lang === "fr" ? "Sélection de la langue" : "Language selection"}
+          aria-label={
+            lang === "fr"
+              ? "Sélection de la langue"
+              : lang === "en"
+              ? "Language selection"
+              : "اختيار اللغة"
+          }
           className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"
         >
           <ul id="menu-lang-switcher" className="elementor-nav-menu">
@@ -89,20 +163,13 @@ export default function LanguageSwitcher({
                 role="button"
                 tabIndex={0}
                 aria-expanded={isOpen}
-                aria-label={lang === "fr" ? "Langue actuelle : Français" : "Current language: English"}
+                aria-label={`Langue : ${currentLangObj.name}`}
                 onClick={toggleDropdown}
                 onKeyDown={handleKeyDown}
               >
-                <img
-                  className="trp-flag-image"
-                  src={lang === "fr" ? "/images/fr_FR.png" : "/images/en_US.png"}
-                  width="18"
-                  height="12"
-                  alt={lang === "fr" ? "FR" : "EN"}
-                  title={lang === "fr" ? "Français" : "English"}
-                />
-                <span className="trp-ls-language-name">
-                  {lang === "fr" ? "FR" : "EN"}
+                <FlagIcon code={lang} />
+                <span className="trp-ls-language-name ml-1.5">
+                  {currentLangObj.label}
                 </span>
                 <span className="sub-arrow">
                   <svg
@@ -117,29 +184,39 @@ export default function LanguageSwitcher({
               </div>
 
               <ul
-                className={`sub-menu elementor-nav-menu--dropdown trp-dropdown-menu ${
+                className={`sub-menu elementor-nav-menu--dropdown trp-dropdown-menu text-left ${
                   isOpen ? "trp-dropdown-visible" : ""
                 }`}
+                style={{
+                  direction: "ltr",
+                  textAlign: "left",
+                  width: "max-content",
+                  minWidth: "max-content",
+                  padding: "6px 0",
+                }}
               >
-                <li className="menu-item">
-                  <Link
-                    href={switchTarget}
-                    className="elementor-sub-item"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <img
-                      className="trp-flag-image"
-                      src={lang === "fr" ? "/images/en_US.png" : "/images/fr_FR.png"}
-                      width="18"
-                      height="12"
-                      alt={lang === "fr" ? "EN" : "FR"}
-                      title={lang === "fr" ? "English" : "Français"}
-                    />
-                    <span className="trp-ls-language-name">
-                      {lang === "fr" ? "EN" : "FR"}
-                    </span>
-                  </Link>
-                </li>
+                {otherLanguages.map((other) => (
+                  <li key={other.code} className="menu-item w-full text-left" style={{ width: "100%" }}>
+                    <Link
+                      href={getTargetForLang(other.code)}
+                      className="elementor-sub-item flex items-center justify-start text-left gap-2 w-full whitespace-nowrap"
+                      onClick={() => setIsOpen(false)}
+                      style={{
+                        direction: "ltr",
+                        textAlign: "left",
+                        justifyContent: "flex-start",
+                        padding: "10px 16px",
+                        width: "100%",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <FlagIcon code={other.code} />
+                      <span className="trp-ls-language-name text-left whitespace-nowrap">
+                        {other.label} - {other.name}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </li>
           </ul>

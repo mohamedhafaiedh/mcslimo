@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import LandingHeader from "../components/LandingHeader";
 import MainFooter from "../components/MainFooter";
 import BackButton from "../components/BackButton";
@@ -13,14 +14,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MerciLpReservationPage() {
+export default async function MerciLpReservationPage() {
+  const headersList = await headers();
+  const rawLocale = headersList.get("x-locale");
+  const locale: "fr" | "en" | "ar" = rawLocale === "ar" ? "ar" : rawLocale === "en" ? "en" : "fr";
+  const isAr = locale === "ar";
+  const isEn = locale === "en";
+
   return (
-    <div id="page" className="site">
+    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
       <a className="skip-link screen-reader-text" href="#content">
-        Aller au contenu
+        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
       </a>
 
-      <LandingHeader lang="fr" currentPath="/merci-lp-reservation" />
+      <LandingHeader lang={locale} currentPath={isAr ? "/ar/merci-lp-reservation" : isEn ? "/en/merci-lp-reservation" : "/merci-lp-reservation"} />
 
       <main
         id="content"
@@ -82,7 +89,7 @@ export default function MerciLpReservationPage() {
               lineHeight: 1.3,
             }}
           >
-            Merci pour votre demande de devis !
+            {isAr ? "شكراً لطلب الحجز وعرض الأسعار!" : isEn ? "Thank you for your booking request!" : "Merci pour votre demande de devis !"}
           </h1>
 
           <p
@@ -95,9 +102,11 @@ export default function MerciLpReservationPage() {
               margin: "0 auto 32px",
             }}
           >
-            Merci d&apos;avoir soumis votre demande de devis. Notre équipe va étudier les
-            détails de votre trajet et vous envoyer une proposition personnalisée dans
-            les plus brefs délais.
+            {isAr
+              ? "شكراً لإرسال طلبك. يقوم فريقنا بدراسة تفاصيل رحلتك وسنرسل لك التأكيد وعرض السعر في أقرب وقت."
+              : isEn
+              ? "Thank you for submitting your quote request. Our team is reviewing the details and will send you a confirmation promptly."
+              : "Merci d'avoir soumis votre demande de devis. Notre équipe va étudier les détails de votre trajet et vous envoyer une proposition personnalisée dans les plus brefs délais."}
           </p>
 
           <div
@@ -107,14 +116,15 @@ export default function MerciLpReservationPage() {
             }}
           >
             <BackButton
-              label="Retour à l'accueil"
-              fallbackUrl="/lp-chauffeur-prive"
+              label={isAr ? "العودة إلى الصفحة الرئيسية" : isEn ? "Back to Homepage" : "Retour à l'accueil"}
+              fallbackUrl={isAr ? "/ar/lp-chauffeur-prive" : isEn ? "/en/lp-chauffeur-prive" : "/lp-chauffeur-prive"}
             />
           </div>
         </div>
       </main>
 
-      <MainFooter lang="fr" />
+      <MainFooter lang={locale} />
     </div>
   );
 }
+

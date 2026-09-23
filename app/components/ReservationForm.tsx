@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   MapPin,
@@ -15,13 +15,27 @@ import {
 } from "lucide-react";
 
 export interface ReservationFormProps {
-  lang: "fr" | "en";
+  lang: "fr" | "en" | "ar";
   redirectUrl?: string;
 }
 
-function getFormattedTimestamp(lang: "fr" | "en") {
+function getFormattedTimestamp(lang: "fr" | "en" | "ar") {
   const now = new Date();
-  if (lang === "fr") {
+  if (lang === "ar") {
+    const dateStr = now.toLocaleDateString("fr-FR", {
+      timeZone: "Europe/Paris",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
+    const timeStr = now.toLocaleTimeString("fr-FR", {
+      timeZone: "Europe/Paris",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+    return `${dateStr} à ${timeStr} (توقيت باريس)`;
+  } else if (lang === "fr") {
     const dateStr = now.toLocaleDateString("fr-FR", {
       timeZone: "Europe/Paris",
       day: "2-digit",
@@ -88,7 +102,8 @@ const CONFIG = {
     vehicleOptions: [
       { value: "Mercedes classe E (3pax)", label: "Mercedes classe E (3pax)" },
       { value: "Mercedes classe V (7pax)", label: "Mercedes classe V (7pax)" },
-      { value: "Mercedes classe S (3pax)", label: "Mercedes classe S (3pax)" }
+      { value: "Mercedes classe S (3pax)", label: "Mercedes classe S (3pax)" },
+      { value: "Mercedes classe S 580e (3pax)", label: "Mercedes classe S 580e (3pax)" }
     ],
     phoneTitle: "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.",
     submitButtonText: "J'obtiens mon devis gratuit en ligne",
@@ -130,13 +145,57 @@ const CONFIG = {
     vehicleOptions: [
       { value: "Mercedes classe E (3pax)", label: "Mercedes-Benz E-Class (3 pax)" },
       { value: "Mercedes classe V (7pax)", label: "Mercedes-Benz V-Class (7 pax)" },
-      { value: "Mercedes classe S (3pax)", label: "Mercedes-Benz S-Class (3 pax)" }
+      { value: "Mercedes classe S (3pax)", label: "Mercedes-Benz S-Class (3 pax)" },
+      { value: "Mercedes classe S 580e (3pax)", label: "Mercedes-Benz S-Class 580e (3 pax)" }
     ],
     phoneTitle: "Only numbers and phone characters (#, -, *, etc) are accepted.",
     submitButtonText: "Get my online free quote",
     submittingText: "Sending...",
     errorMessage: "An error occurred while submitting your quote request. Please try again.",
     redirectUrl: "/en/merci-reservation"
+  },
+  ar: {
+    formName: "reservation-ar",
+    fields: {
+      pickup: "adresse_depart",
+      dropoff: "adresse_arrivee",
+      date: "date",
+      time: "heure",
+      vehicle: "vehicule",
+      email: "email",
+      phone: "telephone",
+      message: "message"
+    },
+    floatingLabels: {
+      pickup: "مكان الانطلاق / الاستلام",
+      dropoff: "مكان الوصول / الوجهة",
+      date: "تاريخ الرحلة",
+      time: "وقت الرحلة",
+      vehicle: "فئة السيارة",
+      email: "البريد الإلكتروني",
+      phone: "رقم الهاتف",
+      message: "طلبات خاصة أو تفاصيل إضافية"
+    },
+    placeholders: {
+      pickup: "مثال: مطار شارل ديغول مبنى 2E، فندق لو بريستول...",
+      dropoff: "مثال: محطة غار دو ليون، قصر فرساي، باريس...",
+      date: "",
+      time: "",
+      email: "مثال: contact@domain.com",
+      phone: "مثال: +33 6 12 34 56 78",
+      message: "مثال: مقعد طفل، عدد كبير من الحقائب..."
+    },
+    vehicleOptions: [
+      { value: "Mercedes classe E (3pax)", label: "مرسيدس E (3 ركاب)" },
+      { value: "Mercedes classe V (7pax)", label: "مرسيدس V (7 ركاب)" },
+      { value: "Mercedes classe S (3pax)", label: "مرسيدس S (3 ركاب)" },
+      { value: "Mercedes classe S 580e (3pax)", label: "مرسيدس S 580e (3 ركاب)" }
+    ],
+    phoneTitle: "يُرجى إدخال أرقام ورموز هواتف صحيحة (#, -, *, +).",
+    submitButtonText: "احصل على عرض أسعاري المجاني عبر الإنترنت",
+    submittingText: "جاري الإرسال...",
+    errorMessage: "حدث خطأ أثناء إرسال طلب الحجز. يُرجى إعادة المحاولة.",
+    redirectUrl: "/ar/merci-reservation"
   }
 };
 
@@ -144,7 +203,17 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [todayString, setTodayString] = useState("");
+  const [todayString] = useState(() => {
+    try {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd}`;
+    } catch {
+      return "";
+    }
+  });
 
   const config = CONFIG[lang];
   const targetRedirectUrl = redirectUrl || config.redirectUrl;
@@ -163,18 +232,6 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
 
   // Focused field key
   const [focusedField, setFocusedField] = useState<string | null>(null);
-
-  useEffect(() => {
-    try {
-      const now = new Date();
-      const yyyy = now.getFullYear();
-      const mm = String(now.getMonth() + 1).padStart(2, "0");
-      const dd = String(now.getDate()).padStart(2, "0");
-      setTodayString(`${yyyy}-${mm}-${dd}`);
-    } catch {
-      // ignore
-    }
-  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>

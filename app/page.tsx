@@ -1,72 +1,716 @@
-import type { Metadata } from "next";
-import { SITE_URL, getAlternates } from "@/lib/seo";
-
-export const metadata: Metadata = {
-  title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
-  description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-  alternates: getAlternates(""),
-  openGraph: {
-    title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
-    description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-    url: `${SITE_URL}/`,
-    siteName: "MCS Limo",
-    locale: "fr_FR",
-    type: "website",
-    images: [
-      {
-        url: "/images/MCS-Limo-logo-1000x450-1.png",
-        width: 1000,
-        height: 450,
-        alt: "MCS Limo",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
-    description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
-    images: ["/images/MCS-Limo-logo-1000x450-1.png"],
-  },
-};
-
+"use client";
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import MainHeader from "./components/MainHeader";
+import MainFooter from "./components/MainFooter";
+import WhyChooseUsSection from "./components/WhyChooseUsSection";
+import VehicleCards from "./components/VehicleCards";
+import TestimonialsSection from "./components/TestimonialsSection";
+import HowToBookSection from "./components/HowToBookSection";
+import SlashesDivider from "./components/SlashesDivider";
 
 export default function HomePage() {
-  
-
-  
+  const pathname = usePathname() || "";
+  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
+  const isEn = pathname === "/en" || pathname.startsWith("/en/");
+  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
 
   return (
-    <div id="page" className="site">
-      <a className="skip-link screen-reader-text" href="#content">Aller au contenu</a>
-<header data-elementor-type="header" data-elementor-id="25" className="elementor elementor-25 elementor-location-header" data-elementor-post-type="elementor_library"><div className="elementor-element elementor-element-1e8d965 e-flex e-con-boxed e-con e-parent" data-id="1e8d965" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-14377af e-con-full e-flex e-con e-child" data-id="14377af" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-9ee1763 elementor-widget__width-auto elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="9ee1763" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default"><div className="elementor-widget-container"><a href="/"><img fetchPriority="high" width="1000" height="450" src="/images/MCS-Limo-logo-1000x450-1.png" className="attachment-full size-full wp-image-2464" alt="MCS Limo - Chauffeur privé de prestige à Paris" sizes="(max-width: 1000px) 100vw, 1000px" /></a></div></div></div><div className="elementor-element elementor-element-05ed421 e-con-full e-flex e-con e-child" data-id="05ed421" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-8d9ea35 elementor-nav-menu--dropdown-mobile elementor-nav-menu--stretch elementor-nav-menu__align-center elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="8d9ea35" data-element_type="widget" data-e-type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default"><div className="elementor-widget-container"><nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"><ul id="menu-1-8d9ea35" className="elementor-nav-menu"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-915 current_page_item menu-item-919"><a href="/" aria-current="page" className="elementor-item elementor-item-active">Accueil</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1097"><a href="/qui-sommes-nous" className="elementor-item">À propos</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-936"><a href="/services" className="elementor-item">Nos Services<span className="sub-arrow"><svg aria-hidden="true" className="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a><ul className="sub-menu elementor-nav-menu--dropdown"><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1138"><a href="/services#transferts" className="elementor-sub-item elementor-item-anchor">Transferts</a></li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1139"><a href="/services#mad" className="elementor-sub-item elementor-item-anchor">Mises à disposition</a></li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1140"><a href="/services#vip" className="elementor-sub-item elementor-item-anchor">Accueil VIP</a></li></ul></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-937"><a href="/flotte" className="elementor-item">Notre Flotte</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-935"><a href="/contact" className="elementor-item">Nous contacter</a></li></ul></nav><div className="elementor-menu-toggle" role="button" tabIndex={0} aria-label="Permuter le menu" aria-expanded="false"><svg aria-hidden="true" role="presentation" className="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" className="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg></div><nav className="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-8d9ea35" className="elementor-nav-menu"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-915 current_page_item menu-item-919"><a href="/" aria-current="page" className="elementor-item elementor-item-active" tabIndex={-1}>Accueil</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1097"><a href="/qui-sommes-nous" className="elementor-item" tabIndex={-1}>À propos</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-936"><a href="/services" className="elementor-item" tabIndex={-1}>Nos Services<span className="sub-arrow"><svg aria-hidden="true" className="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a><ul className="sub-menu elementor-nav-menu--dropdown"><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1138"><a href="/services#transferts" className="elementor-sub-item elementor-item-anchor" tabIndex={-1}>Transferts</a></li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1139"><a href="/services#mad" className="elementor-sub-item elementor-item-anchor" tabIndex={-1}>Mises à disposition</a></li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-1140"><a href="/services#vip" className="elementor-sub-item elementor-item-anchor" tabIndex={-1}>Accueil VIP</a></li></ul></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-937"><a href="/flotte" className="elementor-item" tabIndex={-1}>Notre Flotte</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-935"><a href="/contact" className="elementor-item" tabIndex={-1}>Nous contacter</a></li></ul></nav></div></div></div><div className="elementor-element elementor-element-f12c8e6 e-con-full e-flex e-con e-child" data-id="f12c8e6" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-6acbd4f elementor-nav-menu__align-end elementor-widget elementor-widget-nav-menu" data-id="6acbd4f" data-element_type="widget" data-e-type="widget" data-widget_type="nav-menu.default"><div className="elementor-widget-container"><nav aria-label="Language" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"><ul id="menu-lang-switcher" className="elementor-nav-menu"><li className="menu-item menu-item-has-children trp-language-switcher-container"><div className="elementor-item trp-ls-current-link" role="button" tabIndex={0}><img className="trp-flag-image" src="/images/fr_FR.png" width="18" height="12" alt="FR" title="Français" /><span className="trp-ls-language-name">FR</span><span className="sub-arrow"><svg aria-hidden="true" className="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></div><ul className="sub-menu elementor-nav-menu--dropdown trp-dropdown-menu"><li className="menu-item"><a href="/en" className="elementor-sub-item"><img className="trp-flag-image" src="/images/en_US.png" width="18" height="12" alt="EN" title="English" /><span className="trp-ls-language-name">EN</span></a></li></ul></li></ul></nav></div></div></div><div className="elementor-element elementor-element-103e5a1 e-con-full elementor-hidden-mobile elementor-hidden-tablet e-flex e-con e-child" data-id="103e5a1" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-6b3c9b9 elementor-widget elementor-widget-button" data-id="6b3c9b9" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div className="elementor-widget-container"><div className="elementor-button-wrapper"><a className="elementor-button elementor-button-link elementor-size-md" href="/reservation"><span className="elementor-button-content-wrapper"><span className="elementor-button-text">Devis et réservation</span></span></a></div></div></div></div></div></div></header>
-<div data-elementor-type="wp-post" data-elementor-id="915" className="elementor elementor-915" data-elementor-post-type="page"><div className="elementor-element elementor-element-b9138e8 e-flex e-con-boxed e-con e-parent" data-id="b9138e8" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-c0fb283 e-con-full e-flex e-con e-child" data-id="c0fb283" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-ffa4b96 elementor-widget elementor-widget-heading" data-id="ffa4b96" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h1 className="elementor-heading-title elementor-size-default">Chauffeurs privés à Paris pour une clientèle exigeante</h1></div></div><div className="elementor-element elementor-element-266ea7a elementor-widget elementor-widget-text-editor" data-id="266ea7a" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container">
-									Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins								</div></div><div className="elementor-element elementor-element-40029bd elementor-widget elementor-widget-button" data-id="40029bd" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div className="elementor-widget-container"><div className="elementor-button-wrapper"><a className="elementor-button elementor-button-link elementor-size-md" href="/reservation"><span className="elementor-button-content-wrapper"><span className="elementor-button-text">Obtenir un devis et réserver</span></span></a></div></div></div></div><div className="elementor-element elementor-element-4ccdb49 e-con-full e-flex e-con e-child" data-id="4ccdb49" data-element_type="container" data-e-type="container"></div></div></div><div className="elementor-element elementor-element-b55f6ee e-flex e-con-boxed e-con e-parent" data-id="b55f6ee" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-940308a e-flex e-con-boxed e-con e-child" data-id="940308a" data-element_type="container" data-e-type="container"><div className="e-con-inner"><div className="elementor-element elementor-element-0b33589 elementor-widget elementor-widget-heading" data-id="0b33589" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h4 className="elementor-heading-title elementor-size-default">Des dizaines de professionnels et particuliers nous font confiance chaque jour...</h4></div></div></div></div></div></div><div className="elementor-element elementor-element-64388fb e-flex e-con-boxed e-con e-parent" data-id="64388fb" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-cdea823 e-con-full e-flex e-con e-child" data-id="cdea823" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-2edfe16 elementor-widget elementor-widget-image" data-id="2edfe16" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="500" height="111" src="/images/uniformation.png" className="attachment-large size-large wp-image-321" alt="Partenaire Uniformation - MCS Limo" sizes="(max-width: 500px) 100vw, 500px" /></div></div></div><div className="elementor-element elementor-element-a405af5 e-con-full e-flex e-con e-child" data-id="a405af5" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-a42efd7 elementor-widget elementor-widget-image" data-id="a42efd7" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="800" height="124" src="/images/2560px-Prada-Logo.svg-1024x159-1.webp" className="attachment-large size-large wp-image-197" alt="Client de prestige Prada - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" /></div></div></div><div className="elementor-element elementor-element-55a2cba e-con-full e-flex e-con e-child" data-id="55a2cba" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-b1cdc49 elementor-widget elementor-widget-image" data-id="b1cdc49" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="800" height="219" src="/images/1200px-Vaisala_logo.svg.png" className="attachment-large size-large wp-image-196" alt="Client entreprise Vaisala - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" /></div></div></div><div className="elementor-element elementor-element-c09c0da e-con-full e-flex e-con e-child" data-id="c09c0da" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-abab67b elementor-widget elementor-widget-image" data-id="abab67b" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="800" height="134" src="/images/ETSGlobal_logo.a83452a9.png" className="attachment-large size-large wp-image-199" alt="Client entreprise ETS Global - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" /></div></div></div><div className="elementor-element elementor-element-247deb8 e-con-full e-flex e-con e-child" data-id="247deb8" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-89bd1dc elementor-widget elementor-widget-image" data-id="89bd1dc" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="209" height="64" src="/images/cq5dam.web_.1280.1280.webp" className="attachment-large size-large wp-image-198" alt="Partenaire entreprise de prestige - MCS Limo" /></div></div></div></div></div><div className="elementor-element elementor-element-90115f2 e-flex e-con-boxed e-con e-parent" data-id="90115f2" data-element_type="container" data-e-type="container" id="services"><div className="e-con-inner"><div className="elementor-element elementor-element-4f948e4 elementor-widget elementor-widget-heading" data-id="4f948e4" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Nos Services</h2></div></div><div className="elementor-element elementor-element-292d945 elementor-widget-divider--separator-type-pattern elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="292d945" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default"><div className="elementor-widget-container"><div className="elementor-divider" style={({ "--divider-pattern-url": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E\")" } as React.CSSProperties)}><span className="elementor-divider-separator"></span></div></div></div><div className="elementor-element elementor-element-8720de5 elementor-widget elementor-widget-text-editor" data-id="8720de5" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container">
-									Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins								</div></div></div></div><div className="elementor-element elementor-element-34308d5 e-flex e-con-boxed e-con e-parent" data-id="34308d5" data-element_type="container" data-e-type="container"><div className="e-con-inner"><div className="elementor-element elementor-element-2aaa3e1 e-con-full e-flex e-con e-child" data-id="2aaa3e1" data-element_type="container" data-e-type="container" id="transferts"><div className="elementor-element elementor-element-7d637c0 elementor-widget elementor-widget-image" data-id="7d637c0" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="450" height="300" src="/images/MCS-Services-5.jpg" className="attachment-large size-large wp-image-2454" alt="Transfert aéroport et gare avec chauffeur privé à Paris" sizes="(max-width: 450px) 100vw, 450px" /></div></div><div className="elementor-element elementor-element-044593b elementor-widget elementor-widget-heading" data-id="044593b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h3 className="elementor-heading-title elementor-size-default">Transferts</h3></div></div><div className="elementor-element elementor-element-ddb7642 elementor-widget elementor-widget-text-editor" data-id="ddb7642" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container"><p>Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris</p></div></div></div><div className="elementor-element elementor-element-0b98ee2 e-con-full e-flex e-con e-child" data-id="0b98ee2" data-element_type="container" data-e-type="container" id="mad"><div className="elementor-element elementor-element-4a2026d elementor-widget elementor-widget-image" data-id="4a2026d" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="450" height="300" src="/images/MCS-Services-4.jpg" className="attachment-large size-large wp-image-2453" alt="Mise à disposition de véhicule avec chauffeur à Paris" sizes="(max-width: 450px) 100vw, 450px" /></div></div><div className="elementor-element elementor-element-035a507 elementor-widget elementor-widget-heading" data-id="035a507" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h3 className="elementor-heading-title elementor-size-default">Mises à disposition</h3></div></div><div className="elementor-element elementor-element-fd9663b elementor-widget elementor-widget-text-editor" data-id="fd9663b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container">
-									Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations								</div></div></div><div className="elementor-element elementor-element-a4cf959 e-con-full e-flex e-con e-child" data-id="a4cf959" data-element_type="container" data-e-type="container" id="vip"><div className="elementor-element elementor-element-468d8d6 elementor-widget elementor-widget-image" data-id="468d8d6" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="450" height="300" src="/images/MCS-Services-8.jpg" className="attachment-large size-large wp-image-2457" alt="Accueil VIP et service greeter personnalisé à Paris" sizes="(max-width: 450px) 100vw, 450px" /></div></div><div className="elementor-element elementor-element-a926567 elementor-widget elementor-widget-heading" data-id="a926567" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h3 className="elementor-heading-title elementor-size-default">Accueil VIP</h3></div></div><div className="elementor-element elementor-element-7292a37 elementor-widget elementor-widget-text-editor" data-id="7292a37" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container">
-									Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire								</div></div></div></div></div><div className="elementor-element elementor-element-9666335 e-flex e-con-boxed e-con e-parent" data-id="9666335" data-element_type="container" data-e-type="container"><div className="e-con-inner"><div className="elementor-element elementor-element-ac7b56c elementor-align-center elementor-widget elementor-widget-button" data-id="ac7b56c" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div className="elementor-widget-container"><div className="elementor-button-wrapper"><a className="elementor-button elementor-button-link elementor-size-md" href="/services"><span className="elementor-button-content-wrapper"><span className="elementor-button-text">Découvrir nos services</span></span></a></div></div></div></div></div><div className="elementor-element elementor-element-3897279 e-flex e-con-boxed e-con e-parent" data-id="3897279" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-277bb3a elementor-widget elementor-widget-heading" data-id="277bb3a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Pourquoi choisir MCS Limo ?</h2></div></div><div className="elementor-element elementor-element-0c584e2 elementor-widget-divider--separator-type-pattern elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="0c584e2" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default"><div className="elementor-widget-container"><div className="elementor-divider" style={({ "--divider-pattern-url": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E\")" } as React.CSSProperties)}><span className="elementor-divider-separator"></span></div></div></div></div></div><div className="elementor-element elementor-element-3bae5d2 e-flex e-con-boxed e-con e-parent" data-id="3bae5d2" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-2c27979 e-con-full e-flex e-con e-child" data-id="2c27979" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-d9b5997 elementor-position-top elementor-widget elementor-widget-image-box" data-id="d9b5997" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default"><div className="elementor-widget-container"><div className="elementor-image-box-wrapper"><figure className="elementor-image-box-img"><img decoding="async" width="64" height="64" src="/images/agree.png" className="attachment-full size-full wp-image-138" alt="Chauffeurs professionnels agréés VTC" /></figure><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">Chauffeurs expérimentés</h3><p className="elementor-image-box-description">Nos chauffeurs ont plus de 10 ans d'expérience. Ils sont tous discrets, multilingues et ont le sens du service</p></div></div></div></div></div><div className="elementor-element elementor-element-4565f2a e-con-full e-flex e-con e-child" data-id="4565f2a" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-ff74ddd elementor-position-top elementor-widget elementor-widget-image-box" data-id="ff74ddd" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default"><div className="elementor-widget-container"><div className="elementor-image-box-wrapper"><figure className="elementor-image-box-img"><img decoding="async" width="64" height="64" src="/images/service-clients.png" className="attachment-full size-full wp-image-152" alt="Service client disponible 24h/24 et 7j/7" /></figure><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">Services et voitures haut de gamme</h3><p className="elementor-image-box-description">Nous mettons à votre disposition des véhicules haut de gamme avec un service de qualité</p></div></div></div></div></div><div className="elementor-element elementor-element-2b83088 e-con-full e-flex e-con e-child" data-id="2b83088" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-54ceb07 elementor-position-top elementor-widget elementor-widget-image-box" data-id="54ceb07" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default"><div className="elementor-widget-container"><div className="elementor-image-box-wrapper"><figure className="elementor-image-box-img"><img decoding="async" width="64" height="64" src="/images/calendrier.png" className="attachment-full size-full wp-image-140" alt="Réservation de chauffeur privé en ligne" /></figure><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">Disponibilité 24/7</h3><p className="elementor-image-box-description">Nous sommes disponibles à tout moment pour traiter vos demandes ou assurer vos besoins</p></div></div></div></div></div><div className="elementor-element elementor-element-1f0690e e-con-full e-flex e-con e-child" data-id="1f0690e" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-e589c68 elementor-position-top elementor-widget elementor-widget-image-box" data-id="e589c68" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default"><div className="elementor-widget-container"><div className="elementor-image-box-wrapper"><figure className="elementor-image-box-img"><img decoding="async" width="64" height="64" src="/images/time-check.png" className="attachment-full size-full wp-image-153" alt="Ponctualité garantie et suivi en temps réel des vols" /></figure><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">Ponctualité</h3><p className="elementor-image-box-description">Parce que votre temps est précieux, nous faisons en sorte que nos chauffeurs arrivent avant 15 minutes du début de chaque prestation</p></div></div></div></div></div></div></div><div className="elementor-element elementor-element-62bee91 e-flex e-con-boxed e-con e-parent" data-id="62bee91" data-element_type="container" data-e-type="container" id="flotte"><div className="e-con-inner"><div className="elementor-element elementor-element-830ae3f elementor-widget elementor-widget-heading" data-id="830ae3f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Nos Véhicules</h2></div></div><div className="elementor-element elementor-element-6911a31 elementor-widget-divider--separator-type-pattern elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="6911a31" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default"><div className="elementor-widget-container"><div className="elementor-divider" style={({ "--divider-pattern-url": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E\")" } as React.CSSProperties)}><span className="elementor-divider-separator"></span></div></div></div><div className="elementor-element elementor-element-d74bea7 elementor-widget elementor-widget-text-editor" data-id="d74bea7" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container">
-									Nous choisissons scrupuleusement nos véhicules afin de pouvoir vous offrir un maximum de confort								</div></div></div></div><div className="elementor-element elementor-element-1fb803e e-flex e-con-boxed e-con e-parent" data-id="1fb803e" data-element_type="container" data-e-type="container"><div className="e-con-inner"><div className="elementor-element elementor-element-f2d29d5 e-con-full e-flex e-con e-child" data-id="f2d29d5" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-69d9835 elementor-widget elementor-widget-heading" data-id="69d9835" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h4 className="elementor-heading-title elementor-size-default">Business</h4></div></div><div className="elementor-element elementor-element-c0c45cb elementor-widget elementor-widget-heading" data-id="c0c45cb" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h6 className="elementor-heading-title elementor-size-default">Mercedes Classe E</h6></div></div><div className="elementor-element elementor-element-bcf4a30 elementor-widget elementor-widget-image" data-id="bcf4a30" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="300" height="232" src="/images/eclass.png" className="attachment-medium size-medium wp-image-276" alt="Mercedes Classe E berline avec chauffeur privé - MCS Limo" sizes="(max-width: 300px) 100vw, 300px" /></div></div><div className="elementor-element elementor-element-1401e4c elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="1401e4c" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default"><div className="elementor-widget-container"><ul className="elementor-icon-list-items"><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-users" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 3 passagers</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-suitcase" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 3 bagages</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-wifi" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M634.91 154.88C457.74-8.99 182.19-8.93 5.09 154.88c-6.66 6.16-6.79 16.59-.35 22.98l34.24 33.97c6.14 6.1 16.02 6.23 22.4.38 145.92-133.68 371.3-133.71 517.25 0 6.38 5.85 16.26 5.71 22.4-.38l34.24-33.97c6.43-6.39 6.3-16.82-.36-22.98zM320 352c-35.35 0-64 28.65-64 64s28.65 64 64 64 64-28.65 64-64-28.65-64-64-64zm202.67-83.59c-115.26-101.93-290.21-101.82-405.34 0-6.9 6.1-7.12 16.69-.57 23.15l34.44 33.99c6 5.92 15.66 6.32 22.05.8 83.95-72.57 209.74-72.41 293.49 0 6.39 5.52 16.05 5.13 22.05-.8l34.44-33.99c6.56-6.46 6.33-17.06-.56-23.15z"></path></svg></span><span className="elementor-icon-list-text">Wi-Fi</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-water" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M562.1 383.9c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144C540.6 93.4 520 85.4 504.2 73 490.1 61.9 470 61.7 456 73c-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3z"></path></svg></span><span className="elementor-icon-list-text">Rafraichissement</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-baby" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M192 160c44.2 0 80-35.8 80-80S236.2 0 192 0s-80 35.8-80 80 35.8 80 80 80zm-53.4 248.8l25.6-32-61.5-51.2L56.8 383c-11.4 14.2-11.7 34.4-.8 49l48 64c7.9 10.5 19.9 16 32 16 8.3 0 16.8-2.6 24-8 17.7-13.2 21.2-38.3 8-56l-29.4-39.2zm142.7-83.2l-61.5 51.2 25.6 32L216 448c-13.2 17.7-9.7 42.8 8 56 7.2 5.4 15.6 8 24 8 12.2 0 24.2-5.5 32-16l48-64c10.9-14.6 10.6-34.8-.8-49l-45.9-57.4zM376.7 145c-12.7-18.1-37.6-22.4-55.7-9.8l-40.6 28.5c-52.7 37-124.2 37-176.8 0L63 135.3C44.9 122.6 20 127 7.3 145-5.4 163.1-1 188 17 200.7l40.6 28.5c17 11.9 35.4 20.9 54.4 27.9V288h160v-30.8c19-7 37.4-16 54.4-27.9l40.6-28.5c18.1-12.8 22.4-37.7 9.7-55.8z"></path></svg></span><span className="elementor-icon-list-text">Sièges enfants</span></li></ul></div></div></div><div className="elementor-element elementor-element-ade3f72 e-con-full e-flex e-con e-child" data-id="ade3f72" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-d446a45 elementor-widget elementor-widget-heading" data-id="d446a45" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h4 className="elementor-heading-title elementor-size-default">VAN</h4></div></div><div className="elementor-element elementor-element-bb7eb4c elementor-widget elementor-widget-heading" data-id="bb7eb4c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h6 className="elementor-heading-title elementor-size-default">Mercedes Classe V</h6></div></div><div className="elementor-element elementor-element-cca8dd6 elementor-widget elementor-widget-image" data-id="cca8dd6" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="300" height="232" src="/images/vclass.png" className="attachment-medium size-medium wp-image-278" alt="Mercedes Classe V van spacieux avec chauffeur - MCS Limo" sizes="(max-width: 300px) 100vw, 300px" /></div></div><div className="elementor-element elementor-element-bd3dc47 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="bd3dc47" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default"><div className="elementor-widget-container"><ul className="elementor-icon-list-items"><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-users" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 7 passagers</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-suitcase" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 7 bagages</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-wifi" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M634.91 154.88C457.74-8.99 182.19-8.93 5.09 154.88c-6.66 6.16-6.79 16.59-.35 22.98l34.24 33.97c6.14 6.1 16.02 6.23 22.4.38 145.92-133.68 371.3-133.71 517.25 0 6.38 5.85 16.26 5.71 22.4-.38l34.24-33.97c6.43-6.39 6.3-16.82-.36-22.98zM320 352c-35.35 0-64 28.65-64 64s28.65 64 64 64 64-28.65 64-64-28.65-64-64-64zm202.67-83.59c-115.26-101.93-290.21-101.82-405.34 0-6.9 6.1-7.12 16.69-.57 23.15l34.44 33.99c6 5.92 15.66 6.32 22.05.8 83.95-72.57 209.74-72.41 293.49 0 6.39 5.52 16.05 5.13 22.05-.8l34.44-33.99c6.56-6.46 6.33-17.06-.56-23.15z"></path></svg></span><span className="elementor-icon-list-text">Wi-Fi</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-water" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M562.1 383.9c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144C540.6 93.4 520 85.4 504.2 73 490.1 61.9 470 61.7 456 73c-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3z"></path></svg></span><span className="elementor-icon-list-text">Rafraichissement</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-baby" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M192 160c44.2 0 80-35.8 80-80S236.2 0 192 0s-80 35.8-80 80 35.8 80 80 80zm-53.4 248.8l25.6-32-61.5-51.2L56.8 383c-11.4 14.2-11.7 34.4-.8 49l48 64c7.9 10.5 19.9 16 32 16 8.3 0 16.8-2.6 24-8 17.7-13.2 21.2-38.3 8-56l-29.4-39.2zm142.7-83.2l-61.5 51.2 25.6 32L216 448c-13.2 17.7-9.7 42.8 8 56 7.2 5.4 15.6 8 24 8 12.2 0 24.2-5.5 32-16l48-64c10.9-14.6 10.6-34.8-.8-49l-45.9-57.4zM376.7 145c-12.7-18.1-37.6-22.4-55.7-9.8l-40.6 28.5c-52.7 37-124.2 37-176.8 0L63 135.3C44.9 122.6 20 127 7.3 145-5.4 163.1-1 188 17 200.7l40.6 28.5c17 11.9 35.4 20.9 54.4 27.9V288h160v-30.8c19-7 37.4-16 54.4-27.9l40.6-28.5c18.1-12.8 22.4-37.7 9.7-55.8z"></path></svg></span><span className="elementor-icon-list-text">Sièges enfants</span></li></ul></div></div></div><div className="elementor-element elementor-element-ec9a575 e-con-full e-flex e-con e-child" data-id="ec9a575" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-02921f6 elementor-widget elementor-widget-heading" data-id="02921f6" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h4 className="elementor-heading-title elementor-size-default">Luxe</h4></div></div><div className="elementor-element elementor-element-0955b45 elementor-widget elementor-widget-heading" data-id="0955b45" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h6 className="elementor-heading-title elementor-size-default">Mercedes Classe S</h6></div></div><div className="elementor-element elementor-element-be2fe47 elementor-widget elementor-widget-image" data-id="be2fe47" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="300" height="232" src="/images/sclass.png" className="attachment-medium size-medium wp-image-277" alt="Mercedes Classe S limousine de prestige avec chauffeur - MCS Limo" sizes="(max-width: 300px) 100vw, 300px" /></div></div><div className="elementor-element elementor-element-dd3889f elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="dd3889f" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default"><div className="elementor-widget-container"><ul className="elementor-icon-list-items"><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-users" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 3 passagers</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-suitcase" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 3 bagages</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-wifi" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M634.91 154.88C457.74-8.99 182.19-8.93 5.09 154.88c-6.66 6.16-6.79 16.59-.35 22.98l34.24 33.97c6.14 6.1 16.02 6.23 22.4.38 145.92-133.68 371.3-133.71 517.25 0 6.38 5.85 16.26 5.71 22.4-.38l34.24-33.97c6.43-6.39 6.3-16.82-.36-22.98zM320 352c-35.35 0-64 28.65-64 64s28.65 64 64 64 64-28.65 64-64-28.65-64-64-64zm202.67-83.59c-115.26-101.93-290.21-101.82-405.34 0-6.9 6.1-7.12 16.69-.57 23.15l34.44 33.99c6 5.92 15.66 6.32 22.05.8 83.95-72.57 209.74-72.41 293.49 0 6.39 5.52 16.05 5.13 22.05-.8l34.44-33.99c6.56-6.46 6.33-17.06-.56-23.15z"></path></svg></span><span className="elementor-icon-list-text">Wi-Fi</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-water" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M562.1 383.9c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144C540.6 93.4 520 85.4 504.2 73 490.1 61.9 470 61.7 456 73c-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3z"></path></svg></span><span className="elementor-icon-list-text">Rafraichissement</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-baby" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M192 160c44.2 0 80-35.8 80-80S236.2 0 192 0s-80 35.8-80 80 35.8 80 80 80zm-53.4 248.8l25.6-32-61.5-51.2L56.8 383c-11.4 14.2-11.7 34.4-.8 49l48 64c7.9 10.5 19.9 16 32 16 8.3 0 16.8-2.6 24-8 17.7-13.2 21.2-38.3 8-56l-29.4-39.2zm142.7-83.2l-61.5 51.2 25.6 32L216 448c-13.2 17.7-9.7 42.8 8 56 7.2 5.4 15.6 8 24 8 12.2 0 24.2-5.5 32-16l48-64c10.9-14.6 10.6-34.8-.8-49l-45.9-57.4zM376.7 145c-12.7-18.1-37.6-22.4-55.7-9.8l-40.6 28.5c-52.7 37-124.2 37-176.8 0L63 135.3C44.9 122.6 20 127 7.3 145-5.4 163.1-1 188 17 200.7l40.6 28.5c17 11.9 35.4 20.9 54.4 27.9V288h160v-30.8c19-7 37.4-16 54.4-27.9l40.6-28.5c18.1-12.8 22.4-37.7 9.7-55.8z"></path></svg></span><span className="elementor-icon-list-text">Sièges enfants</span></li></ul></div></div></div><div className="elementor-element elementor-element-42a3d0c e-con-full e-flex e-con e-child" data-id="42a3d0c" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-1e2c555 elementor-widget elementor-widget-heading" data-id="1e2c555" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h4 className="elementor-heading-title elementor-size-default">Luxe</h4></div></div><div className="elementor-element elementor-element-4697c6d elementor-widget elementor-widget-heading" data-id="4697c6d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h6 className="elementor-heading-title elementor-size-default">Mercedes Classe S 580e</h6></div></div><div className="elementor-element elementor-element-44a9edd elementor-widget elementor-widget-image" data-id="44a9edd" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="300" height="232" src="/images/sclass.png" className="attachment-medium size-medium wp-image-277" alt="Mercedes Classe S limousine de prestige avec chauffeur - MCS Limo" sizes="(max-width: 300px) 100vw, 300px" /></div></div><div className="elementor-element elementor-element-af6cfa0 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="af6cfa0" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default"><div className="elementor-widget-container"><ul className="elementor-icon-list-items"><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-users" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 3 passagers</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-suitcase" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 480h256V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v400zm64-384h128v32H192V96zm320 80v256c0 26.5-21.5 48-48 48h-48V128h48c26.5 0 48 21.5 48 48zM96 480H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48h48v352z"></path></svg></span><span className="elementor-icon-list-text">Jusqu'à 3 bagages</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-wifi" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M634.91 154.88C457.74-8.99 182.19-8.93 5.09 154.88c-6.66 6.16-6.79 16.59-.35 22.98l34.24 33.97c6.14 6.1 16.02 6.23 22.4.38 145.92-133.68 371.3-133.71 517.25 0 6.38 5.85 16.26 5.71 22.4-.38l34.24-33.97c6.43-6.39 6.3-16.82-.36-22.98zM320 352c-35.35 0-64 28.65-64 64s28.65 64 64 64 64-28.65 64-64-28.65-64-64-64zm202.67-83.59c-115.26-101.93-290.21-101.82-405.34 0-6.9 6.1-7.12 16.69-.57 23.15l34.44 33.99c6 5.92 15.66 6.32 22.05.8 83.95-72.57 209.74-72.41 293.49 0 6.39 5.52 16.05 5.13 22.05-.8l34.44-33.99c6.56-6.46 6.33-17.06-.56-23.15z"></path></svg></span><span className="elementor-icon-list-text">Wi-Fi</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-water" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M562.1 383.9c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144C540.6 93.4 520 85.4 504.2 73 490.1 61.9 470 61.7 456 73c-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3z"></path></svg></span><span className="elementor-icon-list-text">Rafraichissement</span></li><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-baby" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M192 160c44.2 0 80-35.8 80-80S236.2 0 192 0s-80 35.8-80 80 35.8 80 80 80zm-53.4 248.8l25.6-32-61.5-51.2L56.8 383c-11.4 14.2-11.7 34.4-.8 49l48 64c7.9 10.5 19.9 16 32 16 8.3 0 16.8-2.6 24-8 17.7-13.2 21.2-38.3 8-56l-29.4-39.2zm142.7-83.2l-61.5 51.2 25.6 32L216 448c-13.2 17.7-9.7 42.8 8 56 7.2 5.4 15.6 8 24 8 12.2 0 24.2-5.5 32-16l48-64c10.9-14.6 10.6-34.8-.8-49l-45.9-57.4zM376.7 145c-12.7-18.1-37.6-22.4-55.7-9.8l-40.6 28.5c-52.7 37-124.2 37-176.8 0L63 135.3C44.9 122.6 20 127 7.3 145-5.4 163.1-1 188 17 200.7l40.6 28.5c17 11.9 35.4 20.9 54.4 27.9V288h160v-30.8c19-7 37.4-16 54.4-27.9l40.6-28.5c18.1-12.8 22.4-37.7 9.7-55.8z"></path></svg></span><span className="elementor-icon-list-text">Sièges enfants</span></li></ul></div></div></div></div></div><div className="elementor-element elementor-element-ccc2142 e-flex e-con-boxed e-con e-parent" data-id="ccc2142" data-element_type="container" data-e-type="container"><div className="e-con-inner"><div className="elementor-element elementor-element-0687468 elementor-align-center elementor-widget elementor-widget-button" data-id="0687468" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div className="elementor-widget-container"><div className="elementor-button-wrapper"><a className="elementor-button elementor-button-link elementor-size-md" href="/flotte"><span className="elementor-button-content-wrapper"><span className="elementor-button-text">Découvrir notre flotte</span></span></a></div></div></div></div></div><div className="elementor-element elementor-element-c12aaea e-flex e-con-boxed e-con e-parent" data-id="c12aaea" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-9b16b6b elementor-widget elementor-widget-heading" data-id="9b16b6b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Ce que pensent nos clients</h2></div></div><div className="elementor-element elementor-element-957be19 elementor-widget-divider--separator-type-pattern elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="957be19" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default"><div className="elementor-widget-container"><div className="elementor-divider" style={({ "--divider-pattern-url": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E\")" } as React.CSSProperties)}><span className="elementor-divider-separator"></span></div></div></div><div className="elementor-element elementor-element-065984a elementor-widget elementor-widget-text-editor" data-id="065984a" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container"><p>Notre clientèle est exigeante et nous faisons et nous faisons de notre mieux pour toujours la satisfaire</p></div></div><div className="reviews-grid"><div className="review-card"><div><div className="review-header"><div className="review-avatar">C</div><div><div className="review-author">Corinne Maruzzi</div><div className="review-date">24 Janvier 2023</div></div></div><div className="review-stars">★★★★★</div><div className="review-body">
-            « Prestations de grandes qualités. À l'écoute de leur client, toujours disponible. Savent anticiper vos demandes. Je garde précieusement leurs coordonnées. »
-          </div></div><div className="review-source"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path></svg>
-          Avis vérifié Google
-        </div></div><div className="review-card"><div><div className="review-header"><div className="review-avatar">A</div><div><div className="review-author">Abdoul Sock</div><div className="review-date">23 Janvier 2023</div></div></div><div className="review-stars">★★★★★</div><div className="review-body">
-            « Une très belle équipe, très professionnelle, ponctuelle. Je recommande fortement. »
-          </div></div><div className="review-source"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path></svg>
-          Avis vérifié Google
-        </div></div><div className="review-card"><div><div className="review-header"><div className="review-avatar">M</div><div><div className="review-author">Moi 75015</div><div className="review-date">28 Novembre 2022</div></div></div><div className="review-stars">★★★★★</div><div className="review-body">
-            « Excellent !!!! Je recommande vivement pour tous vos mariages !!! Ils sont vraiment au top !!!! »
-          </div></div><div className="review-source"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path></svg>
-          Avis vérifié Google
-        </div></div><div className="review-card"><div><div className="review-header"><div className="review-avatar">L</div><div><div className="review-author">Latifa Moussa</div><div className="review-date">28 Novembre 2022</div></div></div><div className="review-stars">★★★★★</div><div className="review-body">
-            « Chauffeur haut de gamme véhicule super propre conduite agréable !! Dommage qu'il y ait trop de bouchons sur Paris !!! »
-          </div></div><div className="review-source"><svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path></svg>
-          Avis vérifié Google
-        </div></div></div></div></div><div className="elementor-element elementor-element-37c3103 e-flex e-con-boxed e-con e-parent" data-id="37c3103" data-element_type="container" data-e-type="container"><div className="e-con-inner"><div className="elementor-element elementor-element-1aba894 elementor-widget elementor-widget-heading" data-id="1aba894" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Comment réserver mon chauffeur ?</h2></div></div><div className="elementor-element elementor-element-f3a75fb elementor-widget-divider--separator-type-pattern elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="f3a75fb" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default"><div className="elementor-widget-container"><div className="elementor-divider" style={({ "--divider-pattern-url": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E\")" } as React.CSSProperties)}><span className="elementor-divider-separator"></span></div></div></div><div className="elementor-element elementor-element-980bf8e elementor-widget elementor-widget-text-editor" data-id="980bf8e" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container">
-									Pour réserver une voiture de luxe avec chauffeur, rien de plus simple								</div></div></div></div><div className="elementor-element elementor-element-01da488 e-flex e-con-boxed e-con e-parent" data-id="01da488" data-element_type="container" data-e-type="container"><div className="e-con-inner"><div className="elementor-element elementor-element-b51b06b elementor-position-left elementor-widget__width-inherit elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="b51b06b" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default"><div className="elementor-widget-container"><div className="elementor-image-box-wrapper"><figure className="elementor-image-box-img"><img decoding="async" width="64" height="64" src="/images/communiquer.png" className="attachment-full size-full wp-image-144" alt="1. Contactez votre agence de chauffeur privé" /></figure><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">1. Contact</h3><p className="elementor-image-box-description">E-mail, téléphone, formulaire de contact ou formulaire de réservation en ligne</p></div></div></div></div><div className="elementor-element elementor-element-1204501 elementor-position-left elementor-widget__width-inherit elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="1204501" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default"><div className="elementor-widget-container"><div className="elementor-image-box-wrapper"><figure className="elementor-image-box-img"><img decoding="async" width="64" height="64" src="/images/check.png" className="attachment-full size-full wp-image-142" alt="2. Réservation et devis sur-mesure" /></figure><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">2. Réservation</h3><p className="elementor-image-box-description">Décrivez-nous votre besoin détaillé et nous vous conseillerons la meilleure prestation qui s'adapte le mieux à votre situation</p></div></div></div></div><div className="elementor-element elementor-element-8a08376 elementor-position-left elementor-widget__width-inherit elementor-vertical-align-middle elementor-widget elementor-widget-image-box" data-id="8a08376" data-element_type="widget" data-e-type="widget" data-widget_type="image-box.default"><div className="elementor-widget-container"><div className="elementor-image-box-wrapper"><figure className="elementor-image-box-img"><img decoding="async" width="64" height="64" src="/images/mobile-phone.png" className="attachment-full size-full wp-image-149" alt="3. Votre chauffeur est présent 15 minutes avant le trajet" /></figure><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">3. Notre chauffeur sera là 15mn avant la prestation</h3></div></div></div></div></div></div><div className="elementor-element elementor-element-946a7c3 e-flex e-con-boxed e-con e-parent" data-id="946a7c3" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-cc61df9 elementor-widget elementor-widget-heading" data-id="cc61df9" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Découvrez notre flotte de véhicule</h2></div></div><div className="elementor-element elementor-element-e59e2d7 elementor-widget-divider--separator-type-pattern elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="e59e2d7" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default"><div className="elementor-widget-container"><div className="elementor-divider" style={({ "--divider-pattern-url": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E\")" } as React.CSSProperties)}><span className="elementor-divider-separator"></span></div></div></div></div></div><div className="elementor-element elementor-element-b8e7d11 e-flex e-con-boxed e-con e-parent" data-id="b8e7d11" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-0ce04b3 e-con-full e-flex e-con e-child" data-id="0ce04b3" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-6b3ba13 elementor-widget elementor-widget-gallery" data-id="6b3ba13" data-element_type="widget" data-e-type="widget" data-settings="{&quot;columns&quot;:3,&quot;lazyload&quot;:&quot;yes&quot;,&quot;gallery_layout&quot;:&quot;grid&quot;,&quot;columns_tablet&quot;:2,&quot;columns_mobile&quot;:1,&quot;gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;link_to&quot;:&quot;file&quot;,&quot;aspect_ratio&quot;:&quot;3:2&quot;,&quot;overlay_background&quot;:&quot;yes&quot;,&quot;content_hover_animation&quot;:&quot;fade-in&quot;}" data-widget_type="gallery.default"><div className="elementor-widget-container"><div className="elementor-gallery__container"><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-1.jpg" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="Gallerie (1)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU3MywidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjVcLzExXC9HYWxsZXJpZS0xLmpwZyIsInNsaWRlc2hvdyI6IjZiM2JhMTMifQ%3D%3D"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-1.jpg')" }} data-thumbnail="/images/Gallerie-1.jpg" data-width="600" data-height="400" aria-label="Mercedes Classe S noire limousine de prestige MCS Limo" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-2.jpg" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="Gallerie (2)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU3NCwidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjVcLzExXC9HYWxsZXJpZS0yLmpwZyIsInNsaWRlc2hvdyI6IjZiM2JhMTMifQ%3D%3D"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-2.jpg')" }} data-thumbnail="/images/Gallerie-2.jpg" data-width="600" data-height="400" aria-label="Intérieur cuir grand confort Mercedes avec chauffeur privé" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/missionm1.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="missionm1" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU5MCwidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjZcLzAyXC9taXNzaW9ubTEucG5nIiwic2xpZGVzaG93IjoiNmIzYmExMyJ9"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/missionm1-768x512.png')" }} data-thumbnail="/images/missionm1-768x512.png" data-width="768" data-height="512" aria-label="Chauffeur privé en costume devant véhicule haut de gamme" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-4.jpg" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="Gallerie (4)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU3NiwidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjVcLzExXC9HYWxsZXJpZS00LmpwZyIsInNsaWRlc2hvdyI6IjZiM2JhMTMifQ%3D%3D"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-4.jpg')" }} data-thumbnail="/images/Gallerie-4.jpg" data-width="600" data-height="400" aria-label="Flotte de véhicules avec chauffeur pour événements à Paris" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-5.jpg" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="Gallerie (5)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU3NywidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjVcLzExXC9HYWxsZXJpZS01LmpwZyIsInNsaWRlc2hvdyI6IjZiM2JhMTMifQ%3D%3D"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-5.jpg')" }} data-thumbnail="/images/Gallerie-5.jpg" data-width="600" data-height="400" aria-label="Berline de luxe avec chauffeur privé à l'aéroport de Paris" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-6.jpg" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="Gallerie (6)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU3OCwidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjVcLzExXC9HYWxsZXJpZS02LmpwZyIsInNsaWRlc2hvdyI6IjZiM2JhMTMifQ%3D%3D"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-6.jpg')" }} data-thumbnail="/images/Gallerie-6.jpg" data-width="600" data-height="400" aria-label="Service de transport haut de gamme en van Mercedes Classe V" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-7.jpg" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="Gallerie (7)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU3OSwidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjVcLzExXC9HYWxsZXJpZS03LmpwZyIsInNsaWRlc2hvdyI6IjZiM2JhMTMifQ%3D%3D"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-7.jpg')" }} data-thumbnail="/images/Gallerie-7.jpg" data-width="600" data-height="400" aria-label="Chauffeur privé pour mariages et cérémonies officielles à Paris" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-9.jpg" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="Gallerie (9)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU4MSwidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjVcLzExXC9HYWxsZXJpZS05LmpwZyIsInNsaWRlc2hvdyI6IjZiM2JhMTMifQ%3D%3D"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-9.jpg')" }} data-thumbnail="/images/Gallerie-9.jpg" data-width="600" data-height="400" aria-label="Transfert VIP et mise à disposition prestige MCS Limo Paris" role="img"></div><div className="elementor-gallery-item__overlay"></div></a><a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/missionm2.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="6b3ba13" data-elementor-lightbox-title="missionm2" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU5MSwidXJsIjoiaHR0cHM6XC9cL21jc2xpbW8uZnJcL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjZcLzAyXC9taXNzaW9ubTIucG5nIiwic2xpZGVzaG93IjoiNmIzYmExMyJ9"><div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/missionm2-768x512.png')" }} data-thumbnail="/images/missionm2-768x512.png" data-width="768" data-height="512" aria-label="Accueil VIP et transfert haut de gamme avec chauffeur à Paris" role="img"></div><div className="elementor-gallery-item__overlay"></div></a></div></div></div></div></div></div><div className="elementor-element elementor-element-03ca178 e-flex e-con-boxed e-con e-parent" data-id="03ca178" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-f96d009 elementor-widget elementor-widget-heading" data-id="f96d009" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">A propos de MCS Limo</h2></div></div><div className="elementor-element elementor-element-f25c321 elementor-widget-divider--separator-type-pattern elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="f25c321" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default"><div className="elementor-widget-container"><div className="elementor-divider" style={({ "--divider-pattern-url": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='black' stroke-width='1' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E\")" } as React.CSSProperties)}><span className="elementor-divider-separator"></span></div></div></div></div></div><div className="elementor-element elementor-element-000a157 e-flex e-con-boxed e-con e-parent" data-id="000a157" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-b0e677f e-con-full e-flex e-con e-child" data-id="b0e677f" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-26187f2 elementor-widget elementor-widget-text-editor" data-id="26187f2" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container"><p>MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe.</p><p>MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace.</p></div></div><div className="elementor-element elementor-element-19c88b1 elementor-align-left elementor-widget elementor-widget-button" data-id="19c88b1" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div className="elementor-widget-container"><div className="elementor-button-wrapper"><a className="elementor-button elementor-button-link elementor-size-md" href="/qui-sommes-nous"><span className="elementor-button-content-wrapper"><span className="elementor-button-text">A propos de nous</span></span></a></div></div></div></div><div className="elementor-element elementor-element-735d809 e-con-full e-flex e-con e-child" data-id="735d809" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-d492d97 elementor-widget elementor-widget-image" data-id="d492d97" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img decoding="async" width="450" height="300" src="/images/MCS-Services-7.jpg" className="attachment-large size-large wp-image-2456" alt="Flotte de berlines et vans de luxe avec chauffeur privé - MCS Limo" sizes="(max-width: 450px) 100vw, 450px" /></div></div></div></div></div></div>
-<footer data-elementor-type="footer" data-elementor-id="524" className="elementor elementor-524 elementor-location-footer" data-elementor-post-type="elementor_library"><div className="elementor-element elementor-element-7bea1cc e-flex e-con-boxed e-con e-parent" data-id="7bea1cc" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-02eddeb elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-id="02eddeb" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container"><div className="container"><div className="block-table"><div className="block-table-cell"><h5>Vous êtes intéressés par une de nos prestations ?</h5><h3>Contactez-nous pour plus d’informations</h3></div></div></div></div></div><div className="elementor-element elementor-element-322c389 elementor-align-center elementor-widget elementor-widget-button" data-id="322c389" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div className="elementor-widget-container"><div className="elementor-button-wrapper"><a className="elementor-button elementor-button-link elementor-size-md" href="/contact"><span className="elementor-button-content-wrapper"><span className="elementor-button-text">Nous contacter</span></span></a></div></div></div></div></div><div className="elementor-element elementor-element-b7c3d2e e-flex e-con-boxed e-con e-parent" data-id="b7c3d2e" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-1cbe6de e-con-full e-flex e-con e-child" data-id="1cbe6de" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-5f462c5 elementor-widget__width-inherit elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="5f462c5" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default"><div className="elementor-widget-container"><a href="/"><img width="1000" height="450" src="/images/MCS-Limo-logo-1000x450-1.png" className="attachment-full size-full wp-image-2464" alt="MCS Limo - Chauffeur privé de prestige à Paris" sizes="(max-width: 1000px) 100vw, 1000px" /></a></div></div><div className="elementor-element elementor-element-0dcc8f2 elementor-widget elementor-widget-text-editor" data-id="0dcc8f2" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container"><p>Société de chauffeur privé à Paris et partout dans le monde qui vous offre un service de transport haut de gamme et sur mesure</p></div></div></div><div className="elementor-element elementor-element-dfbf32e e-con-full e-flex e-con e-child" data-id="dfbf32e" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-5bc741d elementor-widget elementor-widget-heading" data-id="5bc741d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Menu</h2></div></div><div className="elementor-element elementor-element-6542aad elementor-nav-menu__align-start elementor-nav-menu--dropdown-none ftrmn elementor-widget elementor-widget-nav-menu" data-id="6542aad" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<i aria-hidden=\&quot;true\&quot; class=\&quot;\&quot;><\/i>&quot;,&quot;library&quot;:&quot;&quot;}}" data-widget_type="nav-menu.default"><div className="elementor-widget-container"><nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none"><ul id="menu-1-6542aad" className="elementor-nav-menu sm-vertical"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1176"><a href="/qui-sommes-nous" className="elementor-item">Qui sommes-nous</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1178"><a href="/services" className="elementor-item">Nos Services</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1177"><a href="/flotte" className="elementor-item">Notre flotte</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1179"><a href="/contact" className="elementor-item">Nous contacter</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-428"><a href="/reservation" className="elementor-item">Réservation en ligne</a></li></ul></nav><nav className="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-6542aad" className="elementor-nav-menu sm-vertical"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1176"><a href="/qui-sommes-nous" className="elementor-item" tabIndex={-1}>Qui sommes-nous</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1178"><a href="/services" className="elementor-item" tabIndex={-1}>Nos Services<span className="sub-arrow"><svg aria-hidden="true" className="e-font-icon-svg e-fas-caret-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path></svg></span></a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1177"><a href="/flotte" className="elementor-item" tabIndex={-1}>Notre flotte</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1179"><a href="/contact" className="elementor-item" tabIndex={-1}>Nous contacter</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-428"><a href="/reservation" className="elementor-item" tabIndex={-1}>Réservation en ligne</a></li></ul></nav></div></div></div><div className="elementor-element elementor-element-e1a08ed e-con-full e-flex e-con e-child" data-id="e1a08ed" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-cafce5b elementor-widget elementor-widget-heading" data-id="cafce5b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div className="elementor-widget-container"><h2 className="elementor-heading-title elementor-size-default">Nous contacter</h2></div></div><div className="elementor-element elementor-element-6cd13eb und elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6cd13eb" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default"><div className="elementor-widget-container"><ul className="elementor-icon-list-items"><li className="elementor-icon-list-item"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-home" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg></span><span className="elementor-icon-list-text">10 Place Lucien Boilleau, 91420 Morangis</span></li><li className="elementor-icon-list-item"><a href="mailto:contact@mcslimo.fr"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg></span><span className="elementor-icon-list-text">contact@mcslimo.fr</span></a></li><li className="elementor-icon-list-item"><a href="tel:+33189480296"><span className="elementor-icon-list-icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-phone-square-alt" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-16.39 307.37l-15 65A15 15 0 0 1 354 416C194 416 64 286.29 64 126a15.7 15.7 0 0 1 11.63-14.61l65-15A18.23 18.23 0 0 1 144 96a16.27 16.27 0 0 1 13.79 9.09l30 70A17.9 17.9 0 0 1 189 181a17 17 0 0 1-5.5 11.61l-37.89 31a231.91 231.91 0 0 0 110.78 110.78l31-37.89A17 17 0 0 1 299 291a17.85 17.85 0 0 1 5.91 1.21l70 30A16.25 16.25 0 0 1 384 336a17.41 17.41 0 0 1-.39 3.37z"></path></svg></span><span className="elementor-icon-list-text">+33 1 89 48 02 96</span></a></li></ul></div></div><div className="elementor-element elementor-element-036edaf elementor-widget elementor-widget-image" data-id="036edaf" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div className="elementor-widget-container"><img width="268" height="20" src="/images/pay.png" className="attachment-large size-large wp-image-238" alt="Moyens de paiement sécurisés Visa, Mastercard, American Express" /></div></div><div className="elementor-element elementor-element-2455f23 elementor-widget elementor-widget-text-editor" data-id="2455f23" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container"><div id="section-1hids1mS_I" className="fullSection none noBorder radius0 none c-section c-wrapper section-1hids1mS_I" data-v-10a911cc=""><div className="inner" data-v-10a911cc=""><div id="row-gMZHoqq9Uu7" className="row-align-center none noBorder radius0 none c-row c-wrapper row-gMZHoqq9Uu7" data-v-10a911cc=""><div className="inner" data-v-10a911cc=""><div id="col-m3vnwcGjzDv" className="c-column c-wrapper col-m3vnwcGjzDv" data-v-10a911cc=""><div className="none noBorder radius0 none bg bgCover vertical inner" data-v-10a911cc=""><div id="paragraph-KJQ8H3KoQU" className="c-paragraph c-wrapper" data-v-10a911cc=""><div className="paragraph-KJQ8H3KoQU text-output cparagraph-KJQ8H3KoQU none noBorder radius0 none"><div><p>Tous les paiements sont sécurisés</p></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div className="elementor-element elementor-element-15358b0 e-flex e-con-boxed e-con e-parent" data-id="15358b0" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div className="e-con-inner"><div className="elementor-element elementor-element-8a3fc7e e-con-full e-flex e-con e-child" data-id="8a3fc7e" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-ee97747 elementor-widget elementor-widget-text-editor" data-id="ee97747" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div className="elementor-widget-container">
-									MCS Limo 2026 © Tous droits réservés.								</div></div></div><div className="elementor-element elementor-element-73bbe7a e-con-full e-flex e-con e-child" data-id="73bbe7a" data-element_type="container" data-e-type="container"><div className="elementor-element elementor-element-d9c42a0 elementor-nav-menu__align-center elementor-nav-menu--dropdown-none ftrmn elementor-widget elementor-widget-nav-menu" data-id="d9c42a0" data-element_type="widget" data-e-type="widget" data-settings="{&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<i aria-hidden=\&quot;true\&quot; class=\&quot;\&quot;><\/i>&quot;,&quot;library&quot;:&quot;&quot;},&quot;layout&quot;:&quot;horizontal&quot;}" data-widget_type="nav-menu.default"><div className="elementor-widget-container"><nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"><ul id="menu-1-d9c42a0" className="elementor-nav-menu"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-431"><a href="/mentions-legales" className="elementor-item">Mentions légales</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-879"><a href="/cgv" className="elementor-item">CGV</a></li></ul></nav><nav className="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-d9c42a0" className="elementor-nav-menu"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-431"><a href="/mentions-legales" className="elementor-item" tabIndex={-1}>Mentions légales</a></li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-879"><a href="/cgv" className="elementor-item" tabIndex={-1}>CGV</a></li></ul></nav></div></div></div></div></div></footer>
+    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+      <a className="skip-link screen-reader-text" href="#content">
+        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+      </a>
+
+      <MainHeader lang={lang} currentPath={pathname} />
+
+      <main id="content" className="site-main">
+        <div
+          data-elementor-type="wp-post"
+          data-elementor-id="915"
+          className="elementor elementor-915"
+          data-elementor-post-type="page"
+        >
+          {/* HERO SECTION */}
+          <div
+            className="elementor-element elementor-element-b9138e8 e-flex e-con-boxed e-con e-parent"
+            data-id="b9138e8"
+            data-element_type="container"
+            data-e-type="container"
+            data-settings='{"background_background":"classic"}'
+          >
+            <div className="e-con-inner">
+              <div
+                className="elementor-element elementor-element-c0fb283 e-con-full e-flex e-con e-child"
+                data-id="c0fb283"
+                data-element_type="container"
+                data-e-type="container"
+              >
+                <div
+                  className="elementor-element elementor-element-ffa4b96 elementor-widget elementor-widget-heading"
+                  data-id="ffa4b96"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="heading.default"
+                >
+                  <div className="elementor-widget-container">
+                    <h1 className="elementor-heading-title elementor-size-default">
+                      {isAr
+                        ? "سائقون خاصون في باريس لعملاء متميزين"
+                        : isEn
+                        ? "Private chauffeurs in Paris for a demanding clientele"
+                        : "Chauffeurs privés à Paris pour une clientèle exigeante"}
+                    </h1>
+                  </div>
+                </div>
+
+                <div
+                  className="elementor-element elementor-element-266ea7a elementor-widget elementor-widget-text-editor"
+                  data-id="266ea7a"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="text-editor.default"
+                >
+                  <div className="elementor-widget-container">
+                    {isAr
+                      ? "نوفر لكم سيارات فاخرة مع سائق خاص لتلبية جميع متطلبات تنقلاتكم."
+                      : isEn
+                      ? "We provide luxury cars with driver to meet all your travel needs."
+                      : "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins"}
+                  </div>
+                </div>
+
+                <div
+                  className="elementor-element elementor-element-40029bd elementor-widget elementor-widget-button"
+                  data-id="40029bd"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="button.default"
+                >
+                  <div className="elementor-widget-container">
+                    <div className="elementor-button-wrapper">
+                      <Link
+                        className="elementor-button elementor-button-link elementor-size-md"
+                        href={isAr ? "/ar/reservation" : isEn ? "/en/reservation" : "/reservation"}
+                      >
+                        <span className="elementor-button-content-wrapper">
+                          <span className="elementor-button-text">
+                            {isAr ? "الحصول على عرض سعر والحجز" : isEn ? "Get a quote and book" : "Obtenir un devis et réserver"}
+                          </span>
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="elementor-element elementor-element-4ccdb49 e-con-full e-flex e-con e-child"
+                data-id="4ccdb49"
+                data-element_type="container"
+                data-e-type="container"
+              ></div>
+            </div>
+          </div>
+
+          {/* CLIENT TRUST STRIP */}
+          <div
+            className="elementor-element elementor-element-b55f6ee e-flex e-con-boxed e-con e-parent"
+            data-id="b55f6ee"
+            data-element_type="container"
+            data-e-type="container"
+            data-settings='{"background_background":"classic"}'
+          >
+            <div className="e-con-inner">
+              <div
+                className="elementor-element elementor-element-940308a e-flex e-con-boxed e-con e-child"
+                data-id="940308a"
+                data-element_type="container"
+                data-e-type="container"
+              >
+                <div className="e-con-inner">
+                  <div
+                    className="elementor-element elementor-element-0b33589 elementor-widget elementor-widget-heading"
+                    data-id="0b33589"
+                    data-element_type="widget"
+                    data-e-type="widget"
+                    data-widget_type="heading.default"
+                  >
+                    <div className="elementor-widget-container">
+                      <h4 className="elementor-heading-title elementor-size-default">
+                        {isAr
+                          ? "عشرات المحترفين والأفراد يضعون ثقتهم بنا كل يوم..."
+                          : isEn
+                          ? "Dozens of professionals and individuals trust us every day..."
+                          : "Des dizaines de professionnels et particuliers nous font confiance chaque jour..."}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PARTNER LOGOS */}
+          <div
+            className="elementor-element elementor-element-64388fb e-flex e-con-boxed e-con e-parent"
+            data-id="64388fb"
+            data-element_type="container"
+            data-e-type="container"
+            data-settings='{"background_background":"classic"}'
+          >
+            <div className="e-con-inner">
+              <div className="elementor-element elementor-element-cdea823 e-con-full e-flex e-con e-child" data-id="cdea823" data-element_type="container" data-e-type="container">
+                <div className="elementor-element elementor-element-2edfe16 elementor-widget elementor-widget-image" data-id="2edfe16" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+                  <div className="elementor-widget-container">
+                    <img decoding="async" width="500" height="111" src="/images/uniformation.png" className="attachment-large size-large wp-image-321" alt="Partenaire Uniformation - MCS Limo" sizes="(max-width: 500px) 100vw, 500px" />
+                  </div>
+                </div>
+              </div>
+              <div className="elementor-element elementor-element-a405af5 e-con-full e-flex e-con e-child" data-id="a405af5" data-element_type="container" data-e-type="container">
+                <div className="elementor-element elementor-element-a42efd7 elementor-widget elementor-widget-image" data-id="a42efd7" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+                  <div className="elementor-widget-container">
+                    <img decoding="async" width="800" height="124" src="/images/2560px-Prada-Logo.svg-1024x159-1.webp" className="attachment-large size-large wp-image-197" alt="Client de prestige Prada - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
+                  </div>
+                </div>
+              </div>
+              <div className="elementor-element elementor-element-55a2cba e-con-full e-flex e-con e-child" data-id="55a2cba" data-element_type="container" data-e-type="container">
+                <div className="elementor-element elementor-element-b1cdc49 elementor-widget elementor-widget-image" data-id="b1cdc49" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+                  <div className="elementor-widget-container">
+                    <img decoding="async" width="800" height="219" src="/images/1200px-Vaisala_logo.svg.png" className="attachment-large size-large wp-image-196" alt="Client entreprise Vaisala - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
+                  </div>
+                </div>
+              </div>
+              <div className="elementor-element elementor-element-c09c0da e-con-full e-flex e-con e-child" data-id="c09c0da" data-element_type="container" data-e-type="container">
+                <div className="elementor-element elementor-element-abab67b elementor-widget elementor-widget-image" data-id="abab67b" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+                  <div className="elementor-widget-container">
+                    <img decoding="async" width="800" height="134" src="/images/ETSGlobal_logo.a83452a9.png" className="attachment-large size-large wp-image-199" alt="Client entreprise ETS Global - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
+                  </div>
+                </div>
+              </div>
+              <div className="elementor-element elementor-element-247deb8 e-con-full e-flex e-con e-child" data-id="247deb8" data-element_type="container" data-e-type="container">
+                <div className="elementor-element elementor-element-89bd1dc elementor-widget elementor-widget-image" data-id="89bd1dc" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+                  <div className="elementor-widget-container">
+                    <img decoding="async" width="209" height="64" src="/images/cq5dam.web_.1280.1280.webp" className="attachment-large size-large wp-image-198" alt="Partenaire entreprise de prestige - MCS Limo" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* SERVICES SECTION */}
+          <section className="services-section-wrapper" id="services" style={{ backgroundColor: "#ffffff", width: "100%" }}>
+            <div
+              className="elementor-element elementor-element-90115f2 e-flex e-con-boxed e-con e-parent"
+              data-id="90115f2"
+              data-element_type="container"
+              data-e-type="container"
+              style={{ backgroundColor: "#ffffff", width: "100%" }}
+            >
+              <div className="e-con-inner" style={{ backgroundColor: "#ffffff" }}>
+                <div
+                  className="elementor-element elementor-element-4f948e4 elementor-widget elementor-widget-heading"
+                  data-id="4f948e4"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="heading.default"
+                  style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-widget-container" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
+                    <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
+                      {isAr ? "خدماتنا" : isEn ? "Our Services" : "Nos Services"}
+                    </h2>
+                  </div>
+                </div>
+
+                <SlashesDivider className="elementor-element-292d945" align="center" width="80px" color="%23C09E5B" />
+
+                <div
+                  className="elementor-element elementor-element-8720de5 elementor-widget elementor-widget-text-editor"
+                  data-id="8720de5"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="text-editor.default"
+                  style={{ backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                    {isAr
+                      ? "نقدم لكم خدمات مخصصة ومصممة خصيصاً لتناسب احتياجاتكم"
+                      : isEn
+                      ? "We offer tailor-made services that adapt to your needs"
+                      : "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins"}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 3 SERVICES CARDS */}
+            <div
+              className="elementor-element elementor-element-34308d5 e-flex e-con-boxed e-con e-parent"
+              data-id="34308d5"
+              data-element_type="container"
+              data-e-type="container"
+              style={{ backgroundColor: "#ffffff", width: "100%" }}
+            >
+              <div className="e-con-inner" style={{ backgroundColor: "#ffffff" }}>
+                {/* Transferts */}
+                <div
+                  className="elementor-element elementor-element-2aaa3e1 e-con-full e-flex e-con e-child"
+                  data-id="2aaa3e1"
+                  data-element_type="container"
+                  data-e-type="container"
+                  id="transferts"
+                  style={{ backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-element elementor-element-7d637c0 elementor-widget elementor-widget-image" data-id="7d637c0" data-element_type="widget" data-e-type="widget" data-widget_type="image.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      <img decoding="async" width="450" height="300" src="/images/MCS-Services-5.jpg" className="attachment-large size-large wp-image-2454" alt="Transfert aéroport et gare avec chauffeur privé à Paris" sizes="(max-width: 450px) 100vw, 450px" />
+                    </div>
+                  </div>
+                  <div className="elementor-element elementor-element-044593b elementor-widget elementor-widget-heading" data-id="044593b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
+                        {isAr ? "خدمات التوصيل" : isEn ? "Transfers" : "Transferts"}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="elementor-element elementor-element-ddb7642 elementor-widget elementor-widget-text-editor" data-id="ddb7642" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      <p style={{ backgroundColor: "#ffffff" }}>
+                        {isAr
+                          ? "لجميع رحلاتكم في باريس من وإلى محطات القطار أو المطارات الباريسية، أو الرحلات الطويلة من وإلى باريس."
+                          : isEn
+                          ? "For all your journeys in Paris to or from Parisian train stations or airports or long journeys to/from Paris."
+                          : "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mises a disposition / Hourly car rental */}
+                <div
+                  className="elementor-element elementor-element-0b98ee2 e-con-full e-flex e-con e-child"
+                  data-id="0b98ee2"
+                  data-element_type="container"
+                  data-e-type="container"
+                  id="mad"
+                  style={{ backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-element elementor-element-4a2026d elementor-widget elementor-widget-image" data-id="4a2026d" data-element_type="widget" data-e-type="widget" data-widget_type="image.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      <img decoding="async" width="450" height="300" src="/images/MCS-Services-4.jpg" className="attachment-large size-large wp-image-2453" alt="Mise à disposition de véhicule avec chauffeur à Paris" sizes="(max-width: 450px) 100vw, 450px" />
+                    </div>
+                  </div>
+                  <div className="elementor-element elementor-element-035a507 elementor-widget elementor-widget-heading" data-id="035a507" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
+                        {isAr ? "السيارة وسائق تحت الطلب" : isEn ? "Hourly car rental" : "Mises à disposition"}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="elementor-element elementor-element-fd9663b elementor-widget elementor-widget-text-editor" data-id="fd9663b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      {isAr
+                        ? "احجز سائقك للمدة التي تناسبك وستبقى سيارتنا مرافقة لك للتنقل بين وجهاتك بكل راحة."
+                        : isEn
+                        ? "Book your driver for the duration that suits you and our vehicle will remain mobilized to take you to your destinations."
+                        : "Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations"}
+                    </div>
+                  </div>
+                </div>
+
+                {/* VIP Greeter */}
+                <div
+                  className="elementor-element elementor-element-a4cf959 e-con-full e-flex e-con e-child"
+                  data-id="a4cf959"
+                  data-element_type="container"
+                  data-e-type="container"
+                  id="vip"
+                  style={{ backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-element elementor-element-468d8d6 elementor-widget elementor-widget-image" data-id="468d8d6" data-element_type="widget" data-e-type="widget" data-widget_type="image.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      <img decoding="async" width="450" height="300" src="/images/MCS-Services-8.jpg" className="attachment-large size-large wp-image-2457" alt="Accueil VIP et service greeter personnalisé à Paris" sizes="(max-width: 450px) 100vw, 450px" />
+                    </div>
+                  </div>
+                  <div className="elementor-element elementor-element-a926567 elementor-widget elementor-widget-heading" data-id="a926567" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
+                        {isAr ? "استقبال كبار الشخصيات VIP" : isEn ? "VIP Greeter" : "Accueil VIP"}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="elementor-element elementor-element-7292a37 elementor-widget elementor-widget-text-editor" data-id="7292a37" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                      {isAr
+                        ? "لمرافقتكم طوال مساركم بين باب الطائرة وباب سيارتكم مع توفير ممر سريع وأولوية المرور."
+                        : isEn
+                        ? "To accompany you along your journey between the aircraft door and that of your vehicle and grant you priority access."
+                        : "Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* DISCOVER SERVICES BUTTON */}
+            <div
+              className="elementor-element elementor-element-9666335 e-flex e-con-boxed e-con e-parent"
+              data-id="9666335"
+              data-element_type="container"
+              data-e-type="container"
+              style={{ backgroundColor: "#ffffff", width: "100%" }}
+            >
+              <div className="e-con-inner" style={{ backgroundColor: "#ffffff" }}>
+                <div
+                  className="elementor-element elementor-element-ac7b56c elementor-align-center elementor-widget elementor-widget-button"
+                  data-id="ac7b56c"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="button.default"
+                  style={{ backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-button-wrapper" style={{ backgroundColor: "#ffffff" }}>
+                      <Link
+                        className="elementor-button elementor-button-link elementor-size-md"
+                        href={isAr ? "/ar/services" : isEn ? "/en/services" : "/services"}
+                      >
+                        <span className="elementor-button-content-wrapper">
+                          <span className="elementor-button-text">
+                            {isAr ? "اكتشف خدماتنا" : isEn ? "Discover our services" : "Découvrir nos services"}
+                          </span>
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* WHY CHOOSE MCS LIMO */}
+          <WhyChooseUsSection lang={lang} />
+
+          {/* VEHICLES / FLEET SECTION */}
+          <section
+            className="vehicles-section-wrapper"
+            id="flotte"
+            style={{
+              backgroundColor: "#ffffff",
+              background: "#ffffff",
+              width: "100%",
+              maxWidth: "100%",
+              margin: "0",
+              padding: "0",
+              display: "block",
+            }}
+          >
+            <div
+              className="elementor-element elementor-element-62bee91 e-flex e-con-boxed e-con e-parent"
+              data-id="62bee91"
+              data-element_type="container"
+              data-e-type="container"
+              style={{ backgroundColor: "#ffffff", width: "100%" }}
+            >
+              <div className="e-con-inner" style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}>
+                <div
+                  className="elementor-element elementor-element-830ae3f elementor-widget elementor-widget-heading"
+                  data-id="830ae3f"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="heading.default"
+                  style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-widget-container" style={{ width: "100%", backgroundColor: "#ffffff" }}>
+                    <h2
+                      className="elementor-heading-title elementor-size-default"
+                      style={{
+                        textAlign: "center",
+                        color: "var(--e-global-color-primary, #000000)",
+                        fontSize: "32px",
+                        fontWeight: "600",
+                        fontFamily: "var(--e-global-typography-primary-font-family, 'Dosis', sans-serif)",
+                        margin: "0 0 8px 0",
+                        backgroundColor: "#ffffff",
+                      }}
+                    >
+                      {isAr ? "أسطول سياراتنا" : isEn ? "Our Vehicles" : "Nos Véhicules"}
+                    </h2>
+                  </div>
+                </div>
+                <SlashesDivider align="center" width="80px" color="%23C09E5B" />
+                <div
+                  className="elementor-element elementor-element-d74bea7 elementor-widget elementor-widget-text-editor"
+                  data-id="d74bea7"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="text-editor.default"
+                  style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-widget-container" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
+                    {isAr
+                      ? "نختار سياراتنا بعناية فائقة لنقدم لكم أعلى مستويات الراحة والرفاهية"
+                      : isEn
+                      ? "We carefully select our vehicles in order to offer you maximum comfort"
+                      : "Nous choisissons scrupuleusement nos véhicules afin de pouvoir vous offrir un maximum de confort"}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* FLEET CARDS: E-Class, V-Class, S-Class, S 580e */}
+            <div style={{ backgroundColor: "#ffffff", width: "100%" }}>
+              <VehicleCards lang={lang} showPrices={false} />
+            </div>
+
+            {/* DISCOVER FLEET BUTTON */}
+            <div
+              className="elementor-element elementor-element-ccc2142 e-flex e-con-boxed e-con e-parent"
+              data-id="ccc2142"
+              data-element_type="container"
+              data-e-type="container"
+              style={{ backgroundColor: "#ffffff", width: "100%" }}
+            >
+              <div className="e-con-inner" style={{ backgroundColor: "#ffffff" }}>
+                <div
+                  className="elementor-element elementor-element-0687468 elementor-align-center elementor-widget elementor-widget-button"
+                  data-id="0687468"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="button.default"
+                  style={{ backgroundColor: "#ffffff" }}
+                >
+                  <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
+                    <div className="elementor-button-wrapper" style={{ backgroundColor: "#ffffff" }}>
+                      <Link
+                        className="elementor-button elementor-button-link elementor-size-md"
+                        href={isAr ? "/ar/flotte" : isEn ? "/en/flotte" : "/flotte"}
+                      >
+                        <span className="elementor-button-content-wrapper">
+                          <span className="elementor-button-text">
+                            {isAr ? "اكتشف أسطولنا" : isEn ? "Discover our fleet" : "Découvrir notre flotte"}
+                          </span>
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* REVIEWS SECTION */}
+          <TestimonialsSection lang={lang} />
+
+          {/* HOW TO BOOK */}
+          <HowToBookSection lang={lang} />
+
+          {/* GALLERY TITLE */}
+          <div
+            className="elementor-element elementor-element-946a7c3 e-flex e-con-boxed e-con e-parent"
+            data-id="946a7c3"
+            data-element_type="container"
+            data-e-type="container"
+            data-settings='{"background_background":"classic"}'
+          >
+            <div className="e-con-inner" style={{ textAlign: "center", width: "100%" }}>
+              <div
+                className="elementor-element elementor-element-cc61df9 elementor-widget elementor-widget-heading"
+                data-id="cc61df9"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+                style={{ textAlign: "center", width: "100%" }}
+              >
+                <div className="elementor-widget-container" style={{ textAlign: "center" }}>
+                  <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center" }}>
+                    {isAr ? "اكتشف معرض أسطول سياراتنا" : isEn ? "Discover our vehicle fleet" : "Découvrez notre flotte de véhicule"}
+                  </h2>
+                </div>
+              </div>
+              <SlashesDivider className="elementor-element-e59e2d7" align="center" width="80px" color="%23C09E5B" />
+            </div>
+          </div>
+
+          {/* GALLERY GRID */}
+          <div
+            className="elementor-element elementor-element-b8e7d11 e-flex e-con-boxed e-con e-parent"
+            data-id="b8e7d11"
+            data-element_type="container"
+            data-e-type="container"
+            data-settings='{"background_background":"classic"}'
+          >
+            <div className="e-con-inner">
+              <div className="elementor-element elementor-element-0ce04b3 e-con-full e-flex e-con e-child" data-id="0ce04b3" data-element_type="container" data-e-type="container">
+                <div className="elementor-element elementor-element-6b3ba13 elementor-widget elementor-widget-gallery" data-id="6b3ba13" data-element_type="widget" data-e-type="widget">
+                  <div className="elementor-widget-container">
+                    <div className="elementor-gallery__container">
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-1.jpg">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-1.jpg')" }} aria-label="Mercedes Classe S limousine de prestige MCS Limo" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-2.jpg">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-2.jpg')" }} aria-label="Intérieur cuir grand confort Mercedes avec chauffeur privé" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/missionm1.png">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/missionm1-768x512.png')" }} aria-label="Chauffeur privé en costume devant véhicule haut de gamme" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-4.jpg">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-4.jpg')" }} aria-label="Flotte de véhicules avec chauffeur pour événements à Paris" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-5.jpg">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-5.jpg')" }} aria-label="Berline de luxe avec chauffeur privé à l'aéroport de Paris" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-6.jpg">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-6.jpg')" }} aria-label="Service de transport haut de gamme en van Mercedes Classe V" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-7.jpg">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-7.jpg')" }} aria-label="Chauffeur privé pour mariages et cérémonies officielles à Paris" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/Gallerie-9.jpg">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/Gallerie-9.jpg')" }} aria-label="Transfert VIP et mise à disposition prestige MCS Limo Paris" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                      <a className="e-gallery-item elementor-gallery-item elementor-animated-content" href="/images/missionm2.png">
+                        <div className="e-gallery-image elementor-gallery-item__image" style={{ backgroundImage: "url('/images/missionm2-768x512.png')" }} aria-label="Accueil VIP et transfert haut de gamme avec chauffeur à Paris" role="img"></div>
+                        <div className="elementor-gallery-item__overlay"></div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ABOUT SECTION */}
+          <div
+            className="elementor-element elementor-element-03ca178 e-flex e-con-boxed e-con e-parent"
+            data-id="03ca178"
+            data-element_type="container"
+            data-e-type="container"
+            data-settings='{"background_background":"classic"}'
+          >
+            <div className="e-con-inner" style={{ textAlign: "center", width: "100%" }}>
+              <div
+                className="elementor-element elementor-element-f96d009 elementor-widget elementor-widget-heading"
+                data-id="f96d009"
+                data-element_type="widget"
+                data-e-type="widget"
+                data-widget_type="heading.default"
+                style={{ textAlign: "center", width: "100%" }}
+              >
+                <div className="elementor-widget-container" style={{ textAlign: "center" }}>
+                  <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center" }}>
+                    {isAr ? "حول شركة MCS Limo" : isEn ? "About MCS Limo" : "A propos de MCS Limo"}
+                  </h2>
+                </div>
+              </div>
+              <SlashesDivider className="elementor-element-f25c321" align="center" width="80px" color="%23C09E5B" />
+            </div>
+          </div>
+
+          <div
+            className="elementor-element elementor-element-000a157 e-flex e-con-boxed e-con e-parent"
+            data-id="000a157"
+            data-element_type="container"
+            data-e-type="container"
+            data-settings='{"background_background":"classic"}'
+          >
+            <div className="e-con-inner">
+              <div
+                className="elementor-element elementor-element-b0e677f e-con-full e-flex e-con e-child"
+                data-id="b0e677f"
+                data-element_type="container"
+                data-e-type="container"
+              >
+                <div
+                  className="elementor-element elementor-element-26187f2 elementor-widget elementor-widget-text-editor"
+                  data-id="26187f2"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="text-editor.default"
+                >
+                  <div className="elementor-widget-container">
+                    <p>
+                      {isAr
+                        ? "تعد MCS Limo شركة متخصصة في نقل الأشخاص، حيث تقدم خدمة راقية ومخصصة من خلال تزويد عملائها بسائقين خاصين محترفين مع أحدث السيارات الفاخرة."
+                        : isEn
+                        ? "MCS Limo is a passenger transport company offering a tailor-made and top-of-the-range service by providing its customers with professional private drivers with luxury cars."
+                        : "MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe."}
+                    </p>
+                    <p>
+                      {isAr
+                        ? "تتواجد MCS Limo في فرنسا وكذلك في كبرى العواصم والمدن حول العالم (برلين، فرانكفورت، مدريد، برشلونة، نيويورك، واشنطن، ميامي، طوكيو، سيدني...) لمرافقة عملائها من الشركات والأفراد أثناء تنقلاتهم لتقديم نفس معايير الجودة والتميز أينما حلوا."
+                        : isEn
+                        ? "MCS Limo is present in France as well as in the largest cities around the world (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to accompany its business and private customers during their travels to offer them the same standard of quality wherever they travel."
+                        : "MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace."}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  className="elementor-element elementor-element-19c88b1 elementor-align-left elementor-widget elementor-widget-button"
+                  data-id="19c88b1"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="button.default"
+                >
+                  <div className="elementor-widget-container">
+                    <div className="elementor-button-wrapper">
+                      <Link
+                        className="elementor-button elementor-button-link elementor-size-md"
+                        href={isAr ? "/ar/qui-sommes-nous" : isEn ? "/en/qui-sommes-nous" : "/qui-sommes-nous"}
+                      >
+                        <span className="elementor-button-content-wrapper">
+                          <span className="elementor-button-text">
+                            {isAr ? "من نحن" : isEn ? "About us" : "A propos de nous"}
+                          </span>
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="elementor-element elementor-element-735d809 e-con-full e-flex e-con e-child"
+                data-id="735d809"
+                data-element_type="container"
+                data-e-type="container"
+              >
+                <div
+                  className="elementor-element elementor-element-d492d97 elementor-widget elementor-widget-image"
+                  data-id="d492d97"
+                  data-element_type="widget"
+                  data-e-type="widget"
+                  data-widget_type="image.default"
+                >
+                  <div className="elementor-widget-container">
+                    <img
+                      decoding="async"
+                      width="450"
+                      height="300"
+                      src="/images/MCS-Services-7.jpg"
+                      className="attachment-large size-large wp-image-2456"
+                      alt="Flotte de berlines et vans de luxe avec chauffeur privé - MCS Limo"
+                      sizes="(max-width: 450px) 100vw, 450px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <MainFooter lang={lang} />
     </div>
   );
 }

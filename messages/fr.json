@@ -1,0 +1,232 @@
+{
+  "common": {
+    "brand": "MCS LIMO",
+    "tagline": "Service de Chauffeur Privé VTC Haut de Gamme à Paris",
+    "callUs": "Appelez-nous",
+    "bookNow": "Devis et réservation",
+    "contactUs": "Nous Contacter",
+    "readMore": "En savoir plus",
+    "viewFleet": "Découvrir notre flotte",
+    "ourServices": "Découvrir nos services",
+    "backHome": "Retour à l'accueil",
+    "allRightsReserved": "Tous droits réservés",
+    "fromPrice": "À partir de",
+    "passengers": "passagers",
+    "luggage": "bagages",
+    "wifi": "Wi-Fi haut débit",
+    "refreshment": "Rafraîchissements & bouteilles d'eau",
+    "childSeats": "Sièges enfants sur demande",
+    "skipToContent": "Aller au contenu"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Nos Services",
+    "transfers": "Transferts",
+    "mad": "Mises à disposition",
+    "vip": "Accueil VIP",
+    "fleet": "Notre Flotte",
+    "yearlyDriver": "Chauffeur à l'année",
+    "contact": "Nous contacter",
+    "reservation": "Devis et réservation"
+  },
+  "home": {
+    "hero": {
+      "title": "Chauffeurs privés à Paris pour une clientèle exigeante",
+      "subtitle": "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à tous vos besoins de déplacement d'exception.",
+      "cta": "Obtenir un devis et réserver"
+    },
+    "trust": {
+      "title": "Des dizaines de professionnels et particuliers nous font confiance chaque jour..."
+    },
+    "services": {
+      "title": "Nos Services",
+      "subtitle": "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins",
+      "transfersTitle": "Transferts",
+      "transfersDesc": "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris.",
+      "madTitle": "Mises à disposition",
+      "madDesc": "Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations.",
+      "vipTitle": "Accueil VIP",
+      "vipDesc": "Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire.",
+      "cta": "Découvrir nos services"
+    },
+    "whyUs": {
+      "title": "Pourquoi choisir MCS Limo ?",
+      "feature1Title": "Chauffeurs expérimentés",
+      "feature1Desc": "Nos chauffeurs ont plus de 10 ans d'expérience. Ils sont tous discrets, multilingues et ont le sens du service.",
+      "feature2Title": "Services et voitures haut de gamme",
+      "feature2Desc": "Nous mettons à votre disposition des véhicules haut de gamme avec un service de qualité et un confort absolu.",
+      "feature3Title": "Disponibilité 24/7",
+      "feature3Desc": "Nous sommes disponibles à tout moment pour traiter vos demandes ou assurer vos besoins de transport.",
+      "feature4Title": "Ponctualité garantie",
+      "feature4Desc": "Parce que votre temps est précieux, nous faisons en sorte que nos chauffeurs arrivent avant 15 minutes du début de chaque prestation."
+    },
+    "fleet": {
+      "title": "Nos Véhicules",
+      "subtitle": "Nous choisissons scrupuleusement nos véhicules afin de pouvoir vous offrir un maximum de confort",
+      "businessClass": "Business",
+      "businessModel": "Mercedes Classe E",
+      "businessPrice": "À partir de 80€",
+      "vanClass": "VAN",
+      "vanModel": "Mercedes Classe V",
+      "vanPrice": "À partir de 90€",
+      "luxeClass": "Luxe",
+      "luxeModel": "Mercedes Classe S",
+      "luxePrice": "À partir de 110€",
+      "hybridModel": "Mercedes Classe S 580e",
+      "cta": "Découvrir notre flotte"
+    },
+    "reviews": {
+      "title": "Ce que nos clients disent de nous",
+      "subtitle": "Avis vérifiés de nos clients",
+      "googleVerified": "Avis vérifié Google",
+      "review1Author": "Abdoul Sock",
+      "review1Date": "23 Janvier 2023",
+      "review1Text": "« Une très belle équipe, très professionnelle, ponctuelle. Je recommande fortement. »",
+      "review2Author": "Moi 75015",
+      "review2Date": "28 Novembre 2022",
+      "review2Text": "« Excellent !!!! Je recommande vivement pour tous vos mariages !!! Ils sont vraiment au top !!!! »",
+      "review3Author": "Latifa Moussa",
+      "review3Date": "28 Novembre 2022",
+      "review3Text": "« Chauffeur haut de gamme véhicule super propre conduite agréable !! Dommage qu'il y ait trop de bouchons sur Paris !!! »"
+    },
+    "howToBook": {
+      "title": "Comment réserver mon chauffeur ?",
+      "subtitle": "Pour réserver une voiture de luxe avec chauffeur, rien de plus simple",
+      "step1Title": "1. Contact",
+      "step1Desc": "E-mail, téléphone, formulaire de contact ou formulaire de réservation en ligne.",
+      "step2Title": "2. Réservation",
+      "step2Desc": "Décrivez-nous votre besoin détaillé et nous vous conseillerons la meilleure prestation qui s'adapte le mieux à votre situation.",
+      "step3Title": "3. Arrivée 15 min avant",
+      "step3Desc": "Notre chauffeur sera présent 15 minutes avant le début de votre prestation avec le véhicule prêt."
+    },
+    "gallery": {
+      "title": "Découvrez notre flotte de véhicule"
+    },
+    "aboutSection": {
+      "title": "À propos de MCS Limo",
+      "p1": "MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe.",
+      "p2": "MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace.",
+      "cta": "À propos de nous"
+    }
+  },
+  "about": {
+    "title": "Qui sommes-nous ?",
+    "subtitle": "L'excellence du service de chauffeur privé à Paris et à l'international",
+    "p1": "MCS Limo est une société de transport de personnes avec chauffeur (VTC) haut de gamme basée à Paris.",
+    "p2": "Spécialisée dans le transport de prestige, les transferts aéroports, les mises à disposition et les événements diplomatiques ou professionnels.",
+    "cta": "Réserver un chauffeur"
+  },
+  "servicesPage": {
+    "title": "Nos Services de Prestige",
+    "transfers": {
+      "title": "Transferts Gares & Aéroports",
+      "desc": "Accueil personnalisé aux aéroports parisiens (CDG, Orly, Le Bourget) et gares parisiennes avec suivi en temps réel des vols."
+    },
+    "mad": {
+      "title": "Mise à Disposition",
+      "desc": "Un chauffeur dédié et un véhicule de prestige pour quelques heures, une journée ou plusieurs jours."
+    },
+    "vip": {
+      "title": "Accueil VIP & Greeter",
+      "desc": "Assistance sur-mesure dès la sortie de l'avion, coupe-file et prise en charge intégrale de vos bagages."
+    },
+    "events": {
+      "title": "Événements & Mariages",
+      "desc": "Coordination logistique de flottes de véhicules pour mariages, salons professionnels, défilés et Fashion Week."
+    }
+  },
+  "fleetPage": {
+    "title": "Notre Flotte Automobile",
+    "subtitle": "Des berlines et vans de grand luxe récents, entretenus et équipés pour votre plus grand confort.",
+    "eClass": {
+      "name": "Mercedes-Benz Classe E",
+      "category": "Berline Affaires",
+      "desc": "Idéale pour les transferts d'affaires et trajets urbains confortables."
+    },
+    "sClass": {
+      "name": "Mercedes-Benz Classe S",
+      "category": "Limousine Première Classe",
+      "desc": "Le summum du luxe, du silence et du raffinement pour les VIP et dirigeants."
+    },
+    "vClass": {
+      "name": "Mercedes-Benz Classe V",
+      "category": "Van VIP",
+      "desc": "Spacieux et modulable, parfait pour les délégations, familles et transferts avec nombreux bagages."
+    }
+  },
+  "yearlyChauffeur": {
+    "title": "Chauffeur Privé à l'Année",
+    "subtitle": "Une solution sur-mesure pour les dirigeants, familles et entreprises souhaitant un chauffeur dédié à plein temps ou à temps partiel.",
+    "p1": "Bénéficiez d'un chauffeur attitré d'excellence, formé à la discrétion, à la conduite sécurisée et à la gestion de protocole.",
+    "cta": "Demander une étude personnalisée"
+  },
+  "reservation": {
+    "badge": "Réservation en ligne 24/7",
+    "title": "Réservez votre chauffeur privé",
+    "subtitle": "Tarif fixé à l'avance, confirmation immédiate et service d'exception.",
+    "form": {
+      "tripType": "Type de trajet",
+      "oneWay": "Aller simple",
+      "roundTrip": "Aller-retour",
+      "hourly": "Mise à disposition",
+      "pickupAddress": "Lieu de prise en charge",
+      "pickupPlaceholder": "Aéroport, gare, adresse...",
+      "dropoffAddress": "Lieu de destination",
+      "dropoffPlaceholder": "Adresse d'arrivée...",
+      "date": "Date",
+      "time": "Heure",
+      "passengers": "Passagers",
+      "luggage": "Bagages",
+      "vehicleClass": "Gamme de véhicule",
+      "selectVehicle": "Sélectionnez une catégorie",
+      "berline": "Berline Prestige (Mercedes Classe E)",
+      "van": "Van VIP (Mercedes Classe V)",
+      "firstClass": "Première Classe (Mercedes Classe S)",
+      "fullName": "Nom & Prénom",
+      "email": "Adresse Email",
+      "phone": "Numéro de Téléphone",
+      "flightNumber": "Numéro de vol / train (optionnel)",
+      "specialRequests": "Demandes particulières (siège bébé, eau spécifique...)",
+      "submit": "Confirmer ma demande de réservation",
+      "submitting": "Transmission en cours...",
+      "successTitle": "Demande envoyée avec succès !",
+      "successMessage": "Notre équipe traite votre réservation et vous transmettra une confirmation détaillée par e-mail et SMS.",
+      "errorRequired": "Veuillez remplir tous les champs obligatoires."
+    }
+  },
+  "contact": {
+    "badge": "Contact & Devis",
+    "title": "Une demande sur-mesure ?",
+    "subtitle": "Notre équipe est à votre écoute 24h/24 et 7j/7.",
+    "phone": "Téléphone",
+    "email": "Email",
+    "address": "Adresse",
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Téléphone",
+      "subject": "Objet de la demande",
+      "message": "Votre message",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Votre message a été envoyé avec succès !"
+    }
+  },
+  "footer": {
+    "ctaTitle": "Vous êtes intéressés par une de nos prestations ?",
+    "ctaSubtitle": "Contactez-nous pour plus d’informations",
+    "ctaButton": "Nous contacter",
+    "description": "Société de chauffeur privé à Paris et partout dans le monde qui vous offre un service de transport haut de gamme et sur mesure.",
+    "menuTitle": "Menu",
+    "contactTitle": "Nous contacter",
+    "address": "10 Place Lucien Boilleau, 91420 Morangis",
+    "email": "contact@mcslimo.fr",
+    "phone": "+33 1 89 48 02 96",
+    "securePayment": "Tous les paiements sont sécurisés",
+    "copyright": "MCS Limo 2026 © Tous droits réservés.",
+    "legal": "Mentions légales",
+    "cgv": "CGV",
+    "privacy": "Politique de confidentialité"
+  }
+}

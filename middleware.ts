@@ -1,0 +1,70 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+const PUBLIC_FILE = /\.(.*)$/;
+
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Ignore internal Next.js assets, API routes, and static files
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/images') ||
+    pathname.includes('/api/') ||
+    PUBLIC_FILE.test(pathname)
+  ) {
+    return NextResponse.next();
+  }
+
+  const isEnglish = pathname === '/en' || pathname.startsWith('/en/');
+  const isArabic = pathname === '/ar' || pathname.startsWith('/ar/');
+  const locale = isArabic ? 'ar' : isEnglish ? 'en' : 'fr';
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-locale', locale);
+  requestHeaders.set('x-pathname', pathname);
+
+  if (isEnglish || isArabic) {
+    const prefixRegex = isArabic ? /^\/ar(\/|$)/ : /^\/en(\/|$)/;
+
+    // Strip prefix for internal routing
+    let targetPath = pathname.replace(prefixRegex, '/');
+    if (!targetPath.startsWith('/')) {
+      targetPath = '/' + targetPath;
+    }
+
+    const rewriteUrl = request.nextUrl.clone();
+    rewriteUrl.pathname = targetPath;
+
+    const response = NextResponse.rewrite(rewriteUrl, {
+      request: {
+        headers: requestHeaders,
+      },
+    });
+    response.headers.set('x-locale', locale);
+    return response;
+  }
+
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
+  response.headers.set('x-locale', 'fr');
+  return response;
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico, sitemap.xml, robots.txt
+     */
+    '/((?!api|_next/static|_next/image|images|favicon.ico|sitemap.xml|robots.txt).*)',
+  ],
+};
+

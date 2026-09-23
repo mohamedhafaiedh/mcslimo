@@ -1,18 +1,20 @@
 import React from "react";
 import Link from "next/link";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher, { SupportedLang } from "./LanguageSwitcher";
 
 interface LandingHeaderProps {
-  lang: "fr" | "en";
+  lang: SupportedLang;
   currentPath?: string;
 }
 
 export default function LandingHeader({ lang, currentPath = "/lp-chauffeur-prive" }: LandingHeaderProps) {
-  const homeHref = lang === "fr" ? "/" : "/en";
+  const homeHref = lang === "ar" ? "/ar" : lang === "en" ? "/en" : "/";
   const logoAlt =
-    lang === "fr"
-      ? "MCS Limo - Chauffeur privé de prestige à Paris"
-      : "MCS Limo - High-end Private Chauffeur in Paris";
+    lang === "ar"
+      ? "MCS Limo - سائق خاص فاخر في باريس"
+      : lang === "en"
+      ? "MCS Limo - High-end Private Chauffeur in Paris"
+      : "MCS Limo - Chauffeur privé de prestige à Paris";
 
   return (
     <header

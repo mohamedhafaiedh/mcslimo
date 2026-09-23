@@ -4,12 +4,26 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export interface ContactFormProps {
-  lang: "fr" | "en";
+  lang: "fr" | "en" | "ar";
 }
 
-function getFormattedTimestamp(lang: "fr" | "en") {
+function getFormattedTimestamp(lang: "fr" | "en" | "ar") {
   const now = new Date();
-  if (lang === "fr") {
+  if (lang === "ar") {
+    const dateStr = now.toLocaleDateString("fr-FR", {
+      timeZone: "Europe/Paris",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
+    const timeStr = now.toLocaleTimeString("fr-FR", {
+      timeZone: "Europe/Paris",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+    return `${dateStr} à ${timeStr} (توقيت باريس)`;
+  } else if (lang === "fr") {
     const dateStr = now.toLocaleDateString("fr-FR", {
       timeZone: "Europe/Paris",
       day: "2-digit",
@@ -109,6 +123,40 @@ const CONFIG = {
     submittingText: "Sending...",
     errorMessage: "An error occurred while sending your message. Please try again.",
     redirectUrl: "/en/merci-contact"
+  },
+  ar: {
+    formName: "contact-ar",
+    emailSubject: "طلب تواصل جديد",
+    fields: {
+      name: "nom",
+      phone: "telephone",
+      email: "email",
+      subject: "objet",
+      message: "message"
+    },
+    labels: {
+      name: "الاسم الكامل",
+      phone: "رقم الهاتف",
+      email: "البريد الإلكتروني",
+      subject: "موضوع الطلب",
+      message: "الرسالة"
+    },
+    placeholders: {
+      name: "الاسم الكامل",
+      phone: "رقم الهاتف",
+      email: "البريد الإلكتروني",
+      message: "اكتب رسالتك أو استفسارك هنا..."
+    },
+    subjectOptions: [
+      { value: "Demande d'information", label: "طلب معلومات" },
+      { value: "Demande de devis", label: "طلب عرض أسعار" },
+      { value: "Réservation", label: "حجز" }
+    ],
+    phoneTitle: "يُرجى إدخال أرقام ورموز هواتف صحيحة (#, -, *, +).",
+    submitButtonText: "إرسال طلبي",
+    submittingText: "جاري الإرسال...",
+    errorMessage: "حدث خطأ أثناء إرسال رسالتك. يُرجى إعادة المحاولة.",
+    redirectUrl: "/ar/merci-contact"
   }
 };
 

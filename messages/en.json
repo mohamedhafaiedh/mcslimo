@@ -1,0 +1,233 @@
+{
+  "common": {
+    "brand": "MCS LIMO",
+    "tagline": "High-End Private Chauffeur & Limousine Service in Paris",
+    "callUs": "Call us",
+    "bookNow": "Quote and booking",
+    "contactUs": "Contact us",
+    "readMore": "Read more",
+    "viewFleet": "Discover our fleet",
+    "ourServices": "Discover our services",
+    "backHome": "Back to home",
+    "allRightsReserved": "All rights reserved",
+    "fromPrice": "From",
+    "passengers": "passengers",
+    "luggage": "luggage",
+    "wifi": "Wi-Fi",
+    "refreshment": "Refreshments",
+    "childSeats": "Child seats",
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "services": "Services",
+    "transfers": "Transfers",
+    "mad": "Hourly car rental",
+    "vip": "VIP Greeter",
+    "fleet": "Fleet",
+    "yearlyDriver": "Yearly driver",
+    "contact": "Contact us",
+    "reservation": "Quote and booking"
+  },
+  "home": {
+    "hero": {
+      "title": "Private chauffeurs in Paris for a demanding clientele",
+      "subtitle": "We provide luxury cars with driver to meet all your travel needs.",
+      "cta": "Get a quote and book"
+    },
+    "trust": {
+      "title": "Dozens of professionals and individuals trust us every day..."
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "We offer tailor-made services that adapt to your needs",
+      "transfersTitle": "Transfers",
+      "transfersDesc": "For all your journeys in Paris to or from Parisian train stations or airports or long journeys to/from Paris.",
+      "madTitle": "Hourly car rental",
+      "madDesc": "Book your driver for the duration that suits you and our vehicle will remain mobilized to take you to your destinations.",
+      "vipTitle": "VIP Greeter",
+      "vipDesc": "To accompany you along your journey between the aircraft door and that of your vehicle and grant you priority access.",
+      "cta": "Discover our services"
+    },
+    "whyUs": {
+      "title": "Why choose MCS Limo?",
+      "feature1Title": "Experienced drivers",
+      "feature1Desc": "Our drivers have over 10 years of experience. They are all discreet, multilingual and have a sense of service.",
+      "feature2Title": "High-end services and cars",
+      "feature2Desc": "We provide high-end vehicles with quality service and absolute comfort.",
+      "feature3Title": "24/7 Availability",
+      "feature3Desc": "We are available at all times to process your requests or ensure your transport needs.",
+      "feature4Title": "Punctuality",
+      "feature4Desc": "Because your time is precious, we ensure our drivers arrive 15 minutes before the start of each service."
+    },
+    "fleet": {
+      "title": "Our Vehicles",
+      "subtitle": "We carefully select our vehicles in order to offer you maximum comfort",
+      "businessClass": "Business",
+      "businessModel": "Mercedes E-Class",
+      "businessPrice": "From 80€",
+      "vanClass": "VAN",
+      "vanModel": "Mercedes V-Class",
+      "vanPrice": "From 90€",
+      "luxeClass": "Luxury",
+      "luxeModel": "Mercedes S-Class",
+      "luxePrice": "From 110€",
+      "hybridModel": "Mercedes S-Class 580e",
+      "cta": "Discover our fleet"
+    },
+    "reviews": {
+      "title": "What our clients say about us",
+      "subtitle": "Verified reviews from our clients",
+      "googleVerified": "Google Verified Review",
+      "review1Author": "Abdoul Sock",
+      "review1Date": "January 23, 2023",
+      "review1Text": "« A great team, very professional, punctual. I highly recommend. »",
+      "review2Author": "Moi 75015",
+      "review2Date": "November 28, 2022",
+      "review2Text": "« Excellent !!!! I highly recommend for all your weddings !!! They are really at the top !!!! »",
+      "review3Author": "Latifa Moussa",
+      "review3Date": "November 28, 2022",
+      "review3Text": "« High-end driver, super clean vehicle, pleasant drive !! Too bad there are too many traffic jams in Paris !!! »"
+    },
+    "howToBook": {
+      "title": "How to book my driver?",
+      "subtitle": "To book a luxury car with driver, nothing could be simpler",
+      "step1Title": "1. Contact",
+      "step1Desc": "Email, telephone, contact form or online booking form.",
+      "step2Title": "2. Booking",
+      "step2Desc": "Describe your detailed need and we will advise you on the best service that best suits your situation.",
+      "step3Title": "3. Arrival 15 min before",
+      "step3Desc": "Our driver will be present 15 minutes before the start of your service with the vehicle ready."
+    },
+    "gallery": {
+      "title": "Discover our vehicle fleet"
+    },
+    "aboutSection": {
+      "title": "About MCS Limo",
+      "p1": "MCS Limo is a passenger transport company offering a tailor-made and top-of-the-range service by providing its customers with professional private drivers with luxury cars.",
+      "p2": "MCS Limo is present in France as well as in the largest cities around the world (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to accompany its business and private customers during their travels to offer them the same standard of quality wherever they travel.",
+      "cta": "About us"
+    }
+  },
+  "about": {
+    "title": "About us",
+    "subtitle": "Excellence in private chauffeur services in Paris and around the world",
+    "p1": "MCS Limo is a passenger transport company offering a tailor-made and top-of-the-range service by providing its customers with professional private drivers with luxury cars.",
+    "p2": "MCS Limo is present in France as well as in the largest cities around the world (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to accompany its business and private customers during their travels.",
+    "cta": "Book a driver"
+  },
+  "servicesPage": {
+    "title": "Our Services",
+    "subtitle": "We offer tailor-made services that adapt to your needs",
+    "transfers": {
+      "title": "Transfers",
+      "desc": "For all your journeys in Paris to or from Parisian train stations or airports or long journeys to/from Paris."
+    },
+    "mad": {
+      "title": "Hourly car rental",
+      "desc": "Book your driver for the duration that suits you and our vehicle will remain mobilized to take you to your destinations."
+    },
+    "vip": {
+      "title": "VIP Greeter",
+      "desc": "To accompany you along your journey between the aircraft door and that of your vehicle and grant you priority access."
+    },
+    "events": {
+      "title": "Events & Weddings",
+      "desc": "Fleet logistical coordination for weddings, professional trade shows, fashion shows, and Paris Fashion Week."
+    }
+  },
+  "fleetPage": {
+    "title": "Our Fleet",
+    "subtitle": "We carefully select our vehicles in order to offer you maximum comfort",
+    "eClass": {
+      "name": "Mercedes Classe E",
+      "category": "Business",
+      "desc": "Ideal for business transfers and comfortable urban journeys."
+    },
+    "sClass": {
+      "name": "Mercedes Classe S",
+      "category": "Luxury",
+      "desc": "The pinnacle of luxury, serenity, and refinement for VIPs and executives."
+    },
+    "vClass": {
+      "name": "Mercedes Classe V",
+      "category": "VAN",
+      "desc": "Spacious and versatile, perfect for delegations, families, and high-luggage transfers."
+    }
+  },
+  "yearlyChauffeur": {
+    "title": "Yearly driver",
+    "subtitle": "A tailor-made solution for executives, families and companies looking for a dedicated full-time or part-time driver.",
+    "p1": "Benefit from a dedicated high-end driver trained in discretion, secure driving, and protocol management.",
+    "cta": "Request a customized study"
+  },
+  "reservation": {
+    "badge": "24/7 Online Booking",
+    "title": "Book your private driver",
+    "subtitle": "Fixed rates in advance, immediate confirmation, and exceptional service.",
+    "form": {
+      "tripType": "Trip type",
+      "oneWay": "One-way",
+      "roundTrip": "Round-trip",
+      "hourly": "Hourly car rental",
+      "pickupAddress": "Pick-up address",
+      "pickupPlaceholder": "Airport, station, address...",
+      "dropoffAddress": "Drop-off address",
+      "dropoffPlaceholder": "Destination address...",
+      "date": "Date",
+      "time": "Time",
+      "passengers": "Passengers",
+      "luggage": "Luggage",
+      "vehicleClass": "Vehicle category",
+      "selectVehicle": "Select a category",
+      "berline": "Business Sedan (Mercedes Classe E)",
+      "van": "VIP Van (Mercedes Classe V)",
+      "firstClass": "Luxury First Class (Mercedes Classe S)",
+      "fullName": "Full name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "flightNumber": "Flight / Train number (optional)",
+      "specialRequests": "Special requests (child seat, specific amenities...)",
+      "submit": "Confirm my booking request",
+      "submitting": "Processing request...",
+      "successTitle": "Booking request sent successfully!",
+      "successMessage": "Our dispatch team is processing your booking and will send a detailed confirmation via email and SMS.",
+      "errorRequired": "Please fill in all required fields."
+    }
+  },
+  "contact": {
+    "badge": "Contact & Quote",
+    "title": "A tailor-made request?",
+    "subtitle": "Our team is available 24/7 to answer all your requests.",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Your message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully!"
+    }
+  },
+  "footer": {
+    "ctaTitle": "Are you interested in our services ?",
+    "ctaSubtitle": "Contact us for more informations",
+    "ctaButton": "Contact Us",
+    "description": "Private chauffeur company in Paris and around the world offering high-end and tailor-made transport services.",
+    "menuTitle": "Menu",
+    "contactTitle": "Contact us",
+    "address": "10 Place Lucien Boilleau, 91420 Morangis",
+    "email": "contact@mcslimo.fr",
+    "phone": "+33 1 89 48 02 96",
+    "securePayment": "All payments are 100% secure",
+    "copyright": "MCS Limo 2026 © All rights reserved.",
+    "legal": "Legal Notice",
+    "cgv": "Terms & Conditions",
+    "privacy": "Privacy Policy"
+  }
+}

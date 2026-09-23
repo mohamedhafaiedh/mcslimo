@@ -2311,76 +2311,301 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 
 
-/* Reviews Component Styles */
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  width: 100%;
-  margin-top: 20px;
+/* Reviews Component Styles (3 Columns on Desktop) */
+.reviews-grid,
+.reviews-carousel,
+.reviews-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin: 20px auto 0 auto !important;
+  padding: 0 15px !important;
+  box-sizing: border-box !important;
 }
+
+@media (max-width: 991px) {
+  .reviews-grid,
+  .reviews-carousel,
+  .reviews-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews-grid,
+  .reviews-carousel,
+  .reviews-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .review-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #f0f0f0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  border: 1px solid #eaeaea !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  box-sizing: border-box !important;
+  height: 100% !important;
 }
 .review-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
 }
 .review-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-bottom: 12px !important;
 }
 .review-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #C09E5B;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 18px;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: #C09E5B !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
+  flex-shrink: 0 !important;
 }
 .review-author {
-  font-weight: 700;
-  font-size: 16px;
-  color: #111827;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: #111827 !important;
 }
 .review-date {
-  font-size: 13px;
-  color: #6b7280;
+  font-size: 13px !important;
+  color: #6b7280 !important;
 }
 .review-stars {
-  color: #f59e0b;
-  font-size: 16px;
-  margin-bottom: 12px;
-  display: flex;
-  gap: 3px;
+  color: #f59e0b !important;
+  font-size: 16px !important;
+  margin-bottom: 12px !important;
+  display: flex !important;
+  gap: 3px !important;
 }
 .review-body {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: #374151;
-  font-style: italic;
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+  color: #374151 !important;
+  font-style: italic !important;
+  flex-grow: 1 !important;
 }
 .review-source {
-  margin-top: 14px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #9ca3af;
+  margin-top: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 12px !important;
+  color: #9ca3af !important;
+}
+
+/* Reviews Section Container, Title, and Divider Styling */
+.elementor-element.elementor-element-c12aaea,
+.elementor-element.elementor-element-443b2f5 {
+  background-color: var(--e-global-color-44c34ae, #F5F5F5) !important;
+  padding-top: 60px !important;
+  padding-bottom: 10px !important;
+}
+
+.elementor-element.elementor-element-3141ba5 {
+  background-color: var(--e-global-color-44c34ae, #F5F5F5) !important;
+  padding-bottom: 60px !important;
+}
+
+.elementor-element.elementor-element-9b16b6b,
+.elementor-element.elementor-element-86c5220 {
+  text-align: center !important;
+}
+
+.elementor-element.elementor-element-9b16b6b .elementor-heading-title,
+.elementor-element.elementor-element-86c5220 .elementor-heading-title {
+  color: var(--e-global-color-primary, #000000) !important;
+  font-family: var(--e-global-typography-primary-font-family, "Dosis"), Sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.elementor-element.elementor-element-ea285f2,
+.elementor-element.elementor-element-31eb463 {
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+
+.elementor-element.elementor-element-ea285f2 .elementor-divider,
+.elementor-element.elementor-element-31eb463 .elementor-divider {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 10px 0 !important;
+}
+
+.elementor-element.elementor-element-ea285f2 .elementor-divider-separator,
+.elementor-element.elementor-element-31eb463 .elementor-divider-separator {
+  width: 80px !important;
+  height: 15px !important;
+  margin: 0 auto !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='%23C09E5B' stroke-width='1.5' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-repeat: repeat-x !important;
+  background-size: 20px 15px !important;
+  display: block !important;
+  border: none !important;
+}
+
+/* RTL / Arabic How to contact / steps image-box styling (Icon on the right before text) */
+[dir="rtl"] .elementor-element-01da488 .elementor-widget-image-box .elementor-image-box-wrapper,
+body.rtl .elementor-element-01da488 .elementor-widget-image-box .elementor-image-box-wrapper,
+[dir="rtl"] .elementor-position-left .elementor-image-box-wrapper,
+[dir="rtl"] .elementor-position-right .elementor-image-box-wrapper,
+body.rtl .elementor-position-left .elementor-image-box-wrapper,
+body.rtl .elementor-position-right .elementor-image-box-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  direction: rtl !important;
+  text-align: right !important;
+  align-items: flex-start !important;
+}
+
+[dir="rtl"] .elementor-element-01da488 .elementor-widget-image-box .elementor-image-box-img,
+body.rtl .elementor-element-01da488 .elementor-widget-image-box .elementor-image-box-img,
+[dir="rtl"] .elementor-position-left .elementor-image-box-img,
+[dir="rtl"] .elementor-position-right .elementor-image-box-img,
+body.rtl .elementor-position-left .elementor-image-box-img,
+body.rtl .elementor-position-right .elementor-image-box-img {
+  margin-left: 18px !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+[dir="rtl"] .elementor-element-01da488 .elementor-widget-image-box .elementor-image-box-content,
+body.rtl .elementor-element-01da488 .elementor-widget-image-box .elementor-image-box-content,
+[dir="rtl"] .elementor-position-left .elementor-image-box-content,
+[dir="rtl"] .elementor-position-right .elementor-image-box-content,
+body.rtl .elementor-position-left .elementor-image-box-content,
+body.rtl .elementor-position-right .elementor-image-box-content {
+  text-align: right !important;
+  direction: rtl !important;
+  flex: 1 !important;
+}
+
+/* Image box top-positioned (e.g. Pourquoi choisir MCS Limo / Features) in RTL: icon top, title below, description below */
+[dir="rtl"] .elementor-position-top .elementor-image-box-wrapper,
+body.rtl .elementor-position-top .elementor-image-box-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: center !important;
+  align-items: center !important;
+}
+
+[dir="rtl"] .elementor-position-top .elementor-image-box-img,
+body.rtl .elementor-position-top .elementor-image-box-img {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 15px !important;
+  flex-shrink: 0 !important;
+}
+
+[dir="rtl"] .elementor-position-top .elementor-image-box-content,
+body.rtl .elementor-position-top .elementor-image-box-content,
+[dir="rtl"] .elementor-position-top .elementor-image-box-title,
+[dir="rtl"] .elementor-position-top .elementor-image-box-description,
+body.rtl .elementor-position-top .elementor-image-box-title,
+body.rtl .elementor-position-top .elementor-image-box-description {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* Vertical Icon Lists in RTL */
+[dir="rtl"] .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item,
+body.rtl .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-item {
+  display: flex !important;
+  align-items: center !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-icon,
+body.rtl .elementor-icon-list-items:not(.elementor-inline-items) .elementor-icon-list-icon {
+  margin-left: 10px !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Inline Icon List Alignment & Visual Grouping (Fleet page, etc.) across LTR and RTL */
+.elementor-icon-list--layout-inline .elementor-icon-list-items.elementor-inline-items,
+.elementor-inline-items {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px 24px !important;
+}
+
+.elementor-icon-list--layout-inline .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item,
+.elementor-inline-items .elementor-inline-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.elementor-icon-list--layout-inline .elementor-inline-item .elementor-icon-list-icon,
+.elementor-inline-items .elementor-inline-item .elementor-icon-list-icon {
+  margin-right: 6px !important;
+  margin-left: 0 !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.elementor-icon-list--layout-inline .elementor-inline-item .elementor-icon-list-text,
+.elementor-inline-items .elementor-inline-item .elementor-icon-list-text {
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+}
+
+[dir="rtl"] .elementor-icon-list--layout-inline .elementor-icon-list-items.elementor-inline-items,
+body.rtl .elementor-icon-list--layout-inline .elementor-icon-list-items.elementor-inline-items,
+[dir="rtl"] .elementor-inline-items,
+body.rtl .elementor-inline-items {
+  direction: rtl !important;
+}
+
+[dir="rtl"] .elementor-icon-list--layout-inline .elementor-inline-item,
+body.rtl .elementor-icon-list--layout-inline .elementor-inline-item,
+[dir="rtl"] .elementor-inline-items .elementor-inline-item,
+body.rtl .elementor-inline-items .elementor-inline-item {
+  direction: rtl !important;
+}
+
+[dir="rtl"] .elementor-icon-list--layout-inline .elementor-inline-item .elementor-icon-list-icon,
+body.rtl .elementor-icon-list--layout-inline .elementor-inline-item .elementor-icon-list-icon,
+[dir="rtl"] .elementor-inline-items .elementor-inline-item .elementor-icon-list-icon,
+body.rtl .elementor-inline-items .elementor-inline-item .elementor-icon-list-icon {
+  margin-left: 6px !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
+}
+
+/* LP S 580e red price styling */
+.elementor-1634 .elementor-element.elementor-element-cdea823,
+.elementor-1634 .elementor-element.elementor-element-cdea823 .elementor-heading-title {
+  text-align: center !important;
+  color: #DE0000 !important;
 }
 
 /* Mobile navigation dropdown toggles */
@@ -3077,7 +3302,7 @@ footer .sub-arrow {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  margin-right: 15px !important;
+  margin-inline-end: 15px !important;
   flex-shrink: 0 !important;
   position: relative !important;
 }
@@ -3142,7 +3367,7 @@ footer .sub-arrow {
   transform: scaleY(-1) !important;
 }
 
-/* Snug Dropdown Box with Zero Empty Space */
+/* Snug Dropdown Box with Variable Width matching text + equal padding */
 .trp-language-switcher-container > .sub-menu.trp-dropdown-menu {
   display: none !important;
   position: absolute !important;
@@ -3150,8 +3375,8 @@ footer .sub-arrow {
   left: 50% !important;
   transform: translateX(-50%) !important;
   width: max-content !important;
-  min-width: unset !important;
-  max-width: fit-content !important;
+  min-width: max-content !important;
+  max-width: none !important;
   background-color: #0b0c0e !important;
   border: 1px solid rgba(192, 158, 91, 0.3) !important;
   border-radius: 6px !important;
@@ -3191,6 +3416,7 @@ footer .sub-arrow {
 
 .trp-dropdown-menu .trp-flag-image {
   margin-right: 0 !important;
+  flex-shrink: 0 !important;
 }
 
 .elementor-nav-menu--main .trp-language-switcher-container .trp-dropdown-menu .elementor-sub-item,
@@ -3198,11 +3424,16 @@ footer .sub-arrow {
 .elementor-nav-menu--main .trp-language-switcher-container .trp-dropdown-menu .elementor-sub-item:focus {
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  gap: 6px !important;
-  padding: 8px 16px !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  direction: ltr !important;
+  gap: 8px !important;
+  padding: 10px 16px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
   box-sizing: border-box !important;
   width: 100% !important;
+  min-width: max-content !important;
   color: #f3f4f6 !important;
   font-size: 15px !important;
   font-weight: 600 !important;
@@ -3219,6 +3450,17 @@ footer .sub-arrow {
 .elementor-nav-menu--main .trp-language-switcher-container .trp-dropdown-menu .elementor-sub-item:focus {
   background-color: rgba(192, 158, 91, 0.22) !important;
   color: #C09E5B !important;
+}
+
+.trp-language-switcher-container .trp-dropdown-menu,
+.trp-language-switcher-container .trp-dropdown-menu li {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.trp-language-switcher-container .trp-dropdown-menu .trp-ls-language-name {
+  text-align: left !important;
+  white-space: nowrap !important;
 }
 
 /* ==========================================================================
@@ -3275,8 +3517,13 @@ button[type="submit"]:disabled *,
    MOBILE HEADER: Logo, Language Switcher, and Menu Icon on a single line
    ========================================================================== */
 @media (max-width: 767px) {
-  .elementor-25 .elementor-element.elementor-element-1e8d965 {
+  header.elementor-25 {
     position: relative !important;
+    width: 100% !important;
+  }
+
+  .elementor-25 .elementor-element.elementor-element-1e8d965 {
+    position: static !important;
     width: 100% !important;
   }
 
@@ -3289,8 +3536,9 @@ button[type="submit"]:disabled *,
     box-sizing: border-box !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 6px 12px !important;
-    gap: 6px !important;
+    padding: 8px 14px !important;
+    gap: 8px !important;
+    position: static !important;
   }
 
   /* 1. Logo */
@@ -3301,14 +3549,16 @@ button[type="submit"]:disabled *,
     max-width: 55% !important;
     padding: 0 !important;
     margin: 0 !important;
+    position: static !important;
   }
 
   .elementor-25 .elementor-element.elementor-element-9ee1763 {
     width: auto !important;
+    position: static !important;
   }
 
   .elementor-25 .elementor-element.elementor-element-9ee1763 img {
-    max-width: 120px !important;
+    max-width: 125px !important;
     width: auto !important;
     height: auto !important;
     display: block !important;
@@ -3320,8 +3570,10 @@ button[type="submit"]:disabled *,
     flex: 0 0 auto !important;
     width: auto !important;
     margin-left: auto !important;
-    margin-right: 4px !important;
+    margin-right: 6px !important;
     padding: 0 !important;
+    position: relative !important;
+    z-index: 1000 !important;
   }
 
   .elementor-25 .elementor-element.elementor-element-6acbd4f {
@@ -3333,7 +3585,7 @@ button[type="submit"]:disabled *,
     font-size: 14px !important;
   }
 
-  /* 3. Menu Icon (Burger) */
+  /* 3. Menu Icon (Burger Toggle) */
   .elementor-25 .elementor-element.elementor-element-05ed421 {
     order: 3 !important;
     flex: 0 0 auto !important;
@@ -3345,24 +3597,187 @@ button[type="submit"]:disabled *,
 
   .elementor-25 .elementor-element.elementor-element-8d9ea35 {
     width: auto !important;
+    position: static !important;
+  }
+
+  .elementor-25 .elementor-element.elementor-element-8d9ea35 > .elementor-widget-container {
+    position: static !important;
   }
 
   .elementor-25 .elementor-menu-toggle {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 6px 8px !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 6px !important;
     margin: 0 !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* Dropdown opens below the header across full width */
+  .elementor-25 .elementor-menu-toggle svg {
+    width: 22px !important;
+    height: 22px !important;
+    fill: #ffffff !important;
+    transition: fill 0.2s ease !important;
+  }
+
+  .elementor-25 .elementor-menu-toggle:hover,
+  .elementor-25 .elementor-menu-toggle:focus,
+  .elementor-25 .elementor-menu-toggle.elementor-active {
+    color: #C09E5B !important;
+    background: rgba(192, 158, 91, 0.12) !important;
+  }
+
+  .elementor-25 .elementor-menu-toggle.elementor-active svg,
+  .elementor-25 .elementor-menu-toggle:hover svg {
+    fill: #C09E5B !important;
+  }
+
+  /* Dropdown Menu Container: Full viewport width, luxury carbon dark theme */
+  .elementor-25 .elementor-nav-menu--dropdown,
   .elementor-25 .elementor-element.elementor-element-8d9ea35 .elementor-nav-menu--dropdown {
     position: absolute !important;
     top: 100% !important;
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    z-index: 999999 !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #0b0c0e !important;
+    background: #0b0c0e !important;
+    border-top: 1px solid rgba(192, 158, 91, 0.35) !important;
+    border-bottom: 2px solid #C09E5B !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9) !important;
+    z-index: 9999999 !important;
+    max-height: calc(100vh - 65px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Visibility states */
+  .elementor-25 .elementor-nav-menu--dropdown:not(.is-open) {
+    display: none !important;
+  }
+
+  .elementor-25 .elementor-nav-menu--dropdown.is-open {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-height: calc(100vh - 65px) !important;
+    transform: none !important;
+    animation: mobileMenuSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Mobile menu items list */
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 6px 0 !important;
+    list-style: none !important;
+    background: transparent !important;
+  }
+
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu li.menu-item {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    list-style: none !important;
+  }
+
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu li.menu-item:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Mobile menu link typography and layout */
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 15px 22px !important;
+    color: #ffffff !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    transition: background-color 0.2s ease, color 0.2s ease, padding 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item:hover,
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item:focus,
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item:active,
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item.elementor-item-active,
+  .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item.highlighted {
+    color: #C09E5B !important;
+    background-color: rgba(192, 158, 91, 0.12) !important;
+    padding-left: 28px !important;
+  }
+
+  /* RTL Support for Arabic */
+  [dir="rtl"] .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item {
+    text-align: right !important;
+    justify-content: flex-start !important;
+    padding: 15px 22px !important;
+  }
+
+  [dir="rtl"] .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item:hover,
+  [dir="rtl"] .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item:focus,
+  [dir="rtl"] .elementor-25 .elementor-nav-menu--dropdown ul.elementor-nav-menu a.elementor-item:active {
+    padding-right: 28px !important;
+    padding-left: 22px !important;
+  }
+
+  /* Mobile CTA Button inside unfolded dropdown */
+  .elementor-25 .elementor-nav-menu--dropdown .mobile-menu-cta {
+    display: block !important;
+    padding: 16px 20px 22px 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    border-top: 1px solid rgba(192, 158, 91, 0.25) !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .elementor-25 .elementor-nav-menu--dropdown .mobile-menu-cta-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 14px 20px !important;
+    background-color: #C09E5B !important;
+    color: #0b0c0e !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 15px rgba(192, 158, 91, 0.35) !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .elementor-25 .elementor-nav-menu--dropdown .mobile-menu-cta-btn:hover,
+  .elementor-25 .elementor-nav-menu--dropdown .mobile-menu-cta-btn:active {
+    background-color: #d4ae65 !important;
+    transform: translateY(-1px) !important;
   }
 
   /* Landing page header mobile row */
@@ -3386,6 +3801,17 @@ button[type="submit"]:disabled *,
     display: flex !important;
     align-items: center !important;
     justify-content: flex-end !important;
+  }
+}
+
+@keyframes mobileMenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -3555,6 +3981,311 @@ button[type="submit"]:disabled *,
   color: #888;
   display: flex;
   align-items: center;
+}
+
+/* Custom Layout Fixes for Grid & Why Choose Us Section */
+
+/* 1. Why Choose Us Section 4 Columns Grid */
+@media (min-width: 992px) {
+  .why-choose-us-grid,
+  .elementor-element-314ef61 > .e-con-inner {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: 1140px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 991px) {
+  .why-choose-us-grid,
+  .elementor-element-314ef61 > .e-con-inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .why-choose-us-grid,
+  .elementor-element-314ef61 > .e-con-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+}
+
+/* Why Choose Us Icons - Strictly Centered on Top */
+.why-choose-us-card .elementor-image-box-wrapper,
+.elementor-element-314ef61 .elementor-image-box-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.why-choose-us-card .elementor-image-box-img,
+.elementor-element-314ef61 .elementor-image-box-img {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 15px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.why-choose-us-card .elementor-image-box-content,
+.elementor-element-314ef61 .elementor-image-box-content {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.why-choose-us-card .elementor-image-box-title,
+.elementor-element-314ef61 .elementor-image-box-title,
+.why-choose-us-card .elementor-image-box-description,
+.elementor-element-314ef61 .elementor-image-box-description {
+  text-align: center !important;
+}
+
+/* 2. Fleet / Vehicle Cards 4 Columns Grid */
+@media (min-width: 992px) {
+  .fleet-grid,
+  .elementor-element-d31aa11 > .e-con-inner {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 1140px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 991px) {
+  .fleet-grid,
+  .elementor-element-d31aa11 > .e-con-inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .fleet-grid,
+  .elementor-element-d31aa11 > .e-con-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+}
+
+/* 3. Section Dividers Golden Accent Override */
+.elementor-widget-divider--separator-type-pattern .elementor-divider-separator,
+.elementor-element .elementor-divider-separator,
+.elementor-divider-separator {
+  width: 80px !important;
+  height: 15px !important;
+  margin: 0 auto !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' overflow='visible' height='100%' viewBox='0 0 20 16' fill='none' stroke='%23C09E5B' stroke-width='1.5' stroke-linecap='square' stroke-miterlimit='10'%3E%3Cg transform='translate(-12.000000, 0)'%3E%3Cpath d='M28,0L10,18'/%3E%3Cpath d='M18,0L0,18'/%3E%3Cpath d='M48,0L30,18'/%3E%3Cpath d='M38,0L20,18'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-repeat: repeat-x !important;
+  background-size: 20px 15px !important;
+  background-color: transparent !important;
+  display: block !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* ==========================================================================
+   Section Background Color Harmony (Edge-to-Edge Full-Bleed Fixes)
+   ========================================================================== */
+
+/* 1. Nos Services Section: 100% Pure White (#ffffff) Edge-to-Edge */
+.services-section-wrapper,
+.services-section-wrapper > div,
+.services-section-wrapper .elementor-element-90115f2,
+.services-section-wrapper .elementor-element-34308d5,
+.services-section-wrapper .elementor-element-9666335,
+.services-section-wrapper .e-con-inner,
+.services-section-wrapper .elementor-widget-container,
+.services-section-wrapper .elementor-element-2aaa3e1,
+.services-section-wrapper .elementor-element-0b98ee2,
+.services-section-wrapper .elementor-element-a4cf959,
+.services-section-wrapper .elementor-element-7d637c0,
+.services-section-wrapper .elementor-element-4a2026d,
+.services-section-wrapper .elementor-element-468d8d6,
+.services-section-wrapper .elementor-element-044593b,
+.services-section-wrapper .elementor-element-035a507,
+.services-section-wrapper .elementor-element-a926567,
+.services-section-wrapper .elementor-element-ddb7642,
+.services-section-wrapper .elementor-element-fd9663b,
+.services-section-wrapper .elementor-element-7292a37,
+.services-section-wrapper .elementor-element-ac7b56c,
+.services-section-wrapper .elementor-element-521fa7b,
+.services-section-wrapper .elementor-button-wrapper {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  width: 100% !important;
+}
+
+.services-section-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+.services-section-wrapper img,
+.services-section-wrapper .elementor-divider-separator {
+  background-color: transparent !important;
+  background-image: inherit;
+}
+
+/* 2. Pourquoi choisir MCS Limo ? Section: 100% Uniform Light Grey (#f5f5f5) Edge-to-Edge */
+.why-choose-us-section-wrapper,
+section#qui-sommes-nous,
+.elementor-element.elementor-element-6a91991 {
+  background-color: #f5f5f5 !important;
+  background: #f5f5f5 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+.why-choose-us-section-wrapper .e-con-inner,
+.why-choose-us-section-wrapper .why-choose-us-grid,
+.why-choose-us-section-wrapper .why-choose-us-card,
+.why-choose-us-section-wrapper .elementor-element,
+.why-choose-us-section-wrapper .elementor-widget,
+.why-choose-us-section-wrapper .elementor-widget-container,
+.why-choose-us-section-wrapper .elementor-image-box-wrapper,
+.why-choose-us-section-wrapper .elementor-image-box-content,
+.why-choose-us-section-wrapper figure,
+.why-choose-us-section-wrapper h2,
+.why-choose-us-section-wrapper h3,
+.why-choose-us-section-wrapper p,
+.why-choose-us-section-wrapper .elementor-heading-title,
+.why-choose-us-section-wrapper .elementor-image-box-title,
+.why-choose-us-section-wrapper .elementor-image-box-description,
+.elementor-element.elementor-element-6a91991 .e-con-inner,
+.elementor-element.elementor-element-6a91991 .elementor-widget-container {
+  background-color: #f5f5f5 !important;
+}
+
+.why-choose-us-section-wrapper img {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.why-choose-us-section-wrapper .elementor-divider-separator {
+  background-color: transparent !important;
+}
+
+/* 3. Nos Véhicules Section: 100% Pure White (#ffffff) Edge-to-Edge */
+.vehicles-section-wrapper,
+.vehicles-section-wrapper > div,
+.vehicles-section-wrapper .elementor-element-62bee91,
+.vehicles-section-wrapper .elementor-element-1fb803e,
+.vehicles-section-wrapper .elementor-element-ccc2142,
+.vehicles-section-wrapper .e-con-inner,
+.vehicles-section-wrapper .elementor-widget-container {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  width: 100% !important;
+}
+
+.vehicles-section-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+.vehicles-section-wrapper img,
+.vehicles-section-wrapper .elementor-divider-separator {
+  background-color: transparent !important;
+}
+
+/* Subtitle and divider global centering */
+.elementor-widget-heading .elementor-heading-title,
+.elementor-widget-text-editor {
+  text-align: center;
+}
+
+/* 4. Vehicle Box Card Distinct Box Layout */
+.vehicle-box-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 24px 20px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.vehicle-box-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+  border-color: #C09E5B !important;
+}
+
+.vehicle-box-card .elementor-widget-heading {
+  margin-bottom: 4px !important;
+}
+
+.vehicle-box-card img {
+  display: block !important;
+  margin: 12px auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+.vehicle-box-card .elementor-icon-list-items {
+  margin-top: 15px !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+/* 5. Flotte Page Row Layout on Desktop */
+@media (min-width: 768px) {
+  .elementor-element-76f5ccd > .e-con-inner,
+  .elementor-element-c92e739 > .e-con-inner,
+  .elementor-element-645c4ee > .e-con-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 30px !important;
+    width: 100% !important;
+    max-width: 1140px !important;
+    margin: 0 auto !important;
+  }
+
+  .elementor-element-76f5ccd .e-con-full,
+  .elementor-element-c92e739 .e-con-full,
+  .elementor-element-645c4ee .e-con-full {
+    width: 48% !important;
+    flex: 1 1 48% !important;
+  }
 }
 
 

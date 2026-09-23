@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
 
@@ -13,14 +14,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MerciReservationPage() {
+export default async function MerciReservationPage() {
+  const headersList = await headers();
+  const rawLocale = headersList.get("x-locale");
+  const locale: "fr" | "en" | "ar" = rawLocale === "ar" ? "ar" : rawLocale === "en" ? "en" : "fr";
+  const isAr = locale === "ar";
+  const isEn = locale === "en";
+
   return (
-    <div id="page" className="site">
+    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
       <a className="skip-link screen-reader-text" href="#content">
-        Aller au contenu
+        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
       </a>
 
-      <MainHeader lang="fr" currentPath="/merci-reservation" />
+      <MainHeader lang={locale} currentPath={isAr ? "/ar/merci-reservation" : isEn ? "/en/merci-reservation" : "/merci-reservation"} />
 
       <main
         id="content"
@@ -82,7 +89,7 @@ export default function MerciReservationPage() {
               lineHeight: 1.3,
             }}
           >
-            Merci pour votre demande de devis !
+            {isAr ? "شكراً لطلب الحجز وعرض الأسعار!" : isEn ? "Thank you for your booking request!" : "Merci pour votre demande de devis !"}
           </h1>
 
           <p
@@ -95,9 +102,11 @@ export default function MerciReservationPage() {
               margin: "0 auto 32px",
             }}
           >
-            Merci d&apos;avoir soumis votre demande de devis. Notre équipe va étudier les
-            détails de votre trajet et vous envoyer une proposition personnalisée dans
-            les plus brefs délais.
+            {isAr
+              ? "شكراً لإرسال طلبك. يقوم فريقنا بدراسة تفاصيل رحلتك وسنرسل لك التأكيد وعرض السعر في أقرب وقت."
+              : isEn
+              ? "Thank you for submitting your quote request. Our team is reviewing the details and will send you a confirmation promptly."
+              : "Merci d'avoir soumis votre demande de devis. Notre équipe va étudier les détails de votre trajet et vous envoyer une proposition personnalisée dans les plus brefs délais."}
           </p>
 
           <div
@@ -107,7 +116,7 @@ export default function MerciReservationPage() {
             }}
           >
             <Link
-              href="/"
+              href={isAr ? "/ar" : isEn ? "/en" : "/"}
               className="elementor-button elementor-size-md"
               style={{
                 display: "inline-block",
@@ -115,13 +124,16 @@ export default function MerciReservationPage() {
                 textDecoration: "none",
               }}
             >
-              <span className="elementor-button-text">Retour à l&apos;accueil</span>
+              <span className="elementor-button-text">
+                {isAr ? "العودة إلى الصفحة الرئيسية" : isEn ? "Back to Homepage" : "Retour à l'accueil"}
+              </span>
             </Link>
           </div>
         </div>
       </main>
 
-      <MainFooter lang="fr" />
+      <MainFooter lang={locale} />
     </div>
   );
 }
+

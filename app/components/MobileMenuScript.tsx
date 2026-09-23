@@ -8,6 +8,10 @@ export default function MobileMenuScript() {
       const target = e.target as HTMLElement | null;
       const toggleBtn = target?.closest(".elementor-menu-toggle");
       if (toggleBtn) {
+        // If inside MainHeader (header.elementor-25), state is handled natively by React
+        if (toggleBtn.closest("header.elementor-25")) {
+          return;
+        }
         const parent = toggleBtn.closest(".elementor-widget-nav-menu") || document;
         const dropdown = parent.querySelector(".elementor-nav-menu--dropdown");
         if (dropdown) {
