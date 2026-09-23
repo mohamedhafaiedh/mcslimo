@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
+import { getTranslation, localizeUrl, getDir, Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Demande de réservation reçue - MCS Limo",
@@ -17,17 +18,17 @@ export const metadata: Metadata = {
 export default async function MerciReservationPage() {
   const headersList = await headers();
   const rawLocale = headersList.get("x-locale");
-  const locale: "fr" | "en" | "ar" = rawLocale === "ar" ? "ar" : rawLocale === "en" ? "en" : "fr";
-  const isAr = locale === "ar";
-  const isEn = locale === "en";
+  const locale: Locale = rawLocale === "ar" ? "ar" : rawLocale === "en" ? "en" : "fr";
+  const dir = getDir(locale);
+  const t = getTranslation(locale);
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
 
-      <MainHeader lang={locale} currentPath={isAr ? "/ar/merci-reservation" : isEn ? "/en/merci-reservation" : "/merci-reservation"} />
+      <MainHeader lang={locale} currentPath={localizeUrl("/merci-reservation", locale)} />
 
       <main
         id="content"
@@ -89,7 +90,7 @@ export default async function MerciReservationPage() {
               lineHeight: 1.3,
             }}
           >
-            {isAr ? "شكراً لطلب الحجز وعرض الأسعار!" : isEn ? "Thank you for your booking request!" : "Merci pour votre demande de devis !"}
+            {t("thankYou.reservationTitle", "Merci pour votre demande de devis !")}
           </h1>
 
           <p
@@ -102,11 +103,7 @@ export default async function MerciReservationPage() {
               margin: "0 auto 32px",
             }}
           >
-            {isAr
-              ? "شكراً لإرسال طلبك. يقوم فريقنا بدراسة تفاصيل رحلتك وسنرسل لك التأكيد وعرض السعر في أقرب وقت."
-              : isEn
-              ? "Thank you for submitting your quote request. Our team is reviewing the details and will send you a confirmation promptly."
-              : "Merci d'avoir soumis votre demande de devis. Notre équipe va étudier les détails de votre trajet et vous envoyer une proposition personnalisée dans les plus brefs délais."}
+            {t("thankYou.reservationDesc", "Merci d'avoir soumis votre demande de devis. Notre équipe va étudier les détails de votre trajet et vous envoyer une proposition personnalisée dans les plus brefs délais.")}
           </p>
 
           <div
@@ -116,7 +113,7 @@ export default async function MerciReservationPage() {
             }}
           >
             <Link
-              href={isAr ? "/ar" : isEn ? "/en" : "/"}
+              href={localizeUrl("/", locale)}
               className="elementor-button elementor-size-md"
               style={{
                 display: "inline-block",
@@ -125,7 +122,7 @@ export default async function MerciReservationPage() {
               }}
             >
               <span className="elementor-button-text">
-                {isAr ? "العودة إلى الصفحة الرئيسية" : isEn ? "Back to Homepage" : "Retour à l'accueil"}
+                {t("thankYou.backHome", "Retour à l'accueil")}
               </span>
             </Link>
           </div>
@@ -136,4 +133,3 @@ export default async function MerciReservationPage() {
     </div>
   );
 }
-

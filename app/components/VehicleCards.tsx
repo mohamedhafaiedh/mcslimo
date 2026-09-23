@@ -1,62 +1,64 @@
+"use client";
+
 import React from "react";
+import { useTranslation, Locale } from "@/lib/useTranslation";
 
 interface VehicleCardsProps {
-  lang: string;
+  lang?: string;
   showPrices?: boolean;
 }
 
 export default function VehicleCards({ lang, showPrices = false }: VehicleCardsProps) {
-  const isAr = lang === "ar";
-  const isEn = lang === "en";
+  const { t } = useTranslation(lang as Locale | undefined);
 
   const vehicles = [
     {
-      category: isAr ? "درجة رجال الأعمال" : "Business",
-      name: isAr ? "مرسيدس E" : isEn ? "Mercedes E-Class" : "Mercedes Classe E",
-      price: isAr ? "ابتداءً من 80€" : isEn ? "From €80" : "A partir de 80€",
+      category: t("vehicles.business.category", "Business"),
+      name: t("vehicles.business.name", "Mercedes Classe E"),
+      price: t("vehicles.business.price", "A partir de 80€"),
       img: "/images/eclass.png",
-      alt: "Mercedes Classe E berline avec chauffeur privé - MCS Limo",
-      passengers: isAr ? "حتى 3 ركاب" : isEn ? "Up to 3 passengers" : "Jusqu'à 3 passagers",
-      luggage: isAr ? "حتى 3 حقائب" : isEn ? "Up to 3 luggage" : "Jusqu'à 3 bagages",
-      wifi: "Wi-Fi",
-      refreshment: isAr ? "مشروبات منعشة" : isEn ? "Refreshments" : "Rafraichissement",
-      childSeats: isAr ? "مقاعد أطفال" : isEn ? "Child seats" : "Sièges enfants",
+      alt: t("vehicles.business.alt", "Mercedes Classe E berline avec chauffeur privé - MCS Limo"),
+      passengers: t("vehicles.business.passengers", "Jusqu'à 3 passagers"),
+      luggage: t("vehicles.business.luggage", "Jusqu'à 3 bagages"),
+      wifi: t("vehicles.features.wifi", "Wi-Fi"),
+      refreshment: t("vehicles.features.refreshment", "Rafraichissement"),
+      childSeats: t("vehicles.features.childSeats", "Sièges enfants"),
     },
     {
-      category: isAr ? "فان عائلي" : "VAN",
-      name: isAr ? "مرسيدس V" : isEn ? "Mercedes V-Class" : "Mercedes Classe V",
-      price: isAr ? "ابتداءً من 90€" : isEn ? "From €90" : "A partir de 90€",
+      category: t("vehicles.van.category", "VAN"),
+      name: t("vehicles.van.name", "Mercedes Classe V"),
+      price: t("vehicles.van.price", "A partir de 90€"),
       img: "/images/vclass.png",
-      alt: "Mercedes Classe V van spacieux avec chauffeur - MCS Limo",
-      passengers: isAr ? "حتى 7 ركاب" : isEn ? "Up to 7 passengers" : "Jusqu'à 7 passagers",
-      luggage: isAr ? "حتى 7 حقائب" : isEn ? "Up to 7 luggage" : "Jusqu'à 7 bagages",
-      wifi: "Wi-Fi",
-      refreshment: isAr ? "مشروبات منعشة" : isEn ? "Refreshments" : "Rafraichissement",
-      childSeats: isAr ? "مقاعد أطفال" : isEn ? "Child seats" : "Sièges enfants",
+      alt: t("vehicles.van.alt", "Mercedes Classe V van spacieux avec chauffeur - MCS Limo"),
+      passengers: t("vehicles.van.passengers", "Jusqu'à 7 passagers"),
+      luggage: t("vehicles.van.luggage", "Jusqu'à 7 bagages"),
+      wifi: t("vehicles.features.wifi", "Wi-Fi"),
+      refreshment: t("vehicles.features.refreshment", "Rafraichissement"),
+      childSeats: t("vehicles.features.childSeats", "Sièges enfants"),
     },
     {
-      category: isAr ? "الدرجة الفاخرة" : isEn ? "Luxury" : "Luxe",
-      name: isAr ? "مرسيدس S" : isEn ? "Mercedes S-Class" : "Mercedes Classe S",
-      price: isAr ? "ابتداءً من 110€" : isEn ? "From €110" : "A partir de 110€",
+      category: t("vehicles.luxe.category", "Luxe"),
+      name: t("vehicles.luxe.name", "Mercedes Classe S"),
+      price: t("vehicles.luxe.price", "A partir de 110€"),
       img: "/images/sclass.png",
-      alt: "Mercedes Classe S limousine de prestige avec chauffeur - MCS Limo",
-      passengers: isAr ? "حتى 3 ركاب" : isEn ? "Up to 3 passengers" : "Jusqu'à 3 passagers",
-      luggage: isAr ? "حتى 3 حقائب" : isEn ? "Up to 3 luggage" : "Jusqu'à 3 bagages",
-      wifi: "Wi-Fi",
-      refreshment: isAr ? "مشروبات منعشة" : isEn ? "Refreshments" : "Rafraichissement",
-      childSeats: isAr ? "مقاعد أطفال" : isEn ? "Child seats" : "Sièges enfants",
+      alt: t("vehicles.luxe.alt", "Mercedes Classe S limousine de prestige avec chauffeur - MCS Limo"),
+      passengers: t("vehicles.luxe.passengers", "Jusqu'à 3 passagers"),
+      luggage: t("vehicles.luxe.luggage", "Jusqu'à 3 bagages"),
+      wifi: t("vehicles.features.wifi", "Wi-Fi"),
+      refreshment: t("vehicles.features.refreshment", "Rafraichissement"),
+      childSeats: t("vehicles.features.childSeats", "Sièges enfants"),
     },
     {
-      category: isAr ? "الدرجة الفاخرة" : isEn ? "Luxury" : "Luxe",
-      name: isAr ? "مرسيدس S 580e" : isEn ? "Mercedes S-Class 580e" : "Mercedes Classe S 580e",
-      price: isAr ? "ابتداءً من 130€" : isEn ? "From €130" : "A partir de 130€",
+      category: t("vehicles.hybrid.category", "Luxe"),
+      name: t("vehicles.hybrid.name", "Mercedes Classe S 580e"),
+      price: t("vehicles.hybrid.price", "A partir de 130€"),
       img: "/images/sclass.png",
-      alt: "Mercedes Classe S 580e limousine de prestige avec chauffeur - MCS Limo",
-      passengers: isAr ? "حتى 3 ركاب" : isEn ? "Up to 3 passengers" : "Jusqu'à 3 passagers",
-      luggage: isAr ? "حتى 3 حقائب" : isEn ? "Up to 3 luggage" : "Jusqu'à 3 bagages",
-      wifi: "Wi-Fi",
-      refreshment: isAr ? "مشروبات منعشة" : isEn ? "Refreshments" : "Rafraichissement",
-      childSeats: isAr ? "مقاعد أطفال" : isEn ? "Child seats" : "Sièges enfants",
+      alt: t("vehicles.hybrid.alt", "Mercedes Classe S 580e limousine de prestige avec chauffeur - MCS Limo"),
+      passengers: t("vehicles.hybrid.passengers", "Jusqu'à 3 passagers"),
+      luggage: t("vehicles.hybrid.luggage", "Jusqu'à 3 bagages"),
+      wifi: t("vehicles.features.wifi", "Wi-Fi"),
+      refreshment: t("vehicles.features.refreshment", "Rafraichissement"),
+      childSeats: t("vehicles.features.childSeats", "Sièges enfants"),
     },
   ];
 

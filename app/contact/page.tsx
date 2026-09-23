@@ -1,17 +1,14 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import ContactForm from "../components/ContactForm";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
 import SlashesDivider from "../components/SlashesDivider";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function ContactPage() {
-  const pathname = usePathname() || "";
-  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
-  const isEn = pathname === "/en" || pathname.startsWith("/en/");
-  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
+  const { t, lang, dir, pathname } = useTranslation();
 
   useEffect(() => {
     const toggleBtn = document.querySelector(".elementor-menu-toggle");
@@ -28,9 +25,9 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
 
       <MainHeader lang={lang} currentPath={pathname} />
@@ -42,18 +39,14 @@ export default function ContactPage() {
               <div className="elementor-element elementor-element-937d096 elementor-widget__width-inherit elementor-widget elementor-widget-theme-page-title elementor-page-title elementor-widget-heading" data-id="937d096" data-element_type="widget" data-e-type="widget" data-widget_type="theme-page-title.default">
                 <div className="elementor-widget-container">
                   <h1 className="elementor-heading-title elementor-size-default">
-                    {isAr ? "تواصل معنا" : isEn ? "Contact Us" : "Nous contacter"}
+                    {t("contact.title", "Nous contacter")}
                   </h1>
                 </div>
               </div>
               <div className="elementor-element elementor-element-37db313 elementor-widget elementor-widget-text-editor" data-id="37db313" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
                   <p>
-                    {isAr
-                      ? "يسر فريقنا مساعدتك والإجابة عن جميع استفساراتك. املأ النموذج وسنرد عليك في أقرب وقت ممكن."
-                      : isEn
-                      ? "Our team will be happy to help you. Fill out the form and we will get back to you as soon as possible."
-                      : "Notre équipe sera heureuse de pouvoir vous aider. Renseignez le formulaire et nous reviendrons vers vous dès que possible."}
+                    {t("contact.subtitle", "Notre équipe sera heureuse de pouvoir vous aider. Renseignez le formulaire et nous reviendrons vers vous dès que possible.")}
                   </p>
                 </div>
               </div>
@@ -66,7 +59,7 @@ export default function ContactPage() {
                 <div className="elementor-element elementor-element-2d3b7fb elementor-widget elementor-widget-heading" data-id="2d3b7fb" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "نموذج التواصل" : isEn ? "Contact Form" : "Formulaire de contact"}
+                      {t("contact.formTitle", "Formulaire de contact")}
                     </h2>
                   </div>
                 </div>
@@ -82,7 +75,7 @@ export default function ContactPage() {
                 <div className="elementor-element elementor-element-c78bb41 elementor-widget elementor-widget-heading" data-id="c78bb41" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "معلومات التواصل" : isEn ? "Contact Information" : "Coordonnées"}
+                      {t("contact.infoTitle", "Coordonnées")}
                     </h2>
                   </div>
                 </div>

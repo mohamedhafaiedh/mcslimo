@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ReservationForm from "../components/ReservationForm";
 import LandingHeader from "../components/LandingHeader";
@@ -10,18 +9,12 @@ import VehicleCards from "../components/VehicleCards";
 import TestimonialsSection from "../components/TestimonialsSection";
 import HowToBookSection from "../components/HowToBookSection";
 import SlashesDivider from "../components/SlashesDivider";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function LpChauffeurPrivePage() {
-  const pathname = usePathname() || "";
-  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
-  const isEn = !isAr && pathname.startsWith("/en");
-  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
+  const { t, lang, dir, pathname, localizeUrl } = useTranslation();
 
-  const redirectUrl = isAr
-    ? "/ar/merci-lp-reservation"
-    : isEn
-    ? "/en/merci-lp-reservation"
-    : "/merci-lp-reservation";
+  const redirectUrl = localizeUrl("/merci-lp-reservation");
 
   useEffect(() => {
     const toggleBtn = document.querySelector(".elementor-menu-toggle");
@@ -38,9 +31,9 @@ export default function LpChauffeurPrivePage() {
   }, []);
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
       <LandingHeader lang={lang} currentPath={pathname || "/lp-chauffeur-prive"} />
 
@@ -74,11 +67,7 @@ export default function LpChauffeurPrivePage() {
               >
                 <div className="elementor-widget-container">
                   <h1 className="elementor-heading-title elementor-size-default">
-                    {isAr
-                      ? "أخصائي النقل الفاخر في باريس"
-                      : isEn
-                      ? "Your luxury transport specialist in Paris"
-                      : "Votre spécialiste du transport de luxe à Paris"}
+                    {t("landing.heroTitle", "Votre spécialiste du transport de luxe à Paris")}
                   </h1>
                 </div>
               </div>
@@ -91,11 +80,7 @@ export default function LpChauffeurPrivePage() {
                 data-widget_type="text-editor.default"
               >
                 <div className="elementor-widget-container">
-                  {isAr
-                    ? "نضع تحت تصرفكم سيارات فاخرة مع سائق لتلبية كافة احتياجاتكم"
-                    : isEn
-                    ? "We provide luxury cars with driver to meet your needs"
-                    : "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins"}
+                  {t("landing.heroSubtitle", "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins")}
                 </div>
               </div>
 
@@ -115,7 +100,7 @@ export default function LpChauffeurPrivePage() {
                         </svg>
                       </span>
                       <span className="elementor-icon-list-text">
-                        {isAr ? "سيارات استثنائية" : isEn ? "Exceptional vehicles" : "Véhicules d’exception"}
+                        {t("landing.perk1", "Véhicules d’exception")}
                       </span>
                     </li>
                     <li className="elementor-icon-list-item">
@@ -125,7 +110,7 @@ export default function LpChauffeurPrivePage() {
                         </svg>
                       </span>
                       <span className="elementor-icon-list-text">
-                        {isAr ? "نخبة من السائقين المحترفين" : isEn ? "Elite chauffeurs" : "Chauffeurs d’élite"}
+                        {t("landing.perk2", "Chauffeurs d’élite")}
                       </span>
                     </li>
                     <li className="elementor-icon-list-item">
@@ -135,7 +120,7 @@ export default function LpChauffeurPrivePage() {
                         </svg>
                       </span>
                       <span className="elementor-icon-list-text">
-                        {isAr ? "تجربة مصممة حسب الطلب" : isEn ? "Tailor-made experience" : "Expérience sur-mesure"}
+                        {t("landing.perk3", "Expérience sur-mesure")}
                       </span>
                     </li>
                     <li className="elementor-icon-list-item">
@@ -145,7 +130,7 @@ export default function LpChauffeurPrivePage() {
                         </svg>
                       </span>
                       <span className="elementor-icon-list-text">
-                        {isAr ? "خصوصية وهيبة" : isEn ? "Discretion & prestige" : "Discrétion & prestige"}
+                        {t("landing.perk4", "Discrétion & prestige")}
                       </span>
                     </li>
                   </ul>
@@ -170,11 +155,7 @@ export default function LpChauffeurPrivePage() {
               >
                 <div className="elementor-widget-container">
                   <h4 className="elementor-heading-title elementor-size-default">
-                    {isAr
-                      ? "يرجى ملء النموذج للحصول على عرض أسعار مجاني عبر الإنترنت في دقائق معدودة"
-                      : isEn
-                      ? "Please fill out the form to get a free online quote in a few minutes"
-                      : "Veuillez remplir le formulaire pour obtenir un devis gratuit en ligne en quelques minutes"}
+                    {t("landing.formCardTitle", "Veuillez remplir le formulaire pour obtenir un devis gratuit en ligne en quelques minutes")}
                   </h4>
                 </div>
               </div>
@@ -188,7 +169,7 @@ export default function LpChauffeurPrivePage() {
                 data-widget_type="form.default"
               >
                 <div className="elementor-widget-container">
-                  <ReservationForm lang={lang} redirectUrl={redirectUrl} />
+                  <ReservationForm redirectUrl={redirectUrl} />
                 </div>
               </div>
             </div>
@@ -220,11 +201,7 @@ export default function LpChauffeurPrivePage() {
                 >
                   <div className="elementor-widget-container">
                     <h4 className="elementor-heading-title elementor-size-default">
-                      {isAr
-                        ? "عشرات المحترفين والأفراد يضعون ثقتهم بنا كل يوم..."
-                        : isEn
-                        ? "Dozens of professionals and individuals trust us every day..."
-                        : "Des dizaines de professionnels et particuliers nous font confiance chaque jour..."}
+                      {t("landing.trustBanner", "Des dizaines de professionnels et particuliers nous font confiance chaque jour...")}
                     </h4>
                   </div>
                 </div>
@@ -300,7 +277,7 @@ export default function LpChauffeurPrivePage() {
               >
                 <div className="elementor-widget-container" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
                   <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
-                    {isAr ? "خدماتنا" : isEn ? "Our Services" : "Nos Services"}
+                    {t("landing.servicesTitle", "Nos Services")}
                   </h2>
                 </div>
               </div>
@@ -316,11 +293,7 @@ export default function LpChauffeurPrivePage() {
                 style={{ backgroundColor: "#ffffff" }}
               >
                 <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
-                  {isAr
-                    ? "نقدم لكم خدمات مخصصة تلبي كافة احتياجاتكم"
-                    : isEn
-                    ? "We offer bespoke services tailored to your needs"
-                    : "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins"}
+                  {t("landing.servicesSubtitle", "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins")}
                 </div>
               </div>
             </div>
@@ -352,18 +325,14 @@ export default function LpChauffeurPrivePage() {
                 <div className="elementor-element elementor-element-044593b elementor-widget elementor-widget-heading" data-id="044593b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
                   <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                     <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
-                      {isAr ? "التنقلات" : isEn ? "Transfers" : "Transferts"}
+                      {t("landing.serviceTransfersTitle", "Transferts")}
                     </h3>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-ddb7642 elementor-widget elementor-widget-text-editor" data-id="ddb7642" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
                   <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                     <p style={{ backgroundColor: "#ffffff" }}>
-                      {isAr
-                        ? "لجميع رحلاتكم في باريس من أو إلى محطات القطار والمطارات الباريسية، أو الرحلات الطويلة من وإلى باريس"
-                        : isEn
-                        ? "For all your journeys in Paris to or from Parisian train stations or airports, as well as long-distance journeys to/from Paris"
-                        : "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris"}
+                      {t("landing.serviceTransfersText", "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris")}
                     </p>
                   </div>
                 </div>
@@ -386,17 +355,13 @@ export default function LpChauffeurPrivePage() {
                 <div className="elementor-element elementor-element-035a507 elementor-widget elementor-widget-heading" data-id="035a507" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
                   <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                     <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
-                      {isAr ? "تحت الطلب بالساعة" : isEn ? "Hourly As Directed" : "Mises à disposition"}
+                      {t("landing.serviceHourlyTitle", "Mises à disposition")}
                     </h3>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-fd9663b elementor-widget elementor-widget-text-editor" data-id="fd9663b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
                   <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
-                    {isAr
-                      ? "احجز سائقك للمدة التي تناسبك وستظل سيارتنا جاهزة لمرافقتك إلى جميع وجهاتك"
-                      : isEn
-                      ? "Book your chauffeur for the duration that suits you and our vehicle will remain at your disposal to take you to your destinations"
-                      : "Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations"}
+                    {t("landing.serviceHourlyText", "Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations")}
                   </div>
                 </div>
               </div>
@@ -418,17 +383,13 @@ export default function LpChauffeurPrivePage() {
                 <div className="elementor-element elementor-element-a926567 elementor-widget elementor-widget-heading" data-id="a926567" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
                   <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                     <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
-                      {isAr ? "الاستقبال الخاص (VIP)" : isEn ? "VIP Welcome" : "Accueil VIP"}
+                      {t("landing.serviceVipTitle", "Accueil VIP")}
                     </h3>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-7292a37 elementor-widget elementor-widget-text-editor" data-id="7292a37" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
                   <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
-                    {isAr
-                      ? "لمرافقتكم طوال مساركم بين باب الطائرة وباب سيارتكم مع ضمان مرور ذي أولوية"
-                      : isEn
-                      ? "To escort you throughout your journey between the aircraft door and your vehicle, providing you with priority fast-track access"
-                      : "Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire"}
+                    {t("landing.serviceVipText", "Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire")}
                   </div>
                 </div>
               </div>
@@ -457,11 +418,7 @@ export default function LpChauffeurPrivePage() {
                     <a className="elementor-button elementor-button-link elementor-size-md" href="#cntct">
                       <span className="elementor-button-content-wrapper">
                         <span className="elementor-button-text">
-                          {isAr
-                            ? "الحصول على عرض أسعار مجاني عبر الإنترنت"
-                            : isEn
-                            ? "Get a free quote online"
-                            : "Obtenir un devis gratuit en ligne"}
+                          {t("landing.ctaQuote", "Obtenir un devis gratuit en ligne")}
                         </span>
                       </span>
                     </a>
@@ -498,11 +455,7 @@ export default function LpChauffeurPrivePage() {
                   <a className="elementor-button elementor-button-link elementor-size-md" href="#cntct">
                     <span className="elementor-button-content-wrapper">
                       <span className="elementor-button-text">
-                        {isAr
-                          ? "الحصول على عرض أسعار مجاني عبر الإنترنت"
-                          : isEn
-                          ? "Get a free quote online"
-                          : "Obtenir un devis gratuit en ligne"}
+                        {t("landing.ctaQuote", "Obtenir un devis gratuit en ligne")}
                       </span>
                     </span>
                   </a>
@@ -548,7 +501,7 @@ export default function LpChauffeurPrivePage() {
             <div className="elementor-element elementor-element-685a191 elementor-widget elementor-widget-heading" data-id="685a191" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ textAlign: "center", width: "100%" }}>
               <div className="elementor-widget-container" style={{ textAlign: "center" }}>
                 <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center" }}>
-                  {isAr ? "عن شركة MCS Limo" : isEn ? "About MCS Limo" : "A propos de MCS Limo"}
+                  {t("landing.aboutTitle", "A propos de MCS Limo")}
                 </h2>
               </div>
             </div>
@@ -568,22 +521,8 @@ export default function LpChauffeurPrivePage() {
             <div className="elementor-element elementor-element-57023d5 e-con-full e-flex e-con e-child" data-id="57023d5" data-element_type="container" data-e-type="container">
               <div className="elementor-element elementor-element-a8972d1 elementor-widget elementor-widget-text-editor" data-id="a8972d1" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
-                  {isAr ? (
-                    <>
-                      <p>شركة MCS Limo هي شركة نقل ركاب متخصصة تقدم خدمة راقية ومصممة حسب الطلب، من خلال وضع نخبة من السائقين الخاصين المحترفين مع أحدث السيارات الفاخرة تحت تصرف عملائها.</p>
-                      <p>تتواجد MCS Limo في فرنسا وكذلك في كبرى مدن العالم (برلين، فرانكفورت، مدريد، برشلونة، نيويورك، واشنطن، ميامي، طوكيو، سيدني...) لمرافقة عملائها من الشركات والأفراد في تنقلاتهم وتقديم نفس المعايير العالية من الجودة والتميز أينما ذهبوا.</p>
-                    </>
-                  ) : isEn ? (
-                    <>
-                      <p>MCS Limo is a passenger transport company offering a tailor-made, high-end service by providing its clients with professional private chauffeurs and luxury vehicles.</p>
-                      <p>MCS Limo operates in France as well as in major cities worldwide (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to assist business and leisure clients with the same uncompromising standard of quality wherever they travel.</p>
-                    </>
-                  ) : (
-                    <>
-                      <p>MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe.</p>
-                      <p>MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace.</p>
-                    </>
-                  )}
+                  <p>{t("landing.aboutText1")}</p>
+                  <p>{t("landing.aboutText2")}</p>
                 </div>
               </div>
               <div className="elementor-element elementor-element-3054734 elementor-align-center elementor-widget elementor-widget-button" data-id="3054734" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
@@ -592,11 +531,7 @@ export default function LpChauffeurPrivePage() {
                     <a className="elementor-button elementor-button-link elementor-size-md" href="#cntct">
                       <span className="elementor-button-content-wrapper">
                         <span className="elementor-button-text">
-                          {isAr
-                            ? "الحصول على عرض أسعار مجاني عبر الإنترنت"
-                            : isEn
-                            ? "Get a free quote online"
-                            : "Obtenir un devis gratuit en ligne"}
+                          {t("landing.ctaQuote", "Obtenir un devis gratuit en ligne")}
                         </span>
                       </span>
                     </a>
@@ -633,18 +568,14 @@ export default function LpChauffeurPrivePage() {
             <div className="elementor-element elementor-element-1cbe6de e-con-full e-flex e-con e-child" data-id="1cbe6de" data-element_type="container" data-e-type="container">
               <div className="elementor-element elementor-element-5f462c5 elementor-widget__width-auto elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="5f462c5" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default">
                 <div className="elementor-widget-container">
-                  <Link href={isAr ? "/ar" : isEn ? "/en" : "/"}>
+                  <Link href={localizeUrl("/")}>
                     <img width="1000" height="450" src="/images/MCS-Limo-logo-1000x450-1.png" className="attachment-full size-full wp-image-2464" alt="MCS Limo - Chauffeur privé de prestige à Paris" sizes="(max-width: 1000px) 100vw, 1000px" />
                   </Link>
                 </div>
               </div>
               <div className="elementor-element elementor-element-0dcc8f2 elementor-widget elementor-widget-text-editor" data-id="0dcc8f2" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
-                  {isAr
-                    ? "شركة سائق خاص في باريس وحول العالم تقدم لكم خدمات نقل فاخرة ومصممة خصيصاً لتلبية تطلعاتكم"
-                    : isEn
-                    ? "Private chauffeur company in Paris and worldwide offering high-end and bespoke transportation services"
-                    : "Société de chauffeur privé à Paris et partout dans le monde qui vous offre un service de transport haut de gamme et sur mesure"}
+                  {t("landing.footerDesc", "Société de chauffeur privé à Paris et partout dans le monde qui vous offre un service de transport haut de gamme et sur mesure")}
                 </div>
               </div>
             </div>
@@ -654,7 +585,7 @@ export default function LpChauffeurPrivePage() {
               <div className="elementor-element elementor-element-5bc741d elementor-widget elementor-widget-heading" data-id="5bc741d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                 <div className="elementor-widget-container">
                   <h2 className="elementor-heading-title elementor-size-default">
-                    {isAr ? "القائمة" : isEn ? "Menu" : "Menu"}
+                    {t("nav.menu", "Menu")}
                   </h2>
                 </div>
               </div>
@@ -663,28 +594,28 @@ export default function LpChauffeurPrivePage() {
                   <nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none">
                     <ul id="menu-1-6542aad" className="elementor-nav-menu sm-vertical">
                       <li className="menu-item">
-                        <Link href={isAr ? "/ar/qui-sommes-nous" : isEn ? "/en/qui-sommes-nous" : "/qui-sommes-nous"} className="elementor-item">
-                          {isAr ? "من نحن" : isEn ? "About Us" : "Qui sommes-nous"}
+                        <Link href={localizeUrl("/qui-sommes-nous")} className="elementor-item">
+                          {t("nav.about", "Qui sommes-nous")}
                         </Link>
                       </li>
                       <li className="menu-item">
-                        <Link href={isAr ? "/ar/services" : isEn ? "/en/services" : "/services"} className="elementor-item">
-                          {isAr ? "خدماتنا" : isEn ? "Our Services" : "Nos Services"}
+                        <Link href={localizeUrl("/services")} className="elementor-item">
+                          {t("nav.services", "Nos Services")}
                         </Link>
                       </li>
                       <li className="menu-item">
-                        <Link href={isAr ? "/ar/flotte" : isEn ? "/en/flotte" : "/flotte"} className="elementor-item">
-                          {isAr ? "أسطولنا" : isEn ? "Our Fleet" : "Notre flotte"}
+                        <Link href={localizeUrl("/flotte")} className="elementor-item">
+                          {t("nav.fleet", "Notre flotte")}
                         </Link>
                       </li>
                       <li className="menu-item">
-                        <Link href={isAr ? "/ar/contact" : isEn ? "/en/contact" : "/contact"} className="elementor-item">
-                          {isAr ? "اتصل بنا" : isEn ? "Contact Us" : "Nous contacter"}
+                        <Link href={localizeUrl("/contact")} className="elementor-item">
+                          {t("nav.contact", "Nous contacter")}
                         </Link>
                       </li>
                       <li className="menu-item">
-                        <Link href={isAr ? "/ar/reservation" : isEn ? "/en/reservation" : "/reservation"} className="elementor-item">
-                          {isAr ? "الحجز عبر الإنترنت" : isEn ? "Online Booking" : "Réservation en ligne"}
+                        <Link href={localizeUrl("/reservation")} className="elementor-item">
+                          {t("nav.bookOnline", "Réservation en ligne")}
                         </Link>
                       </li>
                     </ul>
@@ -698,7 +629,7 @@ export default function LpChauffeurPrivePage() {
               <div className="elementor-element elementor-element-cafce5b elementor-widget elementor-widget-heading" data-id="cafce5b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                 <div className="elementor-widget-container">
                   <h2 className="elementor-heading-title elementor-size-default">
-                    {isAr ? "اتصل بنا" : isEn ? "Contact Us" : "Nous contacter"}
+                    {t("nav.contact", "Nous contacter")}
                   </h2>
                 </div>
               </div>
@@ -728,7 +659,7 @@ export default function LpChauffeurPrivePage() {
               </div>
               <div className="elementor-element elementor-element-2455f23 elementor-widget elementor-widget-text-editor" data-id="2455f23" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
-                  <p>{isAr ? "جميع المدفوعات آمنة ومحمية" : isEn ? "All payments are secure" : "Tous les paiements sont sécurisés"}</p>
+                  <p>{t("landing.paymentsSecure", "Tous les paiements sont sécurisés")}</p>
                 </div>
               </div>
             </div>
@@ -747,11 +678,7 @@ export default function LpChauffeurPrivePage() {
             <div className="elementor-element elementor-element-8a3fc7e e-con-full e-flex e-con e-child" data-id="8a3fc7e" data-element_type="container" data-e-type="container">
               <div className="elementor-element elementor-element-749e5b2 elementor-widget elementor-widget-text-editor" data-id="749e5b2" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
-                  {isAr
-                    ? "MCS Limo 2026 © جميع الحقوق محفوظة."
-                    : isEn
-                    ? "MCS Limo 2026 © All rights reserved."
-                    : "MCS Limo 2026 © Tous droits réservés."}
+                  {t("footer.copyright", "MCS Limo 2026 © Tous droits réservés.")}
                 </div>
               </div>
             </div>
@@ -761,13 +688,13 @@ export default function LpChauffeurPrivePage() {
                   <nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
                     <ul id="menu-1-d9c42a0" className="elementor-nav-menu">
                       <li className="menu-item">
-                        <Link href={isAr ? "/ar/mentions-legales" : isEn ? "/en/mentions-legales" : "/mentions-legales"} className="elementor-item">
-                          {isAr ? "إشعار قانوني" : isEn ? "Legal Notice" : "Mentions légales"}
+                        <Link href={localizeUrl("/mentions-legales")} className="elementor-item">
+                          {t("footer.mentionsLegales", "Mentions légales")}
                         </Link>
                       </li>
                       <li className="menu-item">
-                        <Link href={isAr ? "/ar/cgv" : isEn ? "/en/cgv" : "/cgv"} className="elementor-item">
-                          {isAr ? "الشروط العامة للخدمة" : isEn ? "Terms & Conditions" : "CGV"}
+                        <Link href={localizeUrl("/cgv")} className="elementor-item">
+                          {t("footer.cgv", "CGV")}
                         </Link>
                       </li>
                     </ul>

@@ -1,17 +1,14 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function ServicesPage() {
-  const pathname = usePathname() || "";
-  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
-  const isEn = pathname === "/en" || pathname.startsWith("/en/");
-  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
+  const { t, lang, dir, pathname, localizeUrl } = useTranslation();
 
-  const reservationHref = isAr ? "/ar/reservation" : isEn ? "/en/reservation" : "/reservation";
+  const reservationHref = localizeUrl("/reservation");
 
   useEffect(() => {
     const toggleBtn = document.querySelector(".elementor-menu-toggle");
@@ -28,9 +25,9 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
 
       <MainHeader lang={lang} currentPath={pathname} />
@@ -42,18 +39,14 @@ export default function ServicesPage() {
               <div className="elementor-element elementor-element-f5245ee elementor-widget__width-inherit elementor-widget elementor-widget-theme-page-title elementor-page-title elementor-widget-heading" data-id="f5245ee" data-element_type="widget" data-e-type="widget" data-widget_type="theme-page-title.default">
                 <div className="elementor-widget-container">
                   <h1 className="elementor-heading-title elementor-size-default">
-                    {isAr ? "خدماتنا" : isEn ? "Our Services" : "Nos Services"}
+                    {t("servicesPage.title", "Nos Services")}
                   </h1>
                 </div>
               </div>
               <div className="elementor-element elementor-element-4e8f9de elementor-widget elementor-widget-text-editor" data-id="4e8f9de" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
                   <p>
-                    {isAr
-                      ? "اكتشف مجموعة الخدمات الراقية والشاملة التي تقدمها لكم MCS Limo"
-                      : isEn
-                      ? "Discover the full range of bespoke chauffeured services by MCS Limo"
-                      : "Découvrez tous les services que vous offre MCS Limo"}
+                    {t("servicesPage.subtitle", "Découvrez tous les services que vous offre MCS Limo")}
                   </p>
                 </div>
               </div>
@@ -74,18 +67,14 @@ export default function ServicesPage() {
                 <div className="elementor-element elementor-element-af48646 elementor-widget elementor-widget-heading" data-id="af48646" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "التنقلات والتوصيل" : isEn ? "Transfers" : "Transferts"}
+                      {t("servicesPage.transfers.title", "Transferts")}
                     </h2>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-247ca84 elementor-widget elementor-widget-text-editor" data-id="247ca84" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
                     <p>
-                      {isAr
-                        ? "لكافة تنقلاتكم في باريس من وإلى المطارات ومحطات القطارات الباريسية، أو الرحلات الطويلة بين باريس والمدن الفرنسية والأوروبية، ستتمتعون بتجربة سفر مريحة ودقيقة في أحدث سياراتنا الفاخرة."
-                        : isEn
-                        ? "For all your journeys in Paris to or from Parisian airports and train stations, or long-distance trips across France and Europe, enjoy punctual, discreet, and refined transportation aboard our prestige fleet."
-                        : "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris, vous serez accompagné à votre destination avec ponctualité et discrétion à bord de l’un de nos luxueux véhicules"}
+                      {t("servicesPage.transfers.desc", "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris, vous serez accompagné à votre destination avec ponctualité et discrétion à bord de l’un de nos luxueux véhicules")}
                     </p>
                   </div>
                 </div>
@@ -95,7 +84,7 @@ export default function ServicesPage() {
                       <a className="elementor-button elementor-button-link elementor-size-md" href={reservationHref}>
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "طلب عرض أسعار وحجز" : isEn ? "Get a quote & book" : "Obtenir un devis et réserver"}
+                            {t("common.quoteAndBook", "Obtenir un devis et réserver")}
                           </span>
                         </span>
                       </a>
@@ -113,17 +102,15 @@ export default function ServicesPage() {
                 <div className="elementor-element elementor-element-f422fdf elementor-widget elementor-widget-heading" data-id="f422fdf" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "تأجير بالساعة والمرافقة" : isEn ? "By the Hour" : "Mises à disposition"}
+                      {t("servicesPage.mad.title", "Mises à disposition")}
                     </h2>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-2e6e165 elementor-widget elementor-widget-text-editor" data-id="2e6e165" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
-                    {isAr
-                      ? "الخدمة المثالية لجداول مواعيدكم الحافلة والاجتماعات ورحلات التسوق. نضع سياراتنا وسائقينا تحت تصرفكم للمدة التي تختارونها مع بقاء السيارة جاهزة لنقلكم في أي لحظة."
-                      : isEn
-                      ? "The ideal solution for busy itineraries, corporate roadshows, and leisure days. Your dedicated chauffeur and luxury vehicle remain entirely at your disposal for the exact duration you require."
-                      : "Le service idéal pour vos journées chargées. Nous mettons à votre disposition nos voitures avec chauffeur. Le véhicule restera mobilisé pour la durée qui vous convient et notre chauffeur vous conduira en toute discrétion."}
+                    <p>
+                      {t("servicesPage.mad.desc", "Le service idéal pour vos journées chargées. Nous mettons à votre disposition nos voitures avec chauffeur. Le véhicule restera mobilisé pour la durée qui vous convient et notre chauffeur vous conduira en toute discrétion.")}
+                    </p>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-4e3b792 elementor-align-left elementor-widget elementor-widget-button" data-id="4e3b792" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
@@ -132,7 +119,7 @@ export default function ServicesPage() {
                       <a className="elementor-button elementor-button-link elementor-size-md" href={reservationHref}>
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "طلب عرض أسعار وحجز" : isEn ? "Get a quote & book" : "Obtenir un devis et réserver"}
+                            {t("common.quoteAndBook", "Obtenir un devis et réserver")}
                           </span>
                         </span>
                       </a>
@@ -164,17 +151,15 @@ export default function ServicesPage() {
                 <div className="elementor-element elementor-element-eb0889d elementor-widget elementor-widget-heading" data-id="eb0889d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "استقبال كبار الشخصيات (VIP Greeter)" : isEn ? "VIP Greeter" : "Accueil VIP"}
+                      {t("servicesPage.vip.title", "Accueil VIP")}
                     </h2>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-ff38730 elementor-widget elementor-widget-text-editor" data-id="ff38730" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
-                    {isAr
-                      ? "لتوفير وقتكم وضمان أعلى درجات الراحة والهدوء، يرافقكم موظف الاستقبال الخاص بنا من باب الطائرة وحتى باب السيارة مع تسهيل الإجراءات والمسار السريع (استلام الأمتعة ومراقبة الجوازات والتسجيل واسترداد الضرائب عند المغادرة)."
-                      : isEn
-                      ? "Save valuable time and experience total peace of mind. Our dedicated VIP greeters assist you seamlessly from the aircraft door to your vehicle, expediting customs, fast-track baggage handling, check-in, and tax refund formalities."
-                      : "Pour optimiser votre temps et gagner en sérénité, nos agents d’accueil vous accompagneront le long de votre trajet entre la porte de l’avion et celle de votre véhicule pour vous accorder un passage prioritaire et vous libérer de toutes formalités (récupération de bagages ou contrôle police à l’arrivée, enregistrement ou détaxe sur achats au départ, etc.)."}
+                    <p>
+                      {t("servicesPage.vip.desc", "Pour optimiser votre temps et gagner en sérénité, nos agents d’accueil vous accompagneront le long de votre trajet entre la porte de l’avion et celle de votre véhicule pour vous accorder un passage prioritaire et vous libérer de toutes formalités (récupération de bagages ou contrôle police à l’arrivée, enregistrement ou détaxe sur achats au départ, etc.).")}
+                    </p>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-a17b7b6 elementor-align-left elementor-widget elementor-widget-button" data-id="a17b7b6" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
@@ -183,7 +168,7 @@ export default function ServicesPage() {
                       <a className="elementor-button elementor-button-link elementor-size-md" href={reservationHref}>
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "طلب عرض أسعار وحجز" : isEn ? "Get a quote & book" : "Obtenir un devis et réserver"}
+                            {t("common.quoteAndBook", "Obtenir un devis et réserver")}
                           </span>
                         </span>
                       </a>

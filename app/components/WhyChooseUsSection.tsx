@@ -1,54 +1,52 @@
+"use client";
+
 import React from "react";
 import SlashesDivider from "./SlashesDivider";
+import { useTranslation, Locale } from "@/lib/useTranslation";
 
 interface WhyChooseUsSectionProps {
-  lang: string;
+  lang?: string;
 }
 
 export default function WhyChooseUsSection({ lang }: WhyChooseUsSectionProps) {
-  const isAr = lang === "ar";
-  const isEn = lang === "en";
+  const { t } = useTranslation(lang as Locale | undefined);
 
   const features = [
     {
       img: "/images/agree.png",
       alt: "Chauffeur privé professionnel en costume à Paris",
-      title: isAr ? "سائقون محترفون" : isEn ? "Professional Drivers" : "Chauffeurs professionnels",
-      description: isAr
-        ? "جميع سائقينا مدربون ومؤهلون لضمان رحلة آمنة ومريحة وسلسة طوال الطريق."
-        : isEn
-        ? "Our drivers are trained to provide you with a safe, discreet and comfortable ride."
-        : "Nos chauffeurs sont formés pour vous assurer une conduite en toute sécurité.",
+      title: t("home.whyUs.feature1Title", "Chauffeurs professionnels"),
+      description: t(
+        "home.whyUs.feature1Desc",
+        "Nos chauffeurs sont formés pour vous assurer une conduite en toute sécurité."
+      ),
     },
     {
       img: "/images/service-clients.png",
       alt: "Service client disponible 24h/24 et 7j/7",
-      title: isAr ? "خدمات وسيارات راقية وفخمة" : isEn ? "High-end services and cars" : "Services et voitures haut de gamme",
-      description: isAr
-        ? "نضع تحت تصرفكم أحدث السيارات الفاخرة مع تقديم خدمة عالية الجودة وأقصى درجات الراحة."
-        : isEn
-        ? "We provide high-end vehicles with quality service and absolute comfort."
-        : "Nous mettons à votre disposition des véhicules haut de gamme avec un service de qualité",
+      title: t("home.whyUs.feature2Title", "Services et voitures haut de gamme"),
+      description: t(
+        "home.whyUs.feature2Desc",
+        "Nous mettons à votre disposition des véhicules haut de gamme avec un service de qualité"
+      ),
     },
     {
       img: "/images/calendrier.png",
       alt: "Réservation de chauffeur privé en ligne",
-      title: isAr ? "جاهزية وتوافر 24/7" : isEn ? "24/7 Availability" : "Disponibilité 24/7",
-      description: isAr
-        ? "نحن متاحون في جميع الأوقات لمعالجة طلباتكم وتلبية كافة احتياجاتكم من التنقل والراحة."
-        : isEn
-        ? "We are available at all times to process your requests or ensure your transport needs."
-        : "Nous sommes disponibles à tout moment pour traiter vos demandes ou assurer vos besoins",
+      title: t("home.whyUs.feature3Title", "Disponibilité 24/7"),
+      description: t(
+        "home.whyUs.feature3Desc",
+        "Nous sommes disponibles à tout moment pour traiter vos demandes ou assurer vos besoins"
+      ),
     },
     {
       img: "/images/time-check.png",
       alt: "Ponctualité garantie et suivi en temps réel des vols",
-      title: isAr ? "الالتزام التام بالمواعيد" : isEn ? "Punctuality" : "Ponctualité",
-      description: isAr
-        ? "لأن وقتكم ثمين للغاية، يحرص سائقونا على التواجد قبل 15 دقيقة من موعد انطلاق كل خدمة."
-        : isEn
-        ? "Because your time is precious, we ensure our drivers arrive 15 minutes before the start of each service."
-        : "Parce que votre temps est précieux, nous faisons en sorte que nos chauffeurs arrivent avant 15 minutes du début de chaque prestation",
+      title: t("home.whyUs.feature4Title", "Ponctualité"),
+      description: t(
+        "home.whyUs.feature4Desc",
+        "Parce que votre temps est précieux, nous faisons en sorte que nos chauffeurs arrivent avant 15 minutes du début de chaque prestation"
+      ),
     },
   ];
 
@@ -103,7 +101,7 @@ export default function WhyChooseUsSection({ lang }: WhyChooseUsSectionProps) {
                 backgroundColor: "#f5f5f5",
               }}
             >
-              {isAr ? "لماذا تختار MCS Limo ؟" : isEn ? "Why choose MCS Limo?" : "Pourquoi choisir MCS Limo ?"}
+              {t("home.whyUs.title", "Pourquoi choisir MCS Limo ?")}
             </h2>
           </div>
         </div>
@@ -142,48 +140,62 @@ export default function WhyChooseUsSection({ lang }: WhyChooseUsSectionProps) {
                     <figure
                       className="elementor-image-box-img"
                       style={{
-                        marginBottom: "15px",
+                        margin: "0 auto 20px auto",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        width: "100%",
-                        marginRight: 0,
-                        marginLeft: 0,
+                        width: "80px",
+                        height: "80px",
                         backgroundColor: "#f5f5f5",
                       }}
                     >
                       <img
                         decoding="async"
-                        width="64"
-                        height="64"
+                        width="80"
+                        height="80"
                         src={item.img}
-                        className="attachment-full size-full"
+                        className="attachment-full size-full wp-image-384"
                         alt={item.alt}
-                        style={{ objectFit: "contain", backgroundColor: "transparent" }}
+                        style={{
+                          objectFit: "contain",
+                          display: "block",
+                          margin: "0 auto",
+                          backgroundColor: "transparent",
+                        }}
                       />
                     </figure>
                     <div
                       className="elementor-image-box-content"
-                      style={{ textAlign: "center", width: "100%", backgroundColor: "#f5f5f5" }}
+                      style={{
+                        textAlign: "center",
+                        width: "100%",
+                        backgroundColor: "#f5f5f5",
+                      }}
                     >
-                      <h3
+                      <h4
                         className="elementor-image-box-title"
                         style={{
-                          fontSize: "18px",
-                          fontWeight: "700",
-                          marginBottom: "10px",
                           textAlign: "center",
+                          color: "var(--e-global-color-primary, #000000)",
+                          fontSize: "18px",
+                          fontWeight: "600",
+                          fontFamily: "var(--e-global-typography-primary-font-family, 'Dosis', sans-serif)",
+                          marginBottom: "12px",
+                          lineHeight: "1.3",
                           backgroundColor: "#f5f5f5",
                         }}
                       >
                         {item.title}
-                      </h3>
+                      </h4>
                       <p
                         className="elementor-image-box-description"
                         style={{
+                          textAlign: "center",
+                          color: "var(--e-global-color-text, #666666)",
                           fontSize: "14px",
                           lineHeight: "1.6",
-                          textAlign: "center",
+                          fontFamily: "var(--e-global-typography-text-font-family, 'Open Sans', sans-serif)",
+                          margin: "0",
                           backgroundColor: "#f5f5f5",
                         }}
                       >

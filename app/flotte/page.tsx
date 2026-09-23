@@ -1,29 +1,26 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function FlottePage() {
-  const pathname = usePathname() || "";
-  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
-  const isEn = pathname === "/en" || pathname.startsWith("/en/");
-  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
+  const { t, lang, dir, pathname, localizeUrl } = useTranslation();
 
-  const quoteUrl = isAr ? "/ar/reservation" : isEn ? "/en/reservation" : "/reservation";
-  const btnText = isAr ? "طلب عرض أسعار وحجز" : isEn ? "Quote & booking" : "Obtenir un devis et réserver";
-  const passengersText3 = isAr ? "حتى 3 ركاب" : isEn ? "Up to 3 passengers" : "Jusqu'à 3 passagers";
-  const luggageText3 = isAr ? "حتى 3 حقائب" : isEn ? "Up to 3 luggage" : "Jusqu'à 3 bagages";
-  const passengersText7 = isAr ? "حتى 7 ركاب" : isEn ? "Up to 7 passengers" : "Jusqu'à 7 passagers";
-  const luggageText7 = isAr ? "حتى 7 حقائب" : isEn ? "Up to 7 luggage" : "Jusqu'à 7 bagages";
-  const refreshmentText = isAr ? "مشروبات ومياه معدنية" : isEn ? "Refreshments" : "Rafraichissement";
-  const childSeatsText = isAr ? "مقاعد أطفال" : isEn ? "Child seats" : "Sièges enfants";
+  const quoteUrl = localizeUrl("/reservation");
+  const btnText = t("common.quoteAndBook", "Obtenir un devis et réserver");
+  const passengersText3 = t("vehicles.business.passengers", "Jusqu'à 3 passagers");
+  const luggageText3 = t("vehicles.business.luggage", "Jusqu'à 3 bagages");
+  const passengersText7 = t("vehicles.van.passengers", "Jusqu'à 7 passagers");
+  const luggageText7 = t("vehicles.van.luggage", "Jusqu'à 7 bagages");
+  const refreshmentText = t("vehicles.features.refreshment", "Rafraichissement");
+  const childSeatsText = t("vehicles.features.childSeats", "Sièges enfants");
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
 
       <MainHeader lang={lang} currentPath={pathname} />
@@ -37,18 +34,14 @@ export default function FlottePage() {
               <div className="elementor-element elementor-element-595e20e elementor-widget__width-inherit elementor-widget elementor-widget-theme-page-title elementor-page-title elementor-widget-heading" data-id="595e20e" data-element_type="widget" data-e-type="widget" data-widget_type="theme-page-title.default">
                 <div className="elementor-widget-container">
                   <h1 className="elementor-heading-title elementor-size-default">
-                    {isAr ? "أسطول السيارات" : isEn ? "Fleet" : "Flotte"}
+                    {t("fleetPage.title", "Flotte")}
                   </h1>
                 </div>
               </div>
               <div className="elementor-element elementor-element-f5c5a9f elementor-widget elementor-widget-text-editor" data-id="f5c5a9f" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
                   <p>
-                    {isAr
-                      ? "اكتشف أسطول سياراتنا الفاخرة لاختيار السيارة التي تلبي احتياجاتك على أكمل وجه"
-                      : isEn
-                      ? "Discover our fleet of vehicles to better choose the car that meets your needs"
-                      : "Découvrez notre flotte de véhicules pour mieux choisir la voiture qui répond à vos besoins"}
+                    {t("fleetPage.subtitle", "Découvrez notre flotte de véhicules pour mieux choisir la voiture qui répond à vos besoins")}
                   </p>
                 </div>
               </div>
@@ -69,13 +62,13 @@ export default function FlottePage() {
                 <div className="elementor-element elementor-element-01aad55 elementor-widget elementor-widget-heading" data-id="01aad55" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "رجال الأعمال (Business)" : isEn ? "Business Sedan" : "Berline Business"}
+                      {t("vehicles.business.category", "Berline Business")}
                     </h2>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-2439516 elementor-widget elementor-widget-text-editor" data-id="2439516" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
-                    <h6 className="elementor-heading-title elementor-size-default">{isAr ? "مرسيدس E" : "Mercedes Classe E"}</h6>
+                    <h6 className="elementor-heading-title elementor-size-default">{t("vehicles.business.name", "Mercedes Classe E")}</h6>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-74dbeac elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="74dbeac" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
@@ -136,13 +129,13 @@ export default function FlottePage() {
                 <div className="elementor-element elementor-element-08c849c elementor-widget elementor-widget-heading" data-id="08c849c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "فان VIP فاخر (VAN)" : isEn ? "Prestige Van" : "Van"}
+                      {t("vehicles.van.category", "Van")}
                     </h2>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-6ef6e83 elementor-widget elementor-widget-text-editor" data-id="6ef6e83" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
-                    <h6 className="elementor-heading-title elementor-size-default">{isAr ? "مرسيدس V" : "Mercedes Classe V"}</h6>
+                    <h6 className="elementor-heading-title elementor-size-default">{t("vehicles.van.name", "Mercedes Classe V")}</h6>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-0cf5ccd elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="0cf5ccd" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
@@ -217,14 +210,14 @@ export default function FlottePage() {
                 <div className="elementor-element elementor-element-cdea8e8 elementor-widget elementor-widget-heading" data-id="cdea8e8" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h2 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "الدرجة الأولى الفاخرة (Luxury)" : isEn ? "First Class Luxury Sedan" : "Berline Luxe"}
+                      {t("vehicles.luxe.category", "Berline Luxe")}
                     </h2>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-f12e96b elementor-widget elementor-widget-text-editor" data-id="f12e96b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
-                    <h6 className="elementor-heading-title elementor-size-default">{isAr ? "مرسيدس S" : "Mercedes Classe S"}</h6>
-                    <h6 className="elementor-heading-title elementor-size-default">{isAr ? "مرسيدس S 580e" : "Mercedes Classe S 580e"}</h6>
+                    <h6 className="elementor-heading-title elementor-size-default">{t("vehicles.luxe.name", "Mercedes Classe S")}</h6>
+                    <h6 className="elementor-heading-title elementor-size-default">{t("vehicles.hybrid.name", "Mercedes Classe S 580e")}</h6>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-f9d2df8 elementor-icon-list--layout-inline elementor-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="f9d2df8" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">

@@ -16,7 +16,9 @@
     "wifi": "Wi-Fi",
     "refreshment": "Refreshments",
     "childSeats": "Child seats",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "quoteAndBook": "Quote & booking",
+    "backToHome": "Back to Homepage"
   },
   "nav": {
     "home": "Home",
@@ -28,7 +30,8 @@
     "fleet": "Fleet",
     "yearlyDriver": "Yearly driver",
     "contact": "Contact us",
-    "reservation": "Quote and booking"
+    "reservation": "Quote and booking",
+    "toggleMenu": "Toggle menu"
   },
   "home": {
     "hero": {
@@ -115,7 +118,16 @@
     "subtitle": "Excellence in private chauffeur services in Paris and around the world",
     "p1": "MCS Limo is a passenger transport company offering a tailor-made and top-of-the-range service by providing its customers with professional private drivers with luxury cars.",
     "p2": "MCS Limo is present in France as well as in the largest cities around the world (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to accompany its business and private customers during their travels.",
-    "cta": "Book a driver"
+    "cta": "Book a driver",
+    "pageSubtitle": "To make you discover who MCS Limo is",
+    "missionP1": "MCS Limo was created with the sole aim of offering its customers a high-end transport experience to a demanding clientele.",
+    "missionP2": "We work every day to satisfy an ever-increasing demand in the field of transport in luxury cars with driver, offering our customers a unique experience from the first contact to the agreed drop-off location, and beyond. Indeed, we are attentive to our customers in order to make our services better, day by day.",
+    "qualityTitle": "High quality standards",
+    "qualityP1": "At MCS Limo, every detail counts. Our vehicles are meticulously chosen and maintained. And our drivers are chosen for their experience and sense of service.",
+    "qualityP2": "Luxury, comfort, courtesy, discretion and sense of service are the key words that will inevitably accompany you during each of your bookings.",
+    "presenceTitle": "We are present throughout France, and beyond!",
+    "presenceP1": "MCS Limo is based in Paris, but takes care of meeting the needs of its customers throughout France, and everywhere else: London, Berlin, Rome, Brussels, New York, Tokyo, etc.",
+    "presenceP2": "Wherever you are, we will be there to accompany you and present you with the offer adapted to your need."
   },
   "servicesPage": {
     "title": "Our Services",
@@ -160,7 +172,18 @@
     "title": "Yearly driver",
     "subtitle": "A tailor-made solution for executives, families and companies looking for a dedicated full-time or part-time driver.",
     "p1": "Benefit from a dedicated high-end driver trained in discretion, secure driving, and protocol management.",
-    "cta": "Request a customized study"
+    "cta": "Request a customized study",
+    "budgetTitle": "Optimized budget, premium service",
+    "quoteBtn": "Get a quote for a year-round chauffeur",
+    "sec1Heading": "A single contract, and a dedicated chauffeur at your disposal year-round.",
+    "sec1Text": "No more last-minute bookings or unpredictable ride-hailing services. With MCS Limo's Year-Round Chauffeur plan, your vehicle and personal chauffeur are available whenever you need them, Monday through Friday and even on weekends. Enjoy a truly tailor-made service perfectly aligned with your professional and private lifestyle.",
+    "sec1Point1": "Your chauffeur awaits you every day, without requiring repeated bookings",
+    "sec1Point2": "Daily availability Monday to Friday, and weekends as needed",
+    "sec2Heading": "Optimized budget, premium luxury service",
+    "sec2Text": "Having your own private chauffeur year-round is more accessible than you think. With clear, predictable pricing, you master your transportation budget while enjoying top-tier luxury: latest vehicle models, experienced and attentive chauffeurs, and flawless service on every trip.",
+    "sec2Point1": "Clear and advantageous pricing, free of on-demand surge costs",
+    "sec2Point2": "Meticulously maintained luxury fleet (Mercedes E-Class, S-Class, V-Class)",
+    "sec2Point3": "Guaranteed discretion, courtesy, and continuous service — two dedicated drivers in rotation for flawless availability"
   },
   "reservation": {
     "badge": "24/7 Online Booking",
@@ -194,7 +217,13 @@
       "successTitle": "Booking request sent successfully!",
       "successMessage": "Our dispatch team is processing your booking and will send a detailed confirmation via email and SMS.",
       "errorRequired": "Please fill in all required fields."
-    }
+    },
+    "pageTitle": "Online Quote & Booking",
+    "pageSubtitle": "Fill in your information to get the price of your service before proceeding to confirmation",
+    "guarantee1": "Free cancellation up to 24h prior to reservation",
+    "guarantee2": "24/7 dedicated customer support",
+    "guarantee3": "Free 60 min waiting time on airport arrivals",
+    "guarantee4": "Meet & Greet with name sign at airports and stations"
   },
   "contact": {
     "badge": "Contact & Quote",
@@ -212,7 +241,9 @@
       "send": "Send message",
       "sending": "Sending...",
       "success": "Your message has been sent successfully!"
-    }
+    },
+    "formTitle": "Contact Form",
+    "infoTitle": "Contact Information"
   },
   "footer": {
     "ctaTitle": "Are you interested in our services ?",
@@ -228,6 +259,179 @@
     "copyright": "MCS Limo 2026 © All rights reserved.",
     "legal": "Legal Notice",
     "cgv": "Terms & Conditions",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "whoWeAre": "Who we are",
+    "services": "Our Services",
+    "fleet": "Fleet",
+    "onlineBooking": "Online booking",
+    "logoAlt": "MCS Limo - High-end Private Chauffeur in Paris"
+  },
+  "vehicles": {
+    "business": {
+      "category": "Business",
+      "name": "Mercedes E-Class",
+      "price": "From €80",
+      "alt": "Mercedes E-Class sedan with private chauffeur - MCS Limo",
+      "passengers": "Up to 3 passengers",
+      "luggage": "Up to 3 luggage"
+    },
+    "van": {
+      "category": "VAN",
+      "name": "Mercedes V-Class",
+      "price": "From €90",
+      "alt": "Mercedes V-Class spacious van with chauffeur - MCS Limo",
+      "passengers": "Up to 7 passengers",
+      "luggage": "Up to 7 luggage"
+    },
+    "luxe": {
+      "category": "Luxury",
+      "name": "Mercedes S-Class",
+      "price": "From €110",
+      "alt": "Mercedes S-Class prestige limousine with chauffeur - MCS Limo",
+      "passengers": "Up to 3 passengers",
+      "luggage": "Up to 3 luggage"
+    },
+    "hybrid": {
+      "category": "Luxury",
+      "name": "Mercedes S-Class 580e",
+      "price": "From €130",
+      "alt": "Mercedes S-Class 580e prestige limousine with chauffeur - MCS Limo",
+      "passengers": "Up to 3 passengers",
+      "luggage": "Up to 3 luggage"
+    },
+    "features": {
+      "wifi": "Wi-Fi",
+      "refreshment": "Refreshments",
+      "childSeats": "Child seats"
+    }
+  },
+  "thankYou": {
+    "reservationTitle": "Thank you for your booking request!",
+    "reservationDesc": "Thank you for submitting your quote request. Our team is reviewing the details and will send you a confirmation promptly.",
+    "contactTitle": "Thank you for reaching out!",
+    "contactDesc": "Your message has been successfully sent. Our team will get back to you shortly.",
+    "lpTitle": "Request received successfully!",
+    "lpDesc": "Thank you for your reservation with MCS Limo exclusive private chauffeur service. Our team will contact you shortly.",
+    "backHome": "Back to Homepage"
+  },
+  "legal": {
+    "cgvTitle": "Terms & Conditions",
+    "privacyTitle": "Privacy & Cookie Policy",
+    "noticesTitle": "Legal Notices"
+  },
+  "contactForm": {
+    "emailSubject": "New Contact Request",
+    "nameLabel": "Name",
+    "namePlaceholder": "Name",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "Phone",
+    "phoneTitle": "Only numbers and phone characters (#, -, *, etc) are accepted.",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "E-mail",
+    "subjectLabel": "Subject",
+    "subjects": {
+      "info": "Request Information",
+      "quote": "Request Quote",
+      "reservation": "Booking"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Message",
+    "submitBtn": "Send my request",
+    "submitting": "Sending...",
+    "errorMessage": "An error occurred while sending your message. Please try again."
+  },
+  "reservationForm": {
+    "pickupLabel": "Pickup location",
+    "pickupPlaceholder": "e.g., CDG Airport Terminal 2E, Hotel Le Bristol, Paris 8th...",
+    "dropoffLabel": "Dropoff destination",
+    "dropoffPlaceholder": "e.g., Gare de Lyon, Versailles Palace, Paris 16th...",
+    "dateLabel": "Pickup date",
+    "timeLabel": "Pickup time",
+    "vehicleLabel": "Vehicle category",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "e.g., contact@company.com",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "e.g., +33 6 12 34 56 78",
+    "phoneTitle": "Only numbers and phone characters (#, -, *, etc) are accepted.",
+    "messageLabel": "Special requests or details",
+    "messagePlaceholder": "e.g., Baby seat required, oversize luggage...",
+    "vehicles": {
+      "classeE": "Mercedes-Benz E-Class (3 pax)",
+      "classeV": "Mercedes-Benz V-Class (7 pax)",
+      "classeS": "Mercedes-Benz S-Class (3 pax)",
+      "classeS580e": "Mercedes-Benz S-Class 580e (3 pax)"
+    },
+    "submitBtn": "Get my online free quote",
+    "submitting": "Sending...",
+    "errorMessage": "An error occurred while submitting your quote request. Please try again.",
+    "emailSubject": "New Booking Request"
+  },
+  "cgv": {
+    "title": "Terms & Conditions",
+    "intro": "These general terms and conditions of sale govern the passenger transportation services provided by MCars Services (MCS Limo), registered with the Paris Trade and Companies Register under number 852 506 948, and registered on the official register of passenger car operators with driver (VTC).",
+    "sec1Title": "1 / Booking & Confirmation",
+    "sec1Text": "Bookings can be made online via our website, by email at contact@mcslimo.fr, or by phone at +33 1 89 48 02 96. A reservation becomes definitive upon written confirmation issued by MCS Limo.",
+    "sec2Title": "2 / Pricing & Payment",
+    "sec2Text": "Our rates include vehicle rental with a private chauffeur, passenger insurance, fuel, toll charges, and VAT at prevailing rates. Payment is accepted via major credit cards (Visa, Mastercard, American Express), bank transfer, or corporate billing.",
+    "sec3Title": "3 / Terms of Service & Amenities",
+    "sec3Text": "Passengers must wear seat belts in accordance with French road regulations. All vehicles are strictly non-smoking. Complimentary Wi-Fi, refreshments, and child seats are available upon request.",
+    "sec4Title": "4 / Cancellation & Modifications",
+    "sec4Text": "Cancellations made at least 24 hours prior to the scheduled pickup time are free of charge. For cancellations made less than 24 hours in advance or in the event of a client no-show, the full rate or standby fee may apply.",
+    "sec5Title": "5 / Applicable Law",
+    "sec5Text": "These terms and conditions are governed by and construed in accordance with French law."
+  },
+  "mentionsLegales": {
+    "title": "Legal Notices",
+    "companyTitle": "General Information",
+    "companyName": "Company Name: MCars Services (MCS Limo)",
+    "companyForm": "Legal Form: SARL",
+    "companyCapital": "Share Capital: €1,000",
+    "companySiret": "SIREN / SIRET: 852 506 948 00011",
+    "companyVat": "EU VAT Number: FR38852506948",
+    "companyAddress": "Registered Office: 10 Place Lucien Boilleau, 91420 Morangis, France",
+    "companyPhone": "Phone: +33 1 89 48 02 96",
+    "companyEmail": "Email: contact@mcslimo.fr",
+    "hostTitle": "Website Hosting",
+    "hostName": "Host: Hostinger International Ltd.",
+    "hostContact": "Host Contact: contact@hostinger.com",
+    "ipTitle": "Intellectual Property",
+    "ipText": "All content on this website is governed by French and international copyright and intellectual property legislation. All reproduction rights are reserved.",
+    "privacyTitle": "Personal Data",
+    "privacyText": "In accordance with the GDPR, you have the right to access, rectify, and delete your personal data. Contact us at contact@mcslimo.fr to exercise your rights."
+  },
+  "privacy": {
+    "title": "Privacy & Cookie Policy",
+    "cookiesTitle": "Cookie Management",
+    "cookiesText": "A cookie is a small file stored on your device when browsing our website. It allows us to remember your preferences (such as selected language), analyze site traffic, and optimize your browsing experience.",
+    "browserTitle": "Managing cookies in your browser",
+    "browserText": "You can configure your browser to accept or reject cookies systematically or depending on their origin.",
+    "dataTitle": "Personal Data Protection (GDPR)",
+    "dataText": "The information collected is processed electronically to manage your bookings and contact inquiries. Your data is never sold or shared with unauthorized third parties.",
+    "rightsTitle": "Your Rights",
+    "rightsText": "You may access, correct, or request deletion of your personal data at any time. For any inquiries, please contact contact@mcslimo.fr."
+  },
+  "landing": {
+    "heroTitle": "Your luxury transport specialist in Paris",
+    "heroSubtitle": "We provide luxury cars with driver to meet your needs",
+    "perk1": "Exceptional vehicles",
+    "perk2": "Elite chauffeurs",
+    "perk3": "Tailor-made experience",
+    "perk4": "Discretion & prestige",
+    "formCardTitle": "Please fill out the form to get a free online quote in a few minutes",
+    "trustBanner": "Dozens of professionals and individuals trust us every day...",
+    "servicesTitle": "Our Services",
+    "servicesSubtitle": "We offer bespoke services tailored to your needs",
+    "serviceTransfersTitle": "Transfers",
+    "serviceTransfersText": "For all your journeys in Paris to or from Parisian train stations or airports, as well as long-distance journeys to/from Paris",
+    "serviceHourlyTitle": "Hourly As Directed",
+    "serviceHourlyText": "Book your chauffeur for the duration that suits you and our vehicle will remain at your disposal to take you to your destinations",
+    "serviceVipTitle": "VIP Welcome",
+    "serviceVipText": "To escort you throughout your journey between the aircraft door and your vehicle, providing you with priority fast-track access",
+    "ctaQuote": "Get a free quote online",
+    "aboutTitle": "About MCS Limo",
+    "aboutText1": "MCS Limo is a passenger transport company offering a tailor-made, high-end service by providing its clients with professional private chauffeurs and luxury vehicles.",
+    "aboutText2": "MCS Limo operates in France as well as in major cities worldwide (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to assist business and leisure clients with the same uncompromising standard of quality wherever they travel.",
+    "footerDesc": "Private chauffeur company in Paris and worldwide offering high-end and bespoke transportation services",
+    "paymentsSecure": "All payments are secure"
   }
 }

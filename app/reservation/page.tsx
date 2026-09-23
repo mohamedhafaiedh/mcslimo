@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import ReservationForm from "../components/ReservationForm";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function ReservationPage() {
-  const pathname = usePathname() || "";
-  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
-  const isEn = pathname === "/en" || pathname.startsWith("/en/");
-  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
+  const { t, lang, dir, pathname } = useTranslation();
 
   useEffect(() => {
     const toggleBtn = document.querySelector(".elementor-menu-toggle");
@@ -27,9 +24,9 @@ export default function ReservationPage() {
   }, []);
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
 
       <MainHeader lang={lang} currentPath={pathname} />
@@ -41,18 +38,14 @@ export default function ReservationPage() {
               <div className="elementor-element elementor-element-e466583 elementor-widget__width-inherit elementor-widget elementor-widget-heading" data-id="e466583" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                 <div className="elementor-widget-container">
                   <h1 className="elementor-heading-title elementor-size-default">
-                    {isAr ? "طلب عرض أسعار وحجز عبر الإنترنت" : isEn ? "Online Quote & Booking" : "Devis et réservation en ligne"}
+                    {t("reservation.pageTitle", "Devis et réservation en ligne")}
                   </h1>
                 </div>
               </div>
               <div className="elementor-element elementor-element-567d15e elementor-widget elementor-widget-text-editor" data-id="567d15e" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
                   <p>
-                    {isAr
-                      ? "أدخل معلومات رحلتك لمعرفة سعر الخدمة بدقة قبل تأكيد الحجز"
-                      : isEn
-                      ? "Fill in your information to get the price of your service before proceeding to confirmation"
-                      : "Renseignez vos informations pour obtenir le prix de votre prestation avant de procéder à la confirmation"}
+                    {t("reservation.pageSubtitle", "Renseignez vos informations pour obtenir le prix de votre prestation avant de procéder à la confirmation")}
                   </p>
                 </div>
               </div>
@@ -85,11 +78,7 @@ export default function ReservationPage() {
                       <div className="elementor-icon-box-content">
                         <h6 className="elementor-icon-box-title">
                           <span>
-                            {isAr
-                              ? "إلغاء مجاني حتى 24 ساعة قبل موعد الحجز"
-                              : isEn
-                              ? "Free cancellation up to 24h prior to reservation"
-                              : "Annulation gratuite jusqu'à 24h avant la réservation"}
+                            {t("reservation.guarantee1", "Annulation gratuite jusqu'à 24h avant la réservation")}
                           </span>
                         </h6>
                       </div>
@@ -112,7 +101,7 @@ export default function ReservationPage() {
                       <div className="elementor-icon-box-content">
                         <h6 className="elementor-icon-box-title">
                           <span>
-                            {isAr ? "خدمة عملاء مخصصة متوفرة 24/7" : isEn ? "24/7 dedicated customer support" : "Service client disponible 24/7"}
+                            {t("reservation.guarantee2", "Service client disponible 24/7")}
                           </span>
                         </h6>
                       </div>
@@ -135,11 +124,7 @@ export default function ReservationPage() {
                       <div className="elementor-icon-box-content">
                         <h6 className="elementor-icon-box-title">
                           <span>
-                            {isAr
-                              ? "انتظار مجاني لمدة ساعة واحدة بعد هبوط الطائرة في المطارات"
-                              : isEn
-                              ? "Free 60 min waiting time on airport arrivals"
-                              : "Attente gratuite de 1h après atterrissage sur les arrivées en aéroport"}
+                            {t("reservation.guarantee3", "Attente gratuite de 1h après atterrissage sur les arrivées en aéroport")}
                           </span>
                         </h6>
                       </div>
@@ -162,11 +147,7 @@ export default function ReservationPage() {
                       <div className="elementor-icon-box-content">
                         <h6 className="elementor-icon-box-title">
                           <span>
-                            {isAr
-                              ? "استقبال بالاسم مع لافتة مخصصة في المطارات ومحطات القطار"
-                              : isEn
-                              ? "Meet & Greet with name sign at airports and stations"
-                              : "Accueil avec pancarte nominative aux aéroports et gares"}
+                            {t("reservation.guarantee4", "Accueil avec pancarte nominative aux aéroports et gares")}
                           </span>
                         </h6>
                       </div>
@@ -183,4 +164,3 @@ export default function ReservationPage() {
     </div>
   );
 }
-

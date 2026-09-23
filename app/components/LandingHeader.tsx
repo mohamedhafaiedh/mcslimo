@@ -1,18 +1,24 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import LanguageSwitcher, { SupportedLang } from "./LanguageSwitcher";
+import { useTranslation, Locale } from "@/lib/useTranslation";
 
 interface LandingHeaderProps {
-  lang: SupportedLang;
+  lang?: SupportedLang;
   currentPath?: string;
 }
 
-export default function LandingHeader({ lang, currentPath = "/lp-chauffeur-prive" }: LandingHeaderProps) {
-  const homeHref = lang === "ar" ? "/ar" : lang === "en" ? "/en" : "/";
+export default function LandingHeader({ lang: propLang, currentPath }: LandingHeaderProps) {
+  const { lang: contextLang, pathname, localizeUrl } = useTranslation();
+  const currentLang = (propLang || contextLang) as Locale;
+  const activePath = currentPath || pathname || "/lp-chauffeur-prive";
+
   const logoAlt =
-    lang === "ar"
+    currentLang === "ar"
       ? "MCS Limo - سائق خاص فاخر في باريس"
-      : lang === "en"
+      : currentLang === "en"
       ? "MCS Limo - High-end Private Chauffeur in Paris"
       : "MCS Limo - Chauffeur privé de prestige à Paris";
 
@@ -45,7 +51,7 @@ export default function LandingHeader({ lang, currentPath = "/lp-chauffeur-prive
               data-widget_type="theme-site-logo.default"
             >
               <div className="elementor-widget-container">
-                <Link href={homeHref}>
+                <Link href={localizeUrl("/")}>
                   <img
                     fetchPriority="high"
                     width="1000"
@@ -110,8 +116,8 @@ export default function LandingHeader({ lang, currentPath = "/lp-chauffeur-prive
             data-e-type="container"
           >
             <LanguageSwitcher
-              lang={lang}
-              currentPath={currentPath}
+              lang={currentLang}
+              currentPath={activePath}
               className="elementor-element-c40a396 elementor-nav-menu__align-end"
             />
           </div>

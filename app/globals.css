@@ -4133,7 +4133,6 @@ button[type="submit"]:disabled *,
 .services-section-wrapper .elementor-button-wrapper {
   background-color: #ffffff !important;
   background: #ffffff !important;
-  width: 100% !important;
 }
 
 .services-section-wrapper {
@@ -4149,6 +4148,160 @@ button[type="submit"]:disabled *,
 .services-section-wrapper .elementor-divider-separator {
   background-color: transparent !important;
   background-image: inherit;
+}
+
+/* ==========================================================================
+   Restitution de l'affichage en 3 colonnes des Services (Desktop & Tablette)
+   ========================================================================== */
+.services-section-wrapper .elementor-element-34308d5,
+.elementor-element.elementor-element-34308d5 {
+  width: 100% !important;
+  display: block !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 > .e-con-inner,
+.elementor-element.elementor-element-34308d5 > .e-con-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 30px !important;
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 .elementor-element-2aaa3e1,
+.services-section-wrapper .elementor-element-34308d5 .elementor-element-0b98ee2,
+.services-section-wrapper .elementor-element-34308d5 .elementor-element-a4cf959,
+.elementor-element.elementor-element-34308d5 .elementor-element-2aaa3e1,
+.elementor-element.elementor-element-34308d5 .elementor-element-0b98ee2,
+.elementor-element.elementor-element-34308d5 .elementor-element-a4cf959 {
+  flex: 1 1 0% !important;
+  width: calc((100% - 60px) / 3) !important;
+  max-width: calc((100% - 60px) / 3) !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  box-sizing: border-box !important;
+  background-color: #ffffff !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 .elementor-widget-image,
+.elementor-element.elementor-element-34308d5 .elementor-widget-image {
+  width: 100% !important;
+  margin-bottom: 20px !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 .elementor-widget-image img,
+.elementor-element.elementor-element-34308d5 .elementor-widget-image img {
+  width: 100% !important;
+  height: 240px !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 4px !important;
+  transition: transform 0.3s ease, filter 0.3s ease !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 .elementor-element-2aaa3e1:hover img,
+.services-section-wrapper .elementor-element-34308d5 .elementor-element-0b98ee2:hover img,
+.services-section-wrapper .elementor-element-34308d5 .elementor-element-a4cf959:hover img {
+  transform: scale(1.02) !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 .elementor-widget-heading,
+.elementor-element.elementor-element-34308d5 .elementor-widget-heading {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 .elementor-heading-title,
+.elementor-element.elementor-element-34308d5 .elementor-heading-title {
+  text-align: center !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: #111111 !important;
+  padding: 12px 0 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+}
+
+.services-section-wrapper .elementor-element-34308d5 .elementor-widget-text-editor,
+.elementor-element.elementor-element-34308d5 .elementor-widget-text-editor {
+  width: 100% !important;
+  text-align: center !important;
+  padding: 16px 8px 0 8px !important;
+  color: #666666 !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .services-section-wrapper .elementor-element-34308d5 > .e-con-inner,
+  .elementor-element.elementor-element-34308d5 > .e-con-inner {
+    gap: 20px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .services-section-wrapper .elementor-element-34308d5 .elementor-element-2aaa3e1,
+  .services-section-wrapper .elementor-element-34308d5 .elementor-element-0b98ee2,
+  .services-section-wrapper .elementor-element-34308d5 .elementor-element-a4cf959,
+  .elementor-element.elementor-element-34308d5 .elementor-element-2aaa3e1,
+  .elementor-element.elementor-element-34308d5 .elementor-element-0b98ee2,
+  .elementor-element.elementor-element-34308d5 .elementor-element-a4cf959 {
+    width: calc((100% - 40px) / 3) !important;
+    max-width: calc((100% - 40px) / 3) !important;
+  }
+  .services-section-wrapper .elementor-element-34308d5 .elementor-widget-image img,
+  .elementor-element.elementor-element-34308d5 .elementor-widget-image img {
+    height: 190px !important;
+  }
+  .services-section-wrapper .elementor-element-34308d5 .elementor-heading-title,
+  .elementor-element.elementor-element-34308d5 .elementor-heading-title {
+    font-size: 16px !important;
+  }
+  .services-section-wrapper .elementor-element-34308d5 .elementor-widget-text-editor,
+  .elementor-element.elementor-element-34308d5 .elementor-widget-text-editor {
+    font-size: 14px !important;
+  }
+}
+
+/* Mobile responsive fallback: 1 column cleanly stacked */
+@media (max-width: 767px) {
+  .services-section-wrapper .elementor-element-34308d5 > .e-con-inner,
+  .elementor-element.elementor-element-34308d5 > .e-con-inner {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    gap: 32px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .services-section-wrapper .elementor-element-34308d5 .elementor-element-2aaa3e1,
+  .services-section-wrapper .elementor-element-34308d5 .elementor-element-0b98ee2,
+  .services-section-wrapper .elementor-element-34308d5 .elementor-element-a4cf959,
+  .elementor-element.elementor-element-34308d5 .elementor-element-2aaa3e1,
+  .elementor-element.elementor-element-34308d5 .elementor-element-0b98ee2,
+  .elementor-element.elementor-element-34308d5 .elementor-element-a4cf959 {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .services-section-wrapper .elementor-element-34308d5 .elementor-widget-image img,
+  .elementor-element.elementor-element-34308d5 .elementor-widget-image img {
+    height: auto !important;
+    max-height: 240px !important;
+  }
 }
 
 /* 2. Pourquoi choisir MCS Limo ? Section: 100% Uniform Light Grey (#f5f5f5) Edge-to-Edge */
@@ -4290,3 +4443,108 @@ section#qui-sommes-nous,
 
 
 
+
+/* ==========================================================================
+   Testimonials 3-Column Layout & How-To-Book 3-Line Layout
+   ========================================================================== */
+.testimonials-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 30px !important;
+  width: 100% !important;
+}
+
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+.how-to-book-lines {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+
+.how-to-book-line-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.how-to-book-line-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+  border-color: var(--e-global-color-accent, #C09E5B) !important;
+}
+
+@media (max-width: 640px) {
+  .how-to-book-line-item {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 20px !important;
+  }
+  .how-to-book-line-item .how-to-book-icon-wrapper {
+    margin: 0 auto 10px auto !important;
+  }
+}
+
+/* Partner Logos Row - Strict Single Line Alignment */
+.elementor-element-64388fb .e-con-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  padding: 20px 0 !important;
+  width: 100% !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+}
+
+.elementor-element-64388fb .e-child {
+  flex: 1 1 0% !important;
+  width: 20% !important;
+  max-width: 20% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.elementor-element-64388fb .elementor-widget-container,
+.elementor-element-64388fb .elementor-widget-image {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.elementor-element-64388fb .elementor-widget-image img {
+  max-height: 44px !important;
+  width: auto !important;
+  max-width: 90% !important;
+  object-fit: contain !important;
+  filter: grayscale(100%) opacity(0.7) !important;
+  transition: filter 0.3s ease, transform 0.3s ease !important;
+}
+
+.elementor-element-64388fb .elementor-widget-image:hover img {
+  filter: grayscale(0%) opacity(1) !important;
+  transform: scale(1.05) !important;
+}
+
+@media (max-width: 767px) {
+  .elementor-element-64388fb .e-con-inner {
+    gap: 10px !important;
+    padding: 15px 5px !important;
+  }
+  .elementor-element-64388fb .elementor-widget-image img {
+    max-height: 28px !important;
+  }
+}

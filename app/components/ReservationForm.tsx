@@ -13,194 +13,18 @@ import {
   MessageSquare,
   ChevronDown
 } from "lucide-react";
+import { useTranslation, getFormattedTimestamp, Locale } from "@/lib/useTranslation";
 
 export interface ReservationFormProps {
-  lang: "fr" | "en" | "ar";
+  lang?: Locale;
   redirectUrl?: string;
 }
 
-function getFormattedTimestamp(lang: "fr" | "en" | "ar") {
-  const now = new Date();
-  if (lang === "ar") {
-    const dateStr = now.toLocaleDateString("fr-FR", {
-      timeZone: "Europe/Paris",
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
-    const timeStr = now.toLocaleTimeString("fr-FR", {
-      timeZone: "Europe/Paris",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit"
-    });
-    return `${dateStr} à ${timeStr} (توقيت باريس)`;
-  } else if (lang === "fr") {
-    const dateStr = now.toLocaleDateString("fr-FR", {
-      timeZone: "Europe/Paris",
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
-    const timeStr = now.toLocaleTimeString("fr-FR", {
-      timeZone: "Europe/Paris",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit"
-    });
-    return `${dateStr} à ${timeStr} (heure de Paris)`;
-  } else {
-    const dateStr = now.toLocaleDateString("en-US", {
-      timeZone: "Europe/Paris",
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric"
-    });
-    const timeStr = now.toLocaleTimeString("en-US", {
-      timeZone: "Europe/Paris",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false
-    });
-    return `${dateStr}, ${timeStr} (Paris time)`;
-  }
-}
-
-const CONFIG = {
-  fr: {
-    formName: "reservation",
-    fields: {
-      pickup: "adresse_depart",
-      dropoff: "adresse_arrivee",
-      date: "date",
-      time: "heure",
-      vehicle: "vehicule",
-      email: "email",
-      phone: "telephone",
-      message: "message"
-    },
-    floatingLabels: {
-      pickup: "Lieu de prise en charge",
-      dropoff: "Lieu de destination",
-      date: "Date de prise en charge",
-      time: "Heure de prise en charge",
-      vehicle: "Catégorie de véhicule",
-      email: "Adresse e-mail",
-      phone: "Numéro de téléphone",
-      message: "Précisions ou demandes particulières"
-    },
-    placeholders: {
-      pickup: "Ex. : Aéroport CDG Terminal 2E, Hôtel Le Bristol, Paris 8e...",
-      dropoff: "Ex. : Gare de Lyon, Château de Versailles, Paris 16e...",
-      date: "",
-      time: "",
-      email: "Ex. : contact@entreprise.com",
-      phone: "Ex. : +33 6 12 34 56 78",
-      message: "Ex. : Siège bébé requis, nombre de bagages volumineux..."
-    },
-    vehicleOptions: [
-      { value: "Mercedes classe E (3pax)", label: "Mercedes classe E (3pax)" },
-      { value: "Mercedes classe V (7pax)", label: "Mercedes classe V (7pax)" },
-      { value: "Mercedes classe S (3pax)", label: "Mercedes classe S (3pax)" },
-      { value: "Mercedes classe S 580e (3pax)", label: "Mercedes classe S 580e (3pax)" }
-    ],
-    phoneTitle: "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.",
-    submitButtonText: "J'obtiens mon devis gratuit en ligne",
-    submittingText: "Envoi en cours...",
-    errorMessage: "Une erreur est survenue lors de l'envoi de votre réservation. Veuillez réessayer.",
-    redirectUrl: "/merci-reservation"
-  },
-  en: {
-    formName: "reservation-en",
-    fields: {
-      pickup: "pickup_address",
-      dropoff: "dropoff_address",
-      date: "date",
-      time: "time",
-      vehicle: "vehicle",
-      email: "email",
-      phone: "phone",
-      message: "message"
-    },
-    floatingLabels: {
-      pickup: "Pickup location",
-      dropoff: "Dropoff destination",
-      date: "Pickup date",
-      time: "Pickup time",
-      vehicle: "Vehicle category",
-      email: "Email address",
-      phone: "Phone number",
-      message: "Special requests or details"
-    },
-    placeholders: {
-      pickup: "e.g., CDG Airport Terminal 2E, Hotel Le Bristol, Paris 8th...",
-      dropoff: "e.g., Gare de Lyon, Versailles Palace, Paris 16th...",
-      date: "",
-      time: "",
-      email: "e.g., contact@company.com",
-      phone: "e.g., +33 6 12 34 56 78",
-      message: "e.g., Baby seat required, oversize luggage..."
-    },
-    vehicleOptions: [
-      { value: "Mercedes classe E (3pax)", label: "Mercedes-Benz E-Class (3 pax)" },
-      { value: "Mercedes classe V (7pax)", label: "Mercedes-Benz V-Class (7 pax)" },
-      { value: "Mercedes classe S (3pax)", label: "Mercedes-Benz S-Class (3 pax)" },
-      { value: "Mercedes classe S 580e (3pax)", label: "Mercedes-Benz S-Class 580e (3 pax)" }
-    ],
-    phoneTitle: "Only numbers and phone characters (#, -, *, etc) are accepted.",
-    submitButtonText: "Get my online free quote",
-    submittingText: "Sending...",
-    errorMessage: "An error occurred while submitting your quote request. Please try again.",
-    redirectUrl: "/en/merci-reservation"
-  },
-  ar: {
-    formName: "reservation-ar",
-    fields: {
-      pickup: "adresse_depart",
-      dropoff: "adresse_arrivee",
-      date: "date",
-      time: "heure",
-      vehicle: "vehicule",
-      email: "email",
-      phone: "telephone",
-      message: "message"
-    },
-    floatingLabels: {
-      pickup: "مكان الانطلاق / الاستلام",
-      dropoff: "مكان الوصول / الوجهة",
-      date: "تاريخ الرحلة",
-      time: "وقت الرحلة",
-      vehicle: "فئة السيارة",
-      email: "البريد الإلكتروني",
-      phone: "رقم الهاتف",
-      message: "طلبات خاصة أو تفاصيل إضافية"
-    },
-    placeholders: {
-      pickup: "مثال: مطار شارل ديغول مبنى 2E، فندق لو بريستول...",
-      dropoff: "مثال: محطة غار دو ليون، قصر فرساي، باريس...",
-      date: "",
-      time: "",
-      email: "مثال: contact@domain.com",
-      phone: "مثال: +33 6 12 34 56 78",
-      message: "مثال: مقعد طفل، عدد كبير من الحقائب..."
-    },
-    vehicleOptions: [
-      { value: "Mercedes classe E (3pax)", label: "مرسيدس E (3 ركاب)" },
-      { value: "Mercedes classe V (7pax)", label: "مرسيدس V (7 ركاب)" },
-      { value: "Mercedes classe S (3pax)", label: "مرسيدس S (3 ركاب)" },
-      { value: "Mercedes classe S 580e (3pax)", label: "مرسيدس S 580e (3 ركاب)" }
-    ],
-    phoneTitle: "يُرجى إدخال أرقام ورموز هواتف صحيحة (#, -, *, +).",
-    submitButtonText: "احصل على عرض أسعاري المجاني عبر الإنترنت",
-    submittingText: "جاري الإرسال...",
-    errorMessage: "حدث خطأ أثناء إرسال طلب الحجز. يُرجى إعادة المحاولة.",
-    redirectUrl: "/ar/merci-reservation"
-  }
-};
-
-export default function ReservationForm({ lang, redirectUrl }: ReservationFormProps) {
+export default function ReservationForm({ lang: propLang, redirectUrl }: ReservationFormProps) {
   const router = useRouter();
+  const { t, lang: contextLang, localizeUrl } = useTranslation();
+  const currentLang = propLang || contextLang;
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [todayString] = useState(() => {
@@ -215,19 +39,50 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
     }
   });
 
-  const config = CONFIG[lang];
-  const targetRedirectUrl = redirectUrl || config.redirectUrl;
+  const isEn = currentLang === "en";
+  const formName = isEn ? "reservation-en" : currentLang === "ar" ? "reservation-ar" : "reservation";
+
+  const fields = isEn
+    ? {
+        pickup: "pickup_address",
+        dropoff: "dropoff_address",
+        date: "date",
+        time: "time",
+        vehicle: "vehicle",
+        email: "email",
+        phone: "phone",
+        message: "message"
+      }
+    : {
+        pickup: "adresse_depart",
+        dropoff: "adresse_arrivee",
+        date: "date",
+        time: "heure",
+        vehicle: "vehicule",
+        email: "email",
+        phone: "telephone",
+        message: "message"
+      };
+
+  const vehicleOptions = [
+    { value: "Mercedes classe E (3pax)", label: t("reservationForm.vehicles.classeE", "Mercedes classe E (3pax)") },
+    { value: "Mercedes classe V (7pax)", label: t("reservationForm.vehicles.classeV", "Mercedes classe V (7pax)") },
+    { value: "Mercedes classe S (3pax)", label: t("reservationForm.vehicles.classeS", "Mercedes classe S (3pax)") },
+    { value: "Mercedes classe S 580e (3pax)", label: t("reservationForm.vehicles.classeS580e", "Mercedes classe S 580e (3pax)") }
+  ];
+
+  const targetRedirectUrl = redirectUrl ? localizeUrl(redirectUrl) : localizeUrl("/merci-reservation");
 
   // Track values keyed by the actual field name sent in the form
   const [fieldValues, setFieldValues] = useState<{ [key: string]: string }>({
-    [config.fields.pickup]: "",
-    [config.fields.dropoff]: "",
-    [config.fields.date]: "",
-    [config.fields.time]: "",
-    [config.fields.vehicle]: "Mercedes classe E (3pax)",
-    [config.fields.email]: "",
-    [config.fields.phone]: "",
-    [config.fields.message]: ""
+    [fields.pickup]: "",
+    [fields.dropoff]: "",
+    [fields.date]: "",
+    [fields.time]: "",
+    [fields.vehicle]: "Mercedes classe E (3pax)",
+    [fields.email]: "",
+    [fields.phone]: "",
+    [fields.message]: ""
   });
 
   // Focused field key
@@ -250,19 +105,16 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
 
     try {
       const formData = new FormData(e.currentTarget);
-      formData.set("form-name", config.formName);
+      formData.set("form-name", formName);
 
-      const dateVal = (formData.get(config.fields.date) as string) || "";
-      const timeVal = (formData.get(config.fields.time) as string) || "";
-      const emailSubject =
-        lang === "fr"
-          ? `Nouvelle demande de réservation (${dateVal} - ${timeVal})`
-          : `New Booking Request (${dateVal} - ${timeVal})`;
-      formData.set("subject", emailSubject);
+      const dateVal = (formData.get(fields.date) as string) || "";
+      const timeVal = (formData.get(fields.time) as string) || "";
+      const emailSubjectPrefix = t("reservationForm.emailSubject", "Nouvelle demande de réservation");
+      formData.set("subject", `${emailSubjectPrefix} (${dateVal} - ${timeVal})`);
 
       if (typeof window !== "undefined") {
         formData.set("pageUrl", window.location.href);
-        formData.set("timestamp", getFormattedTimestamp(lang));
+        formData.set("timestamp", getFormattedTimestamp(currentLang));
       }
 
       const params = new URLSearchParams();
@@ -283,56 +135,56 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
       }
     } catch (error) {
       console.error("Erreur:", error);
-      setErrorMessage(config.errorMessage);
+      setErrorMessage(t("reservationForm.errorMessage", "Une erreur est survenue lors de l'envoi de votre réservation. Veuillez réessayer."));
       setIsSubmitting(false);
     }
   };
 
-  const pickupVal = fieldValues[config.fields.pickup] || "";
-  const dropoffVal = fieldValues[config.fields.dropoff] || "";
-  const dateVal = fieldValues[config.fields.date] || "";
-  const timeVal = fieldValues[config.fields.time] || "";
-  const vehicleVal = fieldValues[config.fields.vehicle] || "Mercedes classe E (3pax)";
-  const emailVal = fieldValues[config.fields.email] || "";
-  const phoneVal = fieldValues[config.fields.phone] || "";
-  const messageVal = fieldValues[config.fields.message] || "";
+  const pickupVal = fieldValues[fields.pickup] || "";
+  const dropoffVal = fieldValues[fields.dropoff] || "";
+  const dateVal = fieldValues[fields.date] || "";
+  const timeVal = fieldValues[fields.time] || "";
+  const vehicleVal = fieldValues[fields.vehicle] || "Mercedes classe E (3pax)";
+  const emailVal = fieldValues[fields.email] || "";
+  const phoneVal = fieldValues[fields.phone] || "";
+  const messageVal = fieldValues[fields.message] || "";
 
   return (
     <form
       className="elementor-form"
       method="post"
-      name={config.formName}
+      name={formName}
       aria-label="Devis site"
       onSubmit={handleSubmit}
     >
-      <input type="hidden" name="form-name" value={config.formName} />
+      <input type="hidden" name="form-name" value={formName} />
       <input type="hidden" name="subject" value="" />
       <div className="elementor-form-fields-wrapper elementor-labels-">
         {/* Champ 1 : Adresse de départ */}
         <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_efe4dce elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === config.fields.pickup ? "is-focused" : ""
+              focusedField === fields.pickup ? "is-focused" : ""
             } ${pickupVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <MapPin size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-field_efe4dce" className="floating-label">
-              {config.floatingLabels.pickup}
+              {t("reservationForm.pickupLabel", "Lieu de prise en charge")}
             </label>
             <input
               type="text"
-              name={config.fields.pickup}
+              name={fields.pickup}
               id="form-field-field_efe4dce"
               className="floating-input-control"
-              placeholder={config.placeholders.pickup}
+              placeholder={t("reservationForm.pickupPlaceholder", "Ex. : Aéroport CDG Terminal 2E, Hôtel Le Bristol, Paris 8e...")}
               value={pickupVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.pickup)}
+              onFocus={() => setFocusedField(fields.pickup)}
               onBlur={() => setFocusedField(null)}
               required={true}
-              aria-label={config.floatingLabels.pickup}
+              aria-label={t("reservationForm.pickupLabel", "Lieu de prise en charge")}
             />
           </div>
         </div>
@@ -341,26 +193,26 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_2342981 elementor-col-50">
           <div
             className={`floating-input-wrapper ${
-              focusedField === config.fields.dropoff ? "is-focused" : ""
+              focusedField === fields.dropoff ? "is-focused" : ""
             } ${dropoffVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Navigation size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-field_2342981" className="floating-label">
-              {config.floatingLabels.dropoff}
+              {t("reservationForm.dropoffLabel", "Lieu de destination")}
             </label>
             <input
               type="text"
-              name={config.fields.dropoff}
+              name={fields.dropoff}
               id="form-field-field_2342981"
               className="floating-input-control"
-              placeholder={config.placeholders.dropoff}
+              placeholder={t("reservationForm.dropoffPlaceholder", "Ex. : Gare de Lyon, Château de Versailles, Paris 16e...")}
               value={dropoffVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.dropoff)}
+              onFocus={() => setFocusedField(fields.dropoff)}
               onBlur={() => setFocusedField(null)}
-              aria-label={config.floatingLabels.dropoff}
+              aria-label={t("reservationForm.dropoffLabel", "Lieu de destination")}
             />
           </div>
         </div>
@@ -369,24 +221,24 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-date elementor-field-group elementor-column elementor-field-group-field_491d849 elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === config.fields.date ? "is-focused" : ""
+              focusedField === fields.date ? "is-focused" : ""
             } ${dateVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Calendar size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-field_491d849" className="floating-label">
-              {config.floatingLabels.date}
+              {t("reservationForm.dateLabel", "Date de prise en charge")}
             </label>
             <input
               type="date"
-              name={config.fields.date}
+              name={fields.date}
               id="form-field-field_491d849"
               className="floating-input-control"
+              min={todayString}
               value={dateVal}
-              min={todayString || undefined}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.date)}
+              onFocus={() => setFocusedField(fields.date)}
               onBlur={() => setFocusedField(null)}
               onClick={(e) => {
                 try {
@@ -398,7 +250,7 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
                 }
               }}
               required={true}
-              aria-label={config.floatingLabels.date}
+              aria-label={t("reservationForm.dateLabel", "Date de prise en charge")}
             />
           </div>
         </div>
@@ -407,23 +259,23 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-time elementor-field-group elementor-column elementor-field-group-field_9961b70 elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === config.fields.time ? "is-focused" : ""
+              focusedField === fields.time ? "is-focused" : ""
             } ${timeVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Clock size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-field_9961b70" className="floating-label">
-              {config.floatingLabels.time}
+              {t("reservationForm.timeLabel", "Heure de prise en charge")}
             </label>
             <input
               type="time"
-              name={config.fields.time}
+              name={fields.time}
               id="form-field-field_9961b70"
               className="floating-input-control"
               value={timeVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.time)}
+              onFocus={() => setFocusedField(fields.time)}
               onBlur={() => setFocusedField(null)}
               onClick={(e) => {
                 try {
@@ -435,7 +287,7 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
                 }
               }}
               required={true}
-              aria-label={config.floatingLabels.time}
+              aria-label={t("reservationForm.timeLabel", "Heure de prise en charge")}
             />
           </div>
         </div>
@@ -444,27 +296,27 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_fbb2aa6 elementor-col-100 elementor-field-required">
           <div
             className={`floating-input-wrapper has-value ${
-              focusedField === config.fields.vehicle ? "is-focused" : ""
+              focusedField === fields.vehicle ? "is-focused" : ""
             }`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Car size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-field_fbb2aa6" className="floating-label">
-              {config.floatingLabels.vehicle}
+              {t("reservationForm.vehicleLabel", "Catégorie de véhicule")}
             </label>
             <select
-              name={config.fields.vehicle}
+              name={fields.vehicle}
               id="form-field-field_fbb2aa6"
               className="floating-input-control floating-select-control"
               value={vehicleVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.vehicle)}
+              onFocus={() => setFocusedField(fields.vehicle)}
               onBlur={() => setFocusedField(null)}
               required={true}
-              aria-label={config.floatingLabels.vehicle}
+              aria-label={t("reservationForm.vehicleLabel", "Catégorie de véhicule")}
             >
-              {config.vehicleOptions.map((opt) => (
+              {vehicleOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
                   {opt.label}
                 </option>
@@ -480,27 +332,27 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === config.fields.email ? "is-focused" : ""
+              focusedField === fields.email ? "is-focused" : ""
             } ${emailVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Mail size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-email" className="floating-label">
-              {config.floatingLabels.email}
+              {t("reservationForm.emailLabel", "Adresse e-mail")}
             </label>
             <input
               type="email"
-              name={config.fields.email}
+              name={fields.email}
               id="form-field-email"
               className="floating-input-control"
-              placeholder={config.placeholders.email}
+              placeholder={t("reservationForm.emailPlaceholder", "Ex. : contact@entreprise.com")}
               value={emailVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.email)}
+              onFocus={() => setFocusedField(fields.email)}
               onBlur={() => setFocusedField(null)}
               required={true}
-              aria-label={config.floatingLabels.email}
+              aria-label={t("reservationForm.emailLabel", "Adresse e-mail")}
             />
           </div>
         </div>
@@ -509,29 +361,29 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_b3cb97b elementor-col-50 elementor-field-required">
           <div
             className={`floating-input-wrapper ${
-              focusedField === config.fields.phone ? "is-focused" : ""
+              focusedField === fields.phone ? "is-focused" : ""
             } ${phoneVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <Phone size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-field_b3cb97b" className="floating-label">
-              {config.floatingLabels.phone}
+              {t("reservationForm.phoneLabel", "Numéro de téléphone")}
             </label>
             <input
               type="tel"
-              name={config.fields.phone}
+              name={fields.phone}
               id="form-field-field_b3cb97b"
               className="floating-input-control"
-              placeholder={config.placeholders.phone}
+              placeholder={t("reservationForm.phonePlaceholder", "Ex. : +33 6 12 34 56 78")}
               value={phoneVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.phone)}
+              onFocus={() => setFocusedField(fields.phone)}
               onBlur={() => setFocusedField(null)}
               required={true}
               pattern="[0-9()#&+*-=.\s]+"
-              title={config.phoneTitle}
-              aria-label={config.floatingLabels.phone}
+              title={t("reservationForm.phoneTitle", "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.")}
+              aria-label={t("reservationForm.phoneLabel", "Numéro de téléphone")}
             />
           </div>
         </div>
@@ -540,31 +392,31 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
         <div className="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
           <div
             className={`floating-input-wrapper textarea-wrapper ${
-              focusedField === config.fields.message ? "is-focused" : ""
+              focusedField === fields.message ? "is-focused" : ""
             } ${messageVal ? "has-value" : ""}`}
           >
             <div className="floating-field-icon" aria-hidden="true">
               <MessageSquare size={18} strokeWidth={2} />
             </div>
             <label htmlFor="form-field-message" className="floating-label">
-              {config.floatingLabels.message}
+              {t("reservationForm.messageLabel", "Précisions ou demandes particulières")}
             </label>
             <textarea
-              name={config.fields.message}
+              name={fields.message}
               id="form-field-message"
               className="floating-input-control floating-textarea"
               rows={3}
-              placeholder={config.placeholders.message}
+              placeholder={t("reservationForm.messagePlaceholder", "Ex. : Siège bébé requis, nombre de bagages volumineux...")}
               value={messageVal}
               onChange={handleChange}
-              onFocus={() => setFocusedField(config.fields.message)}
+              onFocus={() => setFocusedField(fields.message)}
               onBlur={() => setFocusedField(null)}
-              aria-label={config.floatingLabels.message}
+              aria-label={t("reservationForm.messageLabel", "Précisions ou demandes particulières")}
             ></textarea>
           </div>
         </div>
 
-        {/* Recaptcha & messages */}
+        {/* Recaptcha */}
         <div className="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_d657737 elementor-col-100 recaptcha_v3-bottomright">
           <div className="elementor-field" id="form-field-field_d657737">
             <div
@@ -602,7 +454,9 @@ export default function ReservationForm({ lang, redirectUrl }: ReservationFormPr
           >
             <span className="elementor-button-content-wrapper">
               <span className="elementor-button-text">
-                {isSubmitting ? config.submittingText : config.submitButtonText}
+                {isSubmitting
+                  ? t("reservationForm.submitting", "Envoi en cours...")
+                  : t("reservationForm.submitBtn", "J'obtiens mon devis gratuit en ligne")}
               </span>
             </span>
           </button>

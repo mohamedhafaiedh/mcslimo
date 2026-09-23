@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import MainHeader from "./components/MainHeader";
 import MainFooter from "./components/MainFooter";
 import WhyChooseUsSection from "./components/WhyChooseUsSection";
@@ -10,17 +9,15 @@ import VehicleCards from "./components/VehicleCards";
 import TestimonialsSection from "./components/TestimonialsSection";
 import HowToBookSection from "./components/HowToBookSection";
 import SlashesDivider from "./components/SlashesDivider";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function HomePage() {
-  const pathname = usePathname() || "";
-  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
-  const isEn = pathname === "/en" || pathname.startsWith("/en/");
-  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
+  const { t, lang, dir, pathname, localizeUrl } = useTranslation();
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
 
       <MainHeader lang={lang} currentPath={pathname} />
@@ -56,11 +53,7 @@ export default function HomePage() {
                 >
                   <div className="elementor-widget-container">
                     <h1 className="elementor-heading-title elementor-size-default">
-                      {isAr
-                        ? "سائقون خاصون في باريس لعملاء متميزين"
-                        : isEn
-                        ? "Private chauffeurs in Paris for a demanding clientele"
-                        : "Chauffeurs privés à Paris pour une clientèle exigeante"}
+                      {t("home.hero.title", "Chauffeurs privés à Paris pour une clientèle exigeante")}
                     </h1>
                   </div>
                 </div>
@@ -73,11 +66,7 @@ export default function HomePage() {
                   data-widget_type="text-editor.default"
                 >
                   <div className="elementor-widget-container">
-                    {isAr
-                      ? "نوفر لكم سيارات فاخرة مع سائق خاص لتلبية جميع متطلبات تنقلاتكم."
-                      : isEn
-                      ? "We provide luxury cars with driver to meet all your travel needs."
-                      : "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins"}
+                    {t("home.hero.subtitle", "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins")}
                   </div>
                 </div>
 
@@ -92,11 +81,11 @@ export default function HomePage() {
                     <div className="elementor-button-wrapper">
                       <Link
                         className="elementor-button elementor-button-link elementor-size-md"
-                        href={isAr ? "/ar/reservation" : isEn ? "/en/reservation" : "/reservation"}
+                        href={localizeUrl("/reservation")}
                       >
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "الحصول على عرض سعر والحجز" : isEn ? "Get a quote and book" : "Obtenir un devis et réserver"}
+                            {t("home.hero.cta", "Obtenir un devis et réserver")}
                           </span>
                         </span>
                       </Link>
@@ -104,27 +93,21 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div
-                className="elementor-element elementor-element-4ccdb49 e-con-full e-flex e-con e-child"
-                data-id="4ccdb49"
-                data-element_type="container"
-                data-e-type="container"
-              ></div>
             </div>
           </div>
 
-          {/* CLIENT TRUST STRIP */}
+          {/* TRUST / STATS HEADING */}
           <div
-            className="elementor-element elementor-element-b55f6ee e-flex e-con-boxed e-con e-parent"
-            data-id="b55f6ee"
+            className="elementor-element elementor-element-a3e903a e-flex e-con-boxed e-con e-parent"
+            data-id="a3e903a"
             data-element_type="container"
             data-e-type="container"
             data-settings='{"background_background":"classic"}'
           >
             <div className="e-con-inner">
               <div
-                className="elementor-element elementor-element-940308a e-flex e-con-boxed e-con e-child"
-                data-id="940308a"
+                className="elementor-element elementor-element-773df45 e-con-full e-flex e-con e-child"
+                data-id="773df45"
                 data-element_type="container"
                 data-e-type="container"
               >
@@ -138,11 +121,7 @@ export default function HomePage() {
                   >
                     <div className="elementor-widget-container">
                       <h4 className="elementor-heading-title elementor-size-default">
-                        {isAr
-                          ? "عشرات المحترفين والأفراد يضعون ثقتهم بنا كل يوم..."
-                          : isEn
-                          ? "Dozens of professionals and individuals trust us every day..."
-                          : "Des dizaines de professionnels et particuliers nous font confiance chaque jour..."}
+                        {t("home.trust.title", "Des dizaines de professionnels et particuliers nous font confiance chaque jour...")}
                       </h4>
                     </div>
                   </div>
@@ -163,54 +142,58 @@ export default function HomePage() {
               <div className="elementor-element elementor-element-cdea823 e-con-full e-flex e-con e-child" data-id="cdea823" data-element_type="container" data-e-type="container">
                 <div className="elementor-element elementor-element-2edfe16 elementor-widget elementor-widget-image" data-id="2edfe16" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
                   <div className="elementor-widget-container">
-                    <img decoding="async" width="500" height="111" src="/images/uniformation.png" className="attachment-large size-large wp-image-321" alt="Partenaire Uniformation - MCS Limo" sizes="(max-width: 500px) 100vw, 500px" />
+                    <img loading="lazy" decoding="async" width="500" height="111" src="/images/uniformation.png" className="attachment-large size-large wp-image-321" alt="Partenaire Uniformation - MCS Limo" sizes="(max-width: 500px) 100vw, 500px" />
                   </div>
                 </div>
               </div>
               <div className="elementor-element elementor-element-a405af5 e-con-full e-flex e-con e-child" data-id="a405af5" data-element_type="container" data-e-type="container">
                 <div className="elementor-element elementor-element-a42efd7 elementor-widget elementor-widget-image" data-id="a42efd7" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
                   <div className="elementor-widget-container">
-                    <img decoding="async" width="800" height="124" src="/images/2560px-Prada-Logo.svg-1024x159-1.webp" className="attachment-large size-large wp-image-197" alt="Client de prestige Prada - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
+                    <img loading="lazy" decoding="async" width="800" height="124" src="/images/2560px-Prada-Logo.svg-1024x159-1.webp" className="attachment-large size-large wp-image-197" alt="Client de prestige Prada - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
                   </div>
                 </div>
               </div>
               <div className="elementor-element elementor-element-55a2cba e-con-full e-flex e-con e-child" data-id="55a2cba" data-element_type="container" data-e-type="container">
                 <div className="elementor-element elementor-element-b1cdc49 elementor-widget elementor-widget-image" data-id="b1cdc49" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
                   <div className="elementor-widget-container">
-                    <img decoding="async" width="800" height="219" src="/images/1200px-Vaisala_logo.svg.png" className="attachment-large size-large wp-image-196" alt="Client entreprise Vaisala - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
+                    <img loading="lazy" decoding="async" width="800" height="219" src="/images/1200px-Vaisala_logo.svg.png" className="attachment-large size-large wp-image-196" alt="Client entreprise Vaisala - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
                   </div>
                 </div>
               </div>
               <div className="elementor-element elementor-element-c09c0da e-con-full e-flex e-con e-child" data-id="c09c0da" data-element_type="container" data-e-type="container">
                 <div className="elementor-element elementor-element-abab67b elementor-widget elementor-widget-image" data-id="abab67b" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
                   <div className="elementor-widget-container">
-                    <img decoding="async" width="800" height="134" src="/images/ETSGlobal_logo.a83452a9.png" className="attachment-large size-large wp-image-199" alt="Client entreprise ETS Global - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
+                    <img loading="lazy" decoding="async" width="800" height="134" src="/images/ETSGlobal_logo.a83452a9.png" className="attachment-large size-large wp-image-199" alt="Client entreprise ETS Global - MCS Limo" sizes="(max-width: 800px) 100vw, 800px" />
                   </div>
                 </div>
               </div>
               <div className="elementor-element elementor-element-247deb8 e-con-full e-flex e-con e-child" data-id="247deb8" data-element_type="container" data-e-type="container">
                 <div className="elementor-element elementor-element-89bd1dc elementor-widget elementor-widget-image" data-id="89bd1dc" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
                   <div className="elementor-widget-container">
-                    <img decoding="async" width="209" height="64" src="/images/cq5dam.web_.1280.1280.webp" className="attachment-large size-large wp-image-198" alt="Partenaire entreprise de prestige - MCS Limo" />
+                    <img loading="lazy" decoding="async" width="209" height="64" src="/images/cq5dam.web_.1280.1280.webp" className="attachment-large size-large wp-image-198" alt="Partenaire entreprise de prestige - MCS Limo" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* WHY CHOOSE US */}
+          <WhyChooseUsSection lang={lang} />
+
           {/* SERVICES SECTION */}
-          <section className="services-section-wrapper" id="services" style={{ backgroundColor: "#ffffff", width: "100%" }}>
+          <section style={{ backgroundColor: "#ffffff", padding: "60px 0" }}>
             <div
-              className="elementor-element elementor-element-90115f2 e-flex e-con-boxed e-con e-parent"
-              data-id="90115f2"
+              className="elementor-element elementor-element-250e189 e-flex e-con-boxed e-con e-parent"
+              data-id="250e189"
               data-element_type="container"
               data-e-type="container"
-              style={{ backgroundColor: "#ffffff", width: "100%" }}
+              data-settings='{"background_background":"classic"}'
+              style={{ backgroundColor: "#ffffff" }}
             >
-              <div className="e-con-inner" style={{ backgroundColor: "#ffffff" }}>
+              <div className="e-con-inner" style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}>
                 <div
-                  className="elementor-element elementor-element-4f948e4 elementor-widget elementor-widget-heading"
-                  data-id="4f948e4"
+                  className="elementor-element elementor-element-74971c6 elementor-widget elementor-widget-heading"
+                  data-id="74971c6"
                   data-element_type="widget"
                   data-e-type="widget"
                   data-widget_type="heading.default"
@@ -218,7 +201,7 @@ export default function HomePage() {
                 >
                   <div className="elementor-widget-container" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
                     <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
-                      {isAr ? "خدماتنا" : isEn ? "Our Services" : "Nos Services"}
+                      {t("home.services.title", "Nos Services")}
                     </h2>
                   </div>
                 </div>
@@ -234,11 +217,7 @@ export default function HomePage() {
                   style={{ backgroundColor: "#ffffff" }}
                 >
                   <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
-                    {isAr
-                      ? "نقدم لكم خدمات مخصصة ومصممة خصيصاً لتناسب احتياجاتكم"
-                      : isEn
-                      ? "We offer tailor-made services that adapt to your needs"
-                      : "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins"}
+                    {t("home.services.subtitle", "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins")}
                   </div>
                 </div>
               </div>
@@ -270,18 +249,14 @@ export default function HomePage() {
                   <div className="elementor-element elementor-element-044593b elementor-widget elementor-widget-heading" data-id="044593b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
                     <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                       <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
-                        {isAr ? "خدمات التوصيل" : isEn ? "Transfers" : "Transferts"}
+                        {t("home.services.transfersTitle", "Transferts")}
                       </h3>
                     </div>
                   </div>
                   <div className="elementor-element elementor-element-ddb7642 elementor-widget elementor-widget-text-editor" data-id="ddb7642" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
                     <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                       <p style={{ backgroundColor: "#ffffff" }}>
-                        {isAr
-                          ? "لجميع رحلاتكم في باريس من وإلى محطات القطار أو المطارات الباريسية، أو الرحلات الطويلة من وإلى باريس."
-                          : isEn
-                          ? "For all your journeys in Paris to or from Parisian train stations or airports or long journeys to/from Paris."
-                          : "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris"}
+                        {t("home.services.transfersDesc", "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris")}
                       </p>
                     </div>
                   </div>
@@ -304,17 +279,13 @@ export default function HomePage() {
                   <div className="elementor-element elementor-element-035a507 elementor-widget elementor-widget-heading" data-id="035a507" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
                     <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                       <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
-                        {isAr ? "السيارة وسائق تحت الطلب" : isEn ? "Hourly car rental" : "Mises à disposition"}
+                        {t("home.services.madTitle", "Mises à disposition")}
                       </h3>
                     </div>
                   </div>
                   <div className="elementor-element elementor-element-fd9663b elementor-widget elementor-widget-text-editor" data-id="fd9663b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
                     <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
-                      {isAr
-                        ? "احجز سائقك للمدة التي تناسبك وستبقى سيارتنا مرافقة لك للتنقل بين وجهاتك بكل راحة."
-                        : isEn
-                        ? "Book your driver for the duration that suits you and our vehicle will remain mobilized to take you to your destinations."
-                        : "Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations"}
+                      {t("home.services.madDesc", "Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations")}
                     </div>
                   </div>
                 </div>
@@ -336,17 +307,13 @@ export default function HomePage() {
                   <div className="elementor-element elementor-element-a926567 elementor-widget elementor-widget-heading" data-id="a926567" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default" style={{ backgroundColor: "#ffffff" }}>
                     <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
                       <h3 className="elementor-heading-title elementor-size-default" style={{ backgroundColor: "#ffffff" }}>
-                        {isAr ? "استقبال كبار الشخصيات VIP" : isEn ? "VIP Greeter" : "Accueil VIP"}
+                        {t("home.services.vipTitle", "Accueil VIP")}
                       </h3>
                     </div>
                   </div>
                   <div className="elementor-element elementor-element-7292a37 elementor-widget elementor-widget-text-editor" data-id="7292a37" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default" style={{ backgroundColor: "#ffffff" }}>
                     <div className="elementor-widget-container" style={{ backgroundColor: "#ffffff" }}>
-                      {isAr
-                        ? "لمرافقتكم طوال مساركم بين باب الطائرة وباب سيارتكم مع توفير ممر سريع وأولوية المرور."
-                        : isEn
-                        ? "To accompany you along your journey between the aircraft door and that of your vehicle and grant you priority access."
-                        : "Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire"}
+                      {t("home.services.vipDesc", "Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire")}
                     </div>
                   </div>
                 </div>
@@ -374,11 +341,11 @@ export default function HomePage() {
                     <div className="elementor-button-wrapper" style={{ backgroundColor: "#ffffff" }}>
                       <Link
                         className="elementor-button elementor-button-link elementor-size-md"
-                        href={isAr ? "/ar/services" : isEn ? "/en/services" : "/services"}
+                        href={localizeUrl("/services")}
                       >
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "اكتشف خدماتنا" : isEn ? "Discover our services" : "Découvrir nos services"}
+                            {t("home.services.cta", "Découvrir nos services")}
                           </span>
                         </span>
                       </Link>
@@ -389,40 +356,25 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* WHY CHOOSE MCS LIMO */}
-          <WhyChooseUsSection lang={lang} />
-
-          {/* VEHICLES / FLEET SECTION */}
-          <section
-            className="vehicles-section-wrapper"
-            id="flotte"
-            style={{
-              backgroundColor: "#ffffff",
-              background: "#ffffff",
-              width: "100%",
-              maxWidth: "100%",
-              margin: "0",
-              padding: "0",
-              display: "block",
-            }}
-          >
+          {/* FLEET SECTION */}
+          <section style={{ backgroundColor: "#ffffff", padding: "60px 0" }}>
             <div
-              className="elementor-element elementor-element-62bee91 e-flex e-con-boxed e-con e-parent"
-              data-id="62bee91"
+              className="elementor-element elementor-element-a0c5c36 e-flex e-con-boxed e-con e-parent"
+              data-id="a0c5c36"
               data-element_type="container"
               data-e-type="container"
-              style={{ backgroundColor: "#ffffff", width: "100%" }}
+              style={{ backgroundColor: "#ffffff" }}
             >
               <div className="e-con-inner" style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}>
                 <div
-                  className="elementor-element elementor-element-830ae3f elementor-widget elementor-widget-heading"
-                  data-id="830ae3f"
+                  className="elementor-element elementor-element-42adbb2 elementor-widget elementor-widget-heading"
+                  data-id="42adbb2"
                   data-element_type="widget"
                   data-e-type="widget"
                   data-widget_type="heading.default"
                   style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}
                 >
-                  <div className="elementor-widget-container" style={{ width: "100%", backgroundColor: "#ffffff" }}>
+                  <div className="elementor-widget-container" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
                     <h2
                       className="elementor-heading-title elementor-size-default"
                       style={{
@@ -435,7 +387,7 @@ export default function HomePage() {
                         backgroundColor: "#ffffff",
                       }}
                     >
-                      {isAr ? "أسطول سياراتنا" : isEn ? "Our Vehicles" : "Nos Véhicules"}
+                      {t("home.fleet.title", "Nos Véhicules")}
                     </h2>
                   </div>
                 </div>
@@ -449,11 +401,7 @@ export default function HomePage() {
                   style={{ textAlign: "center", width: "100%", backgroundColor: "#ffffff" }}
                 >
                   <div className="elementor-widget-container" style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
-                    {isAr
-                      ? "نختار سياراتنا بعناية فائقة لنقدم لكم أعلى مستويات الراحة والرفاهية"
-                      : isEn
-                      ? "We carefully select our vehicles in order to offer you maximum comfort"
-                      : "Nous choisissons scrupuleusement nos véhicules afin de pouvoir vous offrir un maximum de confort"}
+                    {t("home.fleet.subtitle", "Nous choisissons scrupuleusement nos véhicules afin de pouvoir vous offrir un maximum de confort")}
                   </div>
                 </div>
               </div>
@@ -485,11 +433,11 @@ export default function HomePage() {
                     <div className="elementor-button-wrapper" style={{ backgroundColor: "#ffffff" }}>
                       <Link
                         className="elementor-button elementor-button-link elementor-size-md"
-                        href={isAr ? "/ar/flotte" : isEn ? "/en/flotte" : "/flotte"}
+                        href={localizeUrl("/flotte")}
                       >
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "اكتشف أسطولنا" : isEn ? "Discover our fleet" : "Découvrir notre flotte"}
+                            {t("home.fleet.cta", "Découvrir notre flotte")}
                           </span>
                         </span>
                       </Link>
@@ -525,7 +473,7 @@ export default function HomePage() {
               >
                 <div className="elementor-widget-container" style={{ textAlign: "center" }}>
                   <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center" }}>
-                    {isAr ? "اكتشف معرض أسطول سياراتنا" : isEn ? "Discover our vehicle fleet" : "Découvrez notre flotte de véhicule"}
+                    {t("home.gallery.title", "Découvrez notre flotte de véhicule")}
                   </h2>
                 </div>
               </div>
@@ -608,7 +556,7 @@ export default function HomePage() {
               >
                 <div className="elementor-widget-container" style={{ textAlign: "center" }}>
                   <h2 className="elementor-heading-title elementor-size-default" style={{ textAlign: "center" }}>
-                    {isAr ? "حول شركة MCS Limo" : isEn ? "About MCS Limo" : "A propos de MCS Limo"}
+                    {t("home.aboutSection.title", "A propos de MCS Limo")}
                   </h2>
                 </div>
               </div>
@@ -639,18 +587,10 @@ export default function HomePage() {
                 >
                   <div className="elementor-widget-container">
                     <p>
-                      {isAr
-                        ? "تعد MCS Limo شركة متخصصة في نقل الأشخاص، حيث تقدم خدمة راقية ومخصصة من خلال تزويد عملائها بسائقين خاصين محترفين مع أحدث السيارات الفاخرة."
-                        : isEn
-                        ? "MCS Limo is a passenger transport company offering a tailor-made and top-of-the-range service by providing its customers with professional private drivers with luxury cars."
-                        : "MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe."}
+                      {t("home.aboutSection.p1", "MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe.")}
                     </p>
                     <p>
-                      {isAr
-                        ? "تتواجد MCS Limo في فرنسا وكذلك في كبرى العواصم والمدن حول العالم (برلين، فرانكفورت، مدريد، برشلونة، نيويورك، واشنطن، ميامي، طوكيو، سيدني...) لمرافقة عملائها من الشركات والأفراد أثناء تنقلاتهم لتقديم نفس معايير الجودة والتميز أينما حلوا."
-                        : isEn
-                        ? "MCS Limo is present in France as well as in the largest cities around the world (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to accompany its business and private customers during their travels to offer them the same standard of quality wherever they travel."
-                        : "MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace."}
+                      {t("home.aboutSection.p2", "MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace.")}
                     </p>
                   </div>
                 </div>
@@ -666,11 +606,11 @@ export default function HomePage() {
                     <div className="elementor-button-wrapper">
                       <Link
                         className="elementor-button elementor-button-link elementor-size-md"
-                        href={isAr ? "/ar/qui-sommes-nous" : isEn ? "/en/qui-sommes-nous" : "/qui-sommes-nous"}
+                        href={localizeUrl("/qui-sommes-nous")}
                       >
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "من نحن" : isEn ? "About us" : "A propos de nous"}
+                            {t("home.aboutSection.cta", "A propos de nous")}
                           </span>
                         </span>
                       </Link>

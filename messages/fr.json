@@ -16,7 +16,9 @@
     "wifi": "Wi-Fi haut débit",
     "refreshment": "Rafraîchissements & bouteilles d'eau",
     "childSeats": "Sièges enfants sur demande",
-    "skipToContent": "Aller au contenu"
+    "skipToContent": "Aller au contenu",
+    "quoteAndBook": "Obtenir un devis et réserver",
+    "backToHome": "Retour à l'accueil"
   },
   "nav": {
     "home": "Accueil",
@@ -28,7 +30,8 @@
     "fleet": "Notre Flotte",
     "yearlyDriver": "Chauffeur à l'année",
     "contact": "Nous contacter",
-    "reservation": "Devis et réservation"
+    "reservation": "Devis et réservation",
+    "toggleMenu": "Permuter le menu"
   },
   "home": {
     "hero": {
@@ -115,7 +118,16 @@
     "subtitle": "L'excellence du service de chauffeur privé à Paris et à l'international",
     "p1": "MCS Limo est une société de transport de personnes avec chauffeur (VTC) haut de gamme basée à Paris.",
     "p2": "Spécialisée dans le transport de prestige, les transferts aéroports, les mises à disposition et les événements diplomatiques ou professionnels.",
-    "cta": "Réserver un chauffeur"
+    "cta": "Réserver un chauffeur",
+    "pageSubtitle": "Pour vous faire découvrir qui est MCS Limo",
+    "missionP1": "MCS Limo a été créée dans l’unique but d’offrir à sa clientèle une expérience de transport haut de gamme auprès d’une clientèle exigeante.",
+    "missionP2": "Nous œuvrons chaque jour pour satisfaire une demande sans cesse croissante dans le domaine du transport en voitures de luxe avec chauffeur, en offrant à nos clients une expérience unique depuis le premier contact jusqu’au lieu de dépose convenu, et au-delà. En effet, nous sommes à l’écoute de nos clients afin de rendre nos prestations meilleures, de jour en jour.",
+    "qualityTitle": "Hauts standards de qualité",
+    "qualityP1": "Chez MCS Limo, chaque détail compte. Nos véhicules sont minutieusement choisis et entretenus. Et nos chauffeurs sont choisis pour leur expérience et leur sens du service.",
+    "qualityP2": "Luxe, confort, courtoisie, discretion et sens du service sont les maîtres-mots qui vous accompagneront inéluctablement lors de chacune de vos réservations.",
+    "presenceTitle": "Nous sommes présents partout en France, et au-delà !",
+    "presenceP1": "MCS Limo est basée à Paris, mais se charge de répondre aux besoins de sa clientèle sur toute la France, et partout ailleurs : Londres, Berlin, Rome, Bruxelles, New York, Tokyo, etc.",
+    "presenceP2": "Où que vous soyez, nous serons là pour vous accompagner et vous présenter l’offre adaptée à votre besoin."
   },
   "servicesPage": {
     "title": "Nos Services de Prestige",
@@ -134,7 +146,8 @@
     "events": {
       "title": "Événements & Mariages",
       "desc": "Coordination logistique de flottes de véhicules pour mariages, salons professionnels, défilés et Fashion Week."
-    }
+    },
+    "subtitle": "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins"
   },
   "fleetPage": {
     "title": "Notre Flotte Automobile",
@@ -159,7 +172,18 @@
     "title": "Chauffeur Privé à l'Année",
     "subtitle": "Une solution sur-mesure pour les dirigeants, familles et entreprises souhaitant un chauffeur dédié à plein temps ou à temps partiel.",
     "p1": "Bénéficiez d'un chauffeur attitré d'excellence, formé à la discrétion, à la conduite sécurisée et à la gestion de protocole.",
-    "cta": "Demander une étude personnalisée"
+    "cta": "Demander une étude personnalisée",
+    "budgetTitle": "Un budget maîtrisé, un service haut de gamme",
+    "quoteBtn": "Obtenir un devis pour un chauffeur à l'année",
+    "sec1Heading": "Une seule réservation, et un chauffeur à disposition toute l'année.",
+    "sec1Text": "Fini les réservations de dernière minute et l’aléa des VTC de passage. Avec l’offre Chauffeur à l’année de MCS Limo, votre véhicule et votre chauffeur sont à votre disposition quand vous en avez besoin, du lundi au vendredi, voire même le week-end. Vous profitez d’un service sur mesure, parfaitement adapté à votre rythme professionnel et personnel.",
+    "sec1Point1": "Votre chauffeur vous attend chaque jour, sans aucune réservation à effectuer",
+    "sec1Point2": "Disponibilité quotidienne du lundi au vendredi, et le week-end si besoin",
+    "sec2Heading": "Un budget optimisé, un service premium",
+    "sec2Text": "Disposer de son propre chauffeur privé à l’année est plus accessible qu’on ne le pense. Grâce à une tarification dédiée et prévisible, vous maîtrisez votre budget transport tout en accédant au meilleur du haut de gamme : les derniers modèles de véhicules, chauffeurs expérimentés et attentionnés, service irréprochable à chaque trajet.",
+    "sec2Point1": "Tarification claire et avantageuse, sans les surcoûts des réservations ponctuelles",
+    "sec2Point2": "Véhicules premium minutieusement entretenus (Mercedes Classe E, Classe S, Classe V)",
+    "sec2Point3": "Discrétion, courtoisie et continuité de service garanties — deux chauffeurs dédiés en rotation pour une disponibilité sans faille"
   },
   "reservation": {
     "badge": "Réservation en ligne 24/7",
@@ -193,7 +217,13 @@
       "successTitle": "Demande envoyée avec succès !",
       "successMessage": "Notre équipe traite votre réservation et vous transmettra une confirmation détaillée par e-mail et SMS.",
       "errorRequired": "Veuillez remplir tous les champs obligatoires."
-    }
+    },
+    "pageTitle": "Devis et réservation en ligne",
+    "pageSubtitle": "Renseignez vos informations pour obtenir le prix de votre prestation avant de procéder à la confirmation",
+    "guarantee1": "Annulation gratuite jusqu'à 24h avant la réservation",
+    "guarantee2": "Service client disponible 24/7",
+    "guarantee3": "Attente gratuite de 1h après atterrissage sur les arrivées en aéroport",
+    "guarantee4": "Accueil avec pancarte nominative aux aéroports et gares"
   },
   "contact": {
     "badge": "Contact & Devis",
@@ -211,7 +241,9 @@
       "send": "Envoyer le message",
       "sending": "Envoi en cours...",
       "success": "Votre message a été envoyé avec succès !"
-    }
+    },
+    "formTitle": "Formulaire de contact",
+    "infoTitle": "Coordonnées"
   },
   "footer": {
     "ctaTitle": "Vous êtes intéressés par une de nos prestations ?",
@@ -227,6 +259,179 @@
     "copyright": "MCS Limo 2026 © Tous droits réservés.",
     "legal": "Mentions légales",
     "cgv": "CGV",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "whoWeAre": "Qui sommes-nous",
+    "services": "Nos Services",
+    "fleet": "Notre flotte",
+    "onlineBooking": "Réservation en ligne",
+    "logoAlt": "MCS Limo - Chauffeur privé haut de gamme à Paris"
+  },
+  "vehicles": {
+    "business": {
+      "category": "Business",
+      "name": "Mercedes Classe E",
+      "price": "A partir de 80€",
+      "alt": "Mercedes Classe E berline avec chauffeur privé - MCS Limo",
+      "passengers": "Jusqu'à 3 passagers",
+      "luggage": "Jusqu'à 3 bagages"
+    },
+    "van": {
+      "category": "VAN",
+      "name": "Mercedes Classe V",
+      "price": "A partir de 90€",
+      "alt": "Mercedes Classe V van spacieux avec chauffeur - MCS Limo",
+      "passengers": "Jusqu'à 7 passagers",
+      "luggage": "Jusqu'à 7 bagages"
+    },
+    "luxe": {
+      "category": "Luxe",
+      "name": "Mercedes Classe S",
+      "price": "A partir de 110€",
+      "alt": "Mercedes Classe S limousine de prestige avec chauffeur - MCS Limo",
+      "passengers": "Jusqu'à 3 passagers",
+      "luggage": "Jusqu'à 3 bagages"
+    },
+    "hybrid": {
+      "category": "Luxe",
+      "name": "Mercedes Classe S 580e",
+      "price": "A partir de 130€",
+      "alt": "Mercedes Classe S 580e limousine de prestige avec chauffeur - MCS Limo",
+      "passengers": "Jusqu'à 3 passagers",
+      "luggage": "Jusqu'à 3 bagages"
+    },
+    "features": {
+      "wifi": "Wi-Fi",
+      "refreshment": "Rafraichissement",
+      "childSeats": "Sièges enfants"
+    }
+  },
+  "thankYou": {
+    "reservationTitle": "Merci pour votre demande de devis !",
+    "reservationDesc": "Merci d'avoir soumis votre demande de devis. Notre équipe va étudier les détails de votre trajet et vous envoyer une proposition personnalisée dans les plus brefs délais.",
+    "contactTitle": "Merci pour votre message !",
+    "contactDesc": "Votre message a bien été transmis à notre équipe. Nous allons revenir vers vous très rapidement.",
+    "lpTitle": "Demande reçue avec succès !",
+    "lpDesc": "Merci pour votre réservation via notre service exclusif de chauffeur privé MCS Limo. Notre équipe va vous contacter dans les plus brefs délais.",
+    "backHome": "Retour à l'accueil"
+  },
+  "legal": {
+    "cgvTitle": "Conditions générales de vente",
+    "privacyTitle": "Politique de confidentialité",
+    "noticesTitle": "Mentions légales"
+  },
+  "contactForm": {
+    "emailSubject": "Nouvelle demande de contact",
+    "nameLabel": "Nom",
+    "namePlaceholder": "Nom",
+    "phoneLabel": "Téléphone",
+    "phonePlaceholder": "Téléphone",
+    "phoneTitle": "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "E-mail",
+    "subjectLabel": "Objet de la demande",
+    "subjects": {
+      "info": "Demande d'information",
+      "quote": "Demande de devis",
+      "reservation": "Réservation"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Message",
+    "submitBtn": "J'envoie ma demande",
+    "submitting": "Envoi en cours...",
+    "errorMessage": "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer."
+  },
+  "reservationForm": {
+    "pickupLabel": "Lieu de prise en charge",
+    "pickupPlaceholder": "Ex. : Aéroport CDG Terminal 2E, Hôtel Le Bristol, Paris 8e...",
+    "dropoffLabel": "Lieu de destination",
+    "dropoffPlaceholder": "Ex. : Gare de Lyon, Château de Versailles, Paris 16e...",
+    "dateLabel": "Date de prise en charge",
+    "timeLabel": "Heure de prise en charge",
+    "vehicleLabel": "Catégorie de véhicule",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "Ex. : contact@entreprise.com",
+    "phoneLabel": "Numéro de téléphone",
+    "phonePlaceholder": "Ex. : +33 6 12 34 56 78",
+    "phoneTitle": "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.",
+    "messageLabel": "Précisions ou demandes particulières",
+    "messagePlaceholder": "Ex. : Siège bébé requis, nombre de bagages volumineux...",
+    "vehicles": {
+      "classeE": "Mercedes classe E (3pax)",
+      "classeV": "Mercedes classe V (7pax)",
+      "classeS": "Mercedes classe S (3pax)",
+      "classeS580e": "Mercedes classe S 580e (3pax)"
+    },
+    "submitBtn": "J'obtiens mon devis gratuit en ligne",
+    "submitting": "Envoi en cours...",
+    "errorMessage": "Une erreur est survenue lors de l'envoi de votre réservation. Veuillez réessayer.",
+    "emailSubject": "Nouvelle demande de réservation"
+  },
+  "cgv": {
+    "title": "Conditions générales de vente",
+    "intro": "Les présentes conditions générales de vente sont conclues entre la société Mcars Services (MCS Limo), immatriculée au RCS de Paris sous le numéro 852 506 948, enregistrée au registre des exploitants de voiture de tourisme avec chauffeur (VTC), et toute personne désirant réserver un service de transport de personnes avec chauffeur.",
+    "sec1Title": "1 / Réservation et Confirmation",
+    "sec1Text": "La demande de réservation d’un Service peut être effectuée sur notre site internet, par mail à contact@mcslimo.fr ou par téléphone au +33 1 89 48 02 96. La réservation devient ferme et définitive dès réception par le Client de la confirmation écrite de MCS Limo.",
+    "sec2Title": "2 / Tarifs et Modalités de Paiement",
+    "sec2Text": "Nos tarifs sont indiqués TTC et comprennent la mise à disposition du véhicule avec chauffeur privé, l'assurance des personnes transportées, le carburant, les péages et la TVA au taux légal. Le règlement s'effectue par carte bancaire (Visa, Mastercard, American Express), virement ou compte entreprise.",
+    "sec3Title": "3 / Conditions d'exécution et Prestations",
+    "sec3Text": "Le port de la ceinture de sécurité est obligatoire à bord. Tous nos véhicules sont strictement non-fumeurs. Des rafraîchissements, une connexion Wi-Fi et des sièges enfants sont mis à disposition sur demande.",
+    "sec4Title": "4 / Annulation et Modification",
+    "sec4Text": "Toute annulation effectuée au moins 24 heures avant l'heure convenue est sans frais. En cas d'annulation tardive (moins de 24 heures) ou de non-présentation du client, la prestation pourra être facturée.",
+    "sec5Title": "5 / Droit Applicable",
+    "sec5Text": "Les présentes conditions générales sont régies et interprétées conformément au droit français."
+  },
+  "mentionsLegales": {
+    "title": "Mentions légales",
+    "companyTitle": "Informations générales",
+    "companyName": "Dénomination sociale : MCars Services (MCS Limo)",
+    "companyForm": "Forme juridique : SARL",
+    "companyCapital": "Capital social : 1 000 €",
+    "companySiret": "SIREN / SIRET : 852 506 948 00011",
+    "companyVat": "N° TVA Intracommunautaire : FR38852506948",
+    "companyAddress": "Siège social : 10 Place Lucien Boilleau, 91420 Morangis, France",
+    "companyPhone": "Téléphone : +33 1 89 48 02 96",
+    "companyEmail": "Email : contact@mcslimo.fr",
+    "hostTitle": "Hébergement du site",
+    "hostName": "Hébergeur : Hostinger International Ltd.",
+    "hostContact": "Contact hébergeur : contact@hostinger.com",
+    "ipTitle": "Propriété intellectuelle",
+    "ipText": "L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.",
+    "privacyTitle": "Données personnelles",
+    "privacyText": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Contactez-nous à contact@mcslimo.fr pour exercer vos droits."
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "cookiesTitle": "Gestion des cookies",
+    "cookiesText": "Un cookie est un fichier texte susceptible d’être enregistré sur votre terminal lors de la consultation d’un service en ligne. Il permet à son émetteur d’identifier le terminal dans lequel il est enregistré, pendant la durée de validité du cookie.",
+    "browserTitle": "Comment configurer vos choix sur votre navigateur",
+    "browserText": "Vous pouvez configurer votre logiciel de navigation de manière à ce que des cookies soient enregistrés dans votre terminal ou, au contraire, qu’ils soient rejetés, soit systématiquement, soit selon leur émetteur.",
+    "dataTitle": "Protection des données personnelles (RGPD)",
+    "dataText": "Les informations recueillies font l’objet d’un traitement informatique destiné à la gestion de vos réservations et demandes de contact. Vos données ne sont jamais cédées ni vendues à des tiers.",
+    "rightsTitle": "Vos droits",
+    "rightsText": "Vous pouvez accéder aux données vous concernant, les rectifier, demander leur effacement ou exercer votre droit à la limitation du traitement. Pour toute question, écrivez-nous à contact@mcslimo.fr."
+  },
+  "landing": {
+    "heroTitle": "Votre spécialiste du transport de luxe à Paris",
+    "heroSubtitle": "Nous mettons à votre disposition des voitures de luxe avec chauffeur pour répondre à vos besoins",
+    "perk1": "Véhicules d’exception",
+    "perk2": "Chauffeurs d’élite",
+    "perk3": "Expérience sur-mesure",
+    "perk4": "Discrétion & prestige",
+    "formCardTitle": "Veuillez remplir le formulaire pour obtenir un devis gratuit en ligne en quelques minutes",
+    "trustBanner": "Des dizaines de professionnels et particuliers nous font confiance chaque jour...",
+    "servicesTitle": "Nos Services",
+    "servicesSubtitle": "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins",
+    "serviceTransfersTitle": "Transferts",
+    "serviceTransfersText": "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
+    "serviceHourlyTitle": "Mises à disposition",
+    "serviceHourlyText": "Réservez votre chauffeur pour la durée qui vous convient et notre véhicule restera mobilisé pour vous conduire vers vos destinations",
+    "serviceVipTitle": "Accueil VIP",
+    "serviceVipText": "Pour vous accompagner le long de votre trajet entre la porte de l’avion et celle de votre véhicule et vous accorder un passage prioritaire",
+    "ctaQuote": "Obtenir un devis gratuit en ligne",
+    "aboutTitle": "A propos de MCS Limo",
+    "aboutText1": "MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe.",
+    "aboutText2": "MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace.",
+    "footerDesc": "Société de chauffeur privé à Paris et partout dans le monde qui vous offre un service de transport haut de gamme et sur mesure",
+    "paymentsSecure": "Tous les paiements sont sécurisés"
   }
 }

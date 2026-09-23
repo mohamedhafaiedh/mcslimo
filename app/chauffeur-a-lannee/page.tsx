@@ -1,20 +1,17 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
 import MainHeader from "../components/MainHeader";
 import MainFooter from "../components/MainFooter";
+import { useTranslation } from "@/lib/useTranslation";
 
 export default function ChauffeurALanneePage() {
-  const pathname = usePathname() || "";
-  const isAr = pathname === "/ar" || pathname.startsWith("/ar/");
-  const isEn = pathname === "/en" || pathname.startsWith("/en/");
-  const lang: "fr" | "en" | "ar" = isAr ? "ar" : isEn ? "en" : "fr";
+  const { t, lang, dir, pathname, localizeUrl } = useTranslation();
 
   return (
-    <div id="page" className="site" dir={isAr ? "rtl" : "ltr"}>
+    <div id="page" className="site" dir={dir}>
       <a className="skip-link screen-reader-text" href="#content">
-        {isAr ? "الانتقال إلى المحتوى" : isEn ? "Skip to content" : "Aller au contenu"}
+        {t("common.skipToContent", "Aller au contenu")}
       </a>
 
       <MainHeader lang={lang} currentPath={pathname} />
@@ -28,18 +25,14 @@ export default function ChauffeurALanneePage() {
               <div className="elementor-element elementor-element-02a6e01 elementor-widget__width-inherit elementor-widget elementor-widget-theme-page-title elementor-page-title elementor-widget-heading" data-id="02a6e01" data-element_type="widget" data-e-type="widget" data-widget_type="theme-page-title.default">
                 <div className="elementor-widget-container">
                   <h1 className="elementor-heading-title elementor-size-default">
-                    {isAr ? "سائق خاص على مدار العام" : isEn ? "Year-Round Private Chauffeur" : "Chauffeur à l’année"}
+                    {t("yearlyChauffeur.title", "Chauffeur à l’année")}
                   </h1>
                 </div>
               </div>
               <div className="elementor-element elementor-element-14f0c1e elementor-widget elementor-widget-text-editor" data-id="14f0c1e" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
                   <p>
-                    {isAr
-                      ? "سائقك الخاص يومياً لأقصى درجات المرونة وراحة البال"
-                      : isEn
-                      ? "Your daily private chauffeur for ultimate flexibility and peace of mind"
-                      : "Votre chauffeur au quotidien pour un maximum de flexibilité"}
+                    {t("yearlyChauffeur.subtitle", "Votre chauffeur au quotidien pour un maximum de flexibilité")}
                   </p>
                 </div>
               </div>
@@ -53,21 +46,13 @@ export default function ChauffeurALanneePage() {
                 <div className="elementor-element elementor-element-ec5350d elementor-widget elementor-widget-heading" data-id="ec5350d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h3 className="elementor-heading-title elementor-size-default">
-                      {isAr
-                        ? "حجز واحد، وسائق مخصص تحت تصرفك طوال العام."
-                        : isEn
-                        ? "A single contract, and a dedicated chauffeur at your disposal year-round."
-                        : "Une seule réservation, et un chauffeur à disposition toute l'année."}
+                      {t("yearlyChauffeur.sec1Heading", "Une seule réservation, et un chauffeur à disposition toute l'année.")}
                     </h3>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-d05a440 elementor-widget elementor-widget-text-editor" data-id="d05a440" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
-                    {isAr
-                      ? "وداعاً لحجوزات اللحظة الأخيرة وعشوائية سيارات الأجرة العابرة. مع عرض سائق على مدار العام من MCS Limo، تصبح سيارتك وسائقك الخاص تحت تصرفك متى احتجت إليهم، من الاثنين إلى الجمعة، وحتى في عطلات نهاية الأسبوع. استمتع بخدمة مصممة خصيصاً لتناسب نمط حياتك المهني والشخصي."
-                      : isEn
-                      ? "No more last-minute bookings or unpredictable ride-hailing services. With MCS Limo's Year-Round Chauffeur plan, your vehicle and personal chauffeur are available whenever you need them, Monday through Friday and even on weekends. Enjoy a truly tailor-made service perfectly aligned with your professional and private lifestyle."
-                      : "Fini les réservations de dernière minute et l’aléa des VTC de passage. Avec l’offre Chauffeur à l’année de MCS Limo, votre véhicule et votre chauffeur sont à votre disposition quand vous en avez besoin, du lundi au vendredi, voire même le week-end. Vous profitez d’un service sur mesure, parfaitement adapté à votre rythme professionnel et personnel."}
+                    {t("yearlyChauffeur.sec1Text", "Fini les réservations de dernière minute et l’aléa des VTC de passage. Avec l’offre Chauffeur à l’année de MCS Limo, votre véhicule et votre chauffeur sont à votre disposition quand vous en avez besoin, du lundi au vendredi, voire même le week-end. Vous profitez d’un service sur mesure, parfaitement adapté à votre rythme professionnel et personnel.")}
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-697faff elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="697faff" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
@@ -78,11 +63,7 @@ export default function ChauffeurALanneePage() {
                           <svg aria-hidden="true" className="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>
                         </span>
                         <span className="elementor-icon-list-text">
-                          {isAr
-                            ? "سائقك ينتظرك يومياً، دون الحاجة للقيام بأي حجز متكرر"
-                            : isEn
-                            ? "Your chauffeur awaits you every day, without requiring repeated bookings"
-                            : "Votre chauffeur vous attend chaque jour, sans aucune réservation à effectuer"}
+                          {t("yearlyChauffeur.sec1Point1", "Votre chauffeur vous attend chaque jour, sans aucune réservation à effectuer")}
                         </span>
                       </li>
                       <li className="elementor-icon-list-item">
@@ -90,11 +71,7 @@ export default function ChauffeurALanneePage() {
                           <svg aria-hidden="true" className="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>
                         </span>
                         <span className="elementor-icon-list-text">
-                          {isAr
-                            ? "جاهزية يومية من الاثنين إلى الجمعة، وعطلات نهاية الأسبوع عند الحاجة"
-                            : isEn
-                            ? "Daily availability Monday to Friday, and weekends as needed"
-                            : "Disponibilité quotidienne du lundi au vendredi, et le week-end si besoin"}
+                          {t("yearlyChauffeur.sec1Point2", "Disponibilité quotidienne du lundi au vendredi, et le week-end si besoin")}
                         </span>
                       </li>
                     </ul>
@@ -125,17 +102,13 @@ export default function ChauffeurALanneePage() {
                 <div className="elementor-element elementor-element-373ffb9 elementor-widget elementor-widget-heading" data-id="373ffb9" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                   <div className="elementor-widget-container">
                     <h3 className="elementor-heading-title elementor-size-default">
-                      {isAr ? "ميزانية مدروسة، وخدمة فائقة الفخامة" : isEn ? "Optimized budget, premium luxury service" : "Un budget optimisé, un service premium"}
+                      {t("yearlyChauffeur.sec2Heading", "Un budget optimisé, un service premium")}
                     </h3>
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-d832869 elementor-widget elementor-widget-text-editor" data-id="d832869" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                   <div className="elementor-widget-container">
-                    {isAr
-                      ? "امتلاك سائقك الخاص على مدار العام أصبح متاحاً وأسهل مما تتوقع. بفضل التسعير المخصص والواضح، يمكنك التحكم الكامل في ميزانية تنقلاتك مع التمتع بأرقى مستويات الفخامة: أحدث طرازات السيارات، سائقون محترفون وذوو خبرة، وخدمة لا تشوبها شائبة في كل رحلة."
-                      : isEn
-                      ? "Having your own private chauffeur year-round is more accessible than you think. With clear, predictable pricing, you master your transportation budget while enjoying top-tier luxury: latest vehicle models, experienced and attentive chauffeurs, and flawless service on every trip."
-                      : "Disposer de son propre chauffeur privé à l’année est plus accessible qu’on ne le pense. Grâce à une tarification dédiée et prévisible, vous maîtrisez votre budget transport tout en accédant au meilleur du haut de gamme : les derniers modèles de véhicules, chauffeurs expérimentés et attentionnés, service irréprochable à chaque trajet."}
+                    {t("yearlyChauffeur.sec2Text", "Disposer de son propre chauffeur privé à l’année est plus accessible qu’on ne le pense. Grâce à une tarification dédiée et prévisible, vous maîtrisez votre budget transport tout en accédant au meilleur du haut de gamme : les derniers modèles de véhicules, chauffeurs expérimentés et attentionnés, service irréprochable à chaque trajet.")}
                   </div>
                 </div>
                 <div className="elementor-element elementor-element-ddf0a3e elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="ddf0a3e" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
@@ -146,11 +119,7 @@ export default function ChauffeurALanneePage() {
                           <svg aria-hidden="true" className="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>
                         </span>
                         <span className="elementor-icon-list-text">
-                          {isAr
-                            ? "أسعار واضحة ومميزة، بدون رسوم إضافية أو زيادات الحجوزات العاجلة"
-                            : isEn
-                            ? "Clear and advantageous pricing, free of on-demand surge costs"
-                            : "Tarification claire et avantageuse, sans les surcoûts des réservations ponctuelles"}
+                          {t("yearlyChauffeur.sec2Point1", "Tarification claire et avantageuse, sans les surcoûts des réservations ponctuelles")}
                         </span>
                       </li>
                       <li className="elementor-icon-list-item">
@@ -158,11 +127,7 @@ export default function ChauffeurALanneePage() {
                           <svg aria-hidden="true" className="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>
                         </span>
                         <span className="elementor-icon-list-text">
-                          {isAr
-                            ? "أسطول سيارات فاخرة خاضع لصيانة فائقة ودورية (Mercedes Classe E, Classe S, Classe V)"
-                            : isEn
-                            ? "Meticulously maintained luxury fleet (Mercedes E-Class, S-Class, V-Class)"
-                            : "Véhicules premium minutieusement entretenus (Mercedes Classe E, Classe S, Classe V)"}
+                          {t("yearlyChauffeur.sec2Point2", "Véhicules premium minutieusement entretenus (Mercedes Classe E, Classe S, Classe V)")}
                         </span>
                       </li>
                       <li className="elementor-icon-list-item">
@@ -170,11 +135,7 @@ export default function ChauffeurALanneePage() {
                           <svg aria-hidden="true" className="e-font-icon-svg e-fas-check" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>
                         </span>
                         <span className="elementor-icon-list-text">
-                          {isAr
-                            ? "سرية تامة، لباقة، واستمرارية خدمة مضمونة — سائقان مخصصان بالتناوب لضمان جاهزية لا تنقطع"
-                            : isEn
-                            ? "Guaranteed discretion, courtesy, and continuous service — two dedicated drivers in rotation for flawless availability"
-                            : "Discrétion, courtoisie et continuité de service garanties — deux chauffeurs dédiés en rotation pour une disponibilité sans faille"}
+                          {t("yearlyChauffeur.sec2Point3", "Discrétion, courtoisie et continuité de service garanties — deux chauffeurs dédiés en rotation pour une disponibilité sans faille")}
                         </span>
                       </li>
                     </ul>
@@ -191,10 +152,10 @@ export default function ChauffeurALanneePage() {
                 <div className="elementor-element elementor-element-ddfacf1 elementor-align-center elementor-widget__width-inherit elementor-widget elementor-widget-button" data-id="ddfacf1" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
                   <div className="elementor-widget-container">
                     <div className="elementor-button-wrapper">
-                      <a className="elementor-button elementor-button-link elementor-size-md" href={isAr ? "/ar/reservation" : isEn ? "/en/reservation" : "/reservation"}>
+                      <a className="elementor-button elementor-button-link elementor-size-md" href={localizeUrl("/reservation")}>
                         <span className="elementor-button-content-wrapper">
                           <span className="elementor-button-text">
-                            {isAr ? "احصل على عرض أسعار لسائق على مدار العام" : isEn ? "Get a quote for a year-round chauffeur" : "J'obtiens mon devis pour un chauffeur à l'année"}
+                            {t("yearlyChauffeur.quoteBtn", "J'obtiens mon devis pour un chauffeur à l'année")}
                           </span>
                         </span>
                       </a>

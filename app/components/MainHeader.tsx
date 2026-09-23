@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import LanguageSwitcher, { SupportedLang } from "./LanguageSwitcher";
+import { useTranslation, Locale } from "@/lib/useTranslation";
 
 interface MainHeaderProps {
   lang?: SupportedLang;
@@ -12,6 +13,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [prevPath, setPrevPath] = useState(currentPath);
   const headerRef = useRef<HTMLElement>(null);
+  const { t, localizeUrl, dir } = useTranslation(lang as Locale);
 
   // Close menu on route/path change (React pattern: adjusting state when props change)
   if (prevPath !== currentPath) {
@@ -49,43 +51,22 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
     };
   }, [isMobileMenuOpen]);
 
-  const isAr = lang === "ar";
-  const isEn = lang === "en";
-
-  const homeHref = isAr ? "/ar" : isEn ? "/en" : "/";
-  const aboutHref = isAr ? "/ar/qui-sommes-nous" : isEn ? "/en/qui-sommes-nous" : "/qui-sommes-nous";
-  const servicesHref = isAr ? "/ar/services" : isEn ? "/en/services" : "/services";
-  const transfersHref = isAr ? "/ar/services#transferts" : isEn ? "/en/services#transferts" : "/services#transferts";
-  const madHref = isAr ? "/ar/services#mad" : isEn ? "/en/services#mad" : "/services#mad";
-  const vipHref = isAr ? "/ar/services#vip" : isEn ? "/en/services#vip" : "/services#vip";
-  const fleetHref = isAr ? "/ar/flotte" : isEn ? "/en/flotte" : "/flotte";
-  const contactHref = isAr ? "/ar/contact" : isEn ? "/en/contact" : "/contact";
-  const reservationHref = isAr ? "/ar/reservation" : isEn ? "/en/reservation" : "/reservation";
-
-  const labels = {
-    home: isAr ? "الرئيسية" : isEn ? "Home" : "Accueil",
-    about: isAr ? "من نحن" : isEn ? "About" : "À propos",
-    services: isAr ? "خدماتنا" : isEn ? "Our Services" : "Nos Services",
-    transfers: isAr ? "التنقلات والتوصيل" : isEn ? "Transfers" : "Transferts",
-    mad: isAr ? "تأجير بالساعة" : isEn ? "By the Hour" : "Mises à disposition",
-    vip: isAr ? "استقبال VIP" : isEn ? "VIP Greeter" : "Accueil VIP",
-    fleet: isAr ? "أسطولنا" : isEn ? "Fleet" : "Notre Flotte",
-    contact: isAr ? "تواصل معنا" : isEn ? "Contact Us" : "Nous contacter",
-    cta: isAr ? "طلب عرض أسعار وحجز" : isEn ? "Quote & Booking" : "Devis et réservation",
-    logoAlt: isAr
-      ? "MCS Limo - سائق خاص فاخر في باريس"
-      : isEn
-      ? "MCS Limo - High-end Private Chauffeur in Paris"
-      : "MCS Limo - Chauffeur privé de prestige à Paris",
-    menuToggle: isAr ? "تبديل القائمة" : isEn ? "Menu Toggle" : "Permuter le menu",
-  };
+  const homeHref = localizeUrl("/");
+  const aboutHref = localizeUrl("/qui-sommes-nous");
+  const servicesHref = localizeUrl("/services");
+  const transfersHref = localizeUrl("/services#transferts");
+  const madHref = localizeUrl("/services#mad");
+  const vipHref = localizeUrl("/services#vip");
+  const fleetHref = localizeUrl("/flotte");
+  const contactHref = localizeUrl("/contact");
+  const reservationHref = localizeUrl("/reservation");
 
   const menuItems = [
     {
       id: "home",
       className: "menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-919",
       href: homeHref,
-      label: labels.home,
+      label: t("nav.home", "Accueil"),
       hasChildren: false,
       children: [],
     },
@@ -93,7 +74,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
       id: "about",
       className: "menu-item menu-item-type-post_type menu-item-object-page menu-item-1097",
       href: aboutHref,
-      label: labels.about,
+      label: t("nav.about", "À propos"),
       hasChildren: false,
       children: [],
     },
@@ -101,19 +82,19 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
       id: "services",
       className: "menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-936",
       href: servicesHref,
-      label: labels.services,
+      label: t("nav.services", "Nos Services"),
       hasChildren: true,
       children: [
-        { href: transfersHref, label: labels.transfers, className: "menu-item menu-item-type-custom menu-item-object-custom menu-item-1138" },
-        { href: madHref, label: labels.mad, className: "menu-item menu-item-type-custom menu-item-object-custom menu-item-1139" },
-        { href: vipHref, label: labels.vip, className: "menu-item menu-item-type-custom menu-item-object-custom menu-item-1140" },
+        { href: transfersHref, label: t("nav.transfers", "Transferts"), className: "menu-item menu-item-type-custom menu-item-object-custom menu-item-1138" },
+        { href: madHref, label: t("nav.mad", "Mises à disposition"), className: "menu-item menu-item-type-custom menu-item-object-custom menu-item-1139" },
+        { href: vipHref, label: t("nav.vip", "Accueil VIP"), className: "menu-item menu-item-type-custom menu-item-object-custom menu-item-1140" },
       ],
     },
     {
       id: "fleet",
       className: "menu-item menu-item-type-post_type menu-item-object-page menu-item-937",
       href: fleetHref,
-      label: labels.fleet,
+      label: t("nav.fleet", "Notre Flotte"),
       hasChildren: false,
       children: [],
     },
@@ -121,13 +102,11 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
       id: "contact",
       className: "menu-item menu-item-type-post_type menu-item-object-page menu-item-935",
       href: contactHref,
-      label: labels.contact,
+      label: t("nav.contact", "Contact"),
       hasChildren: false,
       children: [],
     },
   ];
-
-  const displayMenuItems = menuItems;
 
   return (
     <header
@@ -136,7 +115,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
       data-elementor-id="25"
       className="elementor elementor-25 elementor-location-header"
       data-elementor-post-type="elementor_library"
-      dir={isAr ? "rtl" : "ltr"}
+      dir={dir}
     >
       <div
         className="elementor-element elementor-element-1e8d965 e-flex e-con-boxed e-con e-parent"
@@ -167,7 +146,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
                     height="450"
                     src="/images/MCS-Limo-logo-1000x450-1.png"
                     className="attachment-full size-full wp-image-2464"
-                    alt={labels.logoAlt}
+                    alt={t("footer.logoAlt", "MCS Limo")}
                     sizes="(max-width: 1000px) 100vw, 1000px"
                   />
                 </a>
@@ -195,7 +174,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
                   className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"
                 >
                   <ul id="menu-1-8d9ea35" className="elementor-nav-menu">
-                    {displayMenuItems.map((item) => (
+                    {menuItems.map((item) => (
                       <li key={item.id} className={item.className}>
                         <a href={item.href} className="elementor-item">
                           {item.label}
@@ -231,7 +210,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
                   className={`elementor-menu-toggle ${isMobileMenuOpen ? "elementor-active" : ""}`}
                   role="button"
                   tabIndex={0}
-                  aria-label={labels.menuToggle}
+                  aria-label={t("nav.toggleMenu", "Permuter le menu")}
                   aria-expanded={isMobileMenuOpen ? "true" : "false"}
                   onClick={(e) => {
                     e.stopPropagation();
@@ -268,7 +247,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
                   aria-hidden={!isMobileMenuOpen}
                 >
                   <ul id="menu-2-8d9ea35" className="elementor-nav-menu">
-                    {displayMenuItems.map((item) => (
+                    {menuItems.map((item) => (
                       <li key={item.id} className={item.className}>
                         <a
                           href={item.href}
@@ -316,7 +295,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
                       tabIndex={isMobileMenuOpen ? 0 : -1}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {labels.cta}
+                      {t("common.bookNow", "Devis et réservation")}
                     </a>
                   </div>
                 </nav>
@@ -353,7 +332,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
                     href={reservationHref}
                   >
                     <span className="elementor-button-content-wrapper">
-                      <span className="elementor-button-text">{labels.cta}</span>
+                      <span className="elementor-button-text">{t("common.bookNow", "Devis et réservation")}</span>
                     </span>
                   </a>
                 </div>
