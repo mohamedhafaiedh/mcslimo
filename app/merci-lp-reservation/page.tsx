@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default async function MerciLpReservationPage() {
   const headersList = await headers();
   const rawLocale = headersList.get("x-locale");
-  const locale: Locale = rawLocale === "ar" ? "ar" : rawLocale === "en" ? "en" : "fr";
+  const locale: Locale = (["ar", "en", "es", "it"].includes(rawLocale || "") ? rawLocale : "fr") as Locale;
   const dir = getDir(locale);
   const t = getTranslation(locale);
 

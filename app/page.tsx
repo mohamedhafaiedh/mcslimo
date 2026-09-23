@@ -93,21 +93,27 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+              <div
+                className="elementor-element elementor-element-4ccdb49 e-con-full e-flex e-con e-child"
+                data-id="4ccdb49"
+                data-element_type="container"
+                data-e-type="container"
+              ></div>
             </div>
           </div>
 
-          {/* TRUST / STATS HEADING */}
+          {/* CLIENT TRUST STRIP */}
           <div
-            className="elementor-element elementor-element-a3e903a e-flex e-con-boxed e-con e-parent"
-            data-id="a3e903a"
+            className="elementor-element elementor-element-b55f6ee e-flex e-con-boxed e-con e-parent"
+            data-id="b55f6ee"
             data-element_type="container"
             data-e-type="container"
             data-settings='{"background_background":"classic"}'
           >
             <div className="e-con-inner">
               <div
-                className="elementor-element elementor-element-773df45 e-con-full e-flex e-con e-child"
-                data-id="773df45"
+                className="elementor-element elementor-element-940308a e-flex e-con-boxed e-con e-child"
+                data-id="940308a"
                 data-element_type="container"
                 data-e-type="container"
               >
@@ -176,9 +182,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          {/* WHY CHOOSE US */}
-          <WhyChooseUsSection lang={lang} />
 
           {/* SERVICES SECTION */}
           <section style={{ backgroundColor: "#ffffff", padding: "60px 0" }}>
@@ -355,6 +358,9 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+
+          {/* WHY CHOOSE US */}
+          <WhyChooseUsSection lang={lang} />
 
           {/* FLEET SECTION */}
           <section style={{ backgroundColor: "#ffffff", padding: "60px 0" }}>

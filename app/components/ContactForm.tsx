@@ -2,6 +2,14 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  User,
+  Phone,
+  Mail,
+  HelpCircle,
+  MessageSquare,
+  ChevronDown
+} from "lucide-react";
 import { useTranslation, getFormattedTimestamp, Locale } from "@/lib/useTranslation";
 
 export interface ContactFormProps {
@@ -29,6 +37,23 @@ export default function ContactForm({ lang: propLang }: ContactFormProps) {
     { value: isEn ? "Request Quote" : "Demande de devis", label: t("contactForm.subjects.quote", "Demande de devis") },
     { value: isEn ? "Booking" : "Réservation", label: t("contactForm.subjects.reservation", "Réservation") }
   ];
+
+  const [fieldValues, setFieldValues] = useState<{ [key: string]: string }>({
+    [fields.name]: "",
+    [fields.phone]: "",
+    [fields.email]: "",
+    [fields.subject]: subjectOptions[0].value,
+    [fields.message]: ""
+  });
+
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFieldValues((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,6 +95,12 @@ export default function ContactForm({ lang: propLang }: ContactFormProps) {
     }
   };
 
+  const nameVal = fieldValues[fields.name] || "";
+  const phoneVal = fieldValues[fields.phone] || "";
+  const emailVal = fieldValues[fields.email] || "";
+  const subjectVal = fieldValues[fields.subject] || subjectOptions[0].value;
+  const messageVal = fieldValues[fields.message] || "";
+
   return (
     <form
       className="elementor-form"
@@ -83,72 +114,115 @@ export default function ContactForm({ lang: propLang }: ContactFormProps) {
       <div className="elementor-form-fields-wrapper elementor-labels-">
         {/* Name */}
         <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50 elementor-field-required">
-          <label htmlFor="form-field-name" className="elementor-field-label">
-            {t("contactForm.nameLabel", "Nom")}
-          </label>
-          <input
-            size={1}
-            type="text"
-            name={fields.name}
-            id="form-field-name"
-            className="elementor-field elementor-size-md elementor-field-textual"
-            placeholder={t("contactForm.namePlaceholder", "Nom")}
-            required
-            aria-required="true"
-          />
+          <div
+            className={`floating-input-wrapper ${
+              focusedField === fields.name ? "is-focused" : ""
+            } ${nameVal ? "has-value" : ""}`}
+          >
+            <div className="floating-field-icon" aria-hidden="true">
+              <User size={18} strokeWidth={2} />
+            </div>
+            <label htmlFor="form-field-name" className="floating-label">
+              {t("contactForm.nameLabel", "Nom")}
+            </label>
+            <input
+              type="text"
+              name={fields.name}
+              id="form-field-name"
+              className="floating-input-control"
+              placeholder={t("contactForm.namePlaceholder", "Nom")}
+              value={nameVal}
+              onChange={handleChange}
+              onFocus={() => setFocusedField(fields.name)}
+              onBlur={() => setFocusedField(null)}
+              required={true}
+              aria-label={t("contactForm.nameLabel", "Nom")}
+            />
+          </div>
         </div>
 
         {/* Phone */}
         <div className="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-telephone elementor-col-50 elementor-field-required">
-          <label htmlFor="form-field-telephone" className="elementor-field-label">
-            {t("contactForm.phoneLabel", "Téléphone")}
-          </label>
-          <input
-            size={1}
-            type="tel"
-            name={fields.phone}
-            id="form-field-telephone"
-            className="elementor-field elementor-size-md elementor-field-textual"
-            placeholder={t("contactForm.phonePlaceholder", "Téléphone")}
-            required
-            aria-required="true"
-            pattern="[0-9\s\+\-\(\)]*"
-            title={t("contactForm.phoneTitle", "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.")}
-          />
+          <div
+            className={`floating-input-wrapper ${
+              focusedField === fields.phone ? "is-focused" : ""
+            } ${phoneVal ? "has-value" : ""}`}
+          >
+            <div className="floating-field-icon" aria-hidden="true">
+              <Phone size={18} strokeWidth={2} />
+            </div>
+            <label htmlFor="form-field-telephone" className="floating-label">
+              {t("contactForm.phoneLabel", "Téléphone")}
+            </label>
+            <input
+              type="tel"
+              name={fields.phone}
+              id="form-field-telephone"
+              className="floating-input-control"
+              placeholder={t("contactForm.phonePlaceholder", "Téléphone")}
+              value={phoneVal}
+              onChange={handleChange}
+              onFocus={() => setFocusedField(fields.phone)}
+              onBlur={() => setFocusedField(null)}
+              required={true}
+              pattern="[0-9()#&+*-=.\s]+"
+              title={t("contactForm.phoneTitle", "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.")}
+              aria-label={t("contactForm.phoneLabel", "Téléphone")}
+            />
+          </div>
         </div>
 
         {/* Email */}
         <div className="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
-          <label htmlFor="form-field-email" className="elementor-field-label">
-            {t("contactForm.emailLabel", "E-mail")}
-          </label>
-          <input
-            size={1}
-            type="email"
-            name={fields.email}
-            id="form-field-email"
-            className="elementor-field elementor-size-md elementor-field-textual"
-            placeholder={t("contactForm.emailPlaceholder", "E-mail")}
-            required
-            aria-required="true"
-          />
+          <div
+            className={`floating-input-wrapper ${
+              focusedField === fields.email ? "is-focused" : ""
+            } ${emailVal ? "has-value" : ""}`}
+          >
+            <div className="floating-field-icon" aria-hidden="true">
+              <Mail size={18} strokeWidth={2} />
+            </div>
+            <label htmlFor="form-field-email" className="floating-label">
+              {t("contactForm.emailLabel", "E-mail")}
+            </label>
+            <input
+              type="email"
+              name={fields.email}
+              id="form-field-email"
+              className="floating-input-control"
+              placeholder={t("contactForm.emailPlaceholder", "E-mail")}
+              value={emailVal}
+              onChange={handleChange}
+              onFocus={() => setFocusedField(fields.email)}
+              onBlur={() => setFocusedField(null)}
+              required={true}
+              aria-label={t("contactForm.emailLabel", "E-mail")}
+            />
+          </div>
         </div>
 
         {/* Subject */}
         <div className="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_9c5a176 elementor-col-50">
-          <label htmlFor="form-field-field_9c5a176" className="elementor-field-label">
-            {t("contactForm.subjectLabel", "Objet de la demande")}
-          </label>
-          <div className="elementor-field elementor-select-wrapper remove-before">
-            <div className="select-caret-down-wrapper">
-              <svg aria-hidden="true" className="e-font-icon-svg e-eicon-caret-down" viewBox="0 0 571.4 1000" xmlns="http://www.w3.org/2000/svg">
-                <path d="M571.4 392.9c0 14.3-5.4 28.6-16.1 39.3L298.1 689.3c-10.7 10.7-25 16.1-39.3 16.1s-28.6-5.4-39.3-16.1L16.1 432.1c-21.4-21.4-21.4-57.1 0-78.6s57.1-21.4 78.6 0l203.6 203.6 203.6-203.6c21.4-21.4 57.1-21.4 78.6 0 10.7 10.7 16.1 25 16.1 39.4z" />
-              </svg>
+          <div
+            className={`floating-input-wrapper has-value ${
+              focusedField === fields.subject ? "is-focused" : ""
+            }`}
+          >
+            <div className="floating-field-icon" aria-hidden="true">
+              <HelpCircle size={18} strokeWidth={2} />
             </div>
+            <label htmlFor="form-field-field_9c5a176" className="floating-label">
+              {t("contactForm.subjectLabel", "Objet de la demande")}
+            </label>
             <select
               name={fields.subject}
               id="form-field-field_9c5a176"
-              className="elementor-field-textual elementor-size-md"
+              className="floating-input-control floating-select-control"
+              value={subjectVal}
+              onChange={handleChange}
+              onFocus={() => setFocusedField(fields.subject)}
+              onBlur={() => setFocusedField(null)}
+              aria-label={t("contactForm.subjectLabel", "Objet de la demande")}
             >
               {subjectOptions.map((opt, i) => (
                 <option key={i} value={opt.value}>
@@ -156,35 +230,66 @@ export default function ContactForm({ lang: propLang }: ContactFormProps) {
                 </option>
               ))}
             </select>
+            <div className="floating-select-caret" aria-hidden="true">
+              <ChevronDown size={18} />
+            </div>
           </div>
         </div>
 
         {/* Message */}
         <div className="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100 elementor-field-required">
-          <label htmlFor="form-field-message" className="elementor-field-label">
-            {t("contactForm.messageLabel", "Message")}
-          </label>
-          <textarea
-            className="elementor-field-textual elementor-field elementor-size-md"
-            name={fields.message}
-            id="form-field-message"
-            rows={4}
-            placeholder={t("contactForm.messagePlaceholder", "Message")}
-            required
-            aria-required="true"
-          />
+          <div
+            className={`floating-input-wrapper textarea-wrapper ${
+              focusedField === fields.message ? "is-focused" : ""
+            } ${messageVal ? "has-value" : ""}`}
+          >
+            <div className="floating-field-icon" aria-hidden="true">
+              <MessageSquare size={18} strokeWidth={2} />
+            </div>
+            <label htmlFor="form-field-message" className="floating-label">
+              {t("contactForm.messageLabel", "Message")}
+            </label>
+            <textarea
+              name={fields.message}
+              id="form-field-message"
+              className="floating-input-control floating-textarea"
+              rows={4}
+              placeholder={t("contactForm.messagePlaceholder", "Message")}
+              value={messageVal}
+              onChange={handleChange}
+              onFocus={() => setFocusedField(fields.message)}
+              onBlur={() => setFocusedField(null)}
+              required={true}
+              aria-label={t("contactForm.messageLabel", "Message")}
+            ></textarea>
+          </div>
         </div>
+
+        {/* Error message */}
+        {errorMessage && (
+          <div
+            style={{
+              color: "#d9534f",
+              marginBottom: "15px",
+              fontSize: "14px",
+              fontWeight: "600",
+              width: "100%"
+            }}
+          >
+            {errorMessage}
+          </div>
+        )}
 
         {/* Submit */}
         <div className="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
           <button
+            className={`elementor-button elementor-size-sm ${
+              isSubmitting ? "btn-disabled" : ""
+            }`}
             type="submit"
-            className="elementor-button elementor-size-md"
             disabled={isSubmitting}
-            style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? "not-allowed" : "pointer" }}
           >
-            <span>
-              <span className="elementor-button-icon"></span>
+            <span className="elementor-button-content-wrapper">
               <span className="elementor-button-text">
                 {isSubmitting
                   ? t("contactForm.submitting", "Envoi en cours...")
@@ -193,16 +298,6 @@ export default function ContactForm({ lang: propLang }: ContactFormProps) {
             </span>
           </button>
         </div>
-
-        {errorMessage && (
-          <div
-            className="elementor-message elementor-message-danger"
-            role="alert"
-            style={{ width: "100%", marginTop: "15px", color: "#d9534f" }}
-          >
-            {errorMessage}
-          </div>
-        )}
       </div>
     </form>
   );

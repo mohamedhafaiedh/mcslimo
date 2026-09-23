@@ -4373,10 +4373,185 @@ section#qui-sommes-nous,
   background-color: transparent !important;
 }
 
-/* Subtitle and divider global centering */
-.elementor-widget-heading .elementor-heading-title,
-.elementor-widget-text-editor {
-  text-align: center;
+/* Hero title, description & button strict alignment across all languages */
+html[dir="ltr"] .elementor-element-c0fb283,
+[dir="ltr"] .elementor-element-c0fb283,
+.elementor-element-c0fb283 {
+  align-items: flex-start !important;
+}
+
+html[dir="ltr"] .elementor-element-ffa4b96,
+[dir="ltr"] .elementor-element-ffa4b96,
+.elementor-element-ffa4b96,
+html[dir="ltr"] .elementor-element-ffa4b96 .elementor-heading-title,
+[dir="ltr"] .elementor-element-ffa4b96 .elementor-heading-title,
+.elementor-element-ffa4b96 .elementor-heading-title,
+html[dir="ltr"] .elementor-element-266ea7a,
+[dir="ltr"] .elementor-element-266ea7a,
+.elementor-element-266ea7a,
+html[dir="ltr"] .elementor-element-266ea7a .elementor-widget-container,
+[dir="ltr"] .elementor-element-266ea7a .elementor-widget-container,
+.elementor-element-266ea7a .elementor-widget-container,
+html[dir="ltr"] .elementor-element-266ea7a p,
+[dir="ltr"] .elementor-element-266ea7a p,
+.elementor-element-266ea7a p {
+  text-align: left !important;
+}
+
+html[dir="ltr"] .elementor-element-40029bd,
+[dir="ltr"] .elementor-element-40029bd,
+.elementor-element-40029bd {
+  width: 100% !important;
+  align-self: stretch !important;
+  text-align: left !important;
+}
+
+html[dir="ltr"] .elementor-element-40029bd .elementor-widget-container,
+[dir="ltr"] .elementor-element-40029bd .elementor-widget-container,
+.elementor-element-40029bd .elementor-widget-container {
+  width: 100% !important;
+}
+
+html[dir="ltr"] .elementor-element-40029bd .elementor-button-wrapper,
+[dir="ltr"] .elementor-element-40029bd .elementor-button-wrapper,
+.elementor-element-40029bd .elementor-button-wrapper {
+  display: flex !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+/* RTL Hero (Arabic): strictly right-aligned */
+html[dir="rtl"] .elementor-element-c0fb283,
+[dir="rtl"] .elementor-element-c0fb283 {
+  align-items: flex-start !important;
+}
+
+html[dir="rtl"] .elementor-element-ffa4b96,
+[dir="rtl"] .elementor-element-ffa4b96,
+html[dir="rtl"] .elementor-element-ffa4b96 .elementor-heading-title,
+[dir="rtl"] .elementor-element-ffa4b96 .elementor-heading-title,
+html[dir="rtl"] .elementor-element-266ea7a,
+[dir="rtl"] .elementor-element-266ea7a,
+html[dir="rtl"] .elementor-element-266ea7a .elementor-widget-container,
+[dir="rtl"] .elementor-element-266ea7a .elementor-widget-container,
+html[dir="rtl"] .elementor-element-266ea7a p,
+[dir="rtl"] .elementor-element-266ea7a p {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .elementor-element-40029bd,
+[dir="rtl"] .elementor-element-40029bd {
+  width: 100% !important;
+  align-self: stretch !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] .elementor-element-40029bd .elementor-widget-container,
+[dir="rtl"] .elementor-element-40029bd .elementor-widget-container {
+  width: 100% !important;
+}
+
+html[dir="rtl"] .elementor-element-40029bd .elementor-button-wrapper,
+[dir="rtl"] .elementor-element-40029bd .elementor-button-wrapper {
+  display: flex !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  text-align: right !important;
+}
+
+/* Landing Page Hero RTL check-list */
+[dir="rtl"] .elementor-element-dd021f8,
+[dir="rtl"] .elementor-element-dd021f8 .elementor-icon-list-item,
+[dir="rtl"] .elementor-element-dd021f8 .elementor-icon-list-text {
+  text-align: right !important;
+  justify-content: flex-start !important;
+}
+
+/* Footer titles, texts & menus strict left alignment for LTR (French, English) */
+html[dir="ltr"] .elementor-524 .elementor-heading-title,
+[dir="ltr"] .elementor-524 .elementor-heading-title,
+.elementor-524 .elementor-heading-title,
+html[dir="ltr"] .elementor-524 .elementor-widget-heading,
+[dir="ltr"] .elementor-524 .elementor-widget-heading,
+.elementor-524 .elementor-widget-heading,
+html[dir="ltr"] .elementor-524 .elementor-widget-text-editor,
+[dir="ltr"] .elementor-524 .elementor-widget-text-editor,
+.elementor-524 .elementor-widget-text-editor,
+html[dir="ltr"] .elementor-524 .elementor-widget-text-editor p,
+[dir="ltr"] .elementor-524 .elementor-widget-text-editor p,
+.elementor-524 .elementor-widget-text-editor p,
+html[dir="ltr"] .elementor-524 .elementor-icon-list-item,
+[dir="ltr"] .elementor-524 .elementor-icon-list-item,
+.elementor-524 .elementor-icon-list-item,
+html[dir="ltr"] .elementor-524 .elementor-icon-list-text,
+[dir="ltr"] .elementor-524 .elementor-icon-list-text,
+.elementor-524 .elementor-icon-list-text,
+html[dir="ltr"] .elementor-524 .elementor-nav-menu,
+[dir="ltr"] .elementor-524 .elementor-nav-menu,
+.elementor-524 .elementor-nav-menu,
+html[dir="ltr"] .elementor-524 .elementor-item,
+[dir="ltr"] .elementor-524 .elementor-item,
+.elementor-524 .elementor-item {
+  text-align: left !important;
+}
+
+html[dir="ltr"] .elementor-524 .elementor-icon-list-item,
+[dir="ltr"] .elementor-524 .elementor-icon-list-item,
+.elementor-524 .elementor-icon-list-item {
+  justify-content: flex-start !important;
+}
+
+/* Footer titles, texts & menus strict right alignment for RTL (Arabic) */
+html[dir="rtl"] .elementor-524 .elementor-heading-title,
+[dir="rtl"] .elementor-524 .elementor-heading-title,
+html[dir="rtl"] .elementor-524 .elementor-widget-heading,
+[dir="rtl"] .elementor-524 .elementor-widget-heading,
+html[dir="rtl"] .elementor-524 .elementor-widget-text-editor,
+[dir="rtl"] .elementor-524 .elementor-widget-text-editor,
+html[dir="rtl"] .elementor-524 .elementor-widget-text-editor p,
+[dir="rtl"] .elementor-524 .elementor-widget-text-editor p,
+html[dir="rtl"] .elementor-524 .elementor-icon-list-item,
+[dir="rtl"] .elementor-524 .elementor-icon-list-item,
+html[dir="rtl"] .elementor-524 .elementor-icon-list-text,
+[dir="rtl"] .elementor-524 .elementor-icon-list-text,
+html[dir="rtl"] .elementor-524 .elementor-nav-menu,
+[dir="rtl"] .elementor-524 .elementor-nav-menu,
+html[dir="rtl"] .elementor-524 .elementor-item,
+[dir="rtl"] .elementor-524 .elementor-item {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .elementor-524 .elementor-icon-list-item,
+[dir="rtl"] .elementor-524 .elementor-icon-list-item {
+  justify-content: flex-start !important;
+}
+
+/* Footer logo alignment */
+[dir="rtl"] .elementor-524 .elementor-element-5f462c5,
+[dir="rtl"] .elementor-524 .elementor-element-5f462c5 .elementor-widget-container,
+[dir="rtl"] .elementor-524 .elementor-element-5f462c5 a {
+  text-align: right !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+/* Footer Top CTA Alignment */
+[dir="rtl"] .elementor-524 .elementor-element-02eddeb,
+[dir="rtl"] .elementor-524 .elementor-element-02eddeb h5,
+[dir="rtl"] .elementor-524 .elementor-element-02eddeb h3 {
+  text-align: right !important;
+}
+
+/* Original Review source styling: subtle gray, no green */
+.review-source {
+  margin-top: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 12px !important;
+  color: #9ca3af !important;
+  font-weight: 400 !important;
 }
 
 /* 4. Vehicle Box Card Distinct Box Layout */
@@ -4441,110 +4616,127 @@ section#qui-sommes-nous,
   }
 }
 
-
-
-
-/* ==========================================================================
-   Testimonials 3-Column Layout & How-To-Book 3-Line Layout
-   ========================================================================== */
-.testimonials-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 30px !important;
-  width: 100% !important;
+/* 6. RTL Services Page Buttons & Left-Aligned Buttons */
+[dir="rtl"] .elementor-align-left,
+[dir="rtl"] .elementor-align-left .elementor-button-wrapper {
+  text-align: right !important;
+  justify-content: flex-start !important;
 }
 
-@media (max-width: 900px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-}
-
-.how-to-book-lines {
+[dir="rtl"] .elementor-element-4dc5370 .elementor-button-wrapper,
+[dir="rtl"] .elementor-element-4e3b792 .elementor-button-wrapper,
+[dir="rtl"] .elementor-element-a17b7b6 .elementor-button-wrapper {
+  text-align: right !important;
+  justify-content: flex-start !important;
   display: flex !important;
-  flex-direction: column !important;
-  gap: 20px !important;
-  width: 100% !important;
 }
 
-.how-to-book-line-item {
+/* 7. RTL Support for Floating Input Controls */
+[dir="rtl"] .floating-field-icon {
+  left: auto !important;
+  right: 14px !important;
+}
+
+[dir="rtl"] .floating-label {
+  left: auto !important;
+  right: 44px !important;
+}
+
+[dir="rtl"] .floating-input-control {
+  padding-left: 14px !important;
+  padding-right: 44px !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .floating-select-caret {
+  right: auto !important;
+  left: 14px !important;
+}
+
+/* 8. Prestigious Arabic Typography (Cairo) */
+[dir="rtl"],
+[dir="rtl"] body,
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] select,
+[dir="rtl"] textarea,
+[dir="rtl"] .elementor-heading-title,
+[dir="rtl"] .elementor-item,
+[dir="rtl"] .elementor-widget-text-editor,
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] a,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* 9. Universal Phone Number & Icon List Alignment (Prevents Line Breaks) */
+.elementor-icon-list-item,
+.elementor-icon-list-item a {
   display: flex !important;
-  flex-direction: row !important;
   align-items: center !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-.how-to-book-line-item:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
-  border-color: var(--e-global-color-accent, #C09E5B) !important;
-}
-
-@media (max-width: 640px) {
-  .how-to-book-line-item {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 20px !important;
-  }
-  .how-to-book-line-item .how-to-book-icon-wrapper {
-    margin: 0 auto 10px auto !important;
-  }
-}
-
-/* Partner Logos Row - Strict Single Line Alignment */
-.elementor-element-64388fb .e-con-inner {
-  display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 20px !important;
-  padding: 20px 0 !important;
-  width: 100% !important;
-  max-width: 1140px !important;
-  margin: 0 auto !important;
 }
 
-.elementor-element-64388fb .e-child {
-  flex: 1 1 0% !important;
-  width: 20% !important;
-  max-width: 20% !important;
-  min-width: 0 !important;
+[dir="rtl"] .elementor-icon-list-item,
+[dir="rtl"] .elementor-icon-list-item a {
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
 }
 
-.elementor-element-64388fb .elementor-widget-container,
-.elementor-element-64388fb .elementor-widget-image {
-  width: 100% !important;
-  display: flex !important;
+[dir="rtl"] .elementor-icon-list-icon {
+  display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  flex-shrink: 0 !important;
 }
 
-.elementor-element-64388fb .elementor-widget-image img {
-  max-height: 44px !important;
-  width: auto !important;
-  max-width: 90% !important;
-  object-fit: contain !important;
-  filter: grayscale(100%) opacity(0.7) !important;
-  transition: filter 0.3s ease, transform 0.3s ease !important;
+/* LTR isolation ONLY for phone digits and LTR text spans, maintaining inline-block inside flex row */
+.phone-number,
+.elementor-icon-list-text[dir="ltr"] {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
 }
 
-.elementor-element-64388fb .elementor-widget-image:hover img {
-  filter: grayscale(0%) opacity(1) !important;
-  transform: scale(1.05) !important;
+/* 10. Wati WhatsApp Widget RTL Layout & Close Button on Left Side */
+[dir="rtl"] .wa-chat-bubble-close-btn {
+  right: auto !important;
+  left: 20px !important;
+  top: 20px !important;
 }
 
-@media (max-width: 767px) {
-  .elementor-element-64388fb .e-con-inner {
-    gap: 10px !important;
-    padding: 15px 5px !important;
-  }
-  .elementor-element-64388fb .elementor-widget-image img {
-    max-height: 28px !important;
-  }
+[dir="rtl"] .wa-chat-box-header {
+  flex-direction: row-reverse !important;
+  justify-content: flex-start !important;
+  position: relative !important;
+}
+
+[dir="rtl"] .wa-chat-box-brand {
+  margin-left: 0 !important;
+  margin-right: 20px !important;
+}
+
+[dir="rtl"] .wa-chat-box-brand-text {
+  margin-left: 0 !important;
+  margin-right: 15px !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .wa-chat-box-content-chat {
+  direction: rtl !important;
+  text-align: right !important;
 }

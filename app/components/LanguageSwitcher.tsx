@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export type SupportedLang = "fr" | "en" | "ar";
+export type SupportedLang = "fr" | "en" | "ar" | "es" | "it";
 
 interface LanguageSwitcherProps {
   lang: SupportedLang;
@@ -15,6 +15,8 @@ interface LanguageSwitcherProps {
 const LANGUAGES: { code: SupportedLang; label: string; name: string }[] = [
   { code: "fr", label: "FR", name: "Français" },
   { code: "en", label: "EN", name: "English" },
+  { code: "es", label: "ES", name: "Español" },
+  { code: "it", label: "IT", name: "Italiano" },
   { code: "ar", label: "AR", name: "العربية" },
 ];
 
@@ -41,6 +43,42 @@ function FlagIcon({ code }: { code: SupportedLang }) {
         alt="EN"
         title="English"
       />
+    );
+  }
+  if (code === "es") {
+    return (
+      <svg
+        className="trp-flag-image"
+        width="18"
+        height="12"
+        viewBox="0 0 18 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ display: "inline-block", verticalAlign: "middle", borderRadius: "1px" }}
+        aria-label="Español"
+      >
+        <rect width="18" height="3" fill="#AA151B" />
+        <rect y="3" width="18" height="6" fill="#F1BF00" />
+        <rect y="9" width="18" height="3" fill="#AA151B" />
+      </svg>
+    );
+  }
+  if (code === "it") {
+    return (
+      <svg
+        className="trp-flag-image"
+        width="18"
+        height="12"
+        viewBox="0 0 18 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ display: "inline-block", verticalAlign: "middle", borderRadius: "1px" }}
+        aria-label="Italiano"
+      >
+        <rect width="6" height="12" fill="#009246" />
+        <rect x="6" width="6" height="12" fill="#FFFFFF" />
+        <rect x="12" width="6" height="12" fill="#CE2B37" />
+      </svg>
     );
   }
   return (
@@ -71,7 +109,7 @@ export default function LanguageSwitcher({
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLLIElement>(null);
 
-  const rawPath = currentPath || pathname || (lang === "fr" ? "/" : lang === "en" ? "/en" : "/ar");
+  const rawPath = currentPath || pathname || (lang === "fr" ? "/" : `/${lang}`);
 
   // Extract clean base path without locale prefix
   let basePath = rawPath;
@@ -79,6 +117,10 @@ export default function LanguageSwitcher({
     basePath = basePath.replace(/^\/en/, "") || "/";
   } else if (basePath.startsWith("/ar")) {
     basePath = basePath.replace(/^\/ar/, "") || "/";
+  } else if (basePath.startsWith("/es")) {
+    basePath = basePath.replace(/^\/es/, "") || "/";
+  } else if (basePath.startsWith("/it")) {
+    basePath = basePath.replace(/^\/it/, "") || "/";
   }
   if (!basePath.startsWith("/")) {
     basePath = "/" + basePath;
@@ -88,10 +130,7 @@ export default function LanguageSwitcher({
     if (targetLang === "fr") {
       return basePath === "" ? "/" : basePath;
     }
-    if (targetLang === "en") {
-      return basePath === "/" ? "/en" : `/en${basePath}`;
-    }
-    return basePath === "/" ? "/ar" : `/ar${basePath}`;
+    return basePath === "/" ? `/${targetLang}` : `/${targetLang}${basePath}`;
   };
 
   // Other languages to show in dropdown
@@ -147,6 +186,10 @@ export default function LanguageSwitcher({
               ? "Sélection de la langue"
               : lang === "en"
               ? "Language selection"
+              : lang === "es"
+              ? "Selección de idioma"
+              : lang === "it"
+              ? "Selezione della lingua"
               : "اختيار اللغة"
           }
           className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"

@@ -80,15 +80,15 @@
       "cta": "Discover our fleet"
     },
     "reviews": {
-      "title": "What our clients say about us",
-      "subtitle": "Verified reviews from our clients",
+      "title": "What our clients think",
+      "subtitle": "Our clientele is demanding and we do our best to always satisfy them",
       "googleVerified": "Google Verified Review",
+      "review0Author": "Corinne Maruzzi",
+      "review0Date": "January 24, 2023",
+      "review0Text": "« High-end services. Attentive to their clients, always available. They know how to anticipate your requests. I keep their contact details carefully. »",
       "review1Author": "Abdoul Sock",
       "review1Date": "January 23, 2023",
       "review1Text": "« A great team, very professional, punctual. I highly recommend. »",
-      "review2Author": "Moi 75015",
-      "review2Date": "November 28, 2022",
-      "review2Text": "« Excellent !!!! I highly recommend for all your weddings !!! They are really at the top !!!! »",
       "review3Author": "Latifa Moussa",
       "review3Date": "November 28, 2022",
       "review3Text": "« High-end driver, super clean vehicle, pleasant drive !! Too bad there are too many traffic jams in Paris !!! »"
@@ -100,8 +100,8 @@
       "step1Desc": "Email, telephone, contact form or online booking form.",
       "step2Title": "2. Booking",
       "step2Desc": "Describe your detailed need and we will advise you on the best service that best suits your situation.",
-      "step3Title": "3. Arrival 15 min before",
-      "step3Desc": "Our driver will be present 15 minutes before the start of your service with the vehicle ready."
+      "step3Title": "3. Our driver will be there 15 minutes before the service",
+      "step3Desc": ""
     },
     "gallery": {
       "title": "Discover our vehicle fleet"
@@ -150,7 +150,7 @@
     }
   },
   "fleetPage": {
-    "title": "Our Fleet",
+    "title": "Fleet",
     "subtitle": "We carefully select our vehicles in order to offer you maximum comfort",
     "eClass": {
       "name": "Mercedes Classe E",
@@ -227,7 +227,7 @@
   },
   "contact": {
     "badge": "Contact & Quote",
-    "title": "A tailor-made request?",
+    "title": "Contact Us",
     "subtitle": "Our team is available 24/7 to answer all your requests.",
     "phone": "Phone",
     "email": "Email",
@@ -255,8 +255,7 @@
     "address": "10 Place Lucien Boilleau, 91420 Morangis",
     "email": "contact@mcslimo.fr",
     "phone": "+33 1 89 48 02 96",
-    "securePayment": "All payments are 100% secure",
-    "copyright": "MCS Limo 2026 © All rights reserved.",
+    "copyright": "MCS Limo {year} © All rights reserved.",
     "legal": "Legal Notice",
     "cgv": "Terms & Conditions",
     "privacy": "Privacy Policy",
@@ -431,7 +430,6 @@
     "aboutTitle": "About MCS Limo",
     "aboutText1": "MCS Limo is a passenger transport company offering a tailor-made, high-end service by providing its clients with professional private chauffeurs and luxury vehicles.",
     "aboutText2": "MCS Limo operates in France as well as in major cities worldwide (Berlin, Frankfurt, Madrid, Barcelona, New York, Washington, Miami, Tokyo, Sydney…) to assist business and leisure clients with the same uncompromising standard of quality wherever they travel.",
-    "footerDesc": "Private chauffeur company in Paris and worldwide offering high-end and bespoke transportation services",
-    "paymentsSecure": "All payments are secure"
+    "footerDesc": "Private chauffeur company in Paris and worldwide offering high-end and bespoke transportation services"
   }
 }

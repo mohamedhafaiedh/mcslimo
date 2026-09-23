@@ -34,6 +34,10 @@ export function useTranslation(overrideLocale?: Locale) {
     detectedLocale = "ar";
   } else if (pathname === "/en" || pathname.startsWith("/en/")) {
     detectedLocale = "en";
+  } else if (pathname === "/es" || pathname.startsWith("/es/")) {
+    detectedLocale = "es";
+  } else if (pathname === "/it" || pathname.startsWith("/it/")) {
+    detectedLocale = "it";
   }
 
   const locale = overrideLocale || detectedLocale;
@@ -49,6 +53,8 @@ export function useTranslation(overrideLocale?: Locale) {
     isAr: locale === "ar",
     isEn: locale === "en",
     isFr: locale === "fr",
+    isEs: locale === "es",
+    isIt: locale === "it",
     dir: getDir(locale),
     localizeUrl: (url: string) => localizeUrl(url, locale),
   };

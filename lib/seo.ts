@@ -19,15 +19,26 @@ export function getAlternates(slug: string = '', langOrIsEn: string | boolean = 
   const frPath = cleanSlug ? `/${cleanSlug}/` : '/';
   const enPath = cleanSlug ? `/en/${cleanSlug}/` : '/en/';
   const arPath = cleanSlug ? `/ar/${cleanSlug}/` : '/ar/';
+  const esPath = cleanSlug ? `/es/${cleanSlug}/` : '/es/';
+  const itPath = cleanSlug ? `/it/${cleanSlug}/` : '/it/';
 
   let activeLocale = 'fr';
   if (typeof langOrIsEn === 'boolean') {
     activeLocale = langOrIsEn ? 'en' : 'fr';
-  } else if (langOrIsEn === 'ar' || langOrIsEn === 'en') {
+  } else if (['ar', 'en', 'es', 'it'].includes(langOrIsEn)) {
     activeLocale = langOrIsEn;
   }
 
-  const canonicalPath = activeLocale === 'ar' ? arPath : activeLocale === 'en' ? enPath : frPath;
+  const canonicalPath =
+    activeLocale === 'ar'
+      ? arPath
+      : activeLocale === 'en'
+      ? enPath
+      : activeLocale === 'es'
+      ? esPath
+      : activeLocale === 'it'
+      ? itPath
+      : frPath;
 
   return {
     canonical: `${SITE_URL}${canonicalPath}`,
@@ -35,6 +46,8 @@ export function getAlternates(slug: string = '', langOrIsEn: string | boolean = 
       'fr-FR': `${SITE_URL}${frPath}`,
       'en-US': `${SITE_URL}${enPath}`,
       'ar-SA': `${SITE_URL}${arPath}`,
+      'es-ES': `${SITE_URL}${esPath}`,
+      'it-IT': `${SITE_URL}${itPath}`,
       'x-default': `${SITE_URL}${frPath}`,
     },
   };

@@ -19,14 +19,16 @@ export function middleware(request: NextRequest) {
 
   const isEnglish = pathname === '/en' || pathname.startsWith('/en/');
   const isArabic = pathname === '/ar' || pathname.startsWith('/ar/');
-  const locale = isArabic ? 'ar' : isEnglish ? 'en' : 'fr';
+  const isSpanish = pathname === '/es' || pathname.startsWith('/es/');
+  const isItalian = pathname === '/it' || pathname.startsWith('/it/');
+  const locale = isArabic ? 'ar' : isEnglish ? 'en' : isSpanish ? 'es' : isItalian ? 'it' : 'fr';
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-locale', locale);
   requestHeaders.set('x-pathname', pathname);
 
-  if (isEnglish || isArabic) {
-    const prefixRegex = isArabic ? /^\/ar(\/|$)/ : /^\/en(\/|$)/;
+  if (isEnglish || isArabic || isSpanish || isItalian) {
+    const prefixRegex = /^\/(ar|en|es|it)(\/|$)/;
 
     // Strip prefix for internal routing
     let targetPath = pathname.replace(prefixRegex, '/');

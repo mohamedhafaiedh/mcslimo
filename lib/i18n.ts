@@ -1,10 +1,12 @@
 import fr from "../messages/fr.json";
 import en from "../messages/en.json";
 import ar from "../messages/ar.json";
+import es from "../messages/es.json";
+import it from "../messages/it.json";
 
-export type Locale = "fr" | "en" | "ar";
+export type Locale = "fr" | "en" | "ar" | "es" | "it";
 
-export const SUPPORTED_LOCALES: Locale[] = ["fr", "en", "ar"];
+export const SUPPORTED_LOCALES: Locale[] = ["fr", "en", "ar", "es", "it"];
 export const DEFAULT_LOCALE: Locale = "fr";
 
 export type Messages = typeof fr;
@@ -13,6 +15,8 @@ const messagesMap: Record<Locale, Messages> = {
   fr: fr as Messages,
   en: en as Messages,
   ar: ar as Messages,
+  es: es as Messages,
+  it: it as Messages,
 };
 
 /**
@@ -54,13 +58,15 @@ export function getTranslation(locale: Locale = DEFAULT_LOCALE) {
   const fallbackMessages = getMessages(DEFAULT_LOCALE);
 
   return function t(key: string, fallback?: string): string {
+    const currentYear = String(new Date().getFullYear());
     const val = getNestedValue(currentMessages, key);
-    if (val !== undefined) return val;
+    if (val !== undefined) return val.replace(/\{year\}/g, currentYear);
 
     const fallbackVal = getNestedValue(fallbackMessages, key);
-    if (fallbackVal !== undefined) return fallbackVal;
+    if (fallbackVal !== undefined) return fallbackVal.replace(/\{year\}/g, currentYear);
 
-    return fallback !== undefined ? fallback : key;
+    const result = fallback !== undefined ? fallback : key;
+    return result.replace(/\{year\}/g, currentYear);
   };
 }
 
@@ -69,6 +75,8 @@ export function getTranslation(locale: Locale = DEFAULT_LOCALE) {
  * - '/' pour le français
  * - '/en/...' pour l'anglais
  * - '/ar/...' pour l'arabe
+ * - '/es/...' pour l'espagnol
+ * - '/it/...' pour l'italien
  * Préserve les ancres (#) et query parameters (?).
  * Laisse intactes les URLs externes (http, mailto, tel).
  */
@@ -104,10 +112,14 @@ export function localizeUrl(path: string, locale: Locale = DEFAULT_LOCALE): stri
     base = base.slice(0, hashIndex);
   }
 
-  // Nettoyer les préfixes existants /en ou /ar
+  // Nettoyer les préfixes existants /en, /ar, /es ou /it
   if (base === "/ar" || base.startsWith("/ar/")) {
     base = base.slice(3) || "/";
   } else if (base === "/en" || base.startsWith("/en/")) {
+    base = base.slice(3) || "/";
+  } else if (base === "/es" || base.startsWith("/es/")) {
+    base = base.slice(3) || "/";
+  } else if (base === "/it" || base.startsWith("/it/")) {
     base = base.slice(3) || "/";
   }
 
@@ -162,6 +174,36 @@ export function getFormattedTimestamp(lang: Locale = "fr"): string {
       second: "2-digit",
     });
     return `${dateStr} à ${timeStr} (heure de Paris)`;
+  } else if (lang === "es") {
+    const dateStr = now.toLocaleDateString("es-ES", {
+      timeZone: "Europe/Paris",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+    const timeStr = now.toLocaleTimeString("es-ES", {
+      timeZone: "Europe/Paris",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+    return `${dateStr} a las ${timeStr} (hora de París)`;
+  } else if (lang === "it") {
+    const dateStr = now.toLocaleDateString("it-IT", {
+      timeZone: "Europe/Paris",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+    const timeStr = now.toLocaleTimeString("it-IT", {
+      timeZone: "Europe/Paris",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+    return `${dateStr} alle ${timeStr} (ora di Parigi)`;
   } else {
     const dateStr = now.toLocaleDateString("en-US", {
       timeZone: "Europe/Paris",
@@ -179,4 +221,5 @@ export function getFormattedTimestamp(lang: Locale = "fr"): string {
     return `${dateStr}, ${timeStr} (Paris time)`;
   }
 }
+
 

@@ -600,17 +600,17 @@ export default function LpChauffeurPrivePage() {
                       </li>
                       <li className="menu-item">
                         <Link href={localizeUrl("/services")} className="elementor-item">
-                          {t("nav.services", "Nos Services")}
+                          {t("nav.services", "Services")}
                         </Link>
                       </li>
                       <li className="menu-item">
                         <Link href={localizeUrl("/flotte")} className="elementor-item">
-                          {t("nav.fleet", "Notre flotte")}
+                          {t("nav.fleet", "Flotte")}
                         </Link>
                       </li>
                       <li className="menu-item">
                         <Link href={localizeUrl("/contact")} className="elementor-item">
-                          {t("nav.contact", "Nous contacter")}
+                          {t("nav.contact", "Contact")}
                         </Link>
                       </li>
                       <li className="menu-item">
@@ -629,7 +629,7 @@ export default function LpChauffeurPrivePage() {
               <div className="elementor-element elementor-element-cafce5b elementor-widget elementor-widget-heading" data-id="cafce5b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
                 <div className="elementor-widget-container">
                   <h2 className="elementor-heading-title elementor-size-default">
-                    {t("nav.contact", "Nous contacter")}
+                    {t("nav.contact", "Contact")}
                   </h2>
                 </div>
               </div>
@@ -637,29 +637,19 @@ export default function LpChauffeurPrivePage() {
                 <div className="elementor-widget-container">
                   <ul className="elementor-icon-list-items">
                     <li className="elementor-icon-list-item">
-                      <span className="elementor-icon-list-text">10 Place Lucien Boilleau, 91420 Morangis</span>
+                      <span className="elementor-icon-list-text" dir="ltr">10 Place Lucien Boilleau, 91420 Morangis</span>
                     </li>
                     <li className="elementor-icon-list-item">
                       <a href="mailto:contact@mcslimo.fr">
-                        <span className="elementor-icon-list-text">contact@mcslimo.fr</span>
+                        <span className="elementor-icon-list-text" dir="ltr">contact@mcslimo.fr</span>
                       </a>
                     </li>
                     <li className="elementor-icon-list-item">
                       <a href="tel:+33189480296">
-                        <span className="elementor-icon-list-text">+33 1 89 48 02 96</span>
+                        <span className="elementor-icon-list-text" dir="ltr">+33 1 89 48 02 96</span>
                       </a>
                     </li>
                   </ul>
-                </div>
-              </div>
-              <div className="elementor-element elementor-element-036edaf elementor-widget elementor-widget-image" data-id="036edaf" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
-                <div className="elementor-widget-container">
-                  <img width="268" height="20" src="/images/pay.png" className="attachment-large size-large wp-image-238" alt="Moyens de paiement sécurisés Visa, Mastercard, American Express" />
-                </div>
-              </div>
-              <div className="elementor-element elementor-element-2455f23 elementor-widget elementor-widget-text-editor" data-id="2455f23" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
-                <div className="elementor-widget-container">
-                  <p>{t("landing.paymentsSecure", "Tous les paiements sont sécurisés")}</p>
                 </div>
               </div>
             </div>
@@ -678,7 +668,7 @@ export default function LpChauffeurPrivePage() {
             <div className="elementor-element elementor-element-8a3fc7e e-con-full e-flex e-con e-child" data-id="8a3fc7e" data-element_type="container" data-e-type="container">
               <div className="elementor-element elementor-element-749e5b2 elementor-widget elementor-widget-text-editor" data-id="749e5b2" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
                 <div className="elementor-widget-container">
-                  {t("footer.copyright", "MCS Limo 2026 © Tous droits réservés.")}
+                  {t("footer.copyright", "MCS Limo {year} © Tous droits réservés.")}
                 </div>
               </div>
             </div>

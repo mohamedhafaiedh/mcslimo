@@ -82,7 +82,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
       id: "services",
       className: "menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-936",
       href: servicesHref,
-      label: t("nav.services", "Nos Services"),
+      label: t("nav.services", "Services"),
       hasChildren: true,
       children: [
         { href: transfersHref, label: t("nav.transfers", "Transferts"), className: "menu-item menu-item-type-custom menu-item-object-custom menu-item-1138" },
@@ -94,7 +94,7 @@ export default function MainHeader({ lang = "fr", currentPath = "" }: MainHeader
       id: "fleet",
       className: "menu-item menu-item-type-post_type menu-item-object-page menu-item-937",
       href: fleetHref,
-      label: t("nav.fleet", "Notre Flotte"),
+      label: t("nav.fleet", "Flotte"),
       hasChildren: false,
       children: [],
     },

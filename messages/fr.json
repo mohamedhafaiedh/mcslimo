@@ -23,13 +23,13 @@
   "nav": {
     "home": "Accueil",
     "about": "À propos",
-    "services": "Nos Services",
+    "services": "Services",
     "transfers": "Transferts",
     "mad": "Mises à disposition",
     "vip": "Accueil VIP",
-    "fleet": "Notre Flotte",
+    "fleet": "Flotte",
     "yearlyDriver": "Chauffeur à l'année",
-    "contact": "Nous contacter",
+    "contact": "Contact",
     "reservation": "Devis et réservation",
     "toggleMenu": "Permuter le menu"
   },
@@ -56,13 +56,13 @@
     "whyUs": {
       "title": "Pourquoi choisir MCS Limo ?",
       "feature1Title": "Chauffeurs expérimentés",
-      "feature1Desc": "Nos chauffeurs ont plus de 10 ans d'expérience. Ils sont tous discrets, multilingues et ont le sens du service.",
+      "feature1Desc": "Nos chauffeurs ont plus de 10 ans d'expérience. Ils sont tous discrets, multilingues et ont le sens du service",
       "feature2Title": "Services et voitures haut de gamme",
-      "feature2Desc": "Nous mettons à votre disposition des véhicules haut de gamme avec un service de qualité et un confort absolu.",
+      "feature2Desc": "Nous mettons à votre disposition des véhicules haut de gamme avec un service de qualité",
       "feature3Title": "Disponibilité 24/7",
-      "feature3Desc": "Nous sommes disponibles à tout moment pour traiter vos demandes ou assurer vos besoins de transport.",
-      "feature4Title": "Ponctualité garantie",
-      "feature4Desc": "Parce que votre temps est précieux, nous faisons en sorte que nos chauffeurs arrivent avant 15 minutes du début de chaque prestation."
+      "feature3Desc": "Nous sommes disponibles à tout moment pour traiter vos demandes ou assurer vos besoins",
+      "feature4Title": "Ponctualité",
+      "feature4Desc": "Parce que votre temps est précieux, nous faisons en sorte que nos chauffeurs arrivent avant 15 minutes du début de chaque prestation"
     },
     "fleet": {
       "title": "Nos Véhicules",
@@ -80,15 +80,15 @@
       "cta": "Découvrir notre flotte"
     },
     "reviews": {
-      "title": "Ce que nos clients disent de nous",
-      "subtitle": "Avis vérifiés de nos clients",
+      "title": "Ce que pensent nos clients",
+      "subtitle": "Notre clientèle est exigeante et nous faisons de notre mieux pour toujours la satisfaire",
       "googleVerified": "Avis vérifié Google",
+      "review0Author": "Corinne Maruzzi",
+      "review0Date": "24 Janvier 2023",
+      "review0Text": "« Prestations de grandes qualités. À l'écoute de leur client, toujours disponible. Savent anticiper vos demandes. Je garde précieusement leurs coordonnées. »",
       "review1Author": "Abdoul Sock",
       "review1Date": "23 Janvier 2023",
       "review1Text": "« Une très belle équipe, très professionnelle, ponctuelle. Je recommande fortement. »",
-      "review2Author": "Moi 75015",
-      "review2Date": "28 Novembre 2022",
-      "review2Text": "« Excellent !!!! Je recommande vivement pour tous vos mariages !!! Ils sont vraiment au top !!!! »",
       "review3Author": "Latifa Moussa",
       "review3Date": "28 Novembre 2022",
       "review3Text": "« Chauffeur haut de gamme véhicule super propre conduite agréable !! Dommage qu'il y ait trop de bouchons sur Paris !!! »"
@@ -97,11 +97,11 @@
       "title": "Comment réserver mon chauffeur ?",
       "subtitle": "Pour réserver une voiture de luxe avec chauffeur, rien de plus simple",
       "step1Title": "1. Contact",
-      "step1Desc": "E-mail, téléphone, formulaire de contact ou formulaire de réservation en ligne.",
+      "step1Desc": "E-mail, téléphone, formulaire de contact ou formulaire de réservation en ligne",
       "step2Title": "2. Réservation",
-      "step2Desc": "Décrivez-nous votre besoin détaillé et nous vous conseillerons la meilleure prestation qui s'adapte le mieux à votre situation.",
-      "step3Title": "3. Arrivée 15 min avant",
-      "step3Desc": "Notre chauffeur sera présent 15 minutes avant le début de votre prestation avec le véhicule prêt."
+      "step2Desc": "Décrivez-nous votre besoin détaillé et nous vous conseillerons la meilleure prestation qui s'adapte le mieux à votre situation",
+      "step3Title": "3. Notre chauffeur sera là 15mn avant la prestation",
+      "step3Desc": ""
     },
     "gallery": {
       "title": "Découvrez notre flotte de véhicule"
@@ -130,7 +130,7 @@
     "presenceP2": "Où que vous soyez, nous serons là pour vous accompagner et vous présenter l’offre adaptée à votre besoin."
   },
   "servicesPage": {
-    "title": "Nos Services de Prestige",
+    "title": "Nos Services",
     "transfers": {
       "title": "Transferts Gares & Aéroports",
       "desc": "Accueil personnalisé aux aéroports parisiens (CDG, Orly, Le Bourget) et gares parisiennes avec suivi en temps réel des vols."
@@ -150,7 +150,7 @@
     "subtitle": "Nous vous offrons des services sur-mesure qui s’adaptent à vos besoins"
   },
   "fleetPage": {
-    "title": "Notre Flotte Automobile",
+    "title": "Flotte",
     "subtitle": "Des berlines et vans de grand luxe récents, entretenus et équipés pour votre plus grand confort.",
     "eClass": {
       "name": "Mercedes-Benz Classe E",
@@ -227,7 +227,7 @@
   },
   "contact": {
     "badge": "Contact & Devis",
-    "title": "Une demande sur-mesure ?",
+    "title": "Nous contacter",
     "subtitle": "Notre équipe est à votre écoute 24h/24 et 7j/7.",
     "phone": "Téléphone",
     "email": "Email",
@@ -255,8 +255,7 @@
     "address": "10 Place Lucien Boilleau, 91420 Morangis",
     "email": "contact@mcslimo.fr",
     "phone": "+33 1 89 48 02 96",
-    "securePayment": "Tous les paiements sont sécurisés",
-    "copyright": "MCS Limo 2026 © Tous droits réservés.",
+    "copyright": "MCS Limo {year} © Tous droits réservés.",
     "legal": "Mentions légales",
     "cgv": "CGV",
     "privacy": "Politique de confidentialité",
@@ -431,7 +430,6 @@
     "aboutTitle": "A propos de MCS Limo",
     "aboutText1": "MCS Limo est une entreprise de transport de personnes offrant un service sur-mesure et haut de gamme en mettant à disposition de sa clientèle des chauffeurs privés professionnels avec des voitures de luxe.",
     "aboutText2": "MCS Limo est présente aussi bien en France que dans les plus grandes villes du monde (Berlin, Francfort, Madrid, Barcelone, New York, Washington, Miami, Tokyo, Sydney…) pour accompagner sa clientèle de professionnels et particuliers lors de ses déplacements pour lui offrir le même standard de qualité là où elle se déplace.",
-    "footerDesc": "Société de chauffeur privé à Paris et partout dans le monde qui vous offre un service de transport haut de gamme et sur mesure",
-    "paymentsSecure": "Tous les paiements sont sécurisés"
+    "footerDesc": "Société de chauffeur privé à Paris et partout dans le monde qui vous offre un service de transport haut de gamme et sur mesure"
   }
 }

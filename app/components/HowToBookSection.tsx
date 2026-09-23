@@ -11,165 +11,155 @@ interface HowToBookSectionProps {
 export default function HowToBookSection({ lang }: HowToBookSectionProps) {
   const { t } = useTranslation(lang as Locale | undefined);
 
-  const steps = [
-    {
-      num: "1",
-      img: "/images/communiquer.png",
-      alt: "1. Contactez votre agence de chauffeur privé",
-      title: t("home.howToBook.step1Title", "1. Contact"),
-      description: t(
-        "home.howToBook.step1Desc",
-        "E-mail, téléphone, formulaire de contact ou formulaire de réservation en ligne"
-      ),
-    },
-    {
-      num: "2",
-      img: "/images/check.png",
-      alt: "2. Réservation et devis sur-mesure",
-      title: t("home.howToBook.step2Title", "2. Réservation"),
-      description: t(
-        "home.howToBook.step2Desc",
-        "Décrivez-nous votre besoin détaillé et nous vous conseillerons la meilleure prestation qui s'adapte le mieux à votre situation"
-      ),
-    },
-    {
-      num: "3",
-      img: "/images/mobile-phone.png",
-      alt: "3. Votre chauffeur est présent 15 minutes avant le trajet",
-      title: t("home.howToBook.step3Title", "3. Notre chauffeur sera là 15mn avant la prestation"),
-      description: t(
-        "home.howToBook.step3Desc",
-        "Notre chauffeur sera présent 15 minutes avant le début de votre prestation avec le véhicule prêt."
-      ),
-    },
-  ];
-
   return (
-    <section
-      className="how-to-book-section"
-      style={{
-        backgroundColor: "#ffffff",
-        paddingTop: "60px",
-        paddingBottom: "60px",
-        width: "100%",
-      }}
-    >
-      <div style={{ maxWidth: "1140px", margin: "0 auto", padding: "0 20px", boxSizing: "border-box" }}>
-        {/* Title */}
-        <div
-          className="elementor-element elementor-element-37c3103 elementor-widget elementor-widget-heading"
-          style={{ textAlign: "center", width: "100%", marginBottom: "10px" }}
-        >
-          <div className="elementor-widget-container" style={{ textAlign: "center" }}>
-            <h2
-              className="elementor-heading-title elementor-size-default"
-              style={{
-                textAlign: "center",
-                color: "var(--e-global-color-primary, #000000)",
-                fontSize: "32px",
-                fontWeight: "600",
-                fontFamily: "var(--e-global-typography-primary-font-family, 'Dosis', sans-serif)",
-                margin: "0 0 10px 0",
-              }}
-            >
-              {t("home.howToBook.title", "Comment réserver mon chauffeur ?")}
-            </h2>
+    <>
+      <div
+        className="elementor-element elementor-element-37c3103 e-flex e-con-boxed e-con e-parent"
+        data-id="37c3103"
+        data-element_type="container"
+        data-e-type="container"
+      >
+        <div className="e-con-inner">
+          <div
+            className="elementor-element elementor-element-1aba894 elementor-widget elementor-widget-heading"
+            data-id="1aba894"
+            data-element_type="widget"
+            data-e-type="widget"
+            data-widget_type="heading.default"
+          >
+            <div className="elementor-widget-container">
+              <h2 className="elementor-heading-title elementor-size-default">
+                {t("home.howToBook.title", "Comment réserver mon chauffeur ?")}
+              </h2>
+            </div>
+          </div>
+
+          <SlashesDivider className="elementor-element-f3a75fb" align="center" width="80px" color="%23C09E5B" />
+
+          <div
+            className="elementor-element elementor-element-980bf8e elementor-widget elementor-widget-text-editor"
+            data-id="980bf8e"
+            data-element_type="widget"
+            data-e-type="widget"
+            data-widget_type="text-editor.default"
+          >
+            <div className="elementor-widget-container">
+              {t(
+                "home.howToBook.subtitle",
+                "Pour réserver une voiture de luxe avec chauffeur, rien de plus simple"
+              )}
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Golden Slashes Divider */}
-        <SlashesDivider className="elementor-element-e2b86ea" width="80px" color="%23C09E5B" align="center" />
-
-        {/* 3 Rows / Lines (Affichage en 3 lignes) */}
-        <div
-          className="how-to-book-lines"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-            maxWidth: "960px",
-            margin: "40px auto 0 auto",
-            width: "100%",
-          }}
-        >
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="how-to-book-line-item"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                backgroundColor: "#fbfbfb",
-                border: "1px solid #eeeeee",
-                borderRadius: "8px",
-                padding: "24px 30px",
-                gap: "24px",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease",
-                boxSizing: "border-box",
-              }}
-            >
-              {/* Icon Container */}
-              <div
-                className="how-to-book-icon-wrapper"
-                style={{
-                  width: "64px",
-                  height: "64px",
-                  minWidth: "64px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: "8px",
-                  backgroundColor: "#ffffff",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-                  padding: "10px",
-                  boxSizing: "border-box",
-                }}
-              >
-                <img
-                  decoding="async"
-                  width="48"
-                  height="48"
-                  src={step.img}
-                  alt={step.alt}
-                  style={{
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    objectFit: "contain",
-                    display: "block",
-                  }}
-                />
-              </div>
-
-              {/* Text content */}
-              <div style={{ flexGrow: 1, minWidth: 0 }}>
-                <h3
-                  style={{
-                    color: "var(--e-global-color-primary, #000000)",
-                    fontSize: "19px",
-                    fontWeight: "700",
-                    fontFamily: "var(--e-global-typography-primary-font-family, 'Dosis', sans-serif)",
-                    margin: "0 0 6px 0",
-                  }}
-                >
-                  {step.title}
-                </h3>
-                <p
-                  style={{
-                    color: "var(--e-global-color-text, #666666)",
-                    fontSize: "15px",
-                    lineHeight: "1.6",
-                    fontFamily: "var(--e-global-typography-text-font-family, 'Open Sans', sans-serif)",
-                    margin: "0",
-                  }}
-                >
-                  {step.description}
-                </p>
+      <div
+        className="elementor-element elementor-element-01da488 e-flex e-con-boxed e-con e-parent"
+        data-id="01da488"
+        data-element_type="container"
+        data-e-type="container"
+      >
+        <div className="e-con-inner">
+          {/* Step 1 */}
+          <div
+            className="elementor-element elementor-element-b51b06b elementor-position-left elementor-widget__width-inherit elementor-vertical-align-middle elementor-widget elementor-widget-image-box"
+            data-id="b51b06b"
+            data-element_type="widget"
+            data-e-type="widget"
+            data-widget_type="image-box.default"
+          >
+            <div className="elementor-widget-container">
+              <div className="elementor-image-box-wrapper">
+                <figure className="elementor-image-box-img">
+                  <img
+                    decoding="async"
+                    width="64"
+                    height="64"
+                    src="/images/communiquer.png"
+                    className="attachment-full size-full wp-image-144"
+                    alt="1. Contactez votre agence de chauffeur privé"
+                  />
+                </figure>
+                <div className="elementor-image-box-content">
+                  <h3 className="elementor-image-box-title">
+                    {t("home.howToBook.step1Title", "1. Contact")}
+                  </h3>
+                  <p className="elementor-image-box-description">
+                    {t(
+                      "home.howToBook.step1Desc",
+                      "E-mail, téléphone, formulaire de contact ou formulaire de réservation en ligne"
+                    )}
+                  </p>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Step 2 */}
+          <div
+            className="elementor-element elementor-element-1204501 elementor-position-left elementor-widget__width-inherit elementor-vertical-align-middle elementor-widget elementor-widget-image-box"
+            data-id="1204501"
+            data-element_type="widget"
+            data-e-type="widget"
+            data-widget_type="image-box.default"
+          >
+            <div className="elementor-widget-container">
+              <div className="elementor-image-box-wrapper">
+                <figure className="elementor-image-box-img">
+                  <img
+                    decoding="async"
+                    width="64"
+                    height="64"
+                    src="/images/check.png"
+                    className="attachment-full size-full wp-image-142"
+                    alt="2. Réservation et devis sur-mesure"
+                  />
+                </figure>
+                <div className="elementor-image-box-content">
+                  <h3 className="elementor-image-box-title">
+                    {t("home.howToBook.step2Title", "2. Réservation")}
+                  </h3>
+                  <p className="elementor-image-box-description">
+                    {t(
+                      "home.howToBook.step2Desc",
+                      "Décrivez-nous votre besoin détaillé et nous vous conseillerons la meilleure prestation qui s'adapte le mieux à votre situation"
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div
+            className="elementor-element elementor-element-8a08376 elementor-position-left elementor-widget__width-inherit elementor-vertical-align-middle elementor-widget elementor-widget-image-box"
+            data-id="8a08376"
+            data-element_type="widget"
+            data-e-type="widget"
+            data-widget_type="image-box.default"
+          >
+            <div className="elementor-widget-container">
+              <div className="elementor-image-box-wrapper">
+                <figure className="elementor-image-box-img">
+                  <img
+                    decoding="async"
+                    width="64"
+                    height="64"
+                    src="/images/mobile-phone.png"
+                    className="attachment-full size-full wp-image-149"
+                    alt="3. Votre chauffeur est présent 15 minutes avant le trajet"
+                  />
+                </figure>
+                <div className="elementor-image-box-content">
+                  <h3 className="elementor-image-box-title">
+                    {t("home.howToBook.step3Title", "3. Notre chauffeur sera là 15mn avant la prestation")}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </>
   );
 }

@@ -87,7 +87,7 @@ export default function LandingHeader({ lang: propLang, currentPath }: LandingHe
                 >
                   <ul id="menu-1-1269cef" className="elementor-nav-menu">
                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-456">
-                      <a href="tel:+33189480296" className="elementor-item">
+                      <a href="tel:+33189480296" className="elementor-item phone-number" dir="ltr">
                         +33 1 89 48 02 96
                       </a>
                     </li>
@@ -99,7 +99,7 @@ export default function LandingHeader({ lang: propLang, currentPath }: LandingHe
                 >
                   <ul id="menu-2-1269cef" className="elementor-nav-menu">
                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-456">
-                      <a href="tel:+33189480296" className="elementor-item" tabIndex={-1}>
+                      <a href="tel:+33189480296" className="elementor-item phone-number" tabIndex={-1} dir="ltr">
                         +33 1 89 48 02 96
                       </a>
                     </li>

@@ -9,7 +9,7 @@ interface MainFooterProps {
 }
 
 export default function MainFooter({ lang }: MainFooterProps) {
-  const { t, localizeUrl } = useTranslation(lang);
+  const { t, localizeUrl, dir } = useTranslation(lang);
 
   return (
     <footer
@@ -17,6 +17,7 @@ export default function MainFooter({ lang }: MainFooterProps) {
       data-elementor-id="524"
       className="elementor elementor-524 elementor-location-footer"
       data-elementor-post-type="elementor_library"
+      dir={dir}
     >
       <div
         className="elementor-element elementor-element-7bea1cc e-flex e-con-boxed e-con e-parent"
@@ -231,34 +232,6 @@ export default function MainFooter({ lang }: MainFooterProps) {
                     </a>
                   </li>
                 </ul>
-              </div>
-            </div>
-            <div
-              className="elementor-element elementor-element-036edaf elementor-widget elementor-widget-image"
-              data-id="036edaf"
-              data-element_type="widget"
-              data-e-type="widget"
-              data-widget_type="image.default"
-            >
-              <div className="elementor-widget-container">
-                <img
-                  width="268"
-                  height="20"
-                  src="/images/pay.png"
-                  className="attachment-large size-large wp-image-238"
-                  alt={t("footer.securePayment", "Secure Online Payments")}
-                />
-              </div>
-            </div>
-            <div
-              className="elementor-element elementor-element-2455f23 elementor-widget elementor-widget-text-editor"
-              data-id="2455f23"
-              data-element_type="widget"
-              data-e-type="widget"
-              data-widget_type="text-editor.default"
-            >
-              <div className="elementor-widget-container">
-                <p>{t("footer.securePayment")}</p>
               </div>
             </div>
           </div>

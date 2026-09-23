@@ -1,0 +1,435 @@
+{
+  "common": {
+    "brand": "MCS LIMO",
+    "tagline": "Servizio di Autista Privato NCC di Lusso a Parigi",
+    "callUs": "Chiamaci",
+    "bookNow": "Preventivo e prenotazione",
+    "contactUs": "Contattaci",
+    "readMore": "Scopri di più",
+    "viewFleet": "Scopri la nostra flotta",
+    "ourServices": "Scopri i nostri servizi",
+    "backHome": "Torna alla home",
+    "allRightsReserved": "Tutti i diritti riservati",
+    "fromPrice": "A partire da",
+    "passengers": "passeggeri",
+    "luggage": "bagagli",
+    "wifi": "Wi-Fi ad alta velocità",
+    "refreshment": "Acqua e rinfreschi di cortesia",
+    "childSeats": "Seggiolini per bambini su richiesta",
+    "skipToContent": "Vai al contenuto",
+    "quoteAndBook": "Richiedi preventivo e prenota",
+    "backToHome": "Torna alla home"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Chi siamo",
+    "services": "I Nostri Servizi",
+    "transfers": "Transfer",
+    "mad": "A Disposizione",
+    "vip": "Accoglienza VIP",
+    "fleet": "La Nostra Flotta",
+    "yearlyDriver": "Autista Annuale",
+    "contact": "Contattaci",
+    "reservation": "Preventivo e prenotazione",
+    "toggleMenu": "Attiva/disattiva menu"
+  },
+  "home": {
+    "hero": {
+      "title": "Autisti privati a Parigi per una clientela esigente",
+      "subtitle": "Mettiamo a vostra disposizione auto di lusso con autista per soddisfare ogni vostra esigenza di viaggio esclusivo.",
+      "cta": "Richiedi preventivo e prenota"
+    },
+    "trust": {
+      "title": "Decine di professionisti e clienti privati si affidano a noi ogni giorno..."
+    },
+    "services": {
+      "title": "I Nostri Servizi",
+      "subtitle": "Vi offriamo servizi su misura che si adattano alle vostre necessità",
+      "transfersTitle": "Transfer",
+      "transfersDesc": "Per tutti i vostri spostamenti a Parigi da o per aeroporti e stazioni ferroviarie, o viaggi a lungo raggio da/per Parigi.",
+      "madTitle": "A Disposizione",
+      "madDesc": "Prenotate il vostro autista per la durata desiderata: la nostra auto rimarrà a vostra completa disposizione.",
+      "vipTitle": "Accoglienza VIP",
+      "vipDesc": "Per accompagnarvi lungo il tragitto dalla porta dell'aereo alla vostra auto, con passaggio prioritario dedicato.",
+      "cta": "Scopri i nostri servizi"
+    },
+    "whyUs": {
+      "title": "Perché scegliere MCS Limo?",
+      "feature1Title": "Autisti esperti",
+      "feature1Desc": "I nostri autisti vantano oltre 10 anni di esperienza. Sono discreti, multilingue e dedicati al servizio.",
+      "feature2Title": "Servizi e veicoli di alto livello",
+      "feature2Desc": "Mettiamo a vostra disposizione veicoli di alta gamma con standard di qualità impeccabili.",
+      "feature3Title": "Disponibilità 24/7",
+      "feature3Desc": "Siamo sempre disponibili per gestire le vostre richieste o garantire i vostri spostamenti.",
+      "feature4Title": "Puntualità",
+      "feature4Desc": "Poiché il vostro tempo è prezioso, i nostri autisti arrivano 15 minuti prima dell'orario stabilito."
+    },
+    "fleet": {
+      "title": "I Nostri Veicoli",
+      "subtitle": "Selezioniamo rigorosamente i nostri veicoli per garantirvi il massimo del comfort",
+      "businessClass": "Business",
+      "businessModel": "Mercedes Classe E",
+      "businessPrice": "A partire da 80€",
+      "vanClass": "VAN",
+      "vanModel": "Mercedes Classe V",
+      "vanPrice": "A partire da 90€",
+      "luxeClass": "Lusso",
+      "luxeModel": "Mercedes Classe S",
+      "luxePrice": "A partire da 110€",
+      "hybridModel": "Mercedes Classe S 580e",
+      "cta": "Scopri la nostra flotta"
+    },
+    "reviews": {
+      "title": "Cosa dicono i nostri clienti",
+      "subtitle": "La nostra clientela è esigente e facciamo sempre del nostro meglio per soddisfarla",
+      "googleVerified": "Recensione verificata Google",
+      "review0Author": "Corinne Maruzzi",
+      "review0Date": "24 Gennaio 2023",
+      "review0Text": "« Servizi di altissima qualità. Molto attenti al cliente, sempre reperibili. Sanno anticipare ogni esigenza. Conservo gelosamente i loro contatti. »",
+      "review1Author": "Abdoul Sock",
+      "review1Date": "23 Gennaio 2023",
+      "review1Text": "« Una squadra fantastica, molto professionale e puntuale. Consiglio vivamente. »",
+      "review3Author": "Latifa Moussa",
+      "review3Date": "28 Novembre 2022",
+      "review3Text": "« Autista di prima classe, veicolo super pulito, guida piacevole ed elegante. Un'esperienza impeccabile. »"
+    },
+    "howToBook": {
+      "title": "Come prenotare il vostro autista?",
+      "subtitle": "Prenotare un'auto di lusso con autista è estremamente semplice",
+      "step1Title": "1. Contatto",
+      "step1Desc": "Email, telefono, modulo di contatto o prenotazione online",
+      "step2Title": "2. Prenotazione",
+      "step2Desc": "Descrivete le vostre esigenze e vi consiglieremo la soluzione migliore adatta al vostro itinerario",
+      "step3Title": "3. L'autista sarà presente 15 min prima",
+      "step3Desc": ""
+    },
+    "gallery": {
+      "title": "Scopri la nostra flotta di veicoli"
+    },
+    "aboutSection": {
+      "title": "A proposito di MCS Limo",
+      "p1": "MCS Limo è una società di noleggio con conducente (NCC) di alto livello che offre un servizio su misura, mettendo a disposizione della propria clientela autisti privati professionisti e vetture di lusso.",
+      "p2": "MCS Limo è presente sia in Francia sia nelle principali metropoli mondiali (Berlino, Francoforte, Madrid, Barcellona, New York, Washington, Miami, Tokyo, Sydney…) per accompagnare clienti aziendali e privati con lo stesso standard di eccellenza.",
+      "cta": "Chi siamo"
+    }
+  },
+  "about": {
+    "title": "Chi siamo?",
+    "subtitle": "L'eccellenza del servizio di autista privato a Parigi e nel mondo",
+    "p1": "MCS Limo è un'azienda di noleggio con conducente (NCC) di prestigio con sede a Parigi.",
+    "p2": "Specializzata in trasferimenti VIP, collegamenti aeroportuali, disposizioni orarie ed eventi diplomatici e aziendali.",
+    "cta": "Prenota un autista",
+    "pageSubtitle": "Per scoprire chi è MCS Limo",
+    "missionP1": "MCS Limo è stata creata con l'obiettivo primario di offrire un'esperienza di trasporto di lusso a una clientela esigente.",
+    "missionP2": "Lavoriamo ogni giorno per soddisfare una domanda sempre crescente nel settore del trasporto privato di prestigio, garantendo un'esperienza impeccabile dal primo contatto fino alla destinazione.",
+    "qualityTitle": "Standard qualitativi elevati",
+    "qualityP1": "In MCS Limo, ogni dettaglio fa la differenza. Le nostre vetture sono selezionate e controllate costantemente, e i nostri autisti sono scelti per esperienza e cortesia.",
+    "qualityP2": "Lusso, comfort, discrezione, eleganza e dedizione sono i valori cardine che vi accompagneranno in ogni viaggio.",
+    "presenceTitle": "Presenti in tutta la Francia e all'estero!",
+    "presenceP1": "MCS Limo ha sede a Parigi, ma opera in tutta la Francia e nelle capitali internazionali: Londra, Berlino, Roma, Bruxelles, New York, Tokyo, ecc.",
+    "presenceP2": "Ovunque voi siate, saremo lieti di offrirvi la migliore soluzione adatta alle vostre necessità."
+  },
+  "servicesPage": {
+    "title": "I Nostri Servizi",
+    "transfers": {
+      "title": "Transfer Stazioni & Aeroporti",
+      "desc": "Accoglienza personalizzata negli aeroporti di Parigi (CDG, Orly, Le Bourget) e stazioni ferroviarie con monitoraggio voli in tempo reale."
+    },
+    "mad": {
+      "title": "A Disposizione",
+      "desc": "Un autista dedicato e un'auto di prestigio per qualche ora, un'intera giornata o più giorni consecutivi."
+    },
+    "vip": {
+      "title": "Accoglienza VIP & Greeter",
+      "desc": "Assistenza personalizzata all'uscita dal gate aereo, transito prioritario e gestione completa dei bagagli."
+    },
+    "events": {
+      "title": "Eventi & Matrimoni",
+      "desc": "Coordinamento logistico di flotte per matrimoni, convegni aziendali, sfilate di moda e Fashion Week."
+    },
+    "subtitle": "Vi offriamo servizi su misura che si adattano alle vostre necessità"
+  },
+  "fleetPage": {
+    "title": "Flotta",
+    "subtitle": "Berline e van di gran lusso recenti, sanificati e accessoriati per il vostro benessere.",
+    "eClass": {
+      "name": "Mercedes-Benz Classe E",
+      "category": "Berlina Business",
+      "desc": "Ideale per trasferimenti aziendali e tragitti urbani confortevoli."
+    },
+    "sClass": {
+      "name": "Mercedes-Benz Classe S",
+      "category": "Limousine First Class",
+      "desc": "Il massimo del lusso, della silenziosità e della raffinatezza per personalità e dirigenti."
+    },
+    "vClass": {
+      "name": "Mercedes-Benz Classe V",
+      "category": "Van VIP",
+      "desc": "Spazioso e versatile, ideale per delegazioni, famiglie e trasferimenti con bagagli voluminosi."
+    }
+  },
+  "yearlyChauffeur": {
+    "title": "Autista Privato Annuale",
+    "subtitle": "Una soluzione esclusiva per dirigenti, famiglie e imprese che desiderano un autista dedicato a tempo pieno o parziale.",
+    "p1": "Affidatevi a un autista privato titolare, formato in riservatezza, guida sicura e protocollo VIP.",
+    "cta": "Richiedi studio personalizzato",
+    "budgetTitle": "Budget controllato, servizio di prima classe",
+    "quoteBtn": "Richiedi preventivo per autista annuale",
+    "sec1Heading": "Una sola prenotazione e un autista a disposizione per tutto l'anno.",
+    "sec1Text": "Dimenticate le prenotazioni dell'ultimo minuto. Con la formula Autista Annuale di MCS Limo, il vostro veicolo e il vostro autista sono a disposizione ogni volta che ne avete bisogno, dal lunedì al venerdì o anche nel weekend.",
+    "sec1Point1": "Il vostro autista vi attende ogni giorno senza necessità di prenotazioni ripetute",
+    "sec1Point2": "Disponibilità dal lunedì al venerdì, e nei weekend secondo le vostre esigenze",
+    "sec2Heading": "Budget ottimizzato, servizio premium",
+    "sec2Text": "Avere un proprio autista privato per tutto l'anno è più accessibile di quanto si pensi, grazie a tariffe chiare e trasparenti.",
+    "sec2Point1": "Tariffe vantaggiose e pianificate senza costi aggiuntivi imprevisti",
+    "sec2Point2": "Veicoli premium impeccabilmente curati (Mercedes Classe E, Classe S, Classe V)",
+    "sec2Point3": "Riservatezza, cortesia e continuità di servizio sempre garantite"
+  },
+  "reservation": {
+    "badge": "Prenotazione online 24/7",
+    "title": "Prenota il tuo autista privato",
+    "subtitle": "Tariffa fissa anticipata, conferma immediata e servizio impeccabile.",
+    "form": {
+      "tripType": "Tipologia di tragitto",
+      "oneWay": "Solo andata",
+      "roundTrip": "Andata e ritorno",
+      "hourly": "A disposizione / Tariffa oraria",
+      "pickupAddress": "Indirizzo di partenza",
+      "pickupPlaceholder": "Aeroporto, stazione, indirizzo...",
+      "dropoffAddress": "Destinazione",
+      "dropoffPlaceholder": "Indirizzo di arrivo...",
+      "date": "Data",
+      "time": "Ora",
+      "passengers": "Passeggeri",
+      "luggage": "Bagagli",
+      "vehicleClass": "Categoria veicolo",
+      "selectVehicle": "Seleziona una categoria",
+      "berline": "Berlina Prestige (Mercedes Classe E)",
+      "van": "Van VIP (Mercedes Classe V)",
+      "firstClass": "Prima Classe (Mercedes Classe S)",
+      "fullName": "Nome e Cognome",
+      "email": "Indirizzo Email",
+      "phone": "Numero di Telefono",
+      "flightNumber": "Numero volo / treno (opzionale)",
+      "specialRequests": "Richieste particolari (seggiolino, preferenze...)",
+      "submit": "Conferma richiesta di prenotazione",
+      "submitting": "Invio in corso...",
+      "successTitle": "Richiesta inviata con successo!",
+      "successMessage": "Il nostro team prenderà in carico la vostra prenotazione e vi invierà conferma dettagliata via email e SMS.",
+      "errorRequired": "Si prega di compilare tutti i campi obbligatori."
+    },
+    "pageTitle": "Preventivo e prenotazione online",
+    "pageSubtitle": "Inserite i vostri dettagli per visualizzare il costo del servizio prima di procedere alla conferma",
+    "guarantee1": "Cancellazione gratuita fino a 24 ore prima del servizio",
+    "guarantee2": "Assistenza clienti dedicata attiva 24/7",
+    "guarantee3": "1 ora di attesa gratuita inclusa agli arrivi aeroportuali",
+    "guarantee4": "Accoglienza con cartello nominativo in aeroporti e stazioni"
+  },
+  "contact": {
+    "badge": "Contatti & Preventivo",
+    "title": "Contattaci",
+    "subtitle": "Il nostro team è a vostra completa disposizione 24 ore su 24, 7 giorni su 7.",
+    "phone": "Telefono",
+    "email": "Email",
+    "address": "Indirizzo",
+    "form": {
+      "name": "Nome e Cognome",
+      "email": "Indirizzo Email",
+      "phone": "Telefono",
+      "subject": "Oggetto del messaggio",
+      "message": "Il vostro messaggio",
+      "send": "Invia messaggio",
+      "sending": "Invio in corso...",
+      "success": "Il vostro messaggio è stato inviato con successo!"
+    },
+    "formTitle": "Modulo di contatto",
+    "infoTitle": "Informazioni di contatto"
+  },
+  "footer": {
+    "ctaTitle": "Siete interessati a uno dei nostri servizi?",
+    "ctaSubtitle": "Contattateci per qualsiasi informazione",
+    "ctaButton": "Contattaci",
+    "description": "Compagnia di autisti privati a Parigi e in tutto il mondo che vi offre un servizio di trasporto esclusivo e su misura.",
+    "menuTitle": "Menu",
+    "contactTitle": "Contattaci",
+    "address": "10 Place Lucien Boilleau, 91420 Morangis",
+    "email": "contact@mcslimo.fr",
+    "phone": "+33 1 89 48 02 96",
+    "copyright": "MCS Limo {year} © Tutti i diritti riservati.",
+    "legal": "Note legali",
+    "cgv": "Condizioni di servizio",
+    "privacy": "Informativa sulla privacy",
+    "whoWeAre": "Chi siamo",
+    "services": "I Nostri Servizi",
+    "fleet": "La nostra flotta",
+    "onlineBooking": "Prenotazione online",
+    "logoAlt": "MCS Limo - Autista privato di lusso a Parigi"
+  },
+  "vehicles": {
+    "business": {
+      "category": "Business",
+      "name": "Mercedes Classe E",
+      "price": "A partire da 80€",
+      "alt": "Mercedes Classe E berlina con autista privato - MCS Limo",
+      "passengers": "Fino a 3 passeggeri",
+      "luggage": "Fino a 3 bagagli"
+    },
+    "van": {
+      "category": "VAN",
+      "name": "Mercedes Classe V",
+      "price": "A partire da 90€",
+      "alt": "Mercedes Classe V van spazioso con autista - MCS Limo",
+      "passengers": "Fino a 7 passeggeri",
+      "luggage": "Fino a 7 bagagli"
+    },
+    "luxe": {
+      "category": "Luxe",
+      "name": "Mercedes Classe S",
+      "price": "A partire da 110€",
+      "alt": "Mercedes Classe S limousine di prestigio con autista - MCS Limo",
+      "passengers": "Fino a 3 passeggeri",
+      "luggage": "Fino a 3 bagagli"
+    },
+    "hybrid": {
+      "category": "Luxe",
+      "name": "Mercedes Classe S 580e",
+      "price": "A partire da 130€",
+      "alt": "Mercedes Classe S 580e limousine di prestigio con autista - MCS Limo",
+      "passengers": "Fino a 3 passeggeri",
+      "luggage": "Fino a 3 bagagli"
+    },
+    "features": {
+      "wifi": "Wi-Fi",
+      "refreshment": "Rinfresco",
+      "childSeats": "Seggiolini bimbi"
+    }
+  },
+  "thankYou": {
+    "reservationTitle": "Grazie per la vostra richiesta di preventivo!",
+    "reservationDesc": "Abbiamo registrato i dettagli del vostro tragitto. Il nostro team vi invierà una proposta personalizzata nel più breve tempo possibile.",
+    "contactTitle": "Grazie per il vostro messaggio!",
+    "contactDesc": "Il vostro messaggio è stato trasmesso ai nostri operatori. Vi ricontatteremo prontamente.",
+    "lpTitle": "Richiesta ricevuta con successo!",
+    "lpDesc": "Grazie per la vostra prenotazione con il servizio esclusivo di autista privato MCS Limo.",
+    "backHome": "Torna alla home"
+  },
+  "legal": {
+    "cgvTitle": "Condizioni generali di vendita",
+    "privacyTitle": "Informativa sulla privacy",
+    "noticesTitle": "Note legali"
+  },
+  "contactForm": {
+    "emailSubject": "Nuova richiesta di contatto",
+    "nameLabel": "Nome e Cognome",
+    "namePlaceholder": "Nome",
+    "phoneLabel": "Telefono",
+    "phonePlaceholder": "Telefono",
+    "phoneTitle": "Sono ammessi solo caratteri numerici telefonici (#, -, *, ecc.).",
+    "emailLabel": "Indirizzo Email",
+    "emailPlaceholder": "Indirizzo Email",
+    "subjectLabel": "Oggetto",
+    "subjects": {
+      "info": "Informazioni generali",
+      "quote": "Richiesta di preventivo",
+      "reservation": "Prenotazione"
+    },
+    "messageLabel": "Messaggio",
+    "messagePlaceholder": "Il vostro messaggio",
+    "submitBtn": "Invia richiesta",
+    "submitting": "Invio in corso...",
+    "errorMessage": "Si è verificato un errore durante l'invio del messaggio. Riprovare."
+  },
+  "reservationForm": {
+    "pickupLabel": "Luogo di partenza",
+    "pickupPlaceholder": "Es.: Aeroporto CDG Terminal 2E, Hotel Le Bristol, Parigi 8...",
+    "dropoffLabel": "Destinazione",
+    "dropoffPlaceholder": "Es.: Stazione Gare de Lyon, Reggia di Versailles, Parigi 16...",
+    "dateLabel": "Data di partenza",
+    "timeLabel": "Ora di partenza",
+    "vehicleLabel": "Categoria veicolo",
+    "emailLabel": "Indirizzo Email",
+    "emailPlaceholder": "Es.: contatto@azienda.com",
+    "phoneLabel": "Numero di telefono",
+    "phonePlaceholder": "Es.: +39 340 1234567",
+    "phoneTitle": "Sono ammessi solo caratteri numerici telefonici (#, -, *, ecc.).",
+    "messageLabel": "Richieste particolari",
+    "messagePlaceholder": "Es.: Seggiolino bambini richiesto, bagagli speciali...",
+    "vehicles": {
+      "classeE": "Mercedes Classe E (3 pax)",
+      "classeV": "Mercedes Classe V (7 pax)",
+      "classeS": "Mercedes Classe S (3 pax)",
+      "classeS580e": "Mercedes Classe S 580e (3 pax)"
+    },
+    "submitBtn": "Richiedi preventivo gratuito online",
+    "submitting": "Invio in corso...",
+    "errorMessage": "Si è verificato un errore nell'invio della prenotazione. Riprovare.",
+    "emailSubject": "Nuova richiesta di prenotazione"
+  },
+  "cgv": {
+    "title": "Condizioni generali di vendita",
+    "intro": "Le presenti condizioni generali di vendita sono stipulate tra la società MCars Services (MCS Limo), iscritta al Registro del Commercio di Parigi con il numero 852 506 948, e qualsiasi persona che desideri prenotare un servizio di noleggio con conducente (NCC).",
+    "sec1Title": "1 / Prenotazione e Conferma",
+    "sec1Text": "La richiesta di prenotazione può essere inoltrata tramite il nostro sito web, per email a contact@mcslimo.fr o telefonicamente al +33 1 89 48 02 96. La prenotazione diventa vincolante solo dopo la conferma scritta emessa da MCS Limo.",
+    "sec2Title": "2 / Tariffe e Modalità di Pagamento",
+    "sec2Text": "Le nostre tariffe includono il veicolo con autista privato, assicurazione passeggeri, carburante, pedaggi e IVA di legge. Il pagamento si effettua con carta di credito (Visa, Mastercard, American Express), bonifico o conto aziendale.",
+    "sec3Title": "3 / Condizioni di Servizio",
+    "sec3Text": "L'uso delle cinture di sicurezza è obbligatorio a bordo. Tutti i nostri veicoli sono rigorosamente non fumatori. Rinfreschi, connessione Wi-Fi e seggiolini per bambini sono disponibili su richiesta.",
+    "sec4Title": "4 / Cancellazioni e Modifiche",
+    "sec4Text": "Le cancellazioni effettuate almeno 24 ore prima dell'orario convenuto sono totalmente gratuite. In caso di cancellazione tardiva (meno di 24 ore) o mancata presentazione, potrà essere fatturato l'intero importo.",
+    "sec5Title": "5 / Legge Applicabile",
+    "sec5Text": "Le presenti condizioni sono regolate e interpretate secondo la legislazione francese."
+  },
+  "mentionsLegales": {
+    "title": "Note legali",
+    "companyTitle": "Informazioni aziendali",
+    "companyName": "Ragione sociale: MCars Services (MCS Limo)",
+    "companyForm": "Forma giuridica: SARL",
+    "companyCapital": "Capitale sociale: 1.000 €",
+    "companySiret": "SIREN / SIRET: 852 506 948 00011",
+    "companyVat": "Partita IVA Comunitaria: FR38852506948",
+    "companyAddress": "Sede legale: 10 Place Lucien Boilleau, 91420 Morangis, Francia",
+    "companyPhone": "Telefono: +33 1 89 48 02 96",
+    "companyEmail": "Email: contact@mcslimo.fr",
+    "hostTitle": "Hosting del sito",
+    "hostName": "Provider hosting: Hostinger International Ltd.",
+    "hostContact": "Contatto provider: contact@hostinger.com",
+    "ipTitle": "Proprietà intellettuale",
+    "ipText": "Questo sito è tutelato dalle normative francesi e internazionali sul diritto d'autore e la proprietà intellettuale. Tutti i diritti riservati.",
+    "privacyTitle": "Dati personali",
+    "privacyText": "In conformità al GDPR, disponete del diritto di accesso, rettifica e cancellazione dei vostri dati personali. Scriveteci a contact@mcslimo.fr."
+  },
+  "privacy": {
+    "title": "Informativa sulla privacy",
+    "cookiesTitle": "Gestione dei cookie",
+    "cookiesText": "Un cookie è un file di testo salvato sul vostro dispositivo durante la navigazione web per migliorare l'esperienza e analizzare le visite.",
+    "browserTitle": "Configurazione dei cookie",
+    "browserText": "Potete configurare il vostro browser per accettare o rifiutare i cookie in qualsiasi momento secondo le vostre preferenze.",
+    "dataTitle": "Protezione dei dati personali (GDPR)",
+    "dataText": "Le informazioni raccolte sono elaborate per la gestione delle vostre prenotazioni e richieste. I vostri dati non vengono mai ceduti o venduti a terzi.",
+    "rightsTitle": "I vostri diritti",
+    "rightsText": "Potete esercitare i vostri diritti di accesso, rettifica e cancellazione dei dati scrivendoci a contact@mcslimo.fr."
+  },
+  "landing": {
+    "heroTitle": "Il vostro specialista del trasporto di lusso a Parigi",
+    "heroSubtitle": "Mettiamo a vostra disposizione auto di lusso con autista per soddisfare ogni vostra esigenza",
+    "perk1": "Veicoli di prestigio",
+    "perk2": "Autisti d'élite",
+    "perk3": "Esperienza su misura",
+    "perk4": "Riservatezza e stile",
+    "formCardTitle": "Compilate il modulo per ricevere il vostro preventivo gratuito online in pochi minuti",
+    "trustBanner": "Decine di professionisti e clienti privati si affidano a noi ogni giorno...",
+    "servicesTitle": "I Nostri Servizi",
+    "servicesSubtitle": "Vi offriamo servizi su misura che si adattano alle vostre necessità",
+    "serviceTransfersTitle": "Transfer",
+    "serviceTransfersText": "Per tutti i vostri tragitti a Parigi da o per aeroporti e stazioni",
+    "serviceHourlyTitle": "A Disposizione",
+    "serviceHourlyText": "Prenotate il vostro autista per la durata che preferite con auto a disposizione",
+    "serviceVipTitle": "Accoglienza VIP",
+    "serviceVipText": "Accompagnamento prioritario dall'uscita del gate aereo alla vettura",
+    "ctaQuote": "Richiedi preventivo gratuito online",
+    "aboutTitle": "A proposito di MCS Limo",
+    "aboutText1": "MCS Limo è una società di noleggio con conducente che garantisce servizi esclusivi e auto di lusso.",
+    "aboutText2": "MCS Limo è presente in Francia e nelle grandi capitali del mondo per garantirvi lo stesso livello di eccellenza ovunque viaggiate.",
+    "footerDesc": "Compagnia di autisti privati a Parigi e nel mondo con servizi esclusivi e su misura."
+  }
+}

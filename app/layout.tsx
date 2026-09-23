@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
 import MobileMenuScript from "./components/MobileMenuScript";
+import HtmlLangSync from "./components/HtmlLangSync";
 import { SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -12,12 +13,24 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
+  alternates: {
+    canonical: `${SITE_URL}/`,
+    languages: {
+      "fr": `${SITE_URL}/`,
+      "en": `${SITE_URL}/en`,
+      "ar": `${SITE_URL}/ar`,
+      "es": `${SITE_URL}/es`,
+      "it": `${SITE_URL}/it`,
+      "x-default": `${SITE_URL}/`,
+    },
+  },
   openGraph: {
     title: "Chauffeur privé Haut de gamme à Paris - MCS Limo",
     description: "Pour tous vos trajets à Paris depuis ou vers les gares ou aéroports parisiens ou encore les longs trajets depuis/vers Paris",
     url: `${SITE_URL}/`,
     siteName: "MCS Limo",
     locale: "fr_FR",
+    alternateLocale: ["en_US", "ar_AR", "es_ES", "it_IT"],
     type: "website",
     images: [
       {
@@ -58,12 +71,43 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr-FR">
+    <html lang="fr-FR" dir="ltr" suppressHydrationWarning>
       <head>
+        <script
+          id="html-lang-dir-sync"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+              try {
+                var p = window.location.pathname;
+                var isAr = p === '/ar' || p.indexOf('/ar/') === 0;
+                var isEn = p === '/en' || p.indexOf('/en/') === 0;
+                var isEs = p === '/es' || p.indexOf('/es/') === 0;
+                var isIt = p === '/it' || p.indexOf('/it/') === 0;
+                var html = document.documentElement;
+                if (isAr) {
+                  html.setAttribute('lang', 'ar');
+                  html.setAttribute('dir', 'rtl');
+                } else if (isEn) {
+                  html.setAttribute('lang', 'en');
+                  html.setAttribute('dir', 'ltr');
+                } else if (isEs) {
+                  html.setAttribute('lang', 'es');
+                  html.setAttribute('dir', 'ltr');
+                } else if (isIt) {
+                  html.setAttribute('lang', 'it');
+                  html.setAttribute('dir', 'ltr');
+                } else {
+                  html.setAttribute('lang', 'fr-FR');
+                  html.setAttribute('dir', 'ltr');
+                }
+              } catch(e){}
+            })();`,
+          }}
+        />
         <JsonLd />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Dosis:wght@500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
         {/* Google Tag Manager (GTM-NZGFNG4) */}
@@ -90,6 +134,51 @@ gtag('config', 'G-V5RTREXCBK');`}
         {/* WhatsApp Chat Widget (Wati) */}
         <Script id="wati-widget" strategy="lazyOnload">
           {`(function() {
+  var p = window.location.pathname;
+  var isAr = p === '/ar' || p.indexOf('/ar/') === 0;
+  var isEn = p === '/en' || p.indexOf('/en/') === 0;
+  var isEs = p === '/es' || p.indexOf('/es/') === 0;
+  var isIt = p === '/it' || p.indexOf('/it/') === 0;
+
+  // Default: French
+  var texts = {
+    subTitle: "Nous répondons en quelques minutes",
+    welcome: "Bonjour,\\nComment pouvons-nous vous aider ?",
+    msg: "Bonjour,\\nJ'ai une question à vous poser",
+    cta: "Lancer la discussion"
+  };
+
+  // Rule: If language is NOT French, the prefilled message MUST always be in English
+  if (isAr) {
+    texts = {
+      subTitle: "نرد خلال دقائق معدودة",
+      welcome: "مرحباً،\\nكيف يمكننا مساعدتك؟",
+      msg: "Hello,\\nI have a question",
+      cta: "بدء المحادثة"
+    };
+  } else if (isEn) {
+    texts = {
+      subTitle: "We reply within a few minutes",
+      welcome: "Hello,\\nHow can we help you?",
+      msg: "Hello,\\nI have a question",
+      cta: "Start Chat"
+    };
+  } else if (isEs) {
+    texts = {
+      subTitle: "Respondemos en pocos minutos",
+      welcome: "Hola,\\n¿Cómo podemos ayudarle?",
+      msg: "Hello,\\nI have a question",
+      cta: "Iniciar conversación"
+    };
+  } else if (isIt) {
+    texts = {
+      subTitle: "Rispondiamo in pochi minuti",
+      welcome: "Buongiorno,\\nCome possiamo aiutarvi?",
+      msg: "Hello,\\nI have a question",
+      cta: "Avvia chat"
+    };
+  }
+
   var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?65773';
   var s = document.createElement('script');
   s.type = 'text/javascript';
@@ -108,12 +197,12 @@ gtag('config', 'G-V5RTREXCBK');`}
     },
     "brandSetting": {
       "brandName": "MCS Limo",
-      "brandSubTitle": "Nous répondons en quelques minutes",
+      "brandSubTitle": texts.subTitle,
       "brandImg": "/images/cropped-MCS-Limo-fav.png",
-      "welcomeText": "Bonjour,\\nComment pouvons-nous vous aider ?",
-      "messageText": "Bonjour, \\nJ'ai une question à vous poser",
+      "welcomeText": texts.welcome,
+      "messageText": texts.msg,
       "backgroundColor": "#0a5f54",
-      "ctaText": "Lancer la discussion",
+      "ctaText": texts.cta,
       "borderRadius": "25",
       "autoShow": false,
       "phoneNumber": "33673399525"
@@ -140,6 +229,7 @@ gtag('config', 'G-V5RTREXCBK');`}
           />
         </noscript>
         <MobileMenuScript />
+        <HtmlLangSync />
         {children}
       </body>
     </html>
