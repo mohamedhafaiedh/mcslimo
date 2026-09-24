@@ -25,17 +25,18 @@ export default function ContactForm({ lang: propLang }: ContactFormProps) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const isEn = currentLang === "en";
+  const isFrench = currentLang === "fr";
   const formName = isEn ? "contact-en" : currentLang === "ar" ? "contact-ar" : "contact";
-  const emailSubject = t("contactForm.emailSubject", "Nouvelle demande de contact");
+  const emailSubject = isFrench ? "Nouvelle demande de contact" : "New Contact Request";
 
   const fields = isEn
     ? { name: "name", phone: "phone", email: "email", subject: "topic", message: "message" }
     : { name: "nom", phone: "telephone", email: "email", subject: "objet", message: "message" };
 
   const subjectOptions = [
-    { value: isEn ? "Request Information" : "Demande d'information", label: t("contactForm.subjects.info", "Demande d'information") },
-    { value: isEn ? "Request Quote" : "Demande de devis", label: t("contactForm.subjects.quote", "Demande de devis") },
-    { value: isEn ? "Booking" : "Réservation", label: t("contactForm.subjects.reservation", "Réservation") }
+    { value: isFrench ? "Demande d'information" : "Request Information", label: t("contactForm.subjects.info", "Demande d'information") },
+    { value: isFrench ? "Demande de devis" : "Request Quote", label: t("contactForm.subjects.quote", "Demande de devis") },
+    { value: isFrench ? "Réservation" : "Booking", label: t("contactForm.subjects.reservation", "Réservation") }
   ];
 
   const [fieldValues, setFieldValues] = useState<{ [key: string]: string }>({

@@ -109,7 +109,10 @@ export default function ReservationForm({ lang: propLang, redirectUrl }: Reserva
 
       const dateVal = (formData.get(fields.date) as string) || "";
       const timeVal = (formData.get(fields.time) as string) || "";
-      const emailSubjectPrefix = t("reservationForm.emailSubject", "Nouvelle demande de réservation");
+      const isFrench = currentLang === "fr";
+      const emailSubjectPrefix = isFrench
+        ? "Nouvelle demande de réservation"
+        : "New Booking Request";
       formData.set("subject", `${emailSubjectPrefix} (${dateVal} - ${timeVal})`);
 
       if (typeof window !== "undefined") {

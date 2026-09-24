@@ -1,12 +1,11 @@
-import React from "react";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, LOCALES, Lang } from "@/lib/seo";
 import { Locale } from "@/lib/i18n";
 
 interface JsonLdProps {
   pageUrl?: string;
   pageTitle?: string;
   pageDescription?: string;
-  lang?: Locale;
+  lang?: Lang | Locale;
   isEn?: boolean;
 }
 
@@ -17,11 +16,15 @@ export default function JsonLd({
   lang = "fr",
   isEn,
 }: JsonLdProps) {
-  const currentLang = isEn ? "en" : lang;
-  const inLanguage = currentLang === "en" ? "en-US" : currentLang === "ar" ? "ar" : "fr-FR";
+  const currentLang = (isEn ? "en" : lang) as Lang;
+  const inLanguage = LOCALES[currentLang]?.code || "fr-FR";
   const siteDescription =
     currentLang === "en"
       ? "High-end Private Chauffeur Service in Paris"
+      : currentLang === "es"
+      ? "Servicio de chófer privado de alta gama en París"
+      : currentLang === "it"
+      ? "Servizio di autista privato di lusso a Parigi"
       : currentLang === "ar"
       ? "خدمة سائق خاص فاخر في باريس - MCS Limo"
       : "Chauffeur privé Haut de gamme à Paris - MCS Limo";

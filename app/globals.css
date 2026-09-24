@@ -4284,8 +4284,8 @@ button[type="submit"]:disabled *,
     flex-direction: column !important;
     flex-wrap: wrap !important;
     gap: 32px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .services-section-wrapper .elementor-element-34308d5 .elementor-element-2aaa3e1,
   .services-section-wrapper .elementor-element-34308d5 .elementor-element-0b98ee2,
@@ -4740,3 +4740,49 @@ html[dir="rtl"] .elementor-524 .elementor-icon-list-item,
   direction: rtl !important;
   text-align: right !important;
 }
+
+/* WhatsApp Close Button Fix (Ensures image clicks bubble up and pointer-events works) */
+.wa-chat-bubble-close-btn {
+  cursor: pointer !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.wa-chat-bubble-close-btn img {
+  pointer-events: none !important;
+  cursor: pointer !important;
+}
+
+/* 11. Uniform Mobile Side Padding (15px) for all content sections */
+@media (max-width: 767px) {
+  .e-con.e-parent,
+  .e-con.e-parent.e-con-boxed,
+  .e-con.e-parent.e-con-full,
+  .elementor > .e-con,
+  .elementor > .elementor-element.e-con,
+  .elementor-section.elementor-section-boxed > .elementor-container,
+  .elementor-section:not(.elementor-section-stretched),
+  main.site-main > section,
+  .site-main > .elementor > section,
+  .elementor-location-footer .e-con.e-parent,
+  .elementor-location-header .e-con.e-parent {
+    --padding-left: 15px !important;
+    --padding-right: 15px !important;
+    --padding-inline-start: 15px !important;
+    --padding-inline-end: 15px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  .e-con.e-parent > .e-con-inner {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+

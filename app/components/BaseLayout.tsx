@@ -17,7 +17,7 @@ export default function BaseLayout({
   return (
     <html lang={localeInfo.code} dir={localeInfo.dir} suppressHydrationWarning>
       <head>
-        <JsonLd />
+        <JsonLd lang={lang} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -132,6 +132,16 @@ gtag('config', 'G-V5RTREXCBK');`}
   };
   var x = document.getElementsByTagName('script')[0];
   x.parentNode.insertBefore(s, x);
+
+  document.addEventListener('click', function(e) {
+    var closeBtn = e.target && (e.target.closest ? e.target.closest('.wa-chat-bubble-close-btn') : null);
+    if (closeBtn || (e.target && e.target.classList && e.target.classList.contains('wa-chat-bubble-close-btn'))) {
+      var box = document.querySelector('.wa-chat-box');
+      if (box) {
+        box.style.display = 'none';
+      }
+    }
+  }, true);
 })();`}
         </Script>
       </head>
